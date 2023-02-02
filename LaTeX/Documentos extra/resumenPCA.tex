@@ -1,8 +1,16 @@
-\chapter{Resumen PCA}
+\chapter{Análisis de Componentes Principales}
 \section{Introducción}
-Reducir la dimensionalidad de un conjunto de datos estadísticos siempre es una buena opción, sobre todo en el caso del aprendizaje automático. En ese campo una reducción de la dimensionalidad puede incurrir en paliar problemas como el overfitting \textit{(fallos del modelo al generalizar a nuevos datos.)}
 
-En esencia esta es una técnica relacionada de manera directa con las variables, sobre todo aquellas que están igualdad de condiciones, no teniendo variables explicatorias o dependientes unas de otras.
+\noindent Dado un conjunto de $p$ variables correladas que debemos examinar, hay problemas cuando $p$ es especialmente alto. En aplicaciones como el campo del aprendizaje automático, si el número de variables estudiadas es mayor que el número de muestras recogidas, el modelo tenderá al overfitting y, por tanto, fallará al generalizar sus predicciones.
 
-El objetivo de este analisis es ver si unas pocas variables pueden representar la mayoría de la variación de los datos. Si esto se da podemos reducir la dimensionalidad del problema y será menor que $p$.
-Podemos decir, que si varias variables están altamente correladas, expresan la misma información
+\noindent La base conceptual del análisis de componentes principales, PCA de ahora en adelante, es que en el caso de que tengamos un conjunto de variables correladas, entonces, dentro de las $p$ habrá variables que dan la misma información y por tanto, podemos reducir la dimensionalidad de nuestro conjunto de datos. 
+
+\noindent El objetivo del análisis de componentes principales es comprobar y estudiar si combinaciones lineales de nuestras $p$ variables iniciales pueden traer consigo la mayor variación de los datos. 
+
+\noindent Por último, el resultado obtenido tras aplicar el PCA, es un conjunto de variables no correladas. En principio, si el conjunto de las $p$ variables son cerca de no estar correladas, no tiene sentido aplicar PCA, ya que este encontrará variables cercanas y ordenadas por varianza. 
+
+\newpage
+
+\section{Método PCA}
+
+\noindent Sea $\textbf{X} = [X_1,\ldots X_p]$ un vector aleatorio con media $\mu$ y matriz de covarianzas $\textbf{\Sigma}$. Entonces podemos plantear el problema de la siguiente manera. 
