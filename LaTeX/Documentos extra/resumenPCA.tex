@@ -11,6 +11,14 @@
 
 \newpage
 
-\section{Método PCA}
+\section{Definición y obtención de las Componentes Principales}
 
-\noindent Sea $\textbf{X} = [X_1,\ldots X_p]$ un vector aleatorio con media $\mu$ y matriz de covarianzas $\textbf{\Sigma}$. Entonces podemos plantear el problema de la siguiente manera. 
+\noindent Sea un vector aleatorio $\textbf{X}=[X_1,\ldots,X_p]$ con media $\mu$ y matriz de covarianzas $\Sigma= Cov(X_i,X_j)$.\\[0.5 ex]
+
+\noindent Llamaremos primera componente principal $\textbf{Y}_1$ del vector aleatorio \textbf{X} a una combinación lineal de las $p$ componentes:
+$$\textbf{Y}_1=a_1^1 \textbf{X}_1 + \ldots a_p^1\textbf{X}_p=\textbf{a}_1^T\textbf{X}$$
+
+\noindent Donde el vector $\textbf{a}_1\in \mathbb{R}^p$ y además se cumple que $\textbf{a}_1^T \textbf{a}_1=1$, es decir, unitario para evitar multiplicar la norma del vector por una constante arbitraria y poder continuar comparando.\\[2ex]
+\noindent Este vector $\textbf{Y}_1=\textbf{a}_1^T \textbf{X}$ tiene como varianza $Var(\textbf{Y}_1)= Var (\textbf{a}_1^T \textbf{X})=\textbf{a}_1^T \Sigma \textbf{a}_1$. Esta es la función a maximizar, la cual está sometida a la restricción $\textbf{a}_1^T\textbf{a}_1=1$. 
+
+Por tanto definimos $f(a_1^1,\ldots a_p^1)=Var(\textbf{Y_1})$ y $g(a_1^1,\ldots a_p^1)$

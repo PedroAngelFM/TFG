@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,spanish,twoside]{book}
+\documentclass[12pt,a4paper,spanish]{book}
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
 \usepackage{graphicx}             
@@ -12,13 +12,16 @@
 \usepackage{lastpage}
 \usepackage{color}
 \usepackage{amsbsy}
-\usepackage{theorem}
+\usepackage{amsthm}
 \usepackage{listings}
 \usepackage{titlesec}
 %\usepackage{titletoc}
 
 \usepackage{makeidx}%glosario de términos
 \usepackage[all]{xy}
+
+\theoremstyle{definition}
+\newtheorem{defi}{Definición}[section]
 
 
 \usepackage{srcltx}%permite la busqueda inversa, si no viene por defecto en la version de LaTeX usada.
@@ -32,7 +35,7 @@
 
 \makeindex
 
-\setlength{\parskip}{5pt plus 2pt minus 1pt}
+%\setlength{\parskip}{5pt plus 2pt minus 1pt}
 %%%%%%%%%%%%%%%%
 %%% MACROS
 %%%%%%%%%%%%%%%%
