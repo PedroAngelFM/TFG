@@ -65,6 +65,29 @@ Sea ahora la función $L(\textbf{x})= f(\textbf{x})-\lambda[g(x)-c]$  entonces p
 (\Sigma-\lambda I)\textbf{a}_1=0
 \end{equation}
 
-\noindent Para que la ecuación tenga una solución que no sea la trivial, tenemos que elegir $\lambda$ de manera que $|\Sigma-\lambda I| = 0$. Luego $\lambda$ es uno de los valores propios de la matriz. Generalmente una matriz $(p\times p)$ tiene $p$ valores propios $\lbrace\lambda_1, \ldots ,\lambda_p \rbrace$ y como $Var(\textbf{Y}_1)=Var(\textbf{a}_1^T\textbf{X})= \textbf{a}_1^T \Sigma \textbf{a}_1 =\textbf{a}_1^T \lambda \textbf{a}_1=\lambda$ que es la variable a maximizar, elegimos $\lambda=\max \lbrace\lambda_1, \ldots ,\lambda_p \rbrace$, por tanto, el vector $\textbf{a}_1$ es el vector propio con valor propio $\lambda=\lambda_1$ reordenando si es necesario. 
+\noindent Para que la ecuación tenga una solución que no sea la trivial, tenemos que elegir $\lambda$ de manera que $|\Sigma-\lambda I| = 0$. Luego $\lambda$ es uno de los valores propios de la matriz. Generalmente una matriz $(p\times p)$ tiene $p$ valores propios $\lbrace\lambda_1, \ldots ,\lambda_p \rbrace$ y como $Var(\textbf{Y}_1)=Var(\textbf{a}_1^T\textbf{X})= \textbf{a}_1^T \Sigma \textbf{a}_1 =\textbf{a}_1^T \lambda \textbf{a}_1=\lambda$ que es la variable a maximizar, elegimos $\lambda=\max \lbrace\lambda_1, \ldots ,\lambda_p \rbrace$, por tanto, el vector $\textbf{a}_1$ es el vector propio con valor propio $\lambda=\lambda_1$ reordenando si es necesario.\\
+
+\noindent Una vez calculada la primera componente principal $\textbf{Y}_1$, la segunda componente se calcula de manera análoga, maximizando $Var(\textbf{Y}_2)=Var(\textbf{a}_2^T\textbf{X})$ condicionada por $\textbf{a}_2^T\textbf{a}_2=1$. A esta restricción tenemos que añadir la restricción $Cov(\textbf{Y}_1,\textbf{Y}_2)=0 $
+
+\begin{propo}
+La condición $Cov(\textbf{Y}_1,\textbf{Y}_2)=0 $ equivale a la condición $\textbf{a}_2^T\textbf{a}_1 = 0$
+\end{propo}
+\begin{proof}
+Utilizando que $\textbf{Y}_j=\textbf{a}_j^T \textbf{X}\quad \forall j$ , tenemos entonces que:
+\begin{align*}
+Cov(\textbf{Y}_2,\textbf{Y}_1)&= Cov (\textbf{a}_2^T\textbf{X},\textbf{a}_1^T\textbf{X})\\ 
+&= E(\textbf{a}_2^T(\textbf{X}-\mu)(\textbf{X}-\mu)^T \textbf{a}_1)\\
+&= \textbf{a}_2^T E((\textbf{X}-\mu)(\textbf{X}-\mu)^T) \textbf{a}_1\\
+&= \textbf{a}_2^T \Sigma \textbf{a}_1 \\
+&= \textbf{a}_2^T \lambda_1 \textbf{a}_1
+\end{align*}
+\noindent De manera que, si $a_2^T \lambda_1 a_1 = 0 \Rightarrow a_2^T a_1=0 $, luego son vectores ortogonales entre sí.
+\end{proof}
+
+\noindent \emph{Observación: } Esta proposición se puede extender de manera simple al caso de tener que calcular la $i$-ésima componente principal habiendo calculado las anteriores de las cuales sepamos sus valores propios. 
+
+\begin{coro}
+Las componentes principales son todas perpendiculares entre sí. 
+\end{coro}
 
 

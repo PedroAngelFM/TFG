@@ -3,3 +3,4 @@
 \contentsline {chapter}{\numberline {1}Análisis de Componentes Principales}{7}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Introducción}{7}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Definición y cálculo de las Componentes}{8}{section.1.2}%
+\contentsline {chapter}{Bibliografía}{11}{chapter*.3}%
