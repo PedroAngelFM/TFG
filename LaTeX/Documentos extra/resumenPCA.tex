@@ -1,24 +1,70 @@
 \chapter{Análisis de Componentes Principales}
 \section{Introducción}
 
-\noindent Dado un conjunto de $p$ variables correladas que debemos examinar, hay problemas cuando $p$ es especialmente alto. En aplicaciones como el campo del aprendizaje automático, si el número de variables estudiadas es mayor que el número de muestras recogidas, el modelo tenderá al overfitting y, por tanto, fallará al generalizar sus predicciones.
+\noindent Sea una población de la que se han tomado $n$ muestras de las cuales hemos medido $p$ variables. Del conjunto de datos que resulta, podemos dar la matriz de datos $\mathbf{X}$ de tamaño $n\times p$. 
 
-\noindent La base conceptual del análisis de componentes principales, PCA de ahora en adelante, es que en el caso de que tengamos un conjunto de variables correladas, entonces, dentro de las $p$ habrá variables que dan la misma información y por tanto, podemos reducir la dimensionalidad de nuestro conjunto de datos. 
+En consecuencia, las muestras $y_i$, con $i=1\ldots n$ se pueden interpretar como elementos de $\mathbb{R}^p$, pero si $p>3$, la representación gráfica de estos datos no se puede realizar
 
-\noindent El objetivo del análisis de componentes principales es comprobar y estudiar si combinaciones lineales de nuestras $p$ variables iniciales pueden traer consigo la mayor variación de los datos. 
+El análisis de componentes principales, aunque normalmente se utiliza con el objetivo de representar los datos de manera sencilla, también podría llegar a ser útil en la reducción de la dimensionalidad para evitar el overfitting en el aprendizaje automático. 
 
-\noindent Por último, el resultado obtenido tras aplicar el PCA, es un conjunto de variables no correladas. En principio, si el conjunto de las $p$ variables son cerca de no estar correladas, no tiene sentido aplicar PCA, ya que este encontrará variables cercanas y ordenadas por varianza. 
+Este método es una técnica matemática que dado un vector aleatorio $\textbf{X}^T=[X_1,\ldots X_p]$, con vector de media $\mu$ y matriz de covarianzas $\Sigma$, utiliza transformaciones ortogonales para conseguir las componentes principales. 
+
+Estas componentes principales son combinaciones lineales de las variables que forman el vector, de manera que estando correladas las iniciales, las componentes no lo están y se busca calcularlas con la máxima varianza posible. 
+
+Esta transformación se busca ya que si varias variables están altamente correladas, entonces están aportando la misma información, siempre que no sean dependientes. Podemos encontrar por esta razón variables que no estén correladas, lo que implica que no dan la misma información y que en consecuencia pueden aportar mayor información acerca de la variación de los datos, sin tener que ser compartida o repetida por varias variables. 
+
+Al finalizar este Análisis de Componentes Principales, obtendremos un conjunto de variables nuevas no correladas entre sí, que son combinación lineal de las iniciales que maximizan la varianza en cada paso.
+
+Añadir que si las variables no están correladas o están cerca de no estarlo, el Análisis de Componentes Principales no tiene sentido ya que el conjunto de componentes principales será parecido a las variables iniciales, con la única diferencia que estarán ordenadas por orden creciente de varianza.  
+
+
+\section{Definición y cálculo de las Componentes}
+
+Sea un vector aleatorio $\textbf{X}^T=[X_1,\ldots X_p]$ con media $\mu$ y matriz de covarianzas $\Sigma$. 
+\begin{defi}
+Las componentes principales son combinaciones lineales de las variables $X_1 \ldots X_p$
+\begin{equation}
+\textbf{Y}_j=a_{1j}X_1+\ldots a_{pj}X_p=\textbf{a}_j^T\textbf{X}\quad 
+\end{equation}
+
+\noindent Donde $\textbf{a}_j$ es un vector de constantes y la variable $\textbf{Y}_j$ cumple lo siguiente:
+\begin{itemize}
+\item Si $j=1$ $Var(\textbf{Y}_1)$ es máxima restringido a $\textbf{a}_1^T \textbf{a}_1=1$
+\item Si $j>1$ debe cumplir:
+\begin{itemize}
+\item $Cov(\textbf{Y}_j,\textbf{Y}_i)=0\quad \forall i<j $
+\item $\textbf{a}_j^T \textbf{a}_j=1$
+\item $Var(\textbf{Y}_j)$ es máxima. 
+\end{itemize}
+
+\end{itemize}
+
+\end{defi}
+
+\noindent El cálculo de la primera componente principal se lleva a cabo con un proceso de optimización de la función $Var(\textbf{Y}_1)$ sujeto a la restricción de que $\textbf{a}_1^T\textbf{a}_1=1$. Aplicando el método de los multiplicadores de Lagrange, dada una función $f(\textbf{x})=f(x_1\ldots x_p)$ diferenciable con una restricción $g(\textbf{x})=g(x_1\ldots x_p)=c$ entonces existe una constante $\lambda$ de manera la ecuación:
+\begin{equation}
+\dfrac{\partial f}{\partial x_i}-\lambda\dfrac{\partial g}{\partial x_i}=0 \quad i=1,\ldots p 
+\end{equation}
+
+\noindent Tiene como solución los puntos estacionarios de $f(\textbf{x})$
 
 \newpage
+Sea ahora la función $L(\textbf{x})= f(\textbf{x})-\lambda[g(x)-c]$  entonces podemos simplificar la expresión anterior a:
+\begin{equation}
+\dfrac{\partial L}{\partial \textbf{x}}=0
+\end{equation}
 
-\section{Definición y obtención de las Componentes Principales}
+\noindent En nuestro caso particular $L(\textbf{a}_1)=\textbf{a}_1^T \Sigma \textbf{a}_1 - \lambda[\textbf{a}_1^T \textbf{a}_1-1]$. Al derivarla obtenemos que :
+\begin{align*}
+\dfrac{\partial L}{\partial \textbf{a}_1} &= 2\Sigma \textbf{a}_1 - 2\lambda\textbf{a}_1\\
+& = 2(\Sigma-\lambda)\textbf{a}_1 
+\end{align*}
 
-\noindent Sea un vector aleatorio $\textbf{X}=[X_1,\ldots,X_p]$ con media $\mu$ y matriz de covarianzas $\Sigma= Cov(X_i,X_j)$.\\[0.5 ex]
+\noindent Igualando a 0 tenemos la siguiente ecuación: 
+\begin{equation}
+(\Sigma-\lambda I)\textbf{a}_1=0
+\end{equation}
 
-\noindent Llamaremos primera componente principal $\textbf{Y}_1$ del vector aleatorio \textbf{X} a una combinación lineal de las $p$ componentes:
-$$\textbf{Y}_1=a_1^1 \textbf{X}_1 + \ldots a_p^1\textbf{X}_p=\textbf{a}_1^T\textbf{X}$$
+\noindent Para que la ecuación tenga una solución que no sea la trivial, tenemos que elegir $\lambda$ de manera que $|\Sigma-\lambda I| = 0$. Luego $\lambda$ es uno de los valores propios de la matriz. Generalmente una matriz $(p\times p)$ tiene $p$ valores propios $\lbrace\lambda_1, \ldots ,\lambda_p \rbrace$ y como $Var(\textbf{Y}_1)=Var(\textbf{a}_1^T\textbf{X})= \textbf{a}_1^T \Sigma \textbf{a}_1 =\textbf{a}_1^T \lambda \textbf{a}_1=\lambda$ que es la variable a maximizar, elegimos $\lambda=\max \lbrace\lambda_1, \ldots ,\lambda_p \rbrace$, por tanto, el vector $\textbf{a}_1$ es el vector propio con valor propio $\lambda=\lambda_1$ reordenando si es necesario. 
 
-\noindent Donde el vector $\textbf{a}_1\in \mathbb{R}^p$ y además se cumple que $\textbf{a}_1^T \textbf{a}_1=1$, es decir, unitario para evitar multiplicar la norma del vector por una constante arbitraria y poder continuar comparando.\\[2ex]
-\noindent Este vector $\textbf{Y}_1=\textbf{a}_1^T \textbf{X}$ tiene como varianza $Var(\textbf{Y}_1)= Var (\textbf{a}_1^T \textbf{X})=\textbf{a}_1^T \Sigma \textbf{a}_1$. Esta es la función a maximizar, la cual está sometida a la restricción $\textbf{a}_1^T\textbf{a}_1=1$. 
 
-Por tanto definimos $f(a_1^1,\ldots a_p^1)=Var(\textbf{Y_1})$ y $g(a_1^1,\ldots a_p^1)$

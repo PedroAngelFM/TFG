@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.2.6)  2 FEB 2023 16:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.2.6)  4 FEB 2023 10:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -360,6 +360,7 @@ loaded) Xy-pic pdf driver: `rotate' extension support
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/generic/xypic\xypdf-ro.tex
 loaded) loaded))
 \c@defi=\count291
+\c@propo=\count292
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/srcltx\srcltx.sty
 Package: srcltx 2006/11/12 v1.6 Source specials for inverse search in DVI files
@@ -368,7 +369,7 @@ Package: srcltx 2006/11/12 v1.6 Source specials for inverse search in DVI files
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\src@lastline=\count292
+\src@lastline=\count293
 \src@new@everypar=\toks43
 \src@new@output=\toks44
 )
@@ -416,8 +417,8 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 )
 \@linkdim=\dimen195
-\Hy@linkcounter=\count293
-\Hy@pagecounter=\count294
+\Hy@linkcounter=\count294
+\Hy@pagecounter=\count295
 Package srcltx Info: Expanded filename `pd1enc.def' to `pd1enc.def.tex' on inpu
 t line 747.
 
@@ -444,7 +445,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count295
+\Hy@SavedSpaceFactor=\count296
 Package srcltx Info: Expanded filename `puenc.def' to `puenc.def.tex' on input 
 line 2500.
 
@@ -462,7 +463,7 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count296
+\c@Hy@tempcnt=\count297
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -478,7 +479,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count297
+\Fld@menulength=\count298
 \Field@Width=\dimen197
 \Fld@charsize=\dimen198
 Package hyperref Info: Hyper figures OFF on input line 6076.
@@ -495,13 +496,13 @@ LaTeX Info: Redefining \pageref on input line 6150.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count298
-\c@Item=\count299
-\c@Hfootnote=\count300
+\Hy@abspage=\count299
+\c@Item=\count300
+\c@Hfootnote=\count301
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 Package srcltx Info: Expanded filename `hpdftex.def' to `hpdftex.def.tex' on in
-put line 32.
+put line 33.
 :<+ hpdftex.def.tex
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
@@ -511,8 +512,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count301
-\c@bookmark@seq@number=\count302
+\Fld@listcount=\count302
+\c@bookmark@seq@number=\count303
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -528,9 +529,9 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip66
 )
 :<-
-Package hyperref Info: Option `colorlinks' set `true' on input line 33.
-Package hyperref Info: Option `bookmarksopen' set `false' on input line 34.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 34.
+Package hyperref Info: Option `colorlinks' set `true' on input line 34.
+Package hyperref Info: Option `bookmarksopen' set `false' on input line 35.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 35.
 \@indexfile=\write5
 \openout5 = `master.idx'.
 
@@ -539,7 +540,7 @@ Writing index file master.idx
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count303
+\l__color_backend_stack_int=\count304
 \l__pdf_internal_box=\box61
 ) (master.aux
 LaTeX Info: Redefining \. on input line 25.
@@ -547,40 +548,40 @@ LaTeX Info: Redefining \% on input line 25.
 )
 \openout1 = `master.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Info: Redefining \. on input line 69.
-LaTeX Info: Redefining \% on input line 69.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Info: Redefining \. on input line 71.
+LaTeX Info: Redefining \% on input line 71.
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count304
+\scratchcounter=\count305
 \scratchdimen=\dimen199
 \scratchbox=\box62
-\nofMPsegments=\count305
-\nofMParguments=\count306
+\nofMPsegments=\count306
+\nofMParguments=\count307
 \everyMPshowfont=\toks45
-\MPscratchCnt=\count307
+\MPscratchCnt=\count308
 \MPscratchDim=\dimen256
-\MPnumerator=\count308
-\makeMPintoPDFobject=\count309
+\MPnumerator=\count309
+\makeMPintoPDFobject=\count310
 \everyMPtoPDFconversion=\toks46
 )
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -595,21 +596,21 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 69.
-\c@lstlisting=\count310
-LaTeX Font Info:    Trying to load font information for U+msa on input line 69.
+(lastpage)             ! on input line 71.
+\c@lstlisting=\count311
+LaTeX Font Info:    Trying to load font information for U+msa on input line 71.
 
  (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 69.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 71.
 
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.47998pt on input line 69.
-Package hyperref Info: Link coloring ON on input line 69.
+Package xypdf Info: Line width: 0.47998pt on input line 71.
+Package hyperref Info: Link coloring ON on input line 71.
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -621,17 +622,17 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count311
+\c@section@level=\count312
 )
-LaTeX Info: Redefining \ref on input line 69.
-LaTeX Info: Redefining \pageref on input line 69.
-LaTeX Info: Redefining \nameref on input line 69.
+LaTeX Info: Redefining \ref on input line 71.
+LaTeX Info: Redefining \pageref on input line 71.
+LaTeX Info: Redefining \nameref on input line 71.
  (master.out) (master.out)
 \@outlinefile=\write6
 \openout6 = `master.out'.
 
 Package srcltx Info: Expanded filename `Documentos Extra/portada.tex' to `Docum
-entos Extra/portada.tex' on input line 71.
+entos Extra/portada.tex' on input line 73.
 
 :<+ Documentos Extra/portada.tex
 (Documentos Extra/portada.tex
@@ -644,7 +645,7 @@ Overfull \hbox (10.0pt too wide) in paragraph at lines 19--19
  [][] 
  []
 
-<Documentos Extra/escudo2tintas.pdf, id=23, 240.9pt x 199.74625pt>
+<Documentos Extra/escudo2tintas.pdf, id=19, 240.9pt x 199.74625pt>
 File: Documentos Extra/escudo2tintas.pdf Graphic file (type pdf)
 <use Documentos Extra/escudo2tintas.pdf>
 Package pdftex.def Info: Documentos Extra/escudo2tintas.pdf  used on input line
@@ -664,7 +665,7 @@ LaTeX Info: Redefining \% on input line 1.
 \openout7 = `master.toc'.
 
 Package srcltx Info: Expanded filename `Documentos Extra/Introduccion.tex' to `
-Documentos Extra/Introduccion.tex' on input line 76.
+Documentos Extra/Introduccion.tex' on input line 78.
 
 :<+ Documentos Extra/Introduccion.tex
 (Documentos Extra/Introduccion.tex [3
@@ -677,7 +678,7 @@ LaTeX Info: Redefining \% on input line 2.
 ])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/resumenPCA.tex' to `Do
-cumentos Extra/resumenPCA.tex' on input line 78.
+cumentos Extra/resumenPCA.tex' on input line 80.
 :<+ Documentos Extra/resumenPCA.tex
 (Documentos Extra/resumenPCA.tex [5]
 LaTeX Info: Redefining \. on input line 1.
@@ -687,43 +688,43 @@ LaTeX Info: Redefining \% on input line 1.
 ]
 Cap\'{\i }tulo 1.
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
-
- []
-
-)
+LaTeX Info: Redefining \. on input line 51.
+LaTeX Info: Redefining \% on input line 51.
+ [8])
 :<-
 
 AED: lastpage setting LastPage
-LaTeX Info: Redefining \. on input line 83.
-LaTeX Info: Redefining \% on input line 83.
-[8] (master.aux
+LaTeX Info: Redefining \. on input line 85.
+LaTeX Info: Redefining \% on input line 85.
+[9] (master.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 19378D0CE92B6BF720EA11E95104819A;1082.
+(rerunfilecheck)             Checksum: 8475BFE1286B9537F49180E2F579044A;783.
  ) 
 Here is how much of TeX's memory you used:
- 15831 strings out of 478659
- 239820 string characters out of 2845921
- 596502 words of memory out of 3000000
- 33651 multiletter control sequences out of 15000+600000
- 412621 words of font info for 64 fonts, out of 8000000 for 9000
+ 15845 strings out of 478659
+ 239950 string characters out of 2845921
+ 602556 words of memory out of 3000000
+ 33660 multiletter control sequences out of 15000+600000
+ 412958 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,7n,65p,3219b,438s stack positions out of 5000i,500n,10000p,200000b,80000s
-<C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmmi12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmmi8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Pedro/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Pedro/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Pedro/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (8 pages, 237033 bytes).
+ 61i,12n,65p,3219b,438s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\Pedro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1200.pk><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmmi12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Pedro/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Pedro/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Pedro/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Pe
+dro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pf
+b>
+Output written on master.pdf (9 pages, 246664 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 16 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 125 PDF objects out of 1000 (max. 8388607)
+ 20 named destinations out of 1000 (max. 500000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
