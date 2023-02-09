@@ -7,7 +7,7 @@ En consecuencia, las muestras $y_i$, con $i=1\ldots n$ se pueden interpretar com
 
 El análisis de componentes principales, aunque normalmente se utiliza con el objetivo de representar los datos de manera sencilla, también podría llegar a ser útil en la reducción de la dimensionalidad para evitar el overfitting en el aprendizaje automático. 
 
-Este método es una técnica matemática que dado un vector aleatorio $\textbf{X}^T=[X_1,\ldots X_p]$, con vector de media $\mu$ y matriz de covarianzas $\Sigma$, utiliza transformaciones ortogonales para conseguir las componentes principales. 
+Este método es una técnica matemática que dado un vector aleatorio $\textbf{X}^T=[X_1,\ldots X_p]$, con vector de media $\mu$ y matriz de covarianzas $\Sigma$, utiliza transformaciones ortogonales para conseguir las componentes principales. Aunque también es realizable con la media poblacional $\overline{x}$ y la matriz de varianzas \textbf{S} de manera análoga.  
 
 Estas componentes principales son combinaciones lineales de las variables que forman el vector, de manera que estando correladas las iniciales, las componentes no lo están y se busca calcularlas con la máxima varianza posible. 
 
@@ -87,7 +87,29 @@ Cov(\textbf{Y}_2,\textbf{Y}_1)&= Cov (\textbf{a}_2^T\textbf{X},\textbf{a}_1^T\te
 \noindent \emph{Observación: } Esta proposición se puede extender de manera simple al caso de tener que calcular la $i$-ésima componente principal habiendo calculado las anteriores de las cuales sepamos sus valores propios. 
 
 \begin{coro}
-Las componentes principales son todas perpendiculares entre sí. 
+Las componentes principales son todas ortogonales entre sí. 
 \end{coro}
 
+\noindent Tomando la matriz formada por los $p$ vectores propios como columnas tenemos la matriz ortogonal $\textbf{A}=[\textbf{a}_1,\ldots, \textbf{a}_p]$,de manera que el vector aleatorio 
+$$\textbf{Y}=[\textbf{Y}_1,\ldots , Y_p]^T=\textbf{A}\textbf{X}$$
 
+De esta manera también obtenemos la diagonalización de la matriz de covarianzas 
+
+\begin{equation}
+\Lambda=\begin{pmatrix}
+\lambda_1 & 0 & \cdots & 0\\
+0 & \lambda_2 & \cdots & 0\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & 0 & \cdots & \lambda_p
+\end{pmatrix}
+\end{equation}
+
+Y también podemos deducir que 
+
+\section{Reducción de la dimensionalidad}
+
+\noindent Sea $\textbf{X}=[X_1,\ldots X_p]$ una matriz de datos multivariantes de tamaño $(n\times p)$ de las cuales ya hemos obtenido las componentes principales $Y_1 \ldots Y_p $. Cada individuo de los n que forman las filas de la matriz puede ser interpretado como un elemento de $\mathbb{R}^p$. 
+
+\begin{defi}
+Llamaremos matriz de distancias entre las n filas o individuos, y lo denotaremos $\Delta$ la matriz  
+\end{defi}
