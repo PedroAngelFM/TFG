@@ -1,0 +1,26 @@
+\section{Teoría de decisión estadística}
+Sea $X\in \mathbb{R}^p$ un vector aleatorio real e $Y \in \mathbb{R}$ una variable aleatoria real. En este contexto, $X$ e $Y$ serán las variables de entrada y la variable de salida respectivamente. Asimismo, sea $\mathbb{P}(X,Y)$ la distribución de probabilidad conjunta.   
+
+Se busca una función $f(X)$ para predecir $Y$. Dicho predictor tiene asociada una pérdida, es decir, una forma de penalizar el error de predicción. En esta memoria, a no ser que se explicite utilizaremos el error cuadrático para las regresiones, $L(Y,f(X))=(Y-f(X))^2$ . 
+
+\begin{defi}
+Llamaremos error de predicción esperado de $f$ o $EPE(f)$ a la siguiente expresión:
+\begin{equation}
+EPE(f)=E(Y-f(X)^2)=\int (y-f(x))^2 \mathbb{P}(dx,dy)
+\end{equation}
+
+\noindent A priori se conocen los valores de $X$, entonces si condicionamos a dichos valores, obtenemos que $\mathbb{P}(Y,X)=\mathbb{P}(Y|X)\cdot\mathbb{P}(X)$ aplicándolo en la expresión anterior resulta que 
+\begin{equation}
+\begin{split}
+EPE(f)&=\int (y-f(x))^2 \mathbb{P}(dx,dy)=\int\int (y-f(x))^2 \mathbb{P}(dy|dx)\mathbb{P}(dx)\\
+&= \mathbb{E}_X(\mathbb{E}_{Y|X}((Y-f(X))^2|X))
+\end{split}
+\end{equation}
+
+\end{defi}
+
+\noindent Este parámetro nos ofrece un criterio para encontrar $f$, es decir, $f$ será la que minimice el $EPE(f)$ , en concreto, $f(x)=\mathbb{E}(Y|X=x)$. Añadir que este sería el caso de la regresión. 
+
+\noindent No obstante, para los casos de \textbf{clasificación} cambia el hecho de que la función cuadrática de pérdida no es adecuada. Sea $G$ una variable categórica con $K$ distintos valores posibles, entonces su función de pérdida se puede expresar como una matriz \textbf{L}. Podemos definir el termino $l_{i,j}=$``Pérdida de clasificar como $G_i$ lo que en realidad es  $G_j$". Lo más frecuente es tomar la pérdida $0-1$, esta asigna 0 a las muestras correctamente clasificadas y 1 a las no categorizadas de manera satisfactoria. 
+
+\noindent Con esta función de pérdida el error de predicción esperado pasa a ser: 

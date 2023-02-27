@@ -1,10 +1,5 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{Introducción}{3}{chapter*.1}%
-\contentsline {chapter}{\numberline {1}Conceptos Estadística Multivariante}{7}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Análisis de Componentes Principales}{9}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introducción}{9}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Definición y cálculo de las Componentes}{10}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Reducción de la dimensionalidad}{12}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Análisis de Conglomerados o Clústers}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introducción}{13}{section.3.1}%
-\contentsline {chapter}{Bibliografía}{15}{chapter*.3}%
+\contentsline {chapter}{\numberline {1}Métodos Supervisados}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Teoría de decisión estadística}{7}{section.1.1}%
+\contentsfinish 
