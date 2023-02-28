@@ -1,21 +1,25 @@
 \chapter{Análisis de Componentes Principales}
 \section{Introducción}
 
-\noindent Sea una población de la que se han tomado $n$ muestras de las cuales hemos medido $p$ variables. Del conjunto de datos que resulta, podemos dar la matriz de datos $\mathbf{X}$ de tamaño $n\times p$. 
+\noindent Dado un conjunto de datos, recogidos en una matriz \textbf{X}
 
-En consecuencia, las muestras $y_i$, con $i=1\ldots n$ se pueden interpretar como elementos de $\mathbb{R}^p$, pero si $p>3$, la representación gráfica de estos datos no se puede realizar
 
-El análisis de componentes principales, aunque normalmente se utiliza con el objetivo de representar los datos de manera sencilla, también podría llegar a ser útil en la reducción de la dimensionalidad para evitar el overfitting en el aprendizaje automático. 
 
-Este método es una técnica matemática que dado un vector aleatorio $\textbf{X}^T=[X_1,\ldots X_p]$, con vector de media $\mu$ y matriz de covarianzas $\Sigma$, utiliza transformaciones ortogonales para conseguir las componentes principales. Aunque también es realizable con la media poblacional $\overline{x}$ y la matriz de varianzas \textbf{S} de manera análoga.  
-
-Estas componentes principales son combinaciones lineales de las variables que forman el vector, de manera que estando correladas las iniciales, las componentes no lo están y se busca calcularlas con la máxima varianza posible. 
-
-Esta transformación se busca ya que si varias variables están altamente correladas, entonces están aportando la misma información, siempre que no sean dependientes. Podemos encontrar por esta razón variables que no estén correladas, lo que implica que no dan la misma información y que en consecuencia pueden aportar mayor información acerca de la variación de los datos, sin tener que ser compartida o repetida por varias variables. 
-
-Al finalizar este Análisis de Componentes Principales, obtendremos un conjunto de variables nuevas no correladas entre sí, que son combinación lineal de las iniciales que maximizan la varianza en cada paso.
-
-Añadir que si las variables no están correladas o están cerca de no estarlo, el Análisis de Componentes Principales no tiene sentido ya que el conjunto de componentes principales será parecido a las variables iniciales, con la única diferencia que estarán ordenadas por orden creciente de varianza.  
+%\noindent Sea una población de la que se han tomado $n$ observaciones de las cuales hemos medido $p$ variables. Del conjunto de datos que resulta, podemos dar la matriz de datos $\mathbf{X}$ de tamaño $n\times p$. 
+%
+%\noindent Una vez tenemos la matriz de datos, tenemos que cada 
+%
+%El análisis de componentes principales, aunque normalmente se utiliza con el objetivo de representar los datos de manera sencilla, también podría llegar a ser útil en la reducción de la dimensionalidad para evitar el overfitting en el aprendizaje automático. 
+%
+%Este método es una técnica matemática que dado un vector aleatorio $\textbf{X}^T=[X_1,\ldots X_p]$, con vector de media $\mu$ y matriz de covarianzas $\Sigma$, utiliza transformaciones ortogonales para conseguir las componentes principales. Aunque también es realizable con la media poblacional $\overline{x}$ y la matriz de varianzas \textbf{S} de manera análoga.  
+%
+%Estas componentes principales son combinaciones lineales de las variables que forman el vector, de manera que estando correladas las iniciales, las componentes no lo están y se busca calcularlas con la máxima varianza posible. 
+%
+%Esta transformación se busca ya que si varias variables están altamente correladas, entonces están aportando la misma información, siempre que no sean dependientes. Podemos encontrar por esta razón variables que no estén correladas, lo que implica que no dan la misma información y que en consecuencia pueden aportar mayor información acerca de la variación de los datos, sin tener que ser compartida o repetida por varias variables. 
+%
+%Al finalizar este Análisis de Componentes Principales, obtendremos un conjunto de variables nuevas no correladas entre sí, que son combinación lineal de las iniciales que maximizan la varianza en cada paso.
+%
+%Añadir que si las variables no están correladas o están cerca de no estarlo, el Análisis de Componentes Principales no tiene sentido ya que el conjunto de componentes principales será parecido a las variables iniciales, con la única diferencia que estarán ordenadas por orden creciente de varianza.  
 
 
 \section{Definición y cálculo de las Componentes}

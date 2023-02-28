@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.21)  27 FEB 2023 20:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.21)  28 FEB 2023 10:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -650,7 +650,7 @@ Overfull \hbox (10.0pt too wide) in paragraph at lines 19--19
  [][] 
  []
 
-<Documentos Extra/escudo2tintas.pdf, id=19, 240.9pt x 199.74625pt>
+<Documentos Extra/escudo2tintas.pdf, id=43, 240.9pt x 199.74625pt>
 File: Documentos Extra/escudo2tintas.pdf Graphic file (type pdf)
 <use Documentos Extra/escudo2tintas.pdf>
 Package pdftex.def Info: Documentos Extra/escudo2tintas.pdf  used on input line
@@ -720,11 +720,45 @@ to `Documentos Extra/Redes Neuronales.tex' on input line 13.
 :<-
 )
 :<-
+Package srcltx Info: Expanded filename `Documentos Extra/resumenPCA.tex' to `Do
+cumentos Extra/resumenPCA.tex' on input line 88.
+:<+ Documentos Extra/resumenPCA.tex
+(Documentos Extra/resumenPCA.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [2]
+Cap\'{\i }tulo 2.
+[3
+
+]
+LaTeX Info: Redefining \. on input line 55.
+LaTeX Info: Redefining \% on input line 55.
+ [4]
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
+
+ []
+
+LaTeX Info: Redefining \. on input line 94.
+LaTeX Info: Redefining \% on input line 94.
+[5]
+Package srcltx Info: Expanded filename `Documentos Extra/resumenCA.tex' to `Doc
+umentos Extra/resumenCA.tex' on input line 121.
+
+:<+ Documentos Extra/resumenCA.tex
+(Documentos Extra/resumenCA.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [6]
+Cap\'{\i }tulo 3.
+)
+:<-
+)
+:<-
 
 AED: lastpage setting LastPage
-LaTeX Info: Redefining \. on input line 96.
-LaTeX Info: Redefining \% on input line 96.
-[2] (master.aux
+[7
+
+] (master.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
@@ -732,34 +766,35 @@ LaTeX Info: Redefining \% on input line 22.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: AFE02E835444C21D37773B0597896EAA;674.
+(rerunfilecheck)             Checksum: F1CC6C10C03E995CED98108499F58206;1989.
  ) 
 Here is how much of TeX's memory you used:
- 16090 strings out of 476374
- 245747 string characters out of 5788854
- 1858340 words of memory out of 5000000
- 36177 multiletter control sequences out of 15000+600000
- 522126 words of font info for 71 fonts, out of 8000000 for 9000
+ 16133 strings out of 476374
+ 246447 string characters out of 5788854
+ 1864340 words of memory out of 5000000
+ 36193 multiletter control sequences out of 15000+600000
+ 522463 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,15n,76p,3219b,564s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmbx8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmcsc10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Pedro/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Pedro/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Pedro/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Pedro/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users
-/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb>
-<C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmsy8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (7 pages, 289532 bytes).
+ <C:\Users\Pedro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1200.pk><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Pedro/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Pedro/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Pedro/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/
+Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:
+/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl1
+2.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmsy8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on master.pdf (12 pages, 316073 bytes).
 PDF statistics:
- 135 PDF objects out of 1000 (max. 8388607)
- 17 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 205 PDF objects out of 1000 (max. 8388607)
+ 37 named destinations out of 1000 (max. 500000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
