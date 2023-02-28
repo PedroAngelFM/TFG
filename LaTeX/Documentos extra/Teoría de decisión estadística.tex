@@ -21,6 +21,19 @@ EPE(f)&=\int (y-f(x))^2 \mathbb{P}(dx,dy)=\int\int (y-f(x))^2 \mathbb{P}(dy|dx)\
 
 \noindent Este parámetro nos ofrece un criterio para encontrar $f$, es decir, $f$ será la que minimice el $EPE(f)$ , en concreto, $f(x)=\mathbb{E}(Y|X=x)$. Añadir que este sería el caso de la regresión. 
 
-\noindent No obstante, para los casos de \textbf{clasificación} cambia el hecho de que la función cuadrática de pérdida no es adecuada. Sea $G$ una variable categórica con $K$ distintos valores posibles, entonces su función de pérdida se puede expresar como una matriz \textbf{L}. Podemos definir el termino $l_{i,j}=$``Pérdida de clasificar como $G_i$ lo que en realidad es  $G_j$". Lo más frecuente es tomar la pérdida $0-1$, esta asigna 0 a las muestras correctamente clasificadas y 1 a las no categorizadas de manera satisfactoria. 
+\noindent Sea ahora $G$ una variable categórica con $K$ categorías posibles y $\mathcal{G}$ el conjunto de categorías posibles. Se define la matriz de pérdida \textbf{L} de tamaño $K\times K$ en el que el término $l_{i,j}$ es la pérdida que se da al clasificar $G_i$ como $G_j$. De manera habitual se toma la pérdida $0-1$ que se define como $l_{i,j}=1-\delta_{ij}$. 
 
+\noindent De esta manera, la matriz de pérdida es \textit{simétrica y no negativa}. 
+ 
 \noindent Con esta función de pérdida el error de predicción esperado pasa a ser: 
+\begin{equation}
+EPE(f)=\mathbb{E}(L(G,\hat{G}))=\mathbb{E}_X \sum_{k=1}^K(L(\mathcal{G}_k,\hat{G}(X))\mathbb{P}(\mathcal{G}_k|X))
+\end{equation}
+
+\noindent De esta ecuación resulta que el predictor $\hat{G}$ se explicita de la siguiente manera en el caso de la pérdida $0-1$. 
+
+\begin{equation}
+\hat{G}(X)=\mathcal{G}_k \quad \text{ si } \quad \mathbb{P}(\mathcal{G}_k|X=x)=\max_{g\in\mathcal{G}}\mathbb{P}(g|X=x)
+\end{equation}
+
+
