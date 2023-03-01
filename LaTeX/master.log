@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.21)  28 FEB 2023 10:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  1 MAR 2023 15:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./master.tex
 (master.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-02-02>
+L3 programming layer <2023-02-07>
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
 Document Class: book 2022/07/02 v1.4n Standard LaTeX document class
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/base\bk12.clo
@@ -25,7 +25,7 @@ File: bk12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 \bibindent=\dimen140
 )
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2022/01/23 3.85 The Babel package
+Package: babel 2023/02/13 3.86 The Babel package
 \babel@savecnt=\count194
 \U@D=\dimen141
 \l@unhyphenated=\language79
@@ -382,6 +382,7 @@ loaded) loaded))
 \c@defi=\count293
 \c@propo=\count294
 \c@coro=\count295
+\c@teorema=\count296
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/srcltx\srcltx.sty
 Package: srcltx 2006/11/12 v1.6 Source specials for inverse search in DVI files
@@ -390,12 +391,12 @@ Package: srcltx 2006/11/12 v1.6 Source specials for inverse search in DVI files
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\src@lastline=\count296
+\src@lastline=\count297
 \src@new@everypar=\toks43
 \src@new@output=\toks44
 )
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
+Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
@@ -446,17 +447,17 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count297
+\c@section@level=\count298
 )
 \@linkdim=\dimen198
-\Hy@linkcounter=\count298
-\Hy@pagecounter=\count299
+\Hy@linkcounter=\count299
+\Hy@pagecounter=\count300
 Package srcltx Info: Expanded filename `pd1enc.def' to `pd1enc.def.tex' on inpu
-t line 718.
+t line 733.
 
 :<+ pd1enc.def.tex
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2022-11-13 v7.00u Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
@@ -467,30 +468,30 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count300
+\Hy@SavedSpaceFactor=\count301
 Package srcltx Info: Expanded filename `puenc.def' to `puenc.def.tex' on input 
-line 2482.
+line 2497.
 
 :<+ puenc.def.tex
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
 :<-
-Package hyperref Info: Hyper figures OFF on input line 4162.
-Package hyperref Info: Link nesting OFF on input line 4167.
-Package hyperref Info: Hyper index ON on input line 4170.
-Package hyperref Info: Plain pages OFF on input line 4177.
-Package hyperref Info: Backreferencing OFF on input line 4182.
+Package hyperref Info: Hyper figures OFF on input line 4177.
+Package hyperref Info: Link nesting OFF on input line 4182.
+Package hyperref Info: Hyper index ON on input line 4185.
+Package hyperref Info: Plain pages OFF on input line 4192.
+Package hyperref Info: Backreferencing OFF on input line 4197.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4410.
-\c@Hy@tempcnt=\count301
+Package hyperref Info: Bookmarks ON on input line 4425.
+\c@Hy@tempcnt=\count302
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4748.
+LaTeX Info: Redefining \url on input line 4763.
 \XeTeXLinkMargin=\dimen199
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
@@ -501,39 +502,39 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count302
+\Fld@menulength=\count303
 \Field@Width=\dimen256
 \Fld@charsize=\dimen257
-Package hyperref Info: Hyper figures OFF on input line 6027.
-Package hyperref Info: Link nesting OFF on input line 6032.
-Package hyperref Info: Hyper index ON on input line 6035.
-Package hyperref Info: backreferencing OFF on input line 6042.
-Package hyperref Info: Link coloring OFF on input line 6047.
-Package hyperref Info: Link coloring with OCG OFF on input line 6052.
-Package hyperref Info: PDF/A mode OFF on input line 6057.
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count303
-\c@Item=\count304
-\c@Hfootnote=\count305
+\Hy@abspage=\count304
+\c@Item=\count305
+\c@Hfootnote=\count306
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 Package srcltx Info: Expanded filename `hpdftex.def' to `hpdftex.def.tex' on in
-put line 37.
+put line 40.
 :<+ hpdftex.def.tex
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2022-11-13 v7.00u Hyperref driver for pdfTeX
+File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count306
-\c@bookmark@seq@number=\count307
+\Fld@listcount=\count307
+\c@bookmark@seq@number=\count308
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -549,9 +550,9 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip67
 )
 :<-
-Package hyperref Info: Option `colorlinks' set `true' on input line 38.
-Package hyperref Info: Option `bookmarksopen' set `false' on input line 39.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 39.
+Package hyperref Info: Option `colorlinks' set `true' on input line 41.
+Package hyperref Info: Option `bookmarksopen' set `false' on input line 42.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 42.
 \@indexfile=\write5
 \openout5 = `master.idx'.
 
@@ -560,7 +561,7 @@ Writing index file master.idx
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count308
+\l__color_backend_stack_int=\count309
 \l__pdf_internal_box=\box62
 ) (master.aux
 LaTeX Info: Redefining \. on input line 22.
@@ -568,40 +569,40 @@ LaTeX Info: Redefining \% on input line 22.
 )
 \openout1 = `master.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Info: Redefining \. on input line 75.
-LaTeX Info: Redefining \% on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Info: Redefining \. on input line 78.
+LaTeX Info: Redefining \% on input line 78.
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count309
+\scratchcounter=\count310
 \scratchdimen=\dimen258
 \scratchbox=\box63
-\nofMPsegments=\count310
-\nofMParguments=\count311
+\nofMPsegments=\count311
+\nofMParguments=\count312
 \everyMPshowfont=\toks45
-\MPscratchCnt=\count312
+\MPscratchCnt=\count313
 \MPscratchDim=\dimen259
-\MPnumerator=\count313
-\makeMPintoPDFobject=\count314
+\MPnumerator=\count314
+\makeMPintoPDFobject=\count315
 \everyMPtoPDFconversion=\toks46
 )
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -616,28 +617,28 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 75.
-\c@lstlisting=\count315
-LaTeX Font Info:    Trying to load font information for U+msa on input line 75.
+(lastpage)             ! on input line 78.
+\c@lstlisting=\count316
+LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
 
  (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 75.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
 
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.47998pt on input line 75.
-Package hyperref Info: Link coloring ON on input line 75.
+Package xypdf Info: Line width: 0.47998pt on input line 78.
+Package hyperref Info: Link coloring ON on input line 78.
 
 (master.out) (master.out)
 \@outlinefile=\write6
 \openout6 = `master.out'.
 
 Package srcltx Info: Expanded filename `Documentos Extra/portada.tex' to `Docum
-entos Extra/portada.tex' on input line 77.
+entos Extra/portada.tex' on input line 80.
 
 :<+ Documentos Extra/portada.tex
 (Documentos Extra/portada.tex
@@ -650,7 +651,7 @@ Overfull \hbox (10.0pt too wide) in paragraph at lines 19--19
  [][] 
  []
 
-<Documentos Extra/escudo2tintas.pdf, id=43, 240.9pt x 199.74625pt>
+<Documentos Extra/escudo2tintas.pdf, id=39, 240.9pt x 199.74625pt>
 File: Documentos Extra/escudo2tintas.pdf Graphic file (type pdf)
 <use Documentos Extra/escudo2tintas.pdf>
 Package pdftex.def Info: Documentos Extra/escudo2tintas.pdf  used on input line
@@ -679,7 +680,7 @@ Package spanish Warning: Replacing `OT1/cmr/bx/sc' by
 \openout7 = `master.toc'.
 
 Package srcltx Info: Expanded filename `Documentos Extra/Introduccion.tex' to `
-Documentos Extra/Introduccion.tex' on input line 81.
+Documentos Extra/Introduccion.tex' on input line 84.
 
 :<+ Documentos Extra/Introduccion.tex
 (Documentos Extra/Introduccion.tex [1
@@ -692,7 +693,7 @@ LaTeX Info: Redefining \% on input line 2.
 ])
 :<-
 Package srcltx Info: Expanded filename `Métodos supervisados.tex' to `Métodos
- supervisados.tex' on input line 84.
+ supervisados.tex' on input line 87.
 :<+ Métodos supervisados.tex
 (Métodos supervisados.tex [3]
 LaTeX Info: Redefining \. on input line 1.
@@ -721,7 +722,7 @@ to `Documentos Extra/Redes Neuronales.tex' on input line 13.
 )
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/resumenPCA.tex' to `Do
-cumentos Extra/resumenPCA.tex' on input line 88.
+cumentos Extra/resumenPCA.tex' on input line 91.
 :<+ Documentos Extra/resumenPCA.tex
 (Documentos Extra/resumenPCA.tex
 LaTeX Info: Redefining \. on input line 1.
@@ -731,28 +732,24 @@ Cap\'{\i }tulo 2.
 [3
 
 ]
-LaTeX Info: Redefining \. on input line 55.
-LaTeX Info: Redefining \% on input line 55.
- [4]
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
  []
 
-LaTeX Info: Redefining \. on input line 94.
-LaTeX Info: Redefining \% on input line 94.
-[5]
-Package srcltx Info: Expanded filename `Documentos Extra/resumenCA.tex' to `Doc
-umentos Extra/resumenCA.tex' on input line 121.
-
-:<+ Documentos Extra/resumenCA.tex
-(Documentos Extra/resumenCA.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [6]
-Cap\'{\i }tulo 3.
-)
+LaTeX Info: Redefining \. on input line 71.
+LaTeX Info: Redefining \% on input line 71.
+[4]
+LaTeX Info: Redefining \. on input line 115.
+LaTeX Info: Redefining \% on input line 115.
+ [5])
 :<-
-)
+Package srcltx Info: Expanded filename `Documentos Extra/biblio.tex' to `Docume
+ntos Extra/biblio.tex' on input line 96.
+:<+ Documentos Extra/biblio.tex
+(Documentos Extra/biblio.tex
+LaTeX Info: Redefining \. on input line 2.
+LaTeX Info: Redefining \% on input line 2.
+ [6])
 :<-
 
 AED: lastpage setting LastPage
@@ -766,16 +763,16 @@ LaTeX Info: Redefining \% on input line 22.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: F1CC6C10C03E995CED98108499F58206;1989.
+(rerunfilecheck)             Checksum: 567A5D884DE71556F76684E547DA2CCE;1701.
  ) 
 Here is how much of TeX's memory you used:
- 16133 strings out of 476374
- 246447 string characters out of 5788854
- 1864340 words of memory out of 5000000
- 36193 multiletter control sequences out of 15000+600000
+ 16153 strings out of 476339
+ 246716 string characters out of 5788120
+ 1865340 words of memory out of 5000000
+ 36240 multiletter control sequences out of 15000+600000
  522463 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,76p,3219b,564s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,76p,3219b,603s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Pedro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -785,16 +782,17 @@ X/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Pedro/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Pedro/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Pedro/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/
-Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:
-/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl1
-2.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmsy8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (12 pages, 316073 bytes).
+Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:
+/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.
+pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmsl12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmsy8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on master.pdf (12 pages, 335541 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
- 86 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 215 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 78 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,30 +1,11 @@
 \chapter{Análisis de Componentes Principales}
 \section{Introducción}
 
-\noindent Dado un conjunto de datos, recogidos en una matriz \textbf{X}
-
-
-
-%\noindent Sea una población de la que se han tomado $n$ observaciones de las cuales hemos medido $p$ variables. Del conjunto de datos que resulta, podemos dar la matriz de datos $\mathbf{X}$ de tamaño $n\times p$. 
-%
-%\noindent Una vez tenemos la matriz de datos, tenemos que cada 
-%
-%El análisis de componentes principales, aunque normalmente se utiliza con el objetivo de representar los datos de manera sencilla, también podría llegar a ser útil en la reducción de la dimensionalidad para evitar el overfitting en el aprendizaje automático. 
-%
-%Este método es una técnica matemática que dado un vector aleatorio $\textbf{X}^T=[X_1,\ldots X_p]$, con vector de media $\mu$ y matriz de covarianzas $\Sigma$, utiliza transformaciones ortogonales para conseguir las componentes principales. Aunque también es realizable con la media poblacional $\overline{x}$ y la matriz de varianzas \textbf{S} de manera análoga.  
-%
-%Estas componentes principales son combinaciones lineales de las variables que forman el vector, de manera que estando correladas las iniciales, las componentes no lo están y se busca calcularlas con la máxima varianza posible. 
-%
-%Esta transformación se busca ya que si varias variables están altamente correladas, entonces están aportando la misma información, siempre que no sean dependientes. Podemos encontrar por esta razón variables que no estén correladas, lo que implica que no dan la misma información y que en consecuencia pueden aportar mayor información acerca de la variación de los datos, sin tener que ser compartida o repetida por varias variables. 
-%
-%Al finalizar este Análisis de Componentes Principales, obtendremos un conjunto de variables nuevas no correladas entre sí, que son combinación lineal de las iniciales que maximizan la varianza en cada paso.
-%
-%Añadir que si las variables no están correladas o están cerca de no estarlo, el Análisis de Componentes Principales no tiene sentido ya que el conjunto de componentes principales será parecido a las variables iniciales, con la única diferencia que estarán ordenadas por orden creciente de varianza.  
-
+%\input{Documentos Extra/introduccionPCA.tex}
 
 \section{Definición y cálculo de las Componentes}
 
-Sea un vector aleatorio $\textbf{X}^T=[X_1,\ldots X_p]$ con media $\mu$ y matriz de covarianzas $\Sigma$. 
+\noindent Sea un vector aleatorio $\textbf{X}^T=[X_1,\ldots X_p]$ con media $\mu$ y matriz de covarianzas $\Sigma$. Según
 \begin{defi}
 Las componentes principales son combinaciones lineales de las variables $X_1 \ldots X_p$
 \begin{equation}
@@ -43,22 +24,25 @@ Las componentes principales son combinaciones lineales de las variables $X_1 \ld
 
 \end{itemize}
 
+De esta manera, estamos buscando una nueva base que consiga reunir las direcciones de máxima variación. 
 \end{defi}
 
-\noindent El cálculo de la primera componente principal se lleva a cabo con un proceso de optimización de la función $Var(\textbf{Y}_1)$ sujeto a la restricción de que $\textbf{a}_1^T\textbf{a}_1=1$. Aplicando el método de los multiplicadores de Lagrange, dada una función $f(\textbf{x})=f(x_1\ldots x_p)$ diferenciable con una restricción $g(\textbf{x})=g(x_1\ldots x_p)=c$ entonces existe una constante $\lambda$ de manera la ecuación:
+\noindent El cálculo de la primera componente principal se lleva a cabo con un proceso de optimización de la función $Var(\textbf{Y}_1)$ sujeto a la restricción de que $\textbf{a}_1^T\textbf{a}_1=1$. Aplicando el método de los multiplicadores de Lagrange,  dada una función $f(\textbf{x})=f(x_1\ldots x_p)$ diferenciable con una restricción $g(\textbf{x})=g(x_1\ldots x_p)=c$ entonces existe una constante $\lambda$ de manera la ecuación:
 \begin{equation}
 \dfrac{\partial f}{\partial x_i}-\lambda\dfrac{\partial g}{\partial x_i}=0 \quad i=1,\ldots p 
 \end{equation}
 
 \noindent Tiene como solución los puntos estacionarios de $f(\textbf{x})$
 
-\newpage
-Sea ahora la función $L(\textbf{x})= f(\textbf{x})-\lambda[g(x)-c]$  entonces podemos simplificar la expresión anterior a:
+%\newpage
+\noindent Sea ahora la función $L(\textbf{x})= f(\textbf{x})-\lambda[g(x)-c]$  entonces podemos simplificar la expresión anterior a:
 \begin{equation}
 \dfrac{\partial L}{\partial \textbf{x}}=0
 \end{equation}
 
-\noindent En nuestro caso particular $L(\textbf{a}_1)=\textbf{a}_1^T \Sigma \textbf{a}_1 - \lambda[\textbf{a}_1^T \textbf{a}_1-1]$. Al derivarla obtenemos que :
+\noindent Para el caso de las componentes principales, la función objetivo es la varianza de la combinación lineal, es decir $$
+
+\noindent Para el cálculo de la $L(\textbf{a}_1)=\textbf{a}_1^T \Sigma \textbf{a}_1 - \lambda[\textbf{a}_1^T \textbf{a}_1-1]$. Al derivarla obtenemos que :
 \begin{align*}
 \dfrac{\partial L}{\partial \textbf{a}_1} &= 2\Sigma \textbf{a}_1 - 2\lambda\textbf{a}_1\\
 & = 2(\Sigma-\lambda)\textbf{a}_1 
@@ -74,8 +58,8 @@ Sea ahora la función $L(\textbf{x})= f(\textbf{x})-\lambda[g(x)-c]$  entonces p
 \noindent Una vez calculada la primera componente principal $\textbf{Y}_1$, la segunda componente se calcula de manera análoga, maximizando $Var(\textbf{Y}_2)=Var(\textbf{a}_2^T\textbf{X})$ condicionada por $\textbf{a}_2^T\textbf{a}_2=1$. A esta restricción tenemos que añadir la restricción $Cov(\textbf{Y}_1,\textbf{Y}_2)=0 $
 
 \begin{propo}
-La condición $Cov(\textbf{Y}_1,\textbf{Y}_2)=0 $ equivale a la condición $\textbf{a}_2^T\textbf{a}_1 = 0$
-\end{propo}
+La condición $Cov(\textbf{Y}_1,\textbf{Y}_2)=0 $ equivale a la condición $\textbf{a}_2^T\textbf{a}_1 = 0$.
+
 \begin{proof}
 Utilizando que $\textbf{Y}_j=\textbf{a}_j^T \textbf{X}\quad \forall j$ , tenemos entonces que:
 \begin{align*}
@@ -87,7 +71,7 @@ Cov(\textbf{Y}_2,\textbf{Y}_1)&= Cov (\textbf{a}_2^T\textbf{X},\textbf{a}_1^T\te
 \end{align*}
 \noindent De manera que, si $a_2^T \lambda_1 a_1 = 0 \Rightarrow a_2^T a_1=0 $, luego son vectores ortogonales entre sí.
 \end{proof}
-
+\end{propo}
 \noindent \emph{Observación: } Esta proposición se puede extender de manera simple al caso de tener que calcular la $i$-ésima componente principal habiendo calculado las anteriores de las cuales sepamos sus valores propios. 
 
 \begin{coro}
@@ -112,10 +96,40 @@ Y también podemos deducir que
 
 \section{Reducción de la dimensionalidad}
 
-\noindent Sea $\textbf{X}=[X_1,\ldots X_p]$ una matriz de datos multivariantes de tamaño $(n\times p)$ de las cuales ya hemos obtenido las componentes principales $Y_1 \ldots Y_p $. Cada individuo de los n que forman las filas de la matriz puede ser interpretado como un elemento de $\mathbb{R}^p$. 
+\noindent Antes de continuar desarrollando, debemos definir unos conceptos previos. 
 
 \begin{defi}
-Llamaremos matriz de distancias entre las n filas o individuos, y lo denotaremos $\Delta$ la matriz  
+Sea $\textbf{A}\in \mathbb{M}_{n\times m}(\mathbb{R})$ definimos la \textit{norma de Fröbenius} de la matriz \textbf{A} como :
+\begin{equation}
+||A||_F=(tr(A^T\cdot A))^{\frac{1}{2}}
+\end{equation}
+
 \end{defi}
 
-\input{Documentos Extra/resumenCA.tex}
+\begin{propo}
+La norma de Fröbenius es invariante a transformaciones ortogonales
+\end{propo}
+
+\begin{proof}
+Sea $U$ una matriz ortogonal, que cumple $U^T\cdot U=U\cdot U^T=I$, sea una matriz cualquiera $A$, entonces:
+\begin{align*}\tag{2.7}
+||U \cdot A||_F^2&=tr((U A)^T\cdot(U A))\\
+&=tr((A^T U^T)\cdot U A))\\
+&=tr(A^T A)\\
+&=||A||_F^2
+\end{align*}
+\qedhere
+\end{proof}
+
+\begin{coro}
+Sea $A$ una matriz y $A=U \Sigma V^T$ su descomposición en valores singulares, entonces $||A||_F=||\Sigma||_F=\Sigma_{i=1}^n \sigma_i$ donde $\sigma_i, i=1 \ldots n$ son los valores singulares de $A$. 
+\end{coro}
+
+\begin{teorema}[Teorema de Eckart-Young]
+
+\end{teorema}
+
+
+
+
+%\input{Documentos Extra/resumenCA.tex}
