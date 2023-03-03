@@ -1,0 +1,25 @@
+\section{Análisis Discriminante}
+\subsection{Objetivos}
+
+\noindent Dadas dos poblaciones $\Omega_1,\Omega_2$ de las cuales observamos las variables $X_1, \ldots, X_p$, buscamos encontrar un \textbf{discriminador}, una regla que nos diga como poder diferenciar muestras que pertenezcan a una u otra población. 
+
+\noindent En el caso se detalla a continuación se consideran dos poblaciones y tomando las observaciones $\textbf{x}=(x_1,\ldots,x_p)\in \mathbb{R}^p $. Tras aplicar el análisis discriminante, obtenemos una división del espacio $\mathbb{R}^p$ en 2 regiones, $R_1, R_2$. 
+
+\subsection{Conceptos previos}
+\begin{defi}
+Llamaremos \textit{distancia de Mahalanobis} de dos observaciones $\textbf{x}_i,\textbf{x}_j$ cuyas variables observadas tienen matriz de covarianzas \textbf{S} a:
+\begin{equation}
+d_M(\textbf{x}_i,\textbf{x}_j)=\sqrt{(\textbf{x}_i-\textbf{x}_j)^T\textbf{ S}^{-1}(\textbf{x}_i-\textbf{x}_j) }
+\end{equation}
+\end{defi}
+
+\begin{defi}
+Llamaremos \textit{probabilidad de clasificación errónea, (pce)} a la probabilidad de que dado un nuevo individuo o muestra esté en la región $R_1$ siendo en realidad de la población $\Omega_2$ y viceversa. 
+\begin{equation}
+pce=\mathbb{P}(R_1|\Omega_2) \mathbb{P}(\Omega_1)+\mathbb{P}(R_2|\Omega_1) \mathbb{P}(\Omega_2)
+\end{equation}
+\end{defi}
+
+\subsection{Discriminador Lineal}
+
+\noindent

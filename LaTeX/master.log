@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  1 MAR 2023 15:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  3 MAR 2023 11:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -651,7 +651,7 @@ Overfull \hbox (10.0pt too wide) in paragraph at lines 19--19
  [][] 
  []
 
-<Documentos Extra/escudo2tintas.pdf, id=39, 240.9pt x 199.74625pt>
+<Documentos Extra/escudo2tintas.pdf, id=63, 240.9pt x 199.74625pt>
 File: Documentos Extra/escudo2tintas.pdf Graphic file (type pdf)
 <use Documentos Extra/escudo2tintas.pdf>
 Package pdftex.def Info: Documentos Extra/escudo2tintas.pdf  used on input line
@@ -721,39 +721,60 @@ to `Documentos Extra/Redes Neuronales.tex' on input line 13.
 :<-
 )
 :<-
-Package srcltx Info: Expanded filename `Documentos Extra/resumenPCA.tex' to `Do
-cumentos Extra/resumenPCA.tex' on input line 91.
-:<+ Documentos Extra/resumenPCA.tex
-(Documentos Extra/resumenPCA.tex
+Package srcltx Info: Expanded filename `Métodos no Supervisados.tex' to `Méto
+dos no Supervisados.tex' on input line 91.
+:<+ Métodos no Supervisados.tex
+(Métodos no Supervisados.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [2]
 Cap\'{\i }tulo 2.
-[3
+Package srcltx Info: Expanded filename `Documentos Extra/resumenPCA.tex' to `Do
+cumentos Extra/resumenPCA.tex' on input line 6.
+:<+ Documentos Extra/resumenPCA.tex
+(Documentos Extra/resumenPCA.tex [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
-
- []
-
-LaTeX Info: Redefining \. on input line 71.
-LaTeX Info: Redefining \% on input line 71.
-[4]
+LaTeX Info: Redefining \. on input line 47.
+LaTeX Info: Redefining \% on input line 47.
+ [4]
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+ [5]
 LaTeX Info: Redefining \. on input line 115.
 LaTeX Info: Redefining \% on input line 115.
- [5])
+ [6])
+:<-
+LaTeX Info: Redefining \. on input line 7.
+LaTeX Info: Redefining \% on input line 7.
+[7]
+Package srcltx Info: Expanded filename `Documentos Extra/resumenAD.tex' to `Doc
+umentos Extra/resumenAD.tex' on input line 8.
+
+:<+ Documentos Extra/resumenAD.tex
+(Documentos Extra/resumenAD.tex
+Overfull \hbox (7.90207pt too wide) in paragraph at lines 4--5
+[]\OT1/cmr/m/n/12 Dadas dos po-bla-cio-nes $
+[]\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 
+[]$ de las cua-les ob-ser-va-mos las va-ria-bles $\OML/cmm/m/it/12 X[]; [] ; X[
+]$\OT1/cmr/m/n/12 ,
+ []
+
+)
+:<-
+)
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/biblio.tex' to `Docume
-ntos Extra/biblio.tex' on input line 96.
+ntos Extra/biblio.tex' on input line 98.
 :<+ Documentos Extra/biblio.tex
 (Documentos Extra/biblio.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [6])
+ [8])
 :<-
 
 AED: lastpage setting LastPage
-[7
+[9
 
 ] (master.aux
 LaTeX Info: Redefining \. on input line 22.
@@ -763,16 +784,16 @@ LaTeX Info: Redefining \% on input line 22.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 567A5D884DE71556F76684E547DA2CCE;1701.
+(rerunfilecheck)             Checksum: 709EB09DD3B98B45B68B7724836E8557;2810.
  ) 
 Here is how much of TeX's memory you used:
- 16153 strings out of 476339
- 246716 string characters out of 5788120
- 1865340 words of memory out of 5000000
- 36240 multiletter control sequences out of 15000+600000
+ 16182 strings out of 476339
+ 247372 string characters out of 5788120
+ 1864340 words of memory out of 5000000
+ 36252 multiletter control sequences out of 15000+600000
  522463 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,76p,3219b,603s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,76p,3219b,564s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Pedro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -790,9 +811,9 @@ msfonts/cm/cmsy10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmsy8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (12 pages, 335541 bytes).
+Output written on master.pdf (14 pages, 345260 bytes).
 PDF statistics:
- 215 PDF objects out of 1000 (max. 8388607)
- 45 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 259 PDF objects out of 1000 (max. 8388607)
+ 56 named destinations out of 1000 (max. 500000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
