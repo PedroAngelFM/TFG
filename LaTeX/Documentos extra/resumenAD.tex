@@ -20,6 +20,16 @@ pce=\mathbb{P}(R_1|\Omega_2) \mathbb{P}(\Omega_1)+\mathbb{P}(R_2|\Omega_1) \math
 \end{equation}
 \end{defi}
 
-\subsection{Discriminador Lineal}
+\noindent El objetivo es encontrar una función $f$ de tal manera que al tomar una nueva observación $\omega$ :
+\begin{align*}
+f(\omega)<0 \quad &\text{asignamos } \omega \text{ a } R_1\\
+f(\omega)\geq 0 \quad &\text{asignamos } \omega \text{ a } R_2\\
+\end{align*}
+
+\noindent La forma más intuitiva de separar ambas regiones, es hacer la diferencia de las distancias entre el nuevo individuo y las medias de cada región. 
+\begin{align*}
+M^2(\textbf{x}-\mu_2)-M^2(\textbf{x}-\mu_1)  &= \textbf{x}^T\textbf{S}^{-1} \textbf{x}+()
+\end{align*}
+
 
 \noindent

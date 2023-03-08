@@ -1,4 +1,3 @@
-\newpage
 \section{Análisis de Componentes Principales}
 \subsection{Introducción}
 
@@ -35,7 +34,7 @@ Las componentes principales son combinaciones lineales de las variables $X_1 \ld
 \dfrac{\partial f}{\partial x_i}-\lambda\dfrac{\partial g}{\partial x_i}=0 \quad i=1,\ldots p 
 \end{equation}
 
-\noindent Tiene como solución los puntos estacionarios de $f(\textbf{x})$. Entonces, ahora podemos definir la función $L(\textbf{x})= f(\textbf{x})-\lambda[g(\textbf{x})-c]$  que permite simplificar la expresión anterior a:
+\noindent Tiene como solución los puntos estacionarios de $f(\textbf{x})$. Entonces, se puede definir la función $L(\textbf{x})= f(\textbf{x})-\lambda[g(\textbf{x})-c]$  que permite simplificar la expresión anterior a:
 \begin{equation}
 \dfrac{\partial L}{\partial \textbf{x}}=0
 \end{equation}
@@ -98,57 +97,78 @@ Var(\textbf{Y})&=Var(\textbf{AX})\\
 &=Var(\textbf{X})
 \end{align*} 
 
-\noindent Por tanto, se puede afirmar que las componentes principales contienen toda la variación del vector \textbf{X} aleatorio inicial. 
+\noindent Por tanto, se puede afirmar que las componentes principales contienen toda la variación del vector \textbf{X} aleatorio inicial.
 
+\noindent Sea ahora la matriz \textbf{X} de datos de tamaño $n \times p$ resultante de tomar $n$ observaciones de las $p$ variables del vector aleatorio. Se supone además que esta es centrada y dividida todos sus elementos por $\sqrt{n-1}$. 
 
-%
-%\begin{equation}
-%\Lambda=\begin{pmatrix}
-%\lambda_1 & 0 & \cdots & 0\\
-%0 & \lambda_2 & \cdots & 0\\
-%\vdots & \vdots & \ddots & \vdots\\
-%0 & 0 & \cdots & \lambda_p
-%\end{pmatrix}
-%\end{equation}
+\noindent Dado este marco la matriz \textbf{X} tiene una descomposición en valores singulares $\textbf{X}=\textbf{U}\Sigma \textbf{V}^T$. Donde tanto \textbf{U} como $\textbf{V}$ son matrices ortogonales. Esto implica que $\textbf{U}^T \textbf{U}=\textbf{U}\textbf{U}^T=\textbf{I}$. 
 
+\noindent  En particular, \textbf{U} es la matriz de vectores singulares por la izquierda  de tamaño $n \times r$, \textbf{V} la matriz de vectores singulares por la derecha de tamaño $p \times p$ y la matriz $\Sigma$ es la matriz diagonal de valores singulares generalmente ordenados de forma decreciente, es decir $\Sigma^2$ es la matriz diagonal que contiene todos los valores propios de las matrices $\textbf{X}^T\textbf{X}$ y $\textbf{X}\textbf{X}^T$.
 
-\newpage
+\noindent Por las transformaciones previas realizadas la matriz de estimaciones de las covarianzas es $\hat{S}=\textbf{X}^T\textbf{X}$ en consecuencia, el proceso que se describía en primera instancia para un vector aleatorio en el que conocíamos su matriz de covarianzas se puede aplicar de manera análoga a la matriz de datos.
+
+\noindent Esto implica que la obtención de las componentes principales en el caso de ser calculadas desde la matriz de datos también se obtienen calculando los vectores y valores propios de la matriz de covarianzas muestral en este caso. 
+
+\begin{propo}
+La matriz \textbf{V} de tamaño $(p\times p)$ es la matriz que contiene los vectores para hacer la combinación lineal que definen las componentes principales.
+\begin{proof}
+La matriz $\textbf{X}^T \textbf{X}$ es la matriz de covarianzas $(p \times p)$  por la descomposición en valores singulares tenemos que:
+\begin{align*}
+\textbf{X}^T \textbf{X} &= (\textbf{U}\Sigma \textbf{V}^T)^T (\textbf{U}\Sigma \textbf{V}^T)\\
+&= \textbf{V}\Sigma ^T \textbf{U}^T \textbf{U}\Sigma \textbf{V}^T\\
+&= \textbf{V}\Sigma ^T \Sigma \textbf{V}^T \\
+&=  \textbf{V}\Sigma ^2  \textbf{V}^T 
+\end{align*}
+
+\noindent Que es la diagonalización de la matriz $\textbf{X}^T \textbf{X}$ donde los elementos de la diagonal de $\Sigma$ son las raíces cuadradas de los valores propios de $\textbf{X}^T \textbf{X}$. A esto también hay que añadir que \textbf{V} es la matriz que tiene como columnas los vectores propios, es decir, es la matriz con los vectores que forman las componentes principales. 
+\end{proof}
+\end{propo}
+
 \subsection{Reducción de la dimensionalidad}
 
-\noindent Antes de continuar desarrollando, debemos definir unos conceptos previos. 
-
+\noindent La utilidad de esta técnica es reducir el tamaño de la matriz de datos para poder representar las observaciones como puntos de una subvariedad de dimensión $m < p$. Con este fin en mente, se deben definir los siguientes conceptos.
 \begin{defi}
-Sea $\textbf{A}\in \mathbb{M}_{n\times m}(\mathbb{R})$ definimos la \textit{norma de Fröbenius} de la matriz \textbf{A} como :
+Sea $\textbf{A}\in \mathbb{M}_{n\times m}(\mathbb{R})$ definimos la \textit{norma de Frobenius} de la matriz \textbf{A} como :
 \begin{equation}
-||A||_F=(tr(A^T\cdot A))^{\frac{1}{2}}
+||\textbf{A}||_F=(tr(\textbf{A}^T\cdot \textbf{A}))^{\frac{1}{2}}=\left(\sum_{i=1}^{n}\sum _{j=1}^{m}a_{ij}^2\right)^{\frac{1}{2}}
 \end{equation}
-
 \end{defi}
 
 \begin{propo}
-La norma de Fröbenius es invariante a transformaciones ortogonales
-\end{propo}
-
+La norma de Frobenius es invariante a transformaciones ortogonales
 \begin{proof}
-Sea $U$ una matriz ortogonal, que cumple $U^T\cdot U=U\cdot U^T=I$, sea una matriz cualquiera $A$, entonces:
+Sea $\mathbf{U}$ una matriz ortogonal, que cumple $\mathbf{U}^T\cdot \mathbf{U}=\mathbf{U}\cdot \mathbf{U}^T=I$, sea una matriz cualquiera $\mathbf{A}$, entonces:
 \begin{align*}\tag{2.7}
-||U \cdot A||_F^2&=tr((U A)^T\cdot(U A))\\
-&=tr((A^T U^T)\cdot U A))\\
-&=tr(A^T A)\\
-&=||A||_F^2
+||\mathbf{U} \cdot \mathbf{A}||_F^2&=tr((\mathbf{U} \mathbf{A})^T\cdot(\mathbf{U} \mathbf{A}))\\
+&=tr((\mathbf{A}^T \mathbf{U}^T)\cdot \mathbf{U} \mathbf{A}))\\
+&=tr(\mathbf{A}^T \mathbf{A})\\
+&=||\mathbf{A}||_F^2
 \end{align*}
 \qedhere
 \end{proof}
+\end{propo}
 
-\begin{coro}
-Sea $A$ una matriz y $A=U \Sigma V^T$ su descomposición en valores singulares, entonces $||A||_F=||\Sigma||_F=\Sigma_{i=1}^n \sigma_i$ donde $\sigma_i, i=1 \ldots n$ son los valores singulares de $A$. 
-\end{coro}
+\noindent Aunque hay más normas que son invariantes ante transformaciones ortogonales, nos centraremos en la norma de Frobenius.
 
-\begin{teorema}[Teorema de Eckart-Young]
+\begin{defi}
+Dada una matriz $\textbf{A}=\textbf{U}\Sigma \textbf{V}^T$ de tamaño $n\times m $ y de rango $r$, entonces para $l < r$ se define la matriz truncada  $\textbf{A}_l=\textbf{U}_l \Sigma_l \textbf{V}^T_l$ donde: 
+\begin{itemize}
+\item $\textbf{U}:=[\textbf{U}_l, U_{r-l}]$
+\item 
+\item
+\end{itemize}
+\end{defi}
 
+\begin{teorema}[De Eckart-Young]
+Sea una matriz $\textbf{A}$ de rango $r$, y sea una matriz $\textbf{B}$ rango $l<r$, entonces:
+\begin{equation}
+||\textbf{A}-\textbf{B}||_F \leq ||\textbf{A}-\textbf{A}_l||_F
+\end{equation}
 \end{teorema}
+\begin{propo}
+Dada una matriz $\textbf{A}=$
+\end{propo}
 
 
 
 
-%\input{Documentos Extra/resumenCA.tex}
