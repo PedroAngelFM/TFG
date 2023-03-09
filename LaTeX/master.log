@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  8 MAR 2023 09:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  9 MAR 2023 09:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -569,26 +569,26 @@ LaTeX Info: Redefining \% on input line 22.
 )
 \openout1 = `master.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Info: Redefining \. on input line 78.
-LaTeX Info: Redefining \% on input line 78.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Info: Redefining \. on input line 79.
+LaTeX Info: Redefining \% on input line 79.
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -617,28 +617,28 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 78.
+(lastpage)             ! on input line 79.
 \c@lstlisting=\count316
-LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
 
  (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
 
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.47998pt on input line 78.
-Package hyperref Info: Link coloring ON on input line 78.
+Package xypdf Info: Line width: 0.47998pt on input line 79.
+Package hyperref Info: Link coloring ON on input line 79.
 
 (master.out) (master.out)
 \@outlinefile=\write6
 \openout6 = `master.out'.
 
 Package srcltx Info: Expanded filename `Documentos Extra/portada.tex' to `Docum
-entos Extra/portada.tex' on input line 80.
+entos Extra/portada.tex' on input line 81.
 
 :<+ Documentos Extra/portada.tex
 (Documentos Extra/portada.tex
@@ -651,7 +651,7 @@ Overfull \hbox (10.0pt too wide) in paragraph at lines 19--19
  [][] 
  []
 
-<Documentos Extra/escudo2tintas.pdf, id=47, 240.9pt x 199.74625pt>
+<Documentos Extra/escudo2tintas.pdf, id=27, 240.9pt x 199.74625pt>
 File: Documentos Extra/escudo2tintas.pdf Graphic file (type pdf)
 <use Documentos Extra/escudo2tintas.pdf>
 Package pdftex.def Info: Documentos Extra/escudo2tintas.pdf  used on input line
@@ -663,143 +663,90 @@ Package pdftex.def Info: Documentos Extra/escudo2tintas.pdf  used on input line
 {C:/Users/Pedro/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Documentos
  Extra/escudo2tintas.pdf>])
 :<-
-(master.toc
+[2
+
+] (master.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 2.
-
-
-Package spanish Warning: Replacing `OT1/cmr/bx/sc' by 
-(spanish)                faked small caps on input line 2.
-
 )
 \tf@toc=\write7
 \openout7 = `master.toc'.
 
-Package srcltx Info: Expanded filename `Documentos Extra/Introduccion.tex' to `
-Documentos Extra/Introduccion.tex' on input line 84.
+Package srcltx Info: Expanded filename `Métodos no Supervisados.tex' to `Méto
+dos no Supervisados.tex' on input line 92.
 
-:<+ Documentos Extra/Introduccion.tex
-(Documentos Extra/Introduccion.tex [1
-
-]
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [2
-
-])
-:<-
-Package srcltx Info: Expanded filename `Métodos supervisados.tex' to `Métodos
- supervisados.tex' on input line 87.
-:<+ Métodos supervisados.tex
-(Métodos supervisados.tex [3]
+:<+ Métodos no Supervisados.tex
+(Métodos no Supervisados.tex [3]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [4
 
 ]
 Cap\'{\i }tulo 1.
-Package srcltx Info: Expanded filename `Documentos Extra/Teoría de decisión e
-stadística.tex' to `Documentos Extra/Teoría de decisión estadística.tex' on
- input line 7.
-:<+ Documentos Extra/Teoría de decisión estadística.tex
-(Documentos Extra/Teoría de decisión estadística.tex
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.13 \begin{equation}
-                      [1])
-:<-
-Package srcltx Info: Expanded filename `Documentos Extra/Redes Neuronales.tex' 
-to `Documentos Extra/Redes Neuronales.tex' on input line 13.
-:<+ Documentos Extra/Redes Neuronales.tex
-(Documentos Extra/Redes Neuronales.tex)
-:<-
-)
-:<-
-Package srcltx Info: Expanded filename `Métodos no Supervisados.tex' to `Méto
-dos no Supervisados.tex' on input line 91.
-:<+ Métodos no Supervisados.tex
-(Métodos no Supervisados.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [2]
-Cap\'{\i }tulo 2.
 Package srcltx Info: Expanded filename `Documentos Extra/resumenPCA.tex' to `Do
 cumentos Extra/resumenPCA.tex' on input line 3.
 :<+ Documentos Extra/resumenPCA.tex
-(Documentos Extra/resumenPCA.tex [3
-
-]
-LaTeX Info: Redefining \. on input line 69.
-LaTeX Info: Redefining \% on input line 69.
- [4]
-LaTeX Info: Redefining \. on input line 107.
-LaTeX Info: Redefining \% on input line 107.
- [5]
+(Documentos Extra/resumenPCA.tex [5]
+LaTeX Info: Redefining \. on input line 74.
+LaTeX Info: Redefining \% on input line 74.
+ [6]
+LaTeX Info: Redefining \. on input line 105.
+LaTeX Info: Redefining \% on input line 105.
+ [7]
 LaTeX Info: Redefining \. on input line 132.
 LaTeX Info: Redefining \% on input line 132.
- [6])
+ [8])
 :<-
 )
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/biblio.tex' to `Docume
-ntos Extra/biblio.tex' on input line 98.
+ntos Extra/biblio.tex' on input line 96.
 :<+ Documentos Extra/biblio.tex
 (Documentos Extra/biblio.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [7]
+ [9]
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [8
+ [10
 
 ])
 :<-
 
 AED: lastpage setting LastPage
-[9] (master.aux
+[11] (master.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: D75CB4A2ED7BD893C443A2827A990903;2095.
+(rerunfilecheck)             Checksum: AE674F8557B7DF5C178756E37D7AFC49;1262.
  ) 
 Here is how much of TeX's memory you used:
- 16168 strings out of 476339
- 247058 string characters out of 5788120
- 1864340 words of memory out of 5000000
- 36246 multiletter control sequences out of 15000+600000
- 522463 words of font info for 72 fonts, out of 8000000 for 9000
+ 16128 strings out of 476339
+ 245948 string characters out of 5788120
+ 1865340 words of memory out of 5000000
+ 36229 multiletter control sequences out of 15000+600000
+ 522162 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,76p,3219b,568s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,76p,3219b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Pedro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmbx8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Pedro/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Pedro/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Pedro/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/
-Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:
-/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.
+ic/amsfonts/cm/cmex10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Pedro/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Pedro/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Pedro/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Pedr
+o/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/U
+sers/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmsl12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (14 pages, 342443 bytes).
+m/cmsy8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb>
+Output written on master.pdf (11 pages, 309998 bytes).
 PDF statistics:
- 237 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
- 94 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 185 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
+ 54 words of extra memory for PDF output out of 10000 (max. 10000000)
 
