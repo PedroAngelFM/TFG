@@ -1,8 +1,8 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {1}Métodos no supervisados}{5}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Introducción}{5}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Análisis de Componentes Principales}{5}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Definición y cálculo de las Componentes}{5}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Reducción de la dimensionalidad}{9}{subsection.1.2.2}%
-\contentsline {chapter}{Bibliografía}{11}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Métodos no supervisados}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Introducción}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Análisis de Componentes Principales}{1}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Definición y cálculo de las Componentes}{1}{subsection.1.2.1}%
+\contentsline {section}{\numberline {1.3}PCA en matrices de datos}{4}{section.1.3}%
+\contentsline {chapter}{Bibliografía}{5}{chapter*.2}%
 \contentsfinish 

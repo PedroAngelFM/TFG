@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  9 MAR 2023 09:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  10 MAR 2023 09:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -523,7 +523,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 Package srcltx Info: Expanded filename `hpdftex.def' to `hpdftex.def.tex' on in
-put line 40.
+put line 42.
 :<+ hpdftex.def.tex
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
@@ -550,18 +550,38 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip67
 )
 :<-
-Package hyperref Info: Option `colorlinks' set `true' on input line 41.
-Package hyperref Info: Option `bookmarksopen' set `false' on input line 42.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 42.
+Package hyperref Info: Option `colorlinks' set `true' on input line 43.
+Package hyperref Info: Option `bookmarksopen' set `false' on input line 44.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 44.
 \@indexfile=\write5
 \openout5 = `master.idx'.
 
 Writing index file master.idx
+(C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count309
+\Gm@cntv=\count310
+\c@Gm@tempcnt=\count311
+\Gm@bindingoffset=\dimen258
+\Gm@wd@mp=\dimen259
+\Gm@odd@mp=\dimen260
+\Gm@even@mp=\dimen261
+\Gm@layoutwidth=\dimen262
+\Gm@layoutheight=\dimen263
+\Gm@layouthoffset=\dimen264
+\Gm@layoutvoffset=\dimen265
+\Gm@dimlist=\toks45
+
+(C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count309
+\l__color_backend_stack_int=\count312
 \l__pdf_internal_box=\box62
 ) (master.aux
 LaTeX Info: Redefining \. on input line 22.
@@ -569,41 +589,41 @@ LaTeX Info: Redefining \% on input line 22.
 )
 \openout1 = `master.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Info: Redefining \. on input line 79.
-LaTeX Info: Redefining \% on input line 79.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Info: Redefining \. on input line 81.
+LaTeX Info: Redefining \% on input line 81.
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count310
-\scratchdimen=\dimen258
+\scratchcounter=\count313
+\scratchdimen=\dimen266
 \scratchbox=\box63
-\nofMPsegments=\count311
-\nofMParguments=\count312
-\everyMPshowfont=\toks45
-\MPscratchCnt=\count313
-\MPscratchDim=\dimen259
-\MPnumerator=\count314
-\makeMPintoPDFobject=\count315
-\everyMPtoPDFconversion=\toks46
+\nofMPsegments=\count314
+\nofMParguments=\count315
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count316
+\MPscratchDim=\dimen267
+\MPnumerator=\count317
+\makeMPintoPDFobject=\count318
+\everyMPtoPDFconversion=\toks47
 )
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -617,55 +637,78 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 79.
-\c@lstlisting=\count316
-LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
+(lastpage)             ! on input line 81.
+\c@lstlisting=\count319
+LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
 
  (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
 
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.47998pt on input line 79.
-Package hyperref Info: Link coloring ON on input line 79.
+Package xypdf Info: Line width: 0.47998pt on input line 81.
+Package hyperref Info: Link coloring ON on input line 81.
 
 (master.out) (master.out)
 \@outlinefile=\write6
 \openout6 = `master.out'.
 
-Package srcltx Info: Expanded filename `Documentos Extra/portada.tex' to `Docum
-entos Extra/portada.tex' on input line 81.
 
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(88.2037pt, 421.10046pt, 88.2037pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=421.10046pt
+* \textheight=702.78308pt
+* \oddsidemargin=15.93372pt
+* \evensidemargin=15.93372pt
+* \topmargin=-33.0119pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=88.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package srcltx Info: Expanded filename `Documentos Extra/portada.tex' to `Docum
+entos Extra/portada.tex' on input line 83.
 :<+ Documentos Extra/portada.tex
 (Documentos Extra/portada.tex
-Overfull \hbox (10.0pt too wide) in paragraph at lines 12--13
- [][][] 
- []
-
-
-Overfull \hbox (10.0pt too wide) in paragraph at lines 19--19
- [][] 
- []
-
 <Documentos Extra/escudo2tintas.pdf, id=27, 240.9pt x 199.74625pt>
 File: Documentos Extra/escudo2tintas.pdf Graphic file (type pdf)
 <use Documentos Extra/escudo2tintas.pdf>
 Package pdftex.def Info: Documentos Extra/escudo2tintas.pdf  used on input line
  25.
 (pdftex.def)             Requested size: 168.62883pt x 139.82141pt.
-[1
+ [1
 
 
 {C:/Users/Pedro/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Documentos
  Extra/escudo2tintas.pdf>])
 :<-
-[2
-
-] (master.toc
+(master.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
@@ -673,80 +716,82 @@ LaTeX Info: Redefining \% on input line 1.
 \openout7 = `master.toc'.
 
 Package srcltx Info: Expanded filename `Métodos no Supervisados.tex' to `Méto
-dos no Supervisados.tex' on input line 92.
+dos no Supervisados.tex' on input line 94.
 
 :<+ Métodos no Supervisados.tex
-(Métodos no Supervisados.tex [3]
+(Métodos no Supervisados.tex [1
+
+]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [4
+ [2
 
 ]
 Cap\'{\i }tulo 1.
 Package srcltx Info: Expanded filename `Documentos Extra/resumenPCA.tex' to `Do
-cumentos Extra/resumenPCA.tex' on input line 3.
+cumentos Extra/resumenPCA.tex' on input line 4.
 :<+ Documentos Extra/resumenPCA.tex
-(Documentos Extra/resumenPCA.tex [5]
-LaTeX Info: Redefining \. on input line 74.
-LaTeX Info: Redefining \% on input line 74.
- [6]
-LaTeX Info: Redefining \. on input line 105.
-LaTeX Info: Redefining \% on input line 105.
- [7]
-LaTeX Info: Redefining \. on input line 132.
-LaTeX Info: Redefining \% on input line 132.
- [8])
+(Documentos Extra/resumenPCA.tex
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.37 \end{equation}
+                    [1]
+LaTeX Info: Redefining \. on input line 84.
+LaTeX Info: Redefining \% on input line 84.
+ [2]
+LaTeX Info: Redefining \. on input line 112.
+LaTeX Info: Redefining \% on input line 112.
+ [3])
 :<-
 )
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/biblio.tex' to `Docume
-ntos Extra/biblio.tex' on input line 96.
+ntos Extra/biblio.tex' on input line 98.
 :<+ Documentos Extra/biblio.tex
 (Documentos Extra/biblio.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [9]
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [10
-
-])
+ [4])
 :<-
 
 AED: lastpage setting LastPage
-[11] (master.aux
+[5
+
+] (master.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: AE674F8557B7DF5C178756E37D7AFC49;1262.
+(rerunfilecheck)             Checksum: B6240DFDC14E9665B1EDACC787086FCE;1210.
  ) 
 Here is how much of TeX's memory you used:
- 16128 strings out of 476339
- 245948 string characters out of 5788120
- 1865340 words of memory out of 5000000
- 36229 multiletter control sequences out of 15000+600000
- 522162 words of font info for 71 fonts, out of 8000000 for 9000
+ 16612 strings out of 476339
+ 253756 string characters out of 5788120
+ 1868340 words of memory out of 5000000
+ 36712 multiletter control sequences out of 15000+600000
+ 522463 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,76p,3219b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,76p,3219b,522s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Pedro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmex10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Pedro/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Pedro/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Pedro/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Pedr
-o/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/U
-sers/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmsy8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (11 pages, 309998 bytes).
+ic/amsfonts/cm/cmcsc10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Pedro/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Pedro/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Pedro/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/P
+edro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C
+:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmsy8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/symbols/msbm10.pfb>
+Output written on master.pdf (8 pages, 301887 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 41 named destinations out of 1000 (max. 500000)
+ 165 PDF objects out of 1000 (max. 8388607)
+ 33 named destinations out of 1000 (max. 500000)
  54 words of extra memory for PDF output out of 10000 (max. 10000000)
 

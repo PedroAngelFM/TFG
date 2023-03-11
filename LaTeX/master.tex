@@ -16,7 +16,9 @@
 \usepackage{listings}
 \usepackage{titlesec}
 \usepackage{titletoc}
-
+\renewcommand{\baselinestretch}{1}
+\clubpenalty=10000
+\widowpenalty=10000
 \usepackage{makeidx}%glosario de términos
 \usepackage[all]{xy}
 
@@ -44,7 +46,7 @@
 \makeindex
 
 
-\setlength{\parskip}{5pt plus 2pt minus 1pt}
+%\setlength{\parskip}{5pt plus 2pt minus 1pt}
 %%%%%%%%%%%%%%%%
 %%% MACROS
 %%%%%%%%%%%%%%%%
@@ -75,11 +77,11 @@
 \newcommand{\rk}{\operatorname{rk}}
 \newcommand{\ch}{\operatorname{ch}}
 \newcommand{\Td}{\operatorname{Td}}
-
+\usepackage[left=3.1cm,right=3.1cm,top=2.5cm,bottom=2.5cm]{geometry}
 \begin{document}
 
 	\input{Documentos Extra/portada.tex}
-	%\pagenumbering{roman}
+	\pagenumbering{roman}
 	\tableofcontents
 	
 	%\input{Documentos Extra/Introduccion.tex}
