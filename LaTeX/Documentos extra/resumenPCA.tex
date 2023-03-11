@@ -103,15 +103,9 @@ Que al multiplicar todo por $\textbf{a}_1^T$ obtenemos que $\phi=0$. De esta man
 \noindent Una vez descompuesta de esta manera la matriz de covarianzas tenemos 
 que $\Sigma=\textbf{A}^T\Delta \textbf{A}$
 
-\begin{propo}
-
-\begin{proof}
-
-\end{proof}
-\end{propo}
 \newpage
 
-\section{PCA en matrices de datos}
+\subsection{PCA en matrices de datos}
 
 \noindent Sea \textbf{x} el vector aleatorio de longitud $p$, tomamos $n$ observaciones de ese vector y obtenemos $\textbf{x}_1\ldots \textbf{x}_n$.
 Esta recopilación de observaciones nos permite construir la matriz de datos $\textbf{X}$ cuyas filas son cada una de las observaciones. Esta matriz \textbf{X} es de tamaño $n\times p$. 
@@ -143,5 +137,100 @@ Es decir el factor $\widetilde{z}_{ij}$ es la transformación de la observación
 \end{equation}
 Donde $\overline{x}_j$ es la media muestral de la $j$-ésima variable. Esto hace que $\textbf{S}=\frac{1}{n-1}\textbf{X}^T\textbf{X}$. Esto permite hablar de los valores y vectores propios de \textbf{S} y de $\textbf{X}^T \textbf{X}$ indistintamente, ya que los vectores son los mismos y los valores propios son proporcionales. 
 
+\newpage
+\subsection{Reducción de la dimensionalidad}
 
+\noindent Uno de los objetivos de las componentes principales es reducir la dimensionalidad de la matriz de datos de tamaño $n\times p$, \textbf{X}. Esta matriz de datos se puede interpretar como un conjunto de puntos del espacio $\mathbb{R}^p$. 
 
+\noindent La intención final es buscar una proyección sobre una subvariedad de dimensión $m<p$ que reduzca la pérdida de información de la matriz y que brinde una mayor capacidad de interpretación de los datos, ya que en el caso de que $m=2$ se podrán hacer representaciones gráficas de manera sencilla . En virtud de conseguir esto se deben definir los siguientes conceptos:
+
+\begin{defi}
+Dada una matriz $\textbf{X}\in  \mathbb{M}_{n\times p}(\mathbb{R})$ existe la descomposición en valores singulares \textit{(SVD en inglés)}:
+\begin{equation}
+\textbf{X}=\textbf{U}\Sigma\textbf{V}^T
+\end{equation}
+Donde:
+\begin{itemize}
+\item \textbf{U} matriz ortogonal y de tamaño $n \times n$
+\item $\Sigma$ matriz de tamaño $n \times p $ diagonal, cuyos elementos no nulos son los valores singulares $\sigma_1\geq\ldots\geq \sigma_r\geq 0$ que son los valores propios de la matriz $\textbf{X}^T\textbf{X}$ y $r=rg(\textbf{X})$
+\item \textbf{V} matriz ortogonal y de tamaño $p \times p$
+\end{itemize}
+\end{defi}
+
+\begin{propo}
+La matriz \textbf{V} de tamaño $(p\times p)$ es la matriz que contiene los vectores para hacer la combinación lineal que definen las componentes principales.
+\begin{proof}
+La matriz $\textbf{X}^T \textbf{X}$ es la matriz de covarianzas $(p \times p)$  por la descomposición en valores singulares tenemos que:
+\begin{align*}
+\textbf{X}^T \textbf{X} &= (\textbf{U}\Sigma \textbf{V}^T)^T (\textbf{U}\Sigma \textbf{V}^T)\\
+&= \textbf{V}\Sigma ^T \textbf{U}^T \textbf{U}\Sigma \textbf{V}^T\\
+&= \textbf{V}\Sigma ^T \Sigma \textbf{V}^T
+\end{align*}
+Donde la matriz $\Sigma ^T \Sigma $ es una matriz diagonal de tamaño $p \times p $ cuyos elementos son los cuadrados de los valores singulares de \textbf{X}, que son a su vez los valores propios de $\textbf{X}^T \textbf{X}$. 
+
+\noindent Añadiendo la condición de ortogonalidad de $\textbf{V}\Rightarrow \textbf{V}^{-1}=V^T$ es fácil ver que la matriz \textbf{V} es la matriz cuyas columnas son los vectores propios de $\textbf{X}^T\textbf{X}$
+\end{proof}
+\end{propo}
+
+\begin{coro}
+El cálculo de las componentes principales de la matriz de datos \textbf{X} es equivalente a calcular la descomposición en valores singulares de la misma. 
+\end {coro}
+\newpage
+\begin{defi}
+Sea $\textbf{A}\in \mathbb{M}_{n\times p}(\mathbb{R})$ definimos la \textit{norma de Frobenius} de la matriz \textbf{A} como :
+\begin{equation}
+||\textbf{A}||_F=(tr(\textbf{A}^T\cdot \textbf{A}))^{\frac{1}{2}}=\left(\sum_{i=1}^{n}\sum _{j=1}^{m}a_{ij}^2\right)^{\frac{1}{2}}
+\end{equation}
+\end{defi}
+
+\begin{propo}
+La norma de Frobenius es invariante a transformaciones ortogonales
+\begin{proof}
+Sea $\mathbf{U}$ una matriz ortogonal, que cumple $\mathbf{U}^T\cdot \mathbf{U}=\mathbf{U}\cdot \mathbf{U}^T=\textbf{I}$, sea una matriz cualquiera $\mathbf{A}$, entonces:
+\begin{align*}
+||\mathbf{U} \cdot \mathbf{A}||_F^2&=tr((\mathbf{U} \mathbf{A})^T\cdot(\mathbf{U} \mathbf{A}))\\
+&=tr((\mathbf{A}^T \mathbf{U}^T)\cdot \mathbf{U} \mathbf{A}))\\
+&=tr(\mathbf{A}^T \mathbf{A})\\
+&=||\mathbf{A}||_F^2\qedhere
+\end{align*}
+\end{proof}
+\end{propo}
+
+\noindent Se ha elegido la norma de frobenius se ha elegido por la siguiente propiedad. 
+\begin{propo}
+Dada una matriz de datos \textbf{X} de tamaño $n\times p$ entonces
+\begin{equation}
+||\textbf{X}||_F^2=(n-1)\sum_{i=1}^p s_{ii}^2
+\end{equation}
+Donde las $s_{ii}^2$ son las varianzas muestrales.
+\begin{proof}
+Debido a la centralidad impuesta a la matriz \textbf{X}, sabemos que la matriz de covarianzas es $\textbf{S}=\frac{1}{n-1}\textbf{X}^T \textbf{X}$ por tanto,se tiene que utilizar la definición de la norma:
+\begin{align*}
+||\textbf{X}||_F^2 &= tr(\textbf{X}^T\textbf{X})\\
+&= (n-1) tr(\textbf{S})\\
+&= (n-1) \sum_{i=1}^p s_{ii}^2 \qedhere
+\end{align*}
+\end{proof}
+\end{propo}
+\noindent Por tanto, la norma de Frobenius da una imagen del tamaño de la matriz de datos en función de la varianza total de los datos, lo que concuerda con la idea de buscar una matriz que aproxime la matriz de datos con la mínima pérdida de variación de los datos.  
+\begin{defi}
+Se llama matriz reducida de orden $m\leq p$ de $\textbf{X}$ y se denota como $\textbf{X}_m$, a la matriz $n\times p$ resultado de:
+\begin{equation}
+\textbf{X}_m=\textbf{U}_m\Sigma_m\textbf{V}^T_m
+\end{equation}
+Donde:
+\begin{itemize}
+\item $\textbf{U}_m$ matriz ortogonal de tamaño $n \times m$, resultado de tomar de \textbf{U} únicamente la matriz las $m$ primeras columnas. 
+\item $\Sigma_m$  matriz cuadrada de tamaño $m$ diagonal con los $m$ primeros valores singulares. 
+\item $\textbf{V}_m$ matriz ortogonal de tamaño $p \times m$ obtenida al tomar las $m$ primeras columnas de \textbf{V}.
+\end{itemize}
+\end{defi}
+
+\begin{teorema}[De Eckart-Young]
+Sea \textbf{A} una matriz de coeficientes reales de tamaño $n\times p$ y rango $r$  entonces se cumple que:
+\begin{equation}
+||\textbf{A}-\textbf{B}||_F\leq ||\textbf{A}-\textbf{A}_m||_F \quad \forall \textbf{B}/ rg(\textbf{B})=m \leq r
+\end{equation} 
+\end{teorema}
+
+\noindent Por tanto, la matriz reducida brinda la mejor aproximación de la matriz de datos teniendo un criterio de aproximación basado en la variación de los datos. En consecuencia se puede 

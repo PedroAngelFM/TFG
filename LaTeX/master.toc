@@ -3,6 +3,7 @@
 \contentsline {section}{\numberline {1.1}Introducción}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Análisis de Componentes Principales}{1}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}Definición y cálculo de las Componentes}{1}{subsection.1.2.1}%
-\contentsline {section}{\numberline {1.3}PCA en matrices de datos}{4}{section.1.3}%
-\contentsline {chapter}{Bibliografía}{5}{chapter*.2}%
+\contentsline {subsection}{\numberline {1.2.2}PCA en matrices de datos}{4}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Reducción de la dimensionalidad}{5}{subsection.1.2.3}%
+\contentsline {chapter}{Bibliografía}{9}{chapter*.4}%
 \contentsfinish 
