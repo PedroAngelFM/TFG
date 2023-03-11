@@ -234,3 +234,11 @@ Sea \textbf{A} una matriz de coeficientes reales de tamaño $n\times p$ y rango 
 \end{teorema}
 
 \noindent Por tanto, la matriz reducida brinda la mejor aproximación de la matriz de datos teniendo un criterio de aproximación basado en la variación de los datos. En consecuencia se puede 
+
+\noindent Como conclusión, se puede definir un criterio para elegir el orden de la matriz reducida $m$. Se puede entonces definir la variación acumulada de la siguiente manera:
+\begin{equation}
+t_m=\dfrac{\sum_{i=1}^{m}\lambda_i}{\sum_{i=1}^{p}\lambda_i}
+\end{equation}
+\noindent Donde los $\lambda_i$ son los valores propios de la matriz $\textbf{S}=\frac{1}{n-1}\textbf{X}^T\textbf{X}$.
+
+\noindent Cuanto más cercana sea $t_m$ a $1$ manteniendo $m$ lo más pequeña posible mejor por que implicaría que con pocas componentes principales podemos ``explicar'' la mayor parte de la variación de los datos. Según Jollife \cite{Jollife 1986} entre un $0.8$ y $0.9$ es lo más habitual. 
