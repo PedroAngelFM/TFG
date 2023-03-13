@@ -1,9 +1,16 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {1}Métodos no supervisados}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Introducción}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Análisis de Componentes Principales}{1}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Definición y cálculo de las Componentes}{1}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}PCA en matrices de datos}{4}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Reducción de la dimensionalidad}{5}{subsection.1.2.3}%
+\contentsline {chapter}{\numberline {1}Métodos Supervisados}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Redes Neuronales}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Proyection Pursuit Regression}{2}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Red Neuronal de 2 capas }{3}{subsection.1.1.2}%
+\contentsline {chapter}{\numberline {2}Métodos no supervisados}{1}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducción}{1}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Análisis de Componentes Principales}{1}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Definición y cálculo de las Componentes}{1}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}PCA en matrices de datos}{4}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Reducción de la dimensionalidad}{5}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Análisis Discriminante}{7}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Objetivos}{7}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Conceptos previos}{7}{subsection.2.3.2}%
 \contentsline {chapter}{Bibliografía}{9}{chapter*.4}%
 \contentsfinish 

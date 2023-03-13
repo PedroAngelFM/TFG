@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  11 MAR 2023 17:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  13 MAR 2023 15:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -696,7 +696,7 @@ Package srcltx Info: Expanded filename `Documentos Extra/portada.tex' to `Docum
 entos Extra/portada.tex' on input line 83.
 :<+ Documentos Extra/portada.tex
 (Documentos Extra/portada.tex
-<Documentos Extra/escudo2tintas.pdf, id=31, 240.9pt x 199.74625pt>
+<Documentos Extra/escudo2tintas.pdf, id=47, 240.9pt x 199.74625pt>
 File: Documentos Extra/escudo2tintas.pdf Graphic file (type pdf)
 <use Documentos Extra/escudo2tintas.pdf>
 Package pdftex.def Info: Documentos Extra/escudo2tintas.pdf  used on input line
@@ -715,11 +715,11 @@ LaTeX Info: Redefining \% on input line 1.
 \tf@toc=\write7
 \openout7 = `master.toc'.
 
-Package srcltx Info: Expanded filename `Métodos no Supervisados.tex' to `Méto
-dos no Supervisados.tex' on input line 94.
+Package srcltx Info: Expanded filename `Métodos supervisados.tex' to `Métodos
+ supervisados.tex' on input line 90.
 
-:<+ Métodos no Supervisados.tex
-(Métodos no Supervisados.tex [1
+:<+ Métodos supervisados.tex
+(Métodos supervisados.tex [1
 
 ]
 LaTeX Info: Redefining \. on input line 1.
@@ -728,6 +728,47 @@ LaTeX Info: Redefining \% on input line 1.
 
 ]
 Cap\'{\i }tulo 1.
+Package srcltx Info: Expanded filename `Documentos Extra/Redes Neuronales.tex' 
+to `Documentos Extra/Redes Neuronales.tex' on input line 13.
+:<+ Documentos Extra/Redes Neuronales.tex
+(Documentos Extra/Redes Neuronales.tex
+<Documentos Extra/neurona.png, id=80, 446.41782pt x 246.9225pt>
+File: Documentos Extra/neurona.png Graphic file (type png)
+<use Documentos Extra/neurona.png>
+Package pdftex.def Info: Documentos Extra/neurona.png  used on input line 11.
+(pdftex.def)             Requested size: 290.16814pt x 160.49771pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.17 \newpage
+              [1 <./Documentos Extra/neurona.png>]
+<Documentos Extra/red-neuronal-grande.png, id=91, 556.0775pt x 301.125pt>
+File: Documentos Extra/red-neuronal-grande.png Graphic file (type png)
+<use Documentos Extra/red-neuronal-grande.png>
+Package pdftex.def Info: Documentos Extra/red-neuronal-grande.png  used on inpu
+t line 23.
+(pdftex.def)             Requested size: 250.23256pt x 135.50499pt.
+LaTeX Info: Redefining \. on input line 44.
+LaTeX Info: Redefining \% on input line 44.
+ [2 <./Documentos Extra/red-neuronal-grande.png>])
+:<-
+)
+:<-
+Package srcltx Info: Expanded filename `Métodos no Supervisados.tex' to `Méto
+dos no Supervisados.tex' on input line 94.
+:<+ Métodos no Supervisados.tex
+(Métodos no Supervisados.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [3]
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [4
+
+]
+Cap\'{\i }tulo 2.
 Package srcltx Info: Expanded filename `Documentos Extra/resumenPCA.tex' to `Do
 cumentos Extra/resumenPCA.tex' on input line 4.
 :<+ Documentos Extra/resumenPCA.tex
@@ -740,19 +781,45 @@ l.30 \begin{equation}
                       [1]
 LaTeX Info: Redefining \. on input line 78.
 LaTeX Info: Redefining \% on input line 78.
- [2]
-LaTeX Info: Redefining \. on input line 106.
-LaTeX Info: Redefining \% on input line 106.
- [3]
-LaTeX Info: Redefining \. on input line 140.
-LaTeX Info: Redefining \% on input line 140.
- [4]
-LaTeX Info: Redefining \. on input line 178.
-LaTeX Info: Redefining \% on input line 178.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.78 L
+      as componentes principales son todas ortogonales entre sí. [2]
+LaTeX Info: Redefining \. on input line 104.
+LaTeX Info: Redefining \% on input line 104.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.104 \newpage
+               [3]
+LaTeX Info: Redefining \. on input line 138.
+LaTeX Info: Redefining \% on input line 138.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.138 \newpage
+               [4]
+LaTeX Info: Redefining \. on input line 176.
+LaTeX Info: Redefining \% on input line 176.
  [5]
-LaTeX Info: Redefining \. on input line 233.
-LaTeX Info: Redefining \% on input line 233.
+LaTeX Info: Redefining \. on input line 231.
+LaTeX Info: Redefining \% on input line 231.
  [6])
+:<-
+Package srcltx Info: Expanded filename `Documentos Extra/resumenAD.tex' to `Doc
+umentos Extra/resumenAD.tex' on input line 6.
+:<+ Documentos Extra/resumenAD.tex
+(Documentos Extra/resumenAD.tex
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
+ [7])
 :<-
 )
 :<-
@@ -762,27 +829,30 @@ ntos Extra/biblio.tex' on input line 98.
 (Documentos Extra/biblio.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [7]
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [8
-
-])
+ [8])
 :<-
 
 AED: lastpage setting LastPage
-[9] (master.aux
+[9
+
+] (master.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
-Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: B09E5B53498216716C2FD190313B0E65;1488.
+
+Package rerunfilecheck Warning: File `master.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `master.out':
+(rerunfilecheck)             Before: 45A20B2B7F196817C2D480254E074D93;2286
+(rerunfilecheck)             After:  8DD47F80B0931B69B989BB2B1175CC18;2803.
  ) 
 Here is how much of TeX's memory you used:
- 16637 strings out of 476339
- 254058 string characters out of 5788120
+ 16687 strings out of 476339
+ 255393 string characters out of 5788120
  1868340 words of memory out of 5000000
- 36718 multiletter control sequences out of 15000+600000
+ 36741 multiletter control sequences out of 15000+600000
  522463 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,76p,3219b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -802,9 +872,9 @@ cm/cmsy10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmsy8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (12 pages, 329212 bytes).
+Output written on master.pdf (16 pages, 501805 bytes).
 PDF statistics:
- 211 PDF objects out of 1000 (max. 8388607)
- 52 named destinations out of 1000 (max. 500000)
- 62 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 264 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
+ 104 words of extra memory for PDF output out of 10000 (max. 10000000)
 

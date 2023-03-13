@@ -1,0 +1,101 @@
+\documentclass[12pt,a4paper,spanish]{book}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}             
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphics}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{lastpage}
+\usepackage{color}
+\usepackage{amsbsy}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\renewcommand{\baselinestretch}{1}
+\clubpenalty=10000
+\widowpenalty=10000
+\usepackage{makeidx}%glosario de términos
+\usepackage[all]{xy}
+
+\theoremstyle{definition}
+\newtheorem{defi}{Definición}[section]
+
+\theoremstyle{definition}
+\newtheorem{propo}{Proposición}[section]
+
+\theoremstyle{definition}
+\newtheorem{coro}{Corolario}[section]
+
+\theoremstyle{definition}
+\newtheorem{teorema}{Teorema}[section]
+
+\usepackage{srcltx}%permite la busqueda inversa, si no viene por defecto en la version de LaTeX usada.
+
+% lo siguiente solo usarlo cuando compilo directamente en pdflatex
+% si lo uso compilando en latex el {\'\i}ndice no lo hace bien
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=black, citecolor=black}
+\hypersetup{bookmarksopen=false, bookmarksnumbered=true} \hypersetup{pdfstartview=FitH}
+
+\makeindex
+
+
+\setlength{\parskip}{5pt plus 2pt minus 1pt}
+%%%%%%%%%%%%%%%%
+%%% MACROS
+%%%%%%%%%%%%%%%%
+
+\newcommand{\cplx}[1]{{{\mathcal #1}^{\scriptscriptstyle\bullet}}}
+
+\newcommand{\dmc}[1]{{D}^-(#1)}
+\newcommand{\dbc}[1]{{D}^b(#1)}
+
+\newcommand{\fmf}[3]{{\Phi^{#1}_{{\scriptscriptstyle #2\!\rightarrow\! #3}}}}
+\newcommand{\lotimes}{{\,\stackrel{\mathbf L}{\otimes}\,}}
+
+\newcommand{\cO}{{\mathcal O}}
+\newcommand{\cP}{{\mathcal P}}
+\newcommand{\cE}{{\mathcal E}}
+\newcommand{\cG}{{\mathcal G}}
+\newcommand{\calL}{{\mathcal L}}
+\newcommand{\cI}{{\mathcal I}}
+\newcommand{\cF}{{\mathcal F}}
+\newcommand{\cQ}{{\mathcal Q}}
+\newcommand{\cM}{{\mathcal M}}
+
+\newcommand{\f}{\mathfrak{f}}
+
+\newcommand{\iso}{{\,\stackrel {\textstyle\sim}{\to}\,}}
+\newcommand{\what}[1]{{\widehat #1}}
+
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\Td}{\operatorname{Td}}
+\usepackage[left=3.1cm,right=3.1cm,top=2.5cm,bottom=2.5cm]{geometry}
+\begin{document}
+
+	\input{Documentos Extra/portada.tex}
+	\pagenumbering{roman}
+	\tableofcontents
+	
+	%\input{Documentos Extra/Introduccion.tex}
+	
+	
+	\input{Métodos supervisados.tex}
+	
+	%\input{Documentos Extra/Conceptos Básicos.tex}
+	
+	\input{Métodos no Supervisados.tex}	
+	
+	%\input{Documentos Extra/resumenCA.tex}
+	
+	\input{Documentos Extra/biblio.tex}
+
+
+\end{document}

@@ -1,3 +1,72 @@
 \section{Redes Neuronales}
 
-\noindent Las redes neuronales artificiales, redes neuronales simplemente a partir de ahora, se basan en el funcionamiento básico de las neuronas biológicas. Este tipo de células recogen 
+\noindent Las redes neuronales artificiales, redes neuronales simplemente a partir de ahora, se basan en el funcionamiento básico de las neuronas biológicas. Este tipo de células recogen señales externas, las procesan y producen una respuesta en consecuencia. 
+
+\noindent En el caso de una neurona artificial, dados los valores de entrada de una observación, $\lbrace x_i\rbrace_{i=1}^p$, la neurona tiene asociada a cada uno de ellos un peso, $\lbrace \omega_i\rbrace_{i=1}^p$, y opcionalmente un sesgo $b$. Además la neurona tiene una función de activación $g(x)$. 
+
+\noindent Una vez recogidos los valores, se hace una suma ponderada de ellos $z=b+\sum_{i=1}^p \omega_i x_i$ y la neurona produce el valor $g(z)$.
+
+\begin{center}
+%%Hay que pedirle a Carlos que lo edite por que yo la verdad que no se 
+\includegraphics[scale=0.65]{Documentos Extra/neurona.png}
+\end{center}
+
+\noindent Una vez calculada la salida de la neurona, esta puede conectarse a otra, sirviendo los datos de salida de la primera neurona como datos de entrada de la siguiente. De manera  podemos tener capas de $m$ neuronas para producir $m$ salidas que sirvan como datos de entrada para la siguiente capa de neuronas.
+
+\noindent Por último, puede haber capas al principio y al final para tareas como estandarizar, centrar los datos y deshacer dichas operaciones para producir una salida coherente. 
+\newpage
+\noindent La siguiente imagen es un esquema de una red neuronal con 7 capas de neuronas interconectadas donde la primera capa es de escalado y la última de desescalado. Se puede observar que se predicen las variables $y_1, y_2, y_3$ usando como entrada las variables $x_1,x_2,x_3,x_4$ 
+
+\begin{figure}[h]
+\centering
+%%Hay que pedirle a Carlos que lo edite por que yo la verdad que no se 
+\includegraphics[scale=0.45]{Documentos Extra/red-neuronal-grande.png}
+\caption{Imagen extraída directamente de www.neuraldesigner.com}
+\end{figure}
+
+\noindent Una vez explicado el concepto básico en el que se fundamentan las redes neuronales, se introducen los conceptos subyacentes a la misma.  
+
+\subsection{Proyection Pursuit Regression}
+
+\noindent Sean un vector aleatorio \textbf{x} de longitud $p$, una variable objetivo $Y$ y una familia de vectores de parámetros de longitud $p$, $\lbrace \omega_m\rbrace_{m=1}^M$. Entonces el modelo de Regresión por Búsqueda de Proyecciones \textit{(PPR en inglés)} es de la forma :
+\begin{equation}
+f(\textbf{x})=\sum_{m=1}^M g_m(\omega_m^T \textbf{x})
+\end{equation}
+
+\noindent En este modelo las funciones $g_m$ no son especificadas y son estimaciones a lo largo de las direcciones de los vectores $\omega_m^T \textbf{x}$. Según Hastie, Tibshirani y Friedman \cite{Hastie 2001} para un $M$ lo suficiente grande y utilizando las $g_m$ apropiadas este modelo puede ayudar a la predicción de cualquier función continua real. 
+
+%%Detallar
+
+\noindent El uso de este modelo es complejo, debido a que hay una gran cantidad de parámetros de distintos tipos, obligando a utilizar distintos métodos de optimización. Asimismo, este tipo de modelos se utilizan solamente cuando se quiere predecir una variable, debido a su complejidad, que los hace difíciles de interpretar.
+
+\noindent Sobre este modelo se sustentan las redes neuronales, la única modificación que se hace es que las $g_m$ se suponen conocidas y constantes a lo largo del proceso de ajuste, modificando sólo los vectores $\omega_m$. 
+
+\newpage
+\subsection{Red Neuronal de 2 capas }
+
+\noindent En pos de la sencillez de los resultados, se detallará la  de una red neuronal de dos capas. El resto de casos $m\geq 2$, el proceso es análogo. Añadir que la situación es aquella en la que se quiere predecir $K$ variables objetivo a partir de observaciones de $p$ variables. 
+
+\noindent La primera capa tiene los siguientes elementos:
+\begin{itemize}
+\item Como datos de entrada cada una de las observaciones $\textbf{x}$ de tamaño $p$ e incluimos en cada uno el término inicial $x_{0}=1$ de tal manera que hay $p+1$ datos de entrada.
+\item Un total de $M$ unidades lo que provocará un conjunto $\lbrace z_m \rbrace$ de datos de salida.
+\item Cada unidad de las $M$ tiene unos pesos $\alpha_m$ de dimensión $p+1$, donde la primera componente $\alpha_{m0}$ se denomina \textbf{sesgo}.
+\item Una función de activación \textit{(Que puede o no ser lineal)} $g^(2)$.
+\end{itemize}
+\noindent De esta manera, tenemos que los datos de salida de esta primera capa son de la forma:
+\begin{equation}
+z_m=g^(2)(\alpha_m^T\textbf{x})
+\end{equation}
+
+\noindent De manera análoga tenemos una segunda capa de neuronas con los siguientes elementos:
+\begin{itemize}
+\item Como datos de entrada los $M$ resultados de la capa anterior, $z_m$ al que añadimos $z_0=1$ y denotaremos como el vector $\textbf{z}$ de longitud $M+1$.
+\item Un total de $K$ unidades lo que provocará un conjunto $\lbrace t_k \rbrace$ de datos de salida.
+\item Cada unidad de las $K$, tiene unos pesos $\beta_m$ de dimensión $M+1$ igual que en la anterior. 
+\item Una función de activación \textit{(Que puede o no ser lineal)} $g^{(2)}$ que puede ser la misma que en la anterior o no.
+\end{itemize}
+\noindent De esta manera, tenemos que los datos de salida de esta primera capa son de la forma:
+\begin{equation}
+t_k=g^{(2)}(\beta_k^T\textbf{z})=g^{(2)}\sum
+\end{equation}
+\noindent Hay que destacar que los datos deben estar escalados, o pueden serlo mediante una capa que los escale per sé.
