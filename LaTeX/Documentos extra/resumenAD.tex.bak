@@ -1,6 +1,8 @@
 \newpage
 \section{Análisis Discriminante}
-\noindent Sea un vector aleatorio \textbf{x} de longitud $p$ del que se extraen observaciones, las cuales pertenecen a 2 poblaciones $\Omega_1,\Omega_2$. Se quiere establecer un criterio para una vez se extrae un individuo u observación, saber a cual de las poblaciones pertenece. 
+\noindent Sea un vector aleatorio \textbf{x} de longitud $p$ del que se extraen observaciones, las cuales pertenecen a 2 poblaciones $\Omega_1,\Omega_2$. Se quiere establecer un criterio para una vez se extrae un nuevo individuo u observación, saber a cual de las poblaciones pertenece.\\
+
+
 \begin{defi}
 Una \textit{regla discriminante} es un criterio de clasificación de observaciones, a menudo se da mediante una función discriminante de los valores de la observación $D(x_1 \ldots x_p)$. 
 \end{defi}
@@ -23,3 +25,23 @@ pce=\mathbb{P}(R_2|\Omega_1)\mathbb{P}(\Omega_1)+\mathbb{P}(R_1|\Omega_2)\mathbb
 
 \noindent Estos conceptos son generalizables a $k$ poblaciones $\Omega_1 \ldots \Omega_k$. 
 Se detallan a continuación varias formas de crear una regla discriminante: 
+\subsection{Reglas Discriminantes Básicas}
+\noindent A continuación se detallará el caso para $2$ poblaciones $\Omega_1, \Omega_2$ y se desarrollará a partir de ahí el caso para $k$ poblaciones dependiendo de la facilidad de desarrollo a partir del primero. 
+\subsection*{Discriminador lineal}
+\noindent Sean dos poblaciones $\Omega_1, \Omega_2 $ con medias poblacionales $\mu_1,\mu_2$ y matriz de covarianzas $\Sigma$ entonces definimos la siguiente distancia:
+\begin{defi}
+Llamaremos \textit{distancia de Mahalanobis} de una observación\\$\textbf{x}=(x_1\ldots x_p)^T$ a una de las dos poblaciones  a la siguiente aplicación:
+\begin{equation}
+ M^2(\textbf{x},\mu_i)=(\textbf{x}-\mu_i)^T\Sigma^{-1}(\textbf{x}-\mu_i)\quad i=1,2
+\end{equation} 
+\end{defi} 
+
+\noindent Una \textit{regla discriminante} teniendo en cuenta las distancias es la siguiente:
+\begin{equation}
+\begin{split}
+\text{Si } M^2(\textbf{x},\mu_1)< M^2(\textbf{x},\mu_2) &\Rightarrow \omega\in \Omega_1\\ 
+\text{En el caso contrario } &\Rightarrow \omega\in \Omega_2
+\end{split}
+\end{equation}
+
+\noindent Sean $k$ poblaciones $\Omega_1 \ldots \Omega_k$.

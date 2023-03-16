@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  13 MAR 2023 16:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  16 MAR 2023 11:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -696,7 +696,7 @@ Package srcltx Info: Expanded filename `Documentos Extra/portada.tex' to `Docum
 entos Extra/portada.tex' on input line 83.
 :<+ Documentos Extra/portada.tex
 (Documentos Extra/portada.tex
-<Documentos Extra/escudo2tintas.pdf, id=51, 240.9pt x 199.74625pt>
+<Documentos Extra/escudo2tintas.pdf, id=55, 240.9pt x 199.74625pt>
 File: Documentos Extra/escudo2tintas.pdf Graphic file (type pdf)
 <use Documentos Extra/escudo2tintas.pdf>
 Package pdftex.def Info: Documentos Extra/escudo2tintas.pdf  used on input line
@@ -732,7 +732,7 @@ Package srcltx Info: Expanded filename `Documentos Extra/Redes Neuronales.tex'
 to `Documentos Extra/Redes Neuronales.tex' on input line 13.
 :<+ Documentos Extra/Redes Neuronales.tex
 (Documentos Extra/Redes Neuronales.tex
-<Documentos Extra/neurona.png, id=85, 446.41782pt x 246.9225pt>
+<Documentos Extra/neurona.png, id=90, 446.41782pt x 246.9225pt>
 File: Documentos Extra/neurona.png Graphic file (type png)
 <use Documentos Extra/neurona.png>
 Package pdftex.def Info: Documentos Extra/neurona.png  used on input line 11.
@@ -744,7 +744,7 @@ been already used, duplicate ignored
                    \relax 
 l.17 \newpage
               [1 <./Documentos Extra/neurona.png>]
-<Documentos Extra/red-neuronal-grande.png, id=96, 556.0775pt x 301.125pt>
+<Documentos Extra/red-neuronal-grande.png, id=101, 556.0775pt x 301.125pt>
 File: Documentos Extra/red-neuronal-grande.png Graphic file (type png)
 <use Documentos Extra/red-neuronal-grande.png>
 Package pdftex.def Info: Documentos Extra/red-neuronal-grande.png  used on inpu
@@ -772,54 +772,37 @@ Cap\'{\i }tulo 2.
 Package srcltx Info: Expanded filename `Documentos Extra/resumenPCA.tex' to `Do
 cumentos Extra/resumenPCA.tex' on input line 4.
 :<+ Documentos Extra/resumenPCA.tex
-(Documentos Extra/resumenPCA.tex
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.30 \begin{equation}
-                      [1]
+(Documentos Extra/resumenPCA.tex [5]
 LaTeX Info: Redefining \. on input line 78.
 LaTeX Info: Redefining \% on input line 78.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.78 L
-      as componentes principales son todas ortogonales entre sí. [2]
+ [6]
 LaTeX Info: Redefining \. on input line 104.
 LaTeX Info: Redefining \% on input line 104.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.104 \newpage
-               [3]
+ [7]
 LaTeX Info: Redefining \. on input line 138.
 LaTeX Info: Redefining \% on input line 138.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.138 \newpage
-               [4]
+ [8]
 LaTeX Info: Redefining \. on input line 176.
 LaTeX Info: Redefining \% on input line 176.
- [5]
+ [9]
 LaTeX Info: Redefining \. on input line 231.
 LaTeX Info: Redefining \% on input line 231.
- [6])
+ [10])
 :<-
-Package srcltx Info: Expanded filename `Documentos Extra/resumenAD.tex' to `Doc
-umentos Extra/resumenAD.tex' on input line 6.
-:<+ Documentos Extra/resumenAD.tex
-(Documentos Extra/resumenAD.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [7])
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
+[11]
+Package srcltx Info: Expanded filename `Documentos Extra/resumenCA.tex' to `Doc
+umentos Extra/resumenCA.tex' on input line 6.
+
+:<+ Documentos Extra/resumenCA.tex
+(Documentos Extra/resumenCA.tex
+LaTeX Info: Redefining \. on input line 44.
+LaTeX Info: Redefining \% on input line 44.
+ [12]
+LaTeX Info: Redefining \. on input line 87.
+LaTeX Info: Redefining \% on input line 87.
+ [13])
 :<-
 )
 :<-
@@ -829,27 +812,27 @@ ntos Extra/biblio.tex' on input line 98.
 (Documentos Extra/biblio.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [8])
+ [14])
 :<-
 
 AED: lastpage setting LastPage
-[9
+[15
 
 ] (master.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 60D8A92B582BB69FCEB46C6449D8897D;2480.
+(rerunfilecheck)             Checksum: C95580B79381D1B77895A10F2663876B;2679.
  ) 
 Here is how much of TeX's memory you used:
- 16686 strings out of 476339
- 255374 string characters out of 5788120
+ 16708 strings out of 476339
+ 255618 string characters out of 5788120
  1868340 words of memory out of 5000000
- 36742 multiletter control sequences out of 15000+600000
+ 36743 multiletter control sequences out of 15000+600000
  522463 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,17n,76p,3219b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,76p,3219b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Pedro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -866,9 +849,9 @@ cm/cmsy10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmsy8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (16 pages, 500687 bytes).
+Output written on master.pdf (18 pages, 513687 bytes).
 PDF statistics:
- 265 PDF objects out of 1000 (max. 8388607)
- 65 named destinations out of 1000 (max. 500000)
- 112 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 301 PDF objects out of 1000 (max. 8388607)
+ 86 named destinations out of 1000 (max. 500000)
+ 120 words of extra memory for PDF output out of 10000 (max. 10000000)
 

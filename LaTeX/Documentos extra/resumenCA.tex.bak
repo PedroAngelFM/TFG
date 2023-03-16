@@ -107,12 +107,8 @@ Dado un conjunto $\Omega$ finito sobre el que tenemos una jerarquía indexada $(
 \begin{proof}
 Definiendo la distancia
 \begin{equation}
-u(i,j)=\alpha(c_{ij})
+u(i,j)=\alpha(c_ij)
 \end{equation}
-Donde $c_ij$ es el mínimo cluster que contiene a ambos $i,j$. Sean ahora los clusters mínimos que contienen a $\lbrace i,k\rbrace,\lbrace j,k\rbrace, c_{ik},c_{jk}$ respectivamente, entonces:
-\begin{equation}
-c_{ik}\cap c_{jk}\neq \emptyset
-\end{equation}
-Por ser una jerarquía indexada tenemos dos posibilidades de inclusión uno en el otro 
+Donde $c_ij$ es el mínimo cluster que contiene a ambos $i,j$
 \end{proof}
 \end{propo}
