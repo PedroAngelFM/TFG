@@ -137,8 +137,47 @@ Por tanto, se obtiene que $u(i,j)\leq \sup\lbrace u(i,k),u(j,k) \rbrace$\\
 
 \noindent \textbf{Algoritmo de clasificación de observaciones}
 
-\noindent Lo que se busca en este tipo de algoritmos es convertir $\delta$ en una distancia últramétrica, por ende sea el espacio métrico $(\Omega, \delta)$ el algoritmo es el siguiente:\\
+\noindent Lo que se busca en este tipo de algoritmos es convertir $\delta$ en una distancia últramétrica, por ende dado el espacio métrico $(\Omega, \delta)$ el algoritmo es el siguiente:\\
+\begin{enumerate}
+\hrule
+\item Se empieza con el clustering $\Omega= \lbrace 1\rbrace \sqcup \ldots \sqcup\lbrace n \rbrace$. 
+\item Calculamos todas las distancias $u(c_a,c_b)$ y unimos los clusters que más cercanos estén y se define la distancia de un elemento $k$ al cluster de la siguiente manera:
+\begin{equation}
+\delta(k,\lbrace i,j \rbrace)=f(\delta(i,k),\delta(j,k))
+\end{equation}
+Donde la función $f$ hace que $\delta$ cumpla la propiedad ultramétrica
 
+\item Se considera la nueva partición
+\begin{equation}
+\Omega= \lbrace 1\rbrace \sqcup\ldots \sqcup \lbrace i,j\rbrace \sqcup \ldots \sqcup\lbrace n \rbrace
+\end{equation}
+Cada vez que se une $c_i$ con $c_j$ se define el índice $\alpha(c_i\cup c_j)=\delta'(c_i,c_j)$.\\
+\hrule
+\end{enumerate}
+De esta manera se obtiene también una jerarquía indexada $(C,\alpha)$
+
+\noindent Dependiendo de la función $f$ que se elija, se tienen distintos algoritmos:
+\begin{itemize}
+\item Si $f(x,y)=min(x,y)$ se obtiene el algoritmo de \textit{single linkage}.
+\item  Si $f(x,y)=min(x,y)$ se obtiene el algoritmo de \textit{complete linkage}.
+\item  Si $f(x,y)=\dfrac{x+y}{2}$ se obtiene el algoritmo de \textit{average linkage}.
+\end{itemize}
+
+Es decir, tomando distintas $f$ obtenemos distintos algoritmos. 
+
+\newpage
+\subsection{Elección de las diferencias }
+\noindent Añadir a esto que el mayor problema que conllevan este tipo de algoritmos es elegir y definir una distancia. Sea un vector aleatorio \textbf{x} de longitud $p$ sobre el que se realizan $n$ observaciones, entonces la forma más habitual de definir la distan cia entre dos observaciones es:
+\begin{equation}
+d(x_i,x_j)=\sum_{k=1}^p d_k(x_{ik},x_{jk})
+\end{equation}
+
+\noindent Donde las $d_k$ son las distancias adaptadas al tipo de variable que sea la variable aleatoria $X_k$. En particular:
+\begin{itemize}
+\item \textit{Variables Cuantitativas}: Basta con que sea una función monótona creciente del valor absoluto de la diferencia entre las dos observaciones. 
+\item \textit{Variables Ordinales: }
+\item 
+\end{itemize}
 
 
 

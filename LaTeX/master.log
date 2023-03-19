@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  19 MAR 2023 09:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  19 MAR 2023 11:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -696,7 +696,7 @@ Package srcltx Info: Expanded filename `Documentos Extra/portada.tex' to `Docum
 entos Extra/portada.tex' on input line 83.
 :<+ Documentos Extra/portada.tex
 (Documentos Extra/portada.tex
-<Documentos Extra/escudo2tintas.pdf, id=63, 240.9pt x 199.74625pt>
+<Documentos Extra/escudo2tintas.pdf, id=71, 240.9pt x 199.74625pt>
 File: Documentos Extra/escudo2tintas.pdf Graphic file (type pdf)
 <use Documentos Extra/escudo2tintas.pdf>
 Package pdftex.def Info: Documentos Extra/escudo2tintas.pdf  used on input line
@@ -729,10 +729,10 @@ LaTeX Info: Redefining \% on input line 1.
 ]
 Cap\'{\i }tulo 1.
 Package srcltx Info: Expanded filename `Documentos Extra/Redes Neuronales.tex' 
-to `Documentos Extra/Redes Neuronales.tex' on input line 13.
+to `Documentos Extra/Redes Neuronales.tex' on input line 14.
 :<+ Documentos Extra/Redes Neuronales.tex
 (Documentos Extra/Redes Neuronales.tex
-<Documentos Extra/neurona.png, id=100, 446.41782pt x 246.9225pt>
+<Documentos Extra/neurona.png, id=110, 446.41782pt x 246.9225pt>
 File: Documentos Extra/neurona.png Graphic file (type png)
 <use Documentos Extra/neurona.png>
 Package pdftex.def Info: Documentos Extra/neurona.png  used on input line 11.
@@ -744,7 +744,7 @@ been already used, duplicate ignored
                    \relax 
 l.17 \newpage
               [1 <./Documentos Extra/neurona.png>]
-<Documentos Extra/red-neuronal-grande.png, id=111, 556.0775pt x 301.125pt>
+<Documentos Extra/red-neuronal-grande.png, id=121, 556.0775pt x 301.125pt>
 File: Documentos Extra/red-neuronal-grande.png Graphic file (type png)
 <use Documentos Extra/red-neuronal-grande.png>
 Package pdftex.def Info: Documentos Extra/red-neuronal-grande.png  used on inpu
@@ -832,11 +832,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 136--137
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
 
  []
 
-)
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--155
+
+ []
+
+LaTeX Info: Redefining \. on input line 168.
+LaTeX Info: Redefining \% on input line 168.
+[15])
 :<-
 )
 :<-
@@ -846,27 +853,24 @@ ntos Extra/biblio.tex' on input line 98.
 (Documentos Extra/biblio.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [15]
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [16
-
-])
+ [16])
 :<-
 
 AED: lastpage setting LastPage
-[17] (master.aux
+[17
+
+] (master.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: DF3551CA46F46E9DB4C260050BBA947B;3268.
+(rerunfilecheck)             Checksum: 25F8E7ED995F5FCA10EECEF6DF57E7B9;3659.
  ) 
 Here is how much of TeX's memory you used:
- 16739 strings out of 476339
- 256033 string characters out of 5788120
+ 16749 strings out of 476339
+ 256154 string characters out of 5788120
  1868340 words of memory out of 5000000
- 36761 multiletter control sequences out of 15000+600000
+ 36763 multiletter control sequences out of 15000+600000
  525551 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,15n,76p,3219b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -888,9 +892,9 @@ msfonts/cm/cmsy10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1
 ts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/Pedro/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (20 pages, 539306 bytes).
+Output written on master.pdf (20 pages, 544754 bytes).
 PDF statistics:
- 338 PDF objects out of 1000 (max. 8388607)
- 96 named destinations out of 1000 (max. 500000)
- 136 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 356 PDF objects out of 1000 (max. 8388607)
+ 104 named destinations out of 1000 (max. 500000)
+ 152 words of extra memory for PDF output out of 10000 (max. 10000000)
 

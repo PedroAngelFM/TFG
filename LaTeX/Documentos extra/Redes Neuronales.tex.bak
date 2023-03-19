@@ -96,8 +96,11 @@ Sea una matriz de datos $\textbf{X}$ de tamaño $n\times p$, resultado de observ
 
 \subsection{Ajuste y uso de una Red Neuronal}
 
-\noindent Una vez formulado el funcionamiento de una red neuronal, el ajuste de los pesos y sesgos de esta se puede plantear como un problema de minimización de la pérdida en función de los propios pesos, utilizando métodos de optimización numérica. 
+\noindent Una vez formulado el funcionamiento de una red neuronal, el ajuste de los pesos y sesgos de esta se puede plantear como un problema de minimización de la pérdida en función de los propios pesos, utilizando métodos de optimización numérica como el método del gradiente o el método de Quasi-Newton. 
 
-\noindent Una vez ajustados los pesos el modelo resultante puede ser complejo de interpretar, pero proporciona predicciones que potencialmente pueden ser todo lo precisas que se requieran según \textit{[insertar el artículo de roberto]}. 
+\noindent Hay que tener en cuenta para seleccionar el modelo, es decir, el número de neuronas y capas, que las redes neuronales son proclives al sobre ajuste. Esto es debido a la gran cantidad de parámetros que se pueden tener en una red con una complejidad media. Es por ello que normalmente se introduce una penalización a términos muy grandes y hace que los pesos sean parecidos a 0.
 
-\noindent En este trabajo se han detallado los tipos más simples de redes neuronales, con las cu
+\noindent Una vez ajustados los pesos el modelo resultante puede ser complejo de interpretar, pero proporciona predicciones que potencialmente pueden ser todo lo precisas que se requieran según el número de capas y neuronas que utilicemos \textit{[insertar el artículo de roberto]}. 
+
+
+\noindent En este trabajo se han detallado los tipos más simples de redes neuronales y de neuronas, con las cuales ya se obtiene una gran capacidad de predicción. Sin embargo, hay estructuras neuronales como las redes convolucionales o las capas LSTM \textit{(Llamadas así por sus siglas en inglés Long-Short Term Memory)} que permiten modelizar sistemas en que los estados futuros son afectados por los estados anteriores como pudiera ser el precio de una acción bursátil o el tiempo atmosférico.
