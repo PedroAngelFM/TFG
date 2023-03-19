@@ -12,14 +12,14 @@
 Se llama \textit{clustering} a la partición que provoca la relación $\mathcal{R}$ y se definen los \textit{clusters} como las clases de equivalencia de dicha relación, $\lbrace c_i\rbrace$. 
 \end{defi}
 
-\subsection{Clustering Jerárquico}
+\subsection{Estructuración jerárquica de $\Omega$}\label{Estructuración jerárquica}
 
-\noindent En un proceso de clustering jerárquico el proceso crea una sucesión de clusterings sobre el mismo conjunto donde el clustering se obtiene agrupando clusters.  
+\noindent En un proceso de clustering jerárquico se crea una sucesión de particiones sobre el mismo conjunto donde los sucesivos clusterings se obtienen agrupando clusters.  
 
 \noindent Para poder formalizar el clustering jerárquico debemos definir el concepto de \textit{jerarquía indexada}
 
 \begin{defi}
-Una jerarquía indexada $(C,\alpha)$ sobre un conjunto $\Omega$, es una colección de clusters $C\subset \mathcal{P}(\Omega)$ y un índice que cumplen:
+Una \textit{jerarquía indexada} $(C,\alpha)$ sobre un conjunto $\Omega$, es una colección de clusters $C\subset \mathcal{P}(\Omega)$ y un índice que cumplen:
 \begin{itemize}
 \item \textit{Intersección}. Si $c,c'\in C$ entonces $c\cap c'\in\lbrace c, c', \emptyset\rbrace$. Es decir, dos clusters o están contenido el uno en el otro o son disjuntos. 
 \item \textit{Reunión} Cada cluster se puede caracterizar como la unión de los clusters que contiene. Es decir, $c\in C \Rightarrow c=\cup \lbrace c'/c'\in C, \quad c'\subset c\rbrace$
@@ -30,7 +30,7 @@ Una jerarquía indexada $(C,\alpha)$ sobre un conjunto $\Omega$, es una colecci�
 \begin{equation}
 \alpha(i)=0, \forall i\in\Omega \quad\quad \alpha(c)\leq \alpha(c') \text{ si } c\subset c'
 \end{equation}
-De esta manera, el índice es una forma de medir la diferencia dentro de un cluster. 
+De esta manera, el índice puede medir como de heterogéneos son los clusters, es decir, puede otorgar una medida de lo similares o no que son las observaciones dentro de un mismo cluster. 
 \end{defi}
 
 \begin{propo}
@@ -40,7 +40,8 @@ i\mathcal{R}_x j \quad \text{ si } \quad i,j\in c \quad \text{ siendo }\quad\alp
 \end{equation}
 Es una relación de equivalencia.
 \end{propo}
-\noindent Es decir, con esta relación se establece que dos elementos son ``iguales'' cuando hay un cluster de un nivel de heterogeneidad menor que un umbral que los contiene. 
+\noindent Es decir, con esta relación se establece que dos elementos son ``iguales'' cuando hay un cluster de un nivel de heterogeneidad menor que un umbral que los contiene. Es decir, se fija un criterio por el cual dos observaciones son lo suficientemente similares.
+
 \newpage
 \begin{defi}
 Un espacio ultramétrico es una pareja $(\Omega,u)$ donde $\Omega$ es un conjunto finito y $u$ una función distancia sobre $\Omega\times \Omega $ que verifica para cada elemento de $i,j,k\in \Omega$
@@ -88,20 +89,23 @@ Por tanto, haciendo uniones entre los elementos más cercanos no modifica la est
 
 \noindent \textbf{Algoritmo fundamental de clasificación}
 
-\noindent Dado un espacio ultramétrico $(\Omega, u)$ utilizando el teorema anterior se pueden ir juntando los clusters más próximos conservamos la distancia ultramétrica. 
+\noindent Dado un espacio ultramétrico $(\Omega, u)$ utilizando el teorema anterior se pueden ir juntando los clusters más próximos conservamos la distancia ultramétrica. \\
 \begin{enumerate}
+\hrule
 \item Se empieza con el clustering $\Omega= \lbrace 1\rbrace \sqcup \ldots \sqcup\lbrace n \rbrace$. 
 \item Calculamos todas las distancias $u(c_a,c_b)$ y unimos los clusters que más cercanos estén utilizando la misma distancia ultramétrica como en el teorema anterior.
 \item Se considera la nueva partición
 \begin{equation}
 \Omega= \lbrace 1\rbrace \sqcup\ldots \sqcup \lbrace i,j\rbrace \sqcup \ldots \sqcup\lbrace n \rbrace
 \end{equation}
-Cada vez que se une $c_i$ con $c_j$ se define el índice $\alpha(c_i\cup c_j)=u(c_i,c_j)$.
+Cada vez que se une $c_i$ con $c_j$ se define el índice $\alpha(c_i\cup c_j)=u(c_i,c_j)$.\\
+\hrule
 \end{enumerate}
+
 
 \noindent Este procedimiento nos brinda una forma sencilla de dada una distancia ultramétrica construir una jerarquía indexada. 
 
-En el caso contrario en el que se disponga de una jerarquía indexada, se puede crear un espacio ultramétrico con la siguiente proposición. 
+\noindent En el caso contrario en el que se disponga de una jerarquía indexada, se puede crear un espacio ultramétrico con la siguiente proposición. 
 \begin{propo}
 Dado un conjunto $\Omega$ finito sobre el que tenemos una jerarquía indexada $(C,\alpha)$ podemos establecer sobre $\Omega$ una estructura de espacio ultramétrico. 
 \begin{proof}
@@ -109,10 +113,50 @@ Definiendo la distancia
 \begin{equation}
 u(i,j)=\alpha(c_{ij})
 \end{equation}
-Donde $c_ij$ es el mínimo cluster que contiene a ambos $i,j$. Sean ahora los clusters mínimos que contienen a $\lbrace i,k\rbrace,\lbrace j,k\rbrace, c_{ik},c_{jk}$ respectivamente, entonces:
+Donde $c_{ij}$ es el mínimo cluster que contiene a ambos $i,j$. Sean ahora los clusters mínimos que contienen a $\lbrace i,k\rbrace,\lbrace j,k\rbrace, c_{ik},c_{jk}$ respectivamente, entonces:
 \begin{equation}
 c_{ik}\cap c_{jk}\neq \emptyset
 \end{equation}
-Por ser una jerarquía indexada tenemos dos posibilidades de inclusión uno en el otro 
+Por ser una jerarquía indexada tenemos dos posibilidades de inclusión uno en el otro:
+\begin{equation}
+\begin{cases}
+c_{ik}\subset c_{jk}\Rightarrow i,j,k\in c_{jk}\Rightarrow c_{ij}\subset c_ {jk}\Rightarrow u(i,j)=\alpha(c_{ij})\leq u(j,k)=\alpha(c_{jk})\\
+c_{jk}\subset c_{ik}\Rightarrow i,j,k\in c_{ik}\Rightarrow c_{ij}\subset c_ {ik}\Rightarrow u(i,j)=\alpha(c_{ij})\leq u(i,k)=\alpha(c_{ik})
+\end{cases}
+\end{equation}
+Por tanto, se obtiene que $u(i,j)\leq \sup\lbrace u(i,k),u(j,k) \rbrace$\\
+\qedhere
 \end{proof}
 \end{propo}
+
+\newpage
+\subsection{Algoritmos basados en jerarquías}
+\noindent Sea ahora una matriz de datos $\textbf{X}$ resultante de hacer $n$ observaciones sobre $p$ variables aleatorias. Sea una distancia $\delta$ \textit{(Se detallará más adelante como elegirla en función del tipo de datos que tengamos.)} sobre el espacio de observaciones y $\Delta$ la matriz $\Delta=(\delta(i,j))$ de tamaño $n \times n$, la matriz que contiene todas las distancias entre observaciones. 
+
+\noindent En el caso de que $\delta$ sea ultramétrica se puede utilizar el algoritmo fundamental, en el caso contrario hay que realizar una modificación. \\
+
+\noindent \textbf{Algoritmo de clasificación de observaciones}
+
+\noindent Lo que se busca en este tipo de algoritmos es convertir $\delta$ en una distancia últramétrica, por ende sea el espacio métrico $(\Omega, \delta)$ el algoritmo es el siguiente:\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
