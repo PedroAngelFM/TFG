@@ -12,8 +12,9 @@
 \contentsline {subsection}{\numberline {2.2.2}PCA en matrices de datos}{8}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Reducción de la dimensionalidad}{9}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}Análisis de Clusters}{12}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Estructuración jerárquica de $\Omega $}{12}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.1}Estructuración jerárquica de $\Omega $}{13}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Algoritmos basados en jerarquías}{15}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Elección de las diferencias }{16}{subsection.2.3.3}%
-\contentsline {chapter}{Bibliografía}{17}{chapter*.4}%
+\contentsline {subsection}{\numberline {2.3.3}Elección de las diferencias }{17}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Algoritmo de K-medias y K-medioides}{17}{subsection.2.3.4}%
+\contentsline {chapter}{Bibliografía}{19}{chapter*.4}%
 \contentsfinish 

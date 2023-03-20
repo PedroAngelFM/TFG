@@ -1,6 +1,17 @@
 \section{Análisis de Clusters}
+\noindent Según \cite{Jain 1988} el análisis de clusters tiene como objetivo conseguir una clasificación de las observaciones en subconjuntos que tengan sentido de acuerdo al contexto de la investigación. El clustering es un tipo de clasificación de los datos que tiene las siguientes características:
+\begin{itemize}
+\item \textit{Exclusividad: }Una observación no puede pertenecer a más de un cluster a la vez. 
+\item \textit{Es intrínseco: }No hay ninguna etiqueta que permita clasificar las observaciones, son las características de las propias muestras las que servirán como diferenciadores. Lo que hace que sea un método \textit{no supervisado}.
+\end{itemize}
+Además de estas características el clustering puede ser jerárquico \textit{(concepto que se desarrollará más adelante)} o particional. \\
+\noindent Por otro lado, los algoritmos se pueden clasificar según  sean \textit{aglomerativos}, en los que se empieza teniendo cada una de las observaciones y se van formando los clusters hasta tener un solo cluster con todas las muestras. Por el contrario, los \textit{algoritmos   divisivos}, empiezas con un solo cluster y se van haciendo subconjuntos del mismo.  
 
-\noindent Sea el caso en el que hemos tomado $n$ observaciones $\omega_1,\ldots, \omega_n$, se denota como $\Omega=\lbrace\omega_1,\ldots, \omega_n\rbrace=\lbrace 1,\ldots, n\rbrace$ para abreviar. 
+\noindent Otra clasificación puede venir dada por el modo en el que se fijan en las variables, si es \textit{Monotético}, en cada paso se centra en una variable, mientras que si es \textit{Politético} se utilizan todas las variables a la vez.\\
+
+
+
+\noindent Con el objetivo de formalizar lo anterior, de ahora en adelante, sea el caso en el que se han tomado $n$ observaciones $\omega_1,\ldots, \omega_n$, se denota como $\Omega=\lbrace\omega_1,\ldots, \omega_n\rbrace=\lbrace 1,\ldots, n\rbrace$ para abreviar. 
 
 \noindent Crear una clasificación entre las observaciones de $\Omega$ es establecer una relación de equivalencia $\mathcal{R}$ sobre $\Omega$. De esta manera, podemos establecer que:
 \begin{equation}
@@ -11,7 +22,7 @@
 \begin{defi}
 Se llama \textit{clustering} a la partición que provoca la relación $\mathcal{R}$ y se definen los \textit{clusters} como las clases de equivalencia de dicha relación, $\lbrace c_i\rbrace$. 
 \end{defi}
-
+\newpage
 \subsection{Estructuración jerárquica de $\Omega$}\label{Estructuración jerárquica}
 
 \noindent En un proceso de clustering jerárquico se crea una sucesión de particiones sobre el mismo conjunto donde los sucesivos clusterings se obtienen agrupando clusters.  
@@ -42,7 +53,6 @@ Es una relación de equivalencia.
 \end{propo}
 \noindent Es decir, con esta relación se establece que dos elementos son ``iguales'' cuando hay un cluster de un nivel de heterogeneidad menor que un umbral que los contiene. Es decir, se fija un criterio por el cual dos observaciones son lo suficientemente similares.
 
-\newpage
 \begin{defi}
 Un espacio ultramétrico es una pareja $(\Omega,u)$ donde $\Omega$ es un conjunto finito y $u$ una función distancia sobre $\Omega\times \Omega $ que verifica para cada elemento de $i,j,k\in \Omega$
 \begin{itemize}
@@ -85,7 +95,6 @@ Por tanto, haciendo uniones entre los elementos más cercanos no modifica la est
 \end{teorema}
 
 \noindent Dado estos resultados se puede seguir el siguiente procedimiento para obtener una jerarquía indexada.   
-\newpage
 
 \noindent \textbf{Algoritmo fundamental de clasificación}
 
@@ -129,7 +138,6 @@ Por tanto, se obtiene que $u(i,j)\leq \sup\lbrace u(i,k),u(j,k) \rbrace$\\
 \end{proof}
 \end{propo}
 
-\newpage
 \subsection{Algoritmos basados en jerarquías}
 \noindent Sea ahora una matriz de datos $\textbf{X}$ resultante de hacer $n$ observaciones sobre $p$ variables aleatorias. Sea una distancia $\delta$ \textit{(Se detallará más adelante como elegirla en función del tipo de datos que tengamos.)} sobre el espacio de observaciones y $\Delta$ la matriz $\Delta=(\delta(i,j))$ de tamaño $n \times n$, la matriz que contiene todas las distancias entre observaciones. 
 
@@ -163,23 +171,36 @@ De esta manera se obtiene también una jerarquía indexada $(C,\alpha)$
 \item  Si $f(x,y)=\dfrac{x+y}{2}$ se obtiene el algoritmo de \textit{average linkage}.
 \end{itemize}
 
-Es decir, tomando distintas $f$ obtenemos distintos algoritmos. 
+\noindent Es decir, tomando distintas $f$ obtenemos distintos algoritmos. En estos casos, los algoritmos todos son algoritmos aglomerativos. 
 
 \newpage
 \subsection{Elección de las diferencias }
-\noindent Añadir a esto que el mayor problema que conllevan este tipo de algoritmos es elegir y definir una distancia. Sea un vector aleatorio \textbf{x} de longitud $p$ sobre el que se realizan $n$ observaciones, entonces la forma más habitual de definir la distan cia entre dos observaciones es:
+\noindent Añadir a esto que el mayor problema que conllevan este tipo de algoritmos es elegir y definir una distancia. Sea un vector aleatorio \textbf{x} de longitud $p$ sobre el que se realizan $n$ observaciones, entonces la forma más habitual de definir la distancia entre dos observaciones es:
 \begin{equation}
-d(x_i,x_j)=\sum_{k=1}^p d_k(x_{ik},x_{jk})
+D(x_i,x_j)=\sum_{k=1}^p \omega_k \cdot d_k(x_{ik},x_{jk}); \quad \sum_{k=1}^p \omega_k=1
 \end{equation}
 
 \noindent Donde las $d_k$ son las distancias adaptadas al tipo de variable que sea la variable aleatoria $X_k$. En particular:
-\begin{itemize}
-\item \textit{Variables Cuantitativas}: Basta con que sea una función monótona creciente del valor absoluto de la diferencia entre las dos observaciones. 
-\item \textit{Variables Ordinales: }
-\item 
-\end{itemize}
 
+\noindent \textbf{\textit{Variables Cuantitativas}: }Basta con que sea una función monótona creciente del valor absoluto de la diferencia entre las dos observaciones. De manera general, se utilizaría la distancia euclídea, pero esta tiene el problema de que no tiene en cuenta las escalas de los datos es por eso que tenemos que estandarizar y centrar los datos para que no haya problemas de escalas. Una medida de distancia que suple esto es la distancia de Mahalanobis.
+\begin{defi}
+Dadas dos muestras u observaciones $\textbf{x}_i,\textbf{x}_j$ sacadas de la misma población de un total de $n$ de las cuales se observan $p$ variables aleatorias, con matriz de covarianzas muestrales $\textbf{S}$. Se define la distancia de Mahalanobis de la siguiente manera: 
+\begin{equation}
+\textbf{M}^2(\textbf{x}_i,\textbf{x}_j)=(\textbf{x}_i,\textbf{x}_j)^T \textbf{S}^{-1} (\textbf{x}_i,\textbf{x}_j)
+\end{equation}
+\end{defi}
+\noindent \textbf{\textit{Variables Ordinales: }} Para una variable categórica cuyos $M$ valores tienen un orden se puede hacer la siguiente transformación para tratarlas como una variable cuantitativa:
+\begin{equation}
+\dfrac{i-\frac{1}{2}}{M} \quad i=1\ldots M
+\end{equation}
+\noindent \textbf{\textit{Variables Categóricas: }}En este caso, suponiendo que la variable tiene $M$ posibles valores, lo habitual es definir una matriz $\textbf{L}$ de tamaño $M\times M$ simétrica , de manera que el elemento $L_{r,r'}=L_{r',r}$ es la distancia entre la categoría $r$ y la $r'$ que habitualmente se suele tomar como 1 y la diagonal igual a 0. 
 
+\noindent De esta manera, podemos definir de manera general una distancia entre las observaciones. 
+
+\subsection{Algoritmo de K-medias y K-medioides}
+
+\noindent Definida la distancia entre observaciones podemos definir el algoritmo de K-medias. 
+\paragraph*{Algoritmo de K-medias}
 
 
 
