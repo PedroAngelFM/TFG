@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  20 MAR 2023 09:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  20 MAR 2023 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -850,7 +850,24 @@ LaTeX Info: Redefining \% on input line 170.
 [15]
 LaTeX Info: Redefining \. on input line 176.
 LaTeX Info: Redefining \% on input line 176.
- [16])
+ [16]
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+
+ []
+
+LaTeX Info: Redefining \. on input line 211.
+LaTeX Info: Redefining \% on input line 211.
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 212--215
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
+
+ []
+
+)
 :<-
 )
 :<-
@@ -860,12 +877,7 @@ ntos Extra/biblio.tex' on input line 100.
 (Documentos Extra/biblio.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [17]
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [18
-
-]
+ [18]
 Underfull \hbox (badness 1215) in paragraph at lines 19--20
 [][]\OT1/cmr/bx/n/12 Jain, A.K., Ri-chard, C.D., (1988) \OT1/cmr/m/it/12 Al-go-
 rithms for clus-te-ring da-ta.
@@ -875,18 +887,20 @@ rithms for clus-te-ring da-ta.
 :<-
 
 AED: lastpage setting LastPage
-[19] (master.aux
+[19
+
+] (master.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 1E9A53972F7CED10C3D25C1FBA5A13C1;3941.
+(rerunfilecheck)             Checksum: C2A3D420851DCE3250A4A530AD865321;3888.
  ) 
 Here is how much of TeX's memory you used:
- 16760 strings out of 476339
- 256294 string characters out of 5788120
+ 16769 strings out of 476339
+ 256377 string characters out of 5788120
  1868340 words of memory out of 5000000
- 36766 multiletter control sequences out of 15000+600000
+ 36767 multiletter control sequences out of 15000+600000
  525910 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,15n,76p,3219b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -911,9 +925,9 @@ Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Pedro/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/Pe
 dro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b>
-Output written on master.pdf (22 pages, 572863 bytes).
+Output written on master.pdf (22 pages, 579718 bytes).
 PDF statistics:
- 386 PDF objects out of 1000 (max. 8388607)
- 111 named destinations out of 1000 (max. 500000)
+ 397 PDF objects out of 1000 (max. 8388607)
+ 119 named destinations out of 1000 (max. 500000)
  160 words of extra memory for PDF output out of 10000 (max. 10000000)
 

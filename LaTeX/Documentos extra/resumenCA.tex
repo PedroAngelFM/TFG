@@ -197,12 +197,48 @@ Dadas dos muestras u observaciones $\textbf{x}_i,\textbf{x}_j$ sacadas de la mis
 
 \noindent De esta manera, podemos definir de manera general una distancia entre las observaciones. 
 
-\subsection{Algoritmo de K-medias y K-medioides}
+\subsection{Algoritmos no jerárquicos}
 
-\noindent Definida la distancia entre observaciones podemos definir el algoritmo de K-medias. 
-\paragraph*{Algoritmo de K-medias}
+\noindent Teniendo en cuenta como deben ser los clusterings el objetivo es conseguir $g$ clusters que provocan una partición exhaustiva del conjunto de observaciones. 
+Sea el espacio métrico $(\Omega,d)$ se puede considerar que la \textit{dispersión total de las muestras} dada un clustering con $g$ clusters tiene la siguiente expresión:
+\begin{equation}
+\textbf{T}=\textbf{B}+\textbf{W}
+\end{equation}
+\noindent Donde $B$ es la distancia inter-clusters y $W$ es la distancia intra-cluster del clustering realizado.\\
+\noindent Por tanto, de acuerdo a nuestro objetivo un clustering en $g$ clusters debe ser aquel que minimice $W$ y maximice $B$
+
+\noindent El número de posibles clusterings de un mismo conjunto de $n$ observaciones es de $\frac{g^n}{g!}$. Hay muchas de esas posibles particiones que no son óptimas y hay algunas que son mínimos locales. El algoritmo más habitual es el de K-medias o K-medoides.\\
+
+\noindent \textbf{Algoritmo de K-medias y K-medoides}\\
+Este algoritmo requiere que se prefije el número de clusters que se van a utilizar, además de que las variables sean cuantitativas,\textit{(El algoritmo de K-medoides es una modificación de este que soluciona dicha restricción)} .\\
+\begin{enumerate}
+\hrule
+
+\item Se inicializa con $g$ puntos aleatorios del espacio $\mathbb{R}^p$. Se asigna a cada observación un cluster de acuerdo a cual de los $g$ puntos es más cercano.
+\item Se calculan los puntos medios de cada cluster y se reasignan las observaciones de acuerdo a cual está más próximo 
+\item Se repite el paso anterior, calculando $W$ en cada paso y se detiene el proceso cuando no haya mejora ninguna o se de un criterio de parada. 
+
+\end{enumerate}
+\hrule
+
+\noindent En este algoritmo ocurre que la distancia al cuadrado de los puntos de cada cluster al centroide disminuye en cada paso debido a como está formulado. 
+
+\noindent Además del problema de elegir el número de clusters, se da el problema que sólo se puede utilizar con variables cuantitativas. Haciendo una modificación en el algoritmo de K-medias obtenemos el algoritmo de K-medoides. \\
 
 
+\begin{enumerate}
+\hrule
+
+\item Para una asignación de clusters se calculan las distancias entre los puntos de cada cluster. Y se toma de cada cluster el que minimice la suma las distancias del cluster. Que serán los medoides de cada cluster. 
+\item Se asigna a cada punto el cluster cuyo medoide sea más cercano a dicha observación 
+\item Se repiten los pasos anteriores hasta que las asignaciones no cambien. 
+
+\end{enumerate}
+\hrule
+ 
+\noindent Por tanto, los puntos de referencia de este algoritmo son observaciones, no como las medias que pueden no serlo. Además es mucho más costoso a nivel computacional. 
+
+\noindent Adicionalmente, este es uno de los algoritmos afectados por la maldición de la dimensionalidad en la que al aumentar la dimensión del espacio de posibles observaciones cada vez es menos denso en información y necesitamos más muestras. 
 
 
 
