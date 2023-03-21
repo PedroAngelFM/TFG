@@ -3,12 +3,10 @@
 %Supongamos que tenemos un conjunto de variables, $\textbf{X}$ que influyen sobre una o más variables conocidas $\textbf{Y}$. A partir de ahora, las llamaremos variables de entrada y variables objetivo respectivamente. El principal propósito de los métodos supervisados, es dado una muestra de individuos con observaciones de ambos tipos de variables predecir la variable objetivo para nuevos individuos de los que solo conozcamos las variables de entrada  
 %
 %Para empezar tenemos que fundamentar de manera teórica como calcular esa función para predecir. 
-
 %\input{Documentos Extra/Teoría de decisión estadística.tex}
-
 %\input{Documentos Extra/Regresion Lineal Multiple.tex}
-
 %\input{Documentos Extra/Clasificacion Lineal Multiple.tex}
-\section{Introducción}
-
+\input{Documentos Extra/IntroduccionSupervisados.tex}
+\input{Documentos Extra/MétodosLinealesRegresion.tex}
+\input{Documentos Extra/MetodosLinealesClasificacion.tex}
 \input{Documentos Extra/Redes Neuronales.tex}
