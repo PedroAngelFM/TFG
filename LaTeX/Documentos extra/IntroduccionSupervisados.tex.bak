@@ -5,13 +5,48 @@ Y=f(\textbf{x})+\varepsilon
 \end{equation}
 En otras palabras, conocidas las variables de entrada de una nueva observación poder predecir sus variables de respuesta con la mayor precisión posible. 
 \subsection{Mínimos cuadrados y K-vecinos más cercanos}
-\noindent 
+Supóngase que tenemos una relación lineal entre las variables de entrada \textbf{x} y la variable de salida de manera que el predictor $\hat{Y}$ tiene la siguiente
+\subsection{Decisión Estadística}
+\noindent Sea un vector aleatorio real de entrada $\textbf{x}\in\mathbb{R}^p$, una variable de salida $Y\in\mathbb{R}$ y sea la probabilidad conjunta $\mathbb{P}(Y,\textbf{x})$ de ambas, entonces se busca una función $f(\textbf{x})$ para predecir $Y$. La búsqueda de esta función requiere una forma de saber como de correcta son esas predicciones. Para ello, se definen las \textit{funciones de pérdida}, la más utilizada es el error cuadrático $L(Y,f(\textbf{x}))=(Y-f(\textbf{x}))^2$
+\begin{defi}
+Teniendo en cuenta lo anterior, se define el \textit{error de predicción esperado} como la esperanza de la nueva variable que define la función de pérdida.
+\begin{equation}
+\begin{split}
+EPE(f)& = E(Y-f(\textbf{x}))^2\\
+&= \int [y-f(\textbf{x})]^2\mathbb{P}(dx,dy)
+\end{split}
+\end{equation}
+\end{defi}
 
+\noindent Para ajustarlo a la situación de predecir el valor de $Y$ para nuevos valores observados de $\textbf{x}$, se puede condicionar respecto del valor de $\textbf{x}$ obteniendo la siguiente expresión:
+\begin{equation}
+ EPE(f) = E_{\textbf{x}} E_{Y|\textbf{x}}([Y-f(\textbf{x})]^2|\textbf{x})
+\end{equation} 
+Esta expresión otorga según Hastie \textit{et.al} \cite{Hastie 2001} un criterio para elegir la $f$. Basta con tomar $f$ de manera que: 
+\begin{equation}
+ f(x)=\text{argmin}_c E_{Y|\textbf{x}}([Y-c]^2|\textbf{x}=x)
+\end{equation}
 
+\noindent Por tanto, el que minimiza en el caso de la pérdida establecida anteriormente es $f(x)=E(Y|\textbf{x}=x)$. 
+\begin{defi}
+\noindent Se llama \textit{función de regresión} a la función $f(x)=E(Y|\textbf{x}=x)$
+\end{defi}
 
+\emph{Aquí podría hacer ejemplos el k- vecinos y el lineal}
 
+\noindent Sea el caso de una variable de salida categórica $G$ que toma $k$ valores de manera que el predictor $\hat{G}$ tambien toma esos valores, entonces la única modificación que debemos hacer es la de la función de pérdida que pasa a ser una matriz $\textbf{L}$ de tamaño $k\times k $ donde $L_{i,j}$ es la penalización por categorizar como $\mathcal{G}_j$ algo que en realidad es $\mathcal{G}_i$. Entonces tenemos que \textit{el error de predicción esperado} es: 
+\begin{equation}
+EPE = E[L(G,\hat{G})]= E_{\textbf{x}}\sum_{i=1}^k L[\mathcal{G}_k, \hat{G}(\textbf{x})]\mathbb{P}(\mathcal{G}_k|\textbf{x})
+\end{equation} 
+Esta definición otorga un criterio análogo para establecer el predictor $\hat{G}(x)$, que si se utiliza la pérdida 0-1, es decir, aquella que otorga una penalización de 1, se obtiene el \textit{clasificador bayesiano}:
+\begin{defi}
+Se llama \textit{clasificador bayesiano} al predictor 
+\begin{equation}
+\hat{G}(x)=\mathcal{G}_k \text{ si } \mathbb{P}(\mathcal{G}_k|\textbf{x}=x)=\max_{g\in \mathcal{G}}\mathbb{P}(g|\textbf{x}=x)
+\end{equation}
 
-
+\noindent Es decir, se otorga la categoría que más probabilidad de ser tiene conociendo el valor de $\textbf{x}$
+\end{defi}
 
 
 
