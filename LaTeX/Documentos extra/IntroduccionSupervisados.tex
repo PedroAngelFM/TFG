@@ -5,7 +5,35 @@ Y=f(\textbf{x})+\varepsilon
 \end{equation}
 En otras palabras, conocidas las variables de entrada de una nueva observación poder predecir sus variables de respuesta con la mayor precisión posible. 
 \subsection{Mínimos cuadrados y K-vecinos más cercanos}
-\noindent Supóngase que tenemos una relación lineal entre las variables de entrada \textbf{x} y la variable de salida de manera que el predictor $\hat{Y}$ tiene la siguiente
+\noindent Supóngase que tenemos una relación lineal entre las variables de entrada \textbf{x} y la variable de salida de manera que el predictor $\hat{Y}$ tiene la siguiente expresión:
+\begin{equation}
+\hat{Y}=\hat{\beta}_0+\sum_{j=1}^p \hat{\beta}_j X_j
+\end{equation}
+\noindent Esta expresión se puede simplificar añadiendo una variable $X_0$ constante 1. Por tanto, tenemos que:
+\begin{equation}
+\hat{Y}=\textbf{x}^T\hat{\beta}\quad \text{ donde } \hat{\beta}^T=[\hat{\beta}_0\ldots \hat{\beta}_p ]
+\end{equation}
+
+\noindent El modelo mostrado se puede generalizar al caso de que se tengan multiples variables de salida. Pero hay que tener en cuenta que las parejas de elementos $(\textbf{x},\hat{Y})$ forman en este caso lineal un hiperplano afín
+
+\noindent Para este y muchos otros casos el modelo ha de ajustarse a los datos recogidos para las $p$ variables entrada y las variables respuesta se tengan en ese momento . Para ello se puede definir la suma residual de cuadrados. 
+\begin{equation}
+RSS(\beta)=\sum_{i=1}^N(y_i-\textbf{x}_i^T\beta)^2 
+\end{equation} 
+
+\noindent En este caso, se considera que la distancia entre los puntos es euclideana, es decir, tomamos como medida del error la suma de las distancias habituales del espacio $\mathbb{R}$ entre las predicciones y los valores reales. Aún así, se puede tomar otras medidas como por ejemplo, el valor absoluto en $\mathbb{R}$.\\
+El problema con esta última, es que no es diferenciable y lo que estamos buscando es minimizar $RSS(\beta)$ en función de los paramétros $\beta$.
+
+\noindent La expresión de $RSS(\beta)$ en forma matricial teniendo en cuenta que $\textbf{X}$ sea la matriz de observaciones de tamaño $(n\times p+1)$ que tiene la primera columna constante 1 y $\textbf{y}$ es el vector columna o matriz que contiene las observaciones de la o las variables respuestas  es la siguiente: 
+\begin{equation}
+RSS(\beta)=(\textbf{y}-\textbf{X}^T\beta)^T(\textbf{y}-\textbf{X}^T\beta)
+\end{equation}
+Que al derivarla respecto de $\beta$ e igualarlo a $0$ se obtiene que:
+\begin{equation}
+\textbf{X}^T(\textbf{y}-\textbf{X}\beta)=0
+\end{equation}
+Que tiene solución única si la matriz $\textbf{X}^T\textbf{X}$ es invertible resultando en que $\hat{\beta}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}$
+
 \subsection{Decisión Estadística}
 \noindent Sea un vector aleatorio real de entrada $\textbf{x}\in\mathbb{R}^p$, una variable de salida $Y\in\mathbb{R}$ y sea la probabilidad conjunta $\mathbb{P}(Y,\textbf{x})$ de ambas, entonces se busca una función $f(\textbf{x})$ para predecir $Y$. La búsqueda de esta función requiere una forma de saber como de correcta son esas predicciones. Para ello, se definen las \textit{funciones de pérdida}, la más utilizada es el error cuadrático $L(Y,f(\textbf{x}))=(Y-f(\textbf{x}))^2$
 \begin{defi}
