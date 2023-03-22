@@ -86,9 +86,18 @@ Se llama \textit{clasificador bayesiano} al predictor
 \noindent Es decir, se otorga la categoría que más probabilidad de ser tiene conociendo el valor de $\textbf{x}$
 \end{defi}
 
+\noindent Una característica que se puede intuir es que el problema de encontrar el predictor se puede traducir como un problema de aproximación de funciones en $\mathbb{R}^p$ conocidos $n$ puntos. 
 
+\subsection{Selección del modelo, Sesgo y Varianza}
 
+Una vez que hemos ajustado el modelo a los puntos hay que comprobar su rendimiento, esto se puede hacer teniendo un conjunto de entrenamiento y otro de testing. El conjunto de entrenamiento nos servirá para optimizar los parámetros y el de testing del cual conocemos las x y las y nos permite evaluar su capacidad de generalización. 
 
+\noindent Sea el modelo $Y=f(\textbf{x})+\varepsilon$ donde $E(\varepsilon)=0$ y $Var(\varepsilon)=\sigma^2$. Entonces podemos hacer la siguiente descomposición del error de generalización  esperado en $x_0$, no perteneciente al conjunto de entrenamiento:
+\begin{equation}
+EPE(x_0)=E(Y-\hat{f}(x_0)|\textbf{x}=x_0)^2=\sigma^2+sesgo^2(\hat{f}(x_0))+Var_{\mathcal{T}}(\hat{f}(x_0))
+\end{equation}
+
+\noindent De esta manera, se puede reducir el sesgo y la varianza, pero hay un error que es irreducible que es $\sigma^2$ y los otros dos términos son el resultado de calcular el Error Cuadrático Medio. En términos generales cuanto más complejo es el modelo se tiene 
 
 
 

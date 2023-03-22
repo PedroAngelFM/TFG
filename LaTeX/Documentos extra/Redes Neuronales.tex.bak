@@ -1,20 +1,35 @@
+\newpage
 \section{Redes Neuronales}
 
-\noindent Las redes neuronales artificiales, redes neuronales simplemente a partir de ahora, se basan en el funcionamiento básico de las neuronas biológicas. Este tipo de células recogen señales externas, las procesan y producen una respuesta en consecuencia. 
+\noindent Las redes neuronales artificiales, son un algoritmo basado en el funcionamiento de las propias neuronas del cerebro que reciben señales de entradas de las neuronas con las cuales están conectadas, las procesan y envían el resultado a las neuronas con las que estén conectadas. 
 
-\noindent En el caso de una neurona artificial, dados los valores de entrada de una observación, $\lbrace x_i\rbrace_{i=1}^p$, la neurona tiene asociada a cada uno de ellos un peso, $\lbrace \omega_i\rbrace_{i=1}^p$, y opcionalmente un sesgo $b$. Además la neurona tiene una función de activación $g(x)$. 
+\noindent Una neurona artificial es mucho más simple que una neurona, López R. \cite{Roberto 2008} lo define de la siguiente manera: 
+\begin{defi}
+Una neurona procesa una entrada $\textbf{x}$ de acuerdo con unos pesos sinápticos $(b,\omega)$ que luego es transformada por una función de activación $g(u)$, las más habituales son la función sigmoide, una función lineal, la tangente hiperbólica o directamente la identidad. 
 
-\noindent Una vez recogidos los valores, se hace una suma ponderada de ellos $z=b+\sum_{i=1}^p \omega_i x_i$ y la neurona produce el valor $g(z)$.
-
+\noindent Una  vez definidos los elementos que forman una neurona artificial estos se utilizan de manera que se utiliza la función:
+\begin{equation}
+\begin{split}
+f:\mathbb{R}^p &\longrightarrow \mathbb{R}\\
+f(\textbf{x})&\longrightarrow f(\textbf{x};b,\omega)
+\end{split}
+\end{equation}
+Donde 
+\begin{equation}
+f(\textbf{x})=g\left(b+\sum_{i=1}^p \omega_i x_i\right)
+\end{equation}
+El siguiente diagrama proporciona una forma sencilla de entender el funcionamiento de dicho modelo, incluyendo la analogía de las neuronas biológicas. 
+\end{defi}
 \begin{center}
 %%Hay que pedirle a Carlos que lo edite por que yo la verdad que no se 
-\includegraphics[scale=0.65]{Documentos Extra/neurona.png}
+\includegraphics[scale=0.6]{Documentos Extra/neurona.png}
 \end{center}
 
-\noindent Una vez calculada la salida de la neurona, esta puede conectarse a otra, sirviendo los datos de salida de la primera neurona como datos de entrada de la siguiente. De manera  podemos tener capas de $m$ neuronas para producir $m$ salidas que sirvan como datos de entrada para la siguiente capa de neuronas.
+El potencial de este tipo de algoritmos es poder conectar neuronas unas con otras, de manera que la salida que produce una funcione de entrada para otra.
+\begin{defi}
+Se llama capa de neuronas al un conjunto de neuronas que tienen en común las señales de entrada y producen un vector de salidas que pueden o no servir como señal de entrada para otra. 
+\end{defi}
 
-\noindent Por último, puede haber capas al principio y al final para tareas como estandarizar, centrar los datos y deshacer dichas operaciones para producir una salida coherente. 
-%\newpage
 \noindent La siguiente imagen es un esquema de una red neuronal con 7 capas de neuronas interconectadas donde la primera capa es de escalado y la última de desescalado. Se puede observar que se predicen las variables $y_1, y_2, y_3$ usando como entrada las variables $x_1,x_2,x_3,x_4$ 
 
 \begin{figure}[h]
@@ -23,21 +38,6 @@
 \includegraphics[scale=0.45]{Documentos Extra/red-neuronal-grande.png}
 \caption{Imagen extraída directamente de www.neuraldesigner.com}
 \end{figure}
-
-\noindent Una vez detallado el proceso que se da dentro de una neurona hay que detallar los conceptos y elementos de la misma.
-
-\begin{defi}
-Se llama neurona a cada una de las transformaciones de los datos,  $g_m(\omega_m^T \textbf{x})$
-\end{defi}
-\begin{defi}
-Al vector $\omega_m$ se le denomina \textit{vector de pesos} de la neurona, en particular, $\omega_{m0}$ se denomina \textit{sesgo} de la neurona. 
-\end{defi}
-\begin{defi}
-Se define una capa de neuronas como un conjunto de ellas que producen un vector de salida, ya sea para servir como entrada de una capa posterior o como salida final. 
-\end{defi}
-
-\noindent Por tanto, utilizando las conexiones entre neuronas y entre sucesivas capas tenemos un algoritmo de regresión por búsqueda de proyecciones mediante la composición y combinación de distintas neuronas con pesos y funciones de activación distintas. 
-
 \subsection{Proyection Pursuit Regression}
 
 \noindent Sean un vector aleatorio \textbf{x} de longitud $p$, una variable objetivo $Y$ y una familia de vectores de parámetros de longitud $p$, $\lbrace \omega_m\rbrace_{m=1}^M$. Entonces el modelo de Regresión por Búsqueda de Proyecciones \textit{(PPR en inglés)} es de la forma :
@@ -47,13 +47,15 @@ f(\textbf{x})=\sum_{m=1}^M g_m(\omega_m^T \textbf{x})
 
 \noindent En este modelo las funciones $g_m$ no son especificadas y son estimaciones a lo largo de las direcciones de los vectores $\omega_m^T \textbf{x}$. Según Hastie, Tibshirani y Friedman \cite{Hastie 2001} para un $M$ lo suficiente grande y utilizando las $g_m$ apropiadas este modelo puede ayudar a la predicción de cualquier función continua real. 
 
+Para ajustar este tipo de modelos tenemos un ajuste en dos pasos, primero se estiman las funciones $g_m$ en función de los parámetros $\omega_m$ del paso anterior
+
 %%Detallar
 
-\noindent El uso de este modelo es complejo, debido a que hay una gran cantidad de parámetros de distintos tipos, obligando a utilizar distintos métodos de optimización. Asimismo, este tipo de modelos se utilizan solamente cuando se quiere predecir una variable, debido a su complejidad, que los hace difíciles de interpretar.
+\noindent El uso de este tipo de modelos suele estar restringido así como el de las redes neuronales a la predicción, ya que suelen producir modelos de alta complejidad y dificilmente interpretables. 
 
 \noindent Sobre este modelo se sustentan las redes neuronales, que establecen previamente las funciones de activación $g_m$.
 
-\noindent En el caso de las redes neuronales, el método de ajuste varía al modelo previamente descrito ya que las funciones están prefijadas 
+\noindent En el caso de las redes neuronales, el método de ajuste varía al modelo previamente descrito ya que las funciones están prefijadas. 
 
 
 \subsection{Red Neuronal de 2 capas }
@@ -100,7 +102,7 @@ Sea una matriz de datos $\textbf{X}$ de tamaño $n\times p$, resultado de observ
 
 \noindent Hay que tener en cuenta para seleccionar el modelo, es decir, el número de neuronas y capas, que las redes neuronales son proclives al sobre ajuste. Esto es debido a la gran cantidad de parámetros que se pueden tener en una red con una complejidad media. Es por ello que normalmente se introduce una penalización a términos muy grandes y hace que los pesos sean parecidos a 0.
 
-\noindent Una vez ajustados los pesos el modelo resultante puede ser complejo de interpretar, pero proporciona predicciones que potencialmente pueden ser todo lo precisas que se requieran según el número de capas y neuronas que utilicemos \textit{[insertar el artículo de roberto]}. 
+\noindent Una vez ajustados los pesos el modelo resultante puede ser complejo de interpretar, pero proporciona predicciones que potencialmente pueden ser todo lo precisas que se requieran según el número de capas y neuronas que utilicemos . 
 
 
 \noindent En este trabajo se han detallado los tipos más simples de redes neuronales y de neuronas, con las cuales ya se obtiene una gran capacidad de predicción. Sin embargo, hay estructuras neuronales como las redes convolucionales o las capas LSTM \textit{(Llamadas así por sus siglas en inglés Long-Short Term Memory)} que permiten modelizar sistemas en que los estados futuros son afectados por los estados anteriores como pudiera ser el precio de una acción bursátil o el tiempo atmosférico.
