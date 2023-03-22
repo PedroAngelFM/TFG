@@ -32,7 +32,17 @@ Que al derivarla respecto de $\beta$ e igualarlo a $0$ se obtiene que:
 \begin{equation}
 \textbf{X}^T(\textbf{y}-\textbf{X}\beta)=0
 \end{equation}
-Que tiene solución única si la matriz $\textbf{X}^T\textbf{X}$ es invertible resultando en que $\hat{\beta}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}$
+Que tiene solución única si la matriz $\textbf{X}^T\textbf{X}$ es invertible resultando en que $\hat{\beta}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}$.
+
+\noindent Otra forma de crear predictores es mediante los k-vecinos más cercanos que toma como predicción de una nueva observación el valor medio de las variables respuesta de las k observaciones más cercanas a la nueva muestra. 
+\begin{equation}
+\hat{Y}(x)=\dfrac{1}{k}\sum_{\textbf{x}_i\in N_k(x)}y_i
+\end{equation}
+\noindent En estos casos se necesita definir una distancia sobre el conjunto de las observaciones para poder establecer los $N_k(x)$ que son los entornos. 
+
+\noindent Estos dos acercamientos tienen problemas a la hora de las suposiciones que se hacen. El primero asume que la estructura de los datos es lineal de manera global y el segundo asume que es constante localmente. 
+
+\noindent Además el método de los k vecinos sufre de lo que se llama la \textit{maldición de la dimensionalidad}. Este suceso consiste en que a medida que aumentamos la dimensión, en este caso la cantidad de variables aleatorias a observar, la densidad de los datos es cada vez menor, en particular es proporcional a $n^{\frac{1}{p}}$, donde $p$ es el número de variables y $n$ el número de observaciones. Por ejemplo, si una muestra densa en $1$ dimensión tiene $n=100$, para mantener dicha densidad en $p=10$ se necesitarían $n = 100^{10}$. 
 
 \subsection{Decisión Estadística}
 \noindent Sea un vector aleatorio real de entrada $\textbf{x}\in\mathbb{R}^p$, una variable de salida $Y\in\mathbb{R}$ y sea la probabilidad conjunta $\mathbb{P}(Y,\textbf{x})$ de ambas, entonces se busca una función $f(\textbf{x})$ para predecir $Y$. La búsqueda de esta función requiere una forma de saber como de correcta son esas predicciones. Para ello, se definen las \textit{funciones de pérdida}, la más utilizada es el error cuadrático $L(Y,f(\textbf{x}))=(Y-f(\textbf{x}))^2$
@@ -75,8 +85,6 @@ Se llama \textit{clasificador bayesiano} al predictor
 
 \noindent Es decir, se otorga la categoría que más probabilidad de ser tiene conociendo el valor de $\textbf{x}$
 \end{defi}
-
-
 
 
 

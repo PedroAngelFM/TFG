@@ -2,7 +2,7 @@
 \contentsline {chapter}{\numberline {1}Métodos Supervisados}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Introducción}{1}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Mínimos cuadrados y K-vecinos más cercanos}{1}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Decisión Estadística}{2}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.2}Decisión Estadística}{3}{subsection.1.1.2}%
 \contentsline {section}{\numberline {1.2}Métodos Lineales para regresión}{4}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}Regresión lineal por mínimos cuadrados}{4}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Regresión múltiple}{4}{subsection.1.2.2}%

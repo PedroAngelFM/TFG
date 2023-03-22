@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  21 MAR 2023 15:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  22 MAR 2023 08:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -738,11 +738,11 @@ l.22 \end{equation}
                     [1
 
 ]
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
+LaTeX Info: Redefining \. on input line 50.
+LaTeX Info: Redefining \% on input line 50.
  [2]
-LaTeX Info: Redefining \. on input line 193.
-LaTeX Info: Redefining \% on input line 193.
+LaTeX Info: Redefining \. on input line 201.
+LaTeX Info: Redefining \% on input line 201.
  [3])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/MétodosLinealesRegres
@@ -760,7 +760,7 @@ Package srcltx Info: Expanded filename `Documentos Extra/Redes Neuronales.tex'
 to `Documentos Extra/Redes Neuronales.tex' on input line 12.
 :<+ Documentos Extra/Redes Neuronales.tex
 (Documentos Extra/Redes Neuronales.tex
-<Documentos Extra/neurona.png, id=206, 446.41782pt x 246.9225pt>
+<Documentos Extra/neurona.png, id=209, 446.41782pt x 246.9225pt>
 File: Documentos Extra/neurona.png Graphic file (type png)
 <use Documentos Extra/neurona.png>
 Package pdftex.def Info: Documentos Extra/neurona.png  used on input line 11.
@@ -768,7 +768,7 @@ Package pdftex.def Info: Documentos Extra/neurona.png  used on input line 11.
 LaTeX Info: Redefining \. on input line 19.
 LaTeX Info: Redefining \% on input line 19.
  [4 <./Documentos Extra/neurona.png>]
-<Documentos Extra/red-neuronal-grande.png, id=214, 556.0775pt x 301.125pt>
+<Documentos Extra/red-neuronal-grande.png, id=217, 556.0775pt x 301.125pt>
 File: Documentos Extra/red-neuronal-grande.png Graphic file (type png)
 <use Documentos Extra/red-neuronal-grande.png>
 Package pdftex.def Info: Documentos Extra/red-neuronal-grande.png  used on inpu
@@ -931,10 +931,10 @@ Package rerunfilecheck Info: File `master.out' has not changed.
 (rerunfilecheck)             Checksum: 4DE4EFAF60E3CD166EA5896B545A7099;6723.
  ) 
 Here is how much of TeX's memory you used:
- 16829 strings out of 476339
- 257997 string characters out of 5788120
+ 16834 strings out of 476339
+ 258078 string characters out of 5788120
  1868340 words of memory out of 5000000
- 36786 multiletter control sequences out of 15000+600000
+ 36788 multiletter control sequences out of 15000+600000
  525910 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,17n,76p,3219b,813s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -960,9 +960,9 @@ a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Ped
 ro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/
 Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on master.pdf (26 pages, 614515 bytes).
+Output written on master.pdf (26 pages, 618894 bytes).
 PDF statistics:
- 495 PDF objects out of 1000 (max. 8388607)
- 148 named destinations out of 1000 (max. 500000)
+ 500 PDF objects out of 1000 (max. 8388607)
+ 151 named destinations out of 1000 (max. 500000)
  248 words of extra memory for PDF output out of 10000 (max. 10000000)
 
