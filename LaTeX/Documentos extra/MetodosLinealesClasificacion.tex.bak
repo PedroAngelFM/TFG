@@ -1,4 +1,15 @@
-\section{Métodos lineales para Clasificación}
-\subsection{Regresión lineal de una matriz de indicadores}
-\subsection{Análisis Discriminante Lineal}
-\subsection{Regresión Logísitica}
+\newpage
+\section{Análisis Discriminante Múltiple}
+\noindent El objetivo del análisis discriminante es dada una población separada en varios grupos conocidos a priori, conseguir funciones que permitan determinar dadas nuevas observaciones en que grupo están las nuevas observaciones. 
+
+\noindent Para ello, se busca una o varias combinaciones lineales de las variables $X_1\ldots X_p$ que brinden un criterio por el cual se pueda determinar si una nueva observación de las variables pertenece a alguno de los grupos conocidos. 
+
+\subsection{Formalización del Análisis Discriminante}
+ 
+\noindent Sea \textbf{X} la matriz de datos de tamaño $n \times p$
+donde $\textbf{x}_i$ es cada una de las observaciones de las $p$ variables. Dichas observaciones están particionadas en general por $q$ grupos, sea $I_k$ el conjunto de observaciones pertenecientes al $k$-ésimo grupo, sea también $n_k$ el número de observaciones que pertenecen al $k$-ésimo grupo.
+
+\noindent Se definen las medias muestrales $\overline{x}_j=\frac{1}{n}\sum_{i=1}^n x_{ij}$ de la $j$-ésima variable en la población en total. También se define la media muestral dentro de cada grupo que es $\overline{x}_{jk}=\frac{1}{n_k}\sum 
+_{i\in I_k} x_{ij}$
+
+

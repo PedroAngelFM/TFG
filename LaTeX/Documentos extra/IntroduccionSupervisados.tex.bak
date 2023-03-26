@@ -1,5 +1,5 @@
 \section{Introducción}
-\noindent Sea un caso en el que tenemos unas variables aleatoria \textit{inputs} que influyen o determinan otras variables \textit{outputs}. De estas variables, tomamos observaciones conjuntas de manera que a la hora de predecir las variables respuesta a partir de las variables de entrada. Una vez recogidas estas muestras se planteará un modelo \textit{(Hay varias opciones como se desarrollará a lo largo de este capítulo)}.
+\noindent Sea un caso en el que tenemos unas variables aleatorias \textit{inputs} que influyen o determinan otras variables \textit{outputs}. De estas variables, tomamos observaciones conjuntas de manera que a la hora de predecir las variables respuesta a partir de las variables de entrada. Una vez recogidas estas muestras se planteará un modelo \textit{(Hay varias opciones como se desarrollará a lo largo de este capítulo)}.
 \noindent Sea \textbf{x} el vector aleatorio de longitud $p$ formado por las variables de entrada, sea a su vez las variables respuesta $Y_k$. De esta manera el objetivo de los métodos supervisados es conseguir una función $f$ que consiga que \begin{equation}
 Y=f(\textbf{x})+\varepsilon
 \end{equation}
@@ -86,7 +86,18 @@ Se llama \textit{clasificador bayesiano} al predictor
 \noindent Es decir, se otorga la categoría que más probabilidad de ser tiene conociendo el valor de $\textbf{x}$
 \end{defi}
 
-\noindent Una característica que se puede intuir es que el problema de encontrar el predictor se puede traducir como un problema de aproximación de funciones en $\mathbb{R}^p$ conocidos $n$ puntos. 
+\noindent Una característica que se puede intuir es que el problema de encontrar el predictor se puede traducir como un problema de aproximación de funciones en $\mathbb{R}^p$ conocidos $n$ puntos.
+
+\subsection{Modelos Estadísticos}
+
+\noindent Teniendo en cuenta lo anterior, y tomando que $f(x)=E(Y|\textbf{x}=x)$ supongamos que los datos vienen dados según el modelo:
+\begin{equation}
+Y = f(\textbf{x})+\varepsilon
+\end{equation}
+Donde la variable aleatoria $\varepsilon$ reúne todos los valores que no estén reunidos bajo las mediciones de las variables del vector aleatorio $\textbf{x}$ y los errores de medición.
+En particular, la variable $\varepsilon$ es independiente de $\textbf{x}$ y $E(\varepsilon)=0$.
+
+Este \textit{modelo aditivo} es una buena representación para la  mayoría de situaciones, en caso de que no se dé la suposición de la independencia 
 
 \subsection{Selección del modelo, Sesgo y Varianza}
 
@@ -97,7 +108,7 @@ Una vez que hemos ajustado el modelo a los puntos hay que comprobar su rendimien
 EPE(x_0)=E(Y-\hat{f}(x_0)|\textbf{x}=x_0)^2=\sigma^2+sesgo^2(\hat{f}(x_0))+Var_{\mathcal{T}}(\hat{f}(x_0))
 \end{equation}
 
-\noindent De esta manera, se puede reducir el sesgo y la varianza, pero hay un error que es irreducible que es $\sigma^2$ y los otros dos términos son el resultado de calcular el Error Cuadrático Medio 
+\noindent De esta manera, se puede reducir el sesgo y la varianza, pero hay un error que es irreducible que es $\sigma^2$ y los otros dos términos son el resultado de calcular el Error Cuadrático Medio. En términos generales cuanto más complejo es el modelo se tiene 
 
 
 
