@@ -1,4 +1,80 @@
 \section{Métodos Lineales para regresión}
-\subsection{Regresión lineal por mínimos cuadrados}
-\subsection{Regresión múltiple}
+\noindent La regresión es la búsqueda de una relación funcional,  entre una variable respuesta cuantitativa a partir de un conjunto de variables de entrada. 
+Teniendo en cuenta el modelo aditivo que se detallaba anteriormente, tendremos en cuenta que la variable de respuesta $Y$ viene dada por una relación de la forma:
+\begin{equation}
+Y=f(\textbf{x})+\varepsilon
+\end{equation}
+
+\noindent En el caso de los modelos lineales se supone que la función de regresión, $f$ es una función lineal de las variables de entrada del vector aleatorio $\textbf{x}$, $X_1\ldots X_p$. De esta manera se tiene. 
+\begin{equation}
+f(\textbf{x})=\beta_0+\sum_{j=1}^p X_j\beta_j
+\end{equation}
+
+\noindent Por tanto, la predicción de la variable de salida $\hat{y
+}_i$ para una observación $\textbf{x}_i$ del vector aleatorio  se puede expresar de la siguiente manera:
+\begin{equation}
+\hat{y}_i=f(\textbf{x}_i)=\beta_0+\sum_{j=1}^p x_{ij}\beta_j
+\end{equation}
+
+\noindent De esta manera, se tiene un vector de $p$ parámetros $\beta_1 \ldots \beta_p$ además de otro $\beta_0$. Esto se puede simplificar añadiendo al vector aleatorio una variable aleatoria que sea constantemente 1. De esta manera, sea $\beta^T=[\beta_0,\beta_1\ldots \beta_p]$ y una observación $\textbf{x}_i^T=[1,x_{i1},\ldots x_{ip}]$ la expresión anterior se simplifica de la siguiente manera: 
+\begin{equation}
+\hat{y}_i= f(\textbf{x}_i)=\textbf{x}_i^T\beta
+\end{equation}
+
+\noindent Y en general, para una matriz de datos $\textbf{X}$ de tamaño $n\times p $ al que se le añade una primera columna de 1's por tanto, acaba siendo una matriz de tamaño $n\times (p+1)$ y sea $\hat{\textbf{y}}=[\hat{y}_1,\ldots \hat{y}_p]$ el vector de predicciones. Entonces, se obtiene la siguiente expresión  simplificada:
+\begin{equation}
+\hat{\textbf{y}}=\textbf{X}\beta
+\end{equation} 
+
+En las siguientes secciones se detallarán el calculo de los parámetros $\beta$. 
+
+\subsection{Ajuste de los parámetros por mínimos cuadrados}
+\noindent Sea una matriz de datos $\textbf{X}$ de tamaño $n\times p+1$ resultado de hacer $n$ observaciones de $p$ variables aleatorias y añadir en primera instancia de cada observación un 1. Sea también un vector de respuestas $\textbf{y}^T=[y_1,\ldots y_p]$ de tamaño $n$. 
+
+\noindent Tomando la suma de los errores cuadrados y minimizando se puede obtener una estimación de máxima verosimilitud del vector de parámetros $\beta$. Utilizando las expresiones anteriores:
+\begin{align}
+RSS(\beta)=\sum_{i=1}^n(y_i-\hat{y}_i) &= \sum_{i=1}^n(y_i-\textbf{x}_i^T\beta )=\textbf{y}-\textbf{X}\beta\\
+\intertext{Derivando respecto al vector de parámetros $\beta$:}
+\dfrac{\partial RSS (\beta)}{\partial \beta}&=-2\textbf{X}^T(\textbf{y}-\textbf{X}\beta)\\
+\intertext{Y la segunda derivada respecto de $\beta^T$: }
+\dfrac{\partial^2 RSS (\beta)}{\partial \beta \partial \beta^T} &=  -2 \textbf{X}^T\textbf{X}
+\end{align}
+
+\noindent Asumiendo que $\textbf{X}$ es una matriz de rango máximo, entonces, la matriz $\textbf{X}^T\textbf{X}$ es definida positiva, por tanto la solución de la siguiente ecuación:
+\begin{equation}
+\textbf{X}^T(\textbf{y}-\textbf{X}\beta)=0
+\end{equation}
+Es un mínimo local de $RSS(\beta)$ , si además, $\textbf{X}^T\textbf{X}$ es una matriz invertible, entonces tiene solución única y es :
+\begin{equation}
+\hat{\beta}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
+\end{equation}
+
+\begin{propo}
+Esta estimación de los parámetros $\beta$ es equivalente a la estimación de estos mediante el método de máxima verosimilitud
+\begin{proof}
+
+\end{proof}
+\end{propo}
+
+\noindent Por tanto, los valores predichos $\hat{\textbf{y}}$ se calculan de la siguiente manera:
+\begin{equation}
+\hat{\textbf{y}}=\textbf{X}\hat{\beta}=\textbf{X}^T(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
+\end{equation}
+
+\subsection{Regresión Múltiple mediante Ortogonalización sucesiva }
+\subsection{Regresión de múltiples variables respuesta}
 \subsection{Métodos de Encogimiento}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
