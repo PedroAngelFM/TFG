@@ -1,11 +1,12 @@
 \section{Métodos Lineales para regresión}
-\noindent La regresión es la búsqueda de una relación funcional,  entre una variable respuesta cuantitativa a partir de un conjunto de variables de entrada. 
-Teniendo en cuenta el modelo aditivo que se detallaba anteriormente, tendremos en cuenta que la variable de respuesta $Y$ viene dada por una relación de la forma:
+\noindent El objetivo de la regresión es conseguir una relación funcional que permita predecir los valores de una variable respuesta cuantitativa en función de los valores de unas variables de entrada. En el caso, de la regresión lineal, ya sea simple o múltiple se asume que esa relación funcional es lineal. 
+
+\noindent Para ello, se tendrá en cuenta el modelo aditivo que se detallaba anteriormente, tendremos en cuenta que la variable de respuesta $Y$ viene dada por una relación de la forma:
 \begin{equation}
 Y=f(\textbf{x})+\varepsilon
 \end{equation}
 
-\noindent En el caso de los modelos lineales se supone que la función de regresión, $f$ es una función lineal de las variables de entrada del vector aleatorio $\textbf{x}$, $X_1\ldots X_p$. De esta manera se tiene. 
+\noindent Como se mencionaba anteriormente, en el caso de los modelos lineales se supone que la función de regresión, $f$ es una función lineal de las variables de entrada del vector aleatorio $\textbf{x}$,  $X_1\ldots X_p$. De esta manera se tiene. 
 \begin{equation}
 f(\textbf{x})=\beta_0+\sum_{j=1}^p X_j\beta_j
 \end{equation}
@@ -26,8 +27,9 @@ f(\textbf{x})=\beta_0+\sum_{j=1}^p X_j\beta_j
 \hat{\textbf{y}}=\textbf{X}\beta
 \end{equation} 
 
-En las siguientes secciones se detallarán el calculo de los parámetros $\beta$. 
+\noindent En las siguientes secciones se detallarán el calculo de los parámetros $\beta$. 
 
+\newpage
 \subsection{Ajuste de los parámetros por mínimos cuadrados}
 \noindent Sea una matriz de datos $\textbf{X}$ de tamaño $n\times p+1$ resultado de hacer $n$ observaciones de $p$ variables aleatorias y añadir en primera instancia de cada observación un 1. Sea también un vector de respuestas $\textbf{y}^T=[y_1,\ldots y_p]$ de tamaño $n$. 
 
@@ -40,7 +42,7 @@ RSS(\beta)=\sum_{i=1}^n(y_i-\hat{y}_i) &= \sum_{i=1}^n(y_i-\textbf{x}_i^T\beta )
 \dfrac{\partial^2 RSS (\beta)}{\partial \beta \partial \beta^T} &=  -2 \textbf{X}^T\textbf{X}
 \end{align}
 
-\noindent Asumiendo que $\textbf{X}$ es una matriz de rango máximo, entonces, la matriz $\textbf{X}^T\textbf{X}$ es definida positiva, por tanto la solución de la siguiente ecuación:
+\noindent Asumiendo que $\textbf{X}$ es una matriz de rango máximo, de lo contrario, habría dos columnas o más que son combinación lineal la una de la otra, la matriz $\textbf{X}^T\textbf{X}$ es definida positiva, por tanto la solución de la siguiente ecuación:
 \begin{equation}
 \textbf{X}^T(\textbf{y}-\textbf{X}\beta)=0
 \end{equation}
@@ -61,9 +63,50 @@ Esta estimación de los parámetros $\beta$ es equivalente a la estimación de e
 \hat{\textbf{y}}=\textbf{X}\hat{\beta}=\textbf{X}^T(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
 \end{equation}
 
+\noindent Si se toma el espacio $\mathbb{R}^n$ generado por las columnas de la matriz de datos $\textbf{x}_0,\textbf{x}_1,\ldots \textbf{x}_p$, entonces $\hat{\textbf{y}}$ es tal que $\textbf{y}-\hat{\textbf{y}}$ es ortogonal a ese subespacio. 
+
+\subsection*{Inferencias Estadísticas sobre $\hat{\beta}$}
+
+\noindent Sean las observaciones $y_i$ no correlacionadas y con varianza constante $\sigma^2$, sean los $\textbf{x}_i$ no aleatorios ya conocidos, entonces:
+\begin{equation}
+Var(\hat{\beta})=(\textbf{X}^T\textbf{X})^{-1} \sigma^2
+\end{equation}
+
+Supóngase además que se sabe que el modelo lineal es correcto, de esta manera se tiene que la media condicional es lineal y tendremos que los datos son de la forma:
+\begin{equation}
+Y=\beta_0+\sum_{j=1}^p X_j\beta_j + \varepsilon
+\end{equation}
+\noindent Teniendo en cuenta las propiedades de $\varepsilon$ que se asumían al tomar un modelo aditivo.
+ 
+\noindent Un estimador insesgado que se puede dar de la varianza $\sigma^2$ es el siguiente:
+\begin{align}
+\hat{\sigma}^2 &= \dfrac{1}{n-p-1}\sum_{i=1}^n(y_i-\hat{y}_i)^2\\
+\intertext{Por tanto la distribución de este estimador es:}
+(n-p-1)\hat{\sigma}^2&\thicksim \sigma^2 \chi_{n-p-1}^2
+\end{align}
+
+\noindent Además el vector de parámetros estimados tendrá una distribución $\hat{\beta}\thicksim \mathcal{N}(\beta, (\textbf{X}^T\textbf{X})^{-1}\sigma^2)$.\\
+Teniendo en cuenta lo anterior, la construcción del siguiente estadígrafo de contraste para el parámetro estimado $\hat{\beta}_j$ es relativamente sencilla:
+\begin{equation}
+z_j=\dfrac{\hat{\beta}_j}{\hat{\sigma}\sqrt{v_j}}\thicksim t_{n-p-1}
+\end{equation}
+\noindent Donde $v_j$ es el elemento $j$-ésimo de la matriz $(\textbf{X}^T\textbf{X})^{-1}$. Por tanto, podemos generar un intervalo de confianza a un nivel de confianza de $1-2\alpha$
+\begin{align}
+(\hat{\beta}_j-z^{(1-\alpha)}v_j\hat{\sigma},\hat{\beta}_j+z^{(1-\alpha)}v_j\hat{\sigma})
+\intertext{Esto permite hacer un conjunto de confianza para el vector de parámetros $\beta$}
+C_{\beta}=\lbrace \beta| (\hat{\beta}-\beta)^T \textbf{X}^T\textbf{X}(\hat{\beta}-\beta)\leq \hat{\sigma}^2 \chi_{p+1}^{2\quad (1-\alpha)}\rbrace
+\end{align}
+
+\noindent Otro contraste que se puede realizar es comprobar si un subconjunto de variables es más significativo estadísticamente que otro, de manera que se pueda eliminar variables que no aporten información en pos de la sencillez del modelo y su posterior interpretación. 
+
+\noindent Sea $p_1+1$ el número del conjunto más grande de parámetros y $RSS_1$ su error cuadrático respectivo, sean respectivamente $RSS_0$ y $p_0+1$ para el segundo conjunto o subconjunto menor entonces el estadigráfo:
+\begin{equation}
+F=\dfrac{\dfrac{(RSS_0-RSS_1)}{p_1-p_0}}{\dfrac{RSS_1}{N-p_1-1}} \thicksim F_{(p_1-p_0),(N-p_1-1)}
+\end{equation}
+
+\noindent Este estadígrafo mide si la diferencia entre los errores cuadráticos es lo suficientemente grande para que hacer el cambio de $p_1$ a $p_0$ parámetros sea útil. 
+
 \subsection{Regresión Múltiple mediante Ortogonalización sucesiva }
-\subsection{Regresión de múltiples variables respuesta}
-\subsection{Métodos de Encogimiento}
 
 
 
