@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.1)  27 MAR 2023 09:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  29 MAR 2023 18:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./master.tex
 (master.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-02-07>
+L3 programming layer <2023-02-22>
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
 Document Class: book 2022/07/02 v1.4n Standard LaTeX document class
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/base\bk12.clo
@@ -194,8 +194,17 @@ Style option: `fancybox' v1.4 <2010/05/15> (tvz)
 \Verbatim@Outfile=\write3
 \Verbatim@Infile=\read3
 ) (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage.sty
-Package: lastpage 2021/09/03 v1.2n Refers to last page's name (HMM; JPG)
-) (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: lastpage 2023/03/07 v2.0a lastpage: 2.09 or 2e? (HMM)
+
+(C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage2e.sty
+Package: lastpage2e 2023/03/07 v2.0a Decide which 2e lastpage version to use (H
+MM)
+
+(C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpagemodern
+.sty
+Package: lastpagemodern 2023-03-07 v2.0a Refers to last page's name (HMM; JPG)
+) 
+)) (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
@@ -230,15 +239,15 @@ Package: amsthm 2020/05/29 v2.20.6
 \lst@maxwidth=\dimen157
 
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 \c@lstnumber=\count281
 \lst@skipnumbers=\count282
 \lst@framebox=\box56
 )
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
-File: listings.cfg 2020/03/24 1.8d listings configuration
+File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
-Package: listings 2020/03/24 1.8d (Carsten Heinz)
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
 (C:\Users\Pedro\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \ttl@box=\box57
@@ -635,9 +644,6 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package lastpage Info: Please have a look at the pageslts package at
-(lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 81.
 \c@lstlisting=\count319
 LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
 
@@ -696,7 +702,7 @@ Package srcltx Info: Expanded filename `Documentos Extra/portada.tex' to `Docum
 entos Extra/portada.tex' on input line 83.
 :<+ Documentos Extra/portada.tex
 (Documentos Extra/portada.tex
-<Documentos Extra/escudo2tintas.pdf, id=123, 240.9pt x 199.74625pt>
+<Documentos Extra/escudo2tintas.pdf, id=115, 240.9pt x 199.74625pt>
 File: Documentos Extra/escudo2tintas.pdf Graphic file (type pdf)
 <use Documentos Extra/escudo2tintas.pdf>
 Package pdftex.def Info: Documentos Extra/escudo2tintas.pdf  used on input line
@@ -711,9 +717,7 @@ Package pdftex.def Info: Documentos Extra/escudo2tintas.pdf  used on input line
 (master.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [1
-
-])
+)
 \tf@toc=\write7
 \openout7 = `master.toc'.
 
@@ -721,10 +725,14 @@ Package srcltx Info: Expanded filename `Métodos supervisados.tex' to `Métodos
  supervisados.tex' on input line 92.
 
 :<+ Métodos supervisados.tex
-(Métodos supervisados.tex
+(Métodos supervisados.tex [1
+
+]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [2]
+ [2
+
+]
 Cap\'{\i }tulo 1.
 Package srcltx Info: Expanded filename `Documentos Extra/IntroduccionSupervisad
 os.tex' to `Documentos Extra/IntroduccionSupervisados.tex' on input line 9.
@@ -734,18 +742,16 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.22 \end{equation}
-                    [1
-
-]
-LaTeX Info: Redefining \. on input line 50.
-LaTeX Info: Redefining \% on input line 50.
+l.13 \begin{equation}
+                      [1]
+LaTeX Info: Redefining \. on input line 51.
+LaTeX Info: Redefining \% on input line 51.
  [2]
-LaTeX Info: Redefining \. on input line 96.
-LaTeX Info: Redefining \% on input line 96.
+LaTeX Info: Redefining \. on input line 82.
+LaTeX Info: Redefining \% on input line 82.
  [3]
-LaTeX Info: Redefining \. on input line 221.
-LaTeX Info: Redefining \% on input line 221.
+LaTeX Info: Redefining \. on input line 318.
+LaTeX Info: Redefining \% on input line 318.
  [4])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/MétodosLinealesRegres
@@ -755,23 +761,29 @@ ion.tex' to `Documentos Extra/MétodosLinealesRegresion.tex' on input line 10.
 LaTeX Info: Redefining \. on input line 32.
 LaTeX Info: Redefining \% on input line 32.
  [5]
-Overfull \hbox (6.3875pt too wide) in paragraph at lines 66--67
+LaTeX Info: Redefining \. on input line 77.
+LaTeX Info: Redefining \% on input line 77.
+ [6]
+Overfull \hbox (6.3875pt too wide) in paragraph at lines 79--80
 []\OT1/cmr/m/n/12 Si se to-ma el es-pa-cio $\U/msb/m/n/12 R[]$ \OT1/cmr/m/n/12 
 ge-ne-ra-do por las co-lum-nas de la ma-triz de da-tos $[][]\OML/cmm/m/it/12 ; 
 [][]; [] [][]$\OT1/cmr/m/n/12 ,
  []
 
-LaTeX Info: Redefining \. on input line 78.
-LaTeX Info: Redefining \% on input line 78.
-[6]
-Overfull \hbox (34.9801pt too wide) in paragraph at lines 88--90
+
+Overfull \hbox (34.9801pt too wide) in paragraph at lines 101--103
 []\OT1/cmr/m/n/12 Adem^^Sas el vec-tor de par^^Same-tros es-ti-ma-dos tendr^^Sa
  una dis-tri-bu-ci^^Son $[] \U/msb/m/n/12 s \OMS/cmsy/m/n/12 N\OT1/cmr/m/n/12 (
 \OML/cmm/m/it/12 ^^L; \OT1/cmr/m/n/12 ([][][])[]\OML/cmm/m/it/12 ^^[[]\OT1/cmr/
 m/n/12 )$. 
  []
 
-)
+LaTeX Info: Redefining \. on input line 118.
+LaTeX Info: Redefining \% on input line 118.
+[7]
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
+ [8])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/MetodosLinealesClasifi
 cacion.tex' to `Documentos Extra/MetodosLinealesClasificacion.tex' on input lin
@@ -780,10 +792,10 @@ e 11.
 (Documentos Extra/MetodosLinealesClasificacion.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [7]
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [8])
+ [9]
+LaTeX Info: Redefining \. on input line 32.
+LaTeX Info: Redefining \% on input line 32.
+ [10])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/Redes Neuronales.tex' 
 to `Documentos Extra/Redes Neuronales.tex' on input line 12.
@@ -791,13 +803,13 @@ to `Documentos Extra/Redes Neuronales.tex' on input line 12.
 (Documentos Extra/Redes Neuronales.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [9]
-<Documentos Extra/neurona.png, id=262, 443.40656pt x 237.13594pt>
+ [11]
+<Documentos Extra/neurona.png, id=293, 443.40656pt x 237.13594pt>
 File: Documentos Extra/neurona.png Graphic file (type png)
 <use Documentos Extra/neurona.png>
 Package pdftex.def Info: Documentos Extra/neurona.png  used on input line 25.
 (pdftex.def)             Requested size: 266.04597pt x 142.28265pt.
-<Documentos Extra/red-neuronal-grande.png, id=264, 556.0775pt x 301.125pt>
+<Documentos Extra/red-neuronal-grande.png, id=295, 556.0775pt x 301.125pt>
 File: Documentos Extra/red-neuronal-grande.png Graphic file (type png)
 <use Documentos Extra/red-neuronal-grande.png>
 Package pdftex.def Info: Documentos Extra/red-neuronal-grande.png  used on inpu
@@ -809,13 +821,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Info: Redefining \. on input line 44.
 LaTeX Info: Redefining \% on input line 44.
-[10 <./Documentos Extra/neurona.png>]
+[12 <./Documentos Extra/neurona.png>]
 LaTeX Info: Redefining \. on input line 70.
 LaTeX Info: Redefining \% on input line 70.
- [11 <./Documentos Extra/red-neuronal-grande.png>]
+ [13 <./Documentos Extra/red-neuronal-grande.png>]
 LaTeX Info: Redefining \. on input line 108.
 LaTeX Info: Redefining \% on input line 108.
- [12])
+ [14])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/ArbolesRegresionClasif
 icación.tex' to `Documentos Extra/ArbolesRegresionClasificación.tex' on input
@@ -831,36 +843,36 @@ dos no Supervisados.tex' on input line 96.
 (Métodos no Supervisados.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [13]
+ [15]
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [14
+ [16
 
 ]
 Cap\'{\i }tulo 2.
 Package srcltx Info: Expanded filename `Documentos Extra/resumenPCA.tex' to `Do
 cumentos Extra/resumenPCA.tex' on input line 4.
 :<+ Documentos Extra/resumenPCA.tex
-(Documentos Extra/resumenPCA.tex [15]
+(Documentos Extra/resumenPCA.tex [17]
 LaTeX Info: Redefining \. on input line 78.
 LaTeX Info: Redefining \% on input line 78.
- [16]
+ [18]
 LaTeX Info: Redefining \. on input line 104.
 LaTeX Info: Redefining \% on input line 104.
- [17]
+ [19]
 LaTeX Info: Redefining \. on input line 138.
 LaTeX Info: Redefining \% on input line 138.
- [18]
+ [20]
 LaTeX Info: Redefining \. on input line 176.
 LaTeX Info: Redefining \% on input line 176.
- [19]
+ [21]
 LaTeX Info: Redefining \. on input line 231.
 LaTeX Info: Redefining \% on input line 231.
- [20])
+ [22])
 :<-
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
-[21]
+[23]
 Package srcltx Info: Expanded filename `Documentos Extra/resumenCA.tex' to `Doc
 umentos Extra/resumenCA.tex' on input line 6.
 
@@ -872,7 +884,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
-[22]
+[24]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 26.
@@ -887,7 +899,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 LaTeX Info: Redefining \. on input line 76.
 LaTeX Info: Redefining \% on input line 76.
-[23]
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
  []
@@ -899,7 +911,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--111
 
 LaTeX Info: Redefining \. on input line 124.
 LaTeX Info: Redefining \% on input line 124.
-[24]
+[26]
 Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
@@ -916,17 +928,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 161--163
 
 LaTeX Info: Redefining \. on input line 170.
 LaTeX Info: Redefining \% on input line 170.
-[25]
+[27]
 LaTeX Info: Redefining \. on input line 176.
 LaTeX Info: Redefining \% on input line 176.
- [26]
+ [28]
 Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
  []
 
 LaTeX Info: Redefining \. on input line 211.
 LaTeX Info: Redefining \% on input line 211.
-[27]
+[29]
 Underfull \hbox (badness 10000) in paragraph at lines 212--215
 
  []
@@ -946,7 +958,7 @@ ntos Extra/biblio.tex' on input line 100.
 (Documentos Extra/biblio.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [28]
+ [30]
 Underfull \hbox (badness 1215) in paragraph at lines 19--20
 [][]\OT1/cmr/bx/n/12 Jain, A.K., Ri-chard, C.D., (1988) \OT1/cmr/m/it/12 Al-go-
 rithms for clus-te-ring da-ta.
@@ -954,64 +966,50 @@ rithms for clus-te-ring da-ta.
 
 )
 :<-
+[31
 
-AED: lastpage setting LastPage
-[29
-
-] (master.aux
+] 
+enddocument/afterlastpage: lastpage setting LastPage.
+(master.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
-
-Package rerunfilecheck Warning: File `master.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `master.out':
-(rerunfilecheck)             Before: 1C43F584140BD80DBB1A2C2083917C7C;7284
-(rerunfilecheck)             After:  0EB0BF61AE75B5C61BEF622738838399;6742.
+Package rerunfilecheck Info: File `master.out' has not changed.
+(rerunfilecheck)             Checksum: 89E3FFA08B8F8927DA64D61B25F7C409;6805.
  ) 
 Here is how much of TeX's memory you used:
- 16866 strings out of 476339
- 258508 string characters out of 5788120
- 1868340 words of memory out of 5000000
- 36790 multiletter control sequences out of 15000+600000
+ 16932 strings out of 476334
+ 260348 string characters out of 5787971
+ 1868382 words of memory out of 5000000
+ 36827 multiletter control sequences out of 15000+600000
  525910 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,19n,76p,3219b,813s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{subsection.1.2.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.1.2.3} has been referenced but does not 
-exist, replaced by a fixed one
-
- <C:\Users\Pedro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm12
-00.pk><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmbx8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Pedro/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Pedro/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Pedro/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users
-/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
-C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
-12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmr6.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmr8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmsl12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Pedro/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Pedro/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Pedro/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Pedro
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Us
-ers/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msb
-m10.pfb>
-Output written on master.pdf (32 pages, 641153 bytes).
+ 75i,19n,76p,3251b,602s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Pedro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1200.pk><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Pedro/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Pedro/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Pedro
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Use
+rs/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mr12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmr6.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmr8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Pedro/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Pedro/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Pedro/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Ped
+ro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/
+Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/m
+sbm10.pfb>
+Output written on master.pdf (34 pages, 661071 bytes).
 PDF statistics:
- 560 PDF objects out of 1000 (max. 8388607)
- 181 named destinations out of 1000 (max. 500000)
- 256 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 593 PDF objects out of 1000 (max. 8388607)
+ 209 named destinations out of 1000 (max. 500000)
+ 240 words of extra memory for PDF output out of 10000 (max. 10000000)
 

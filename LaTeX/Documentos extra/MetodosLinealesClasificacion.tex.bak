@@ -1,5 +1,5 @@
 \newpage
-\section{Análisis Discriminante Múltiple}
+\section{Análisis Discriminante}
 \noindent El objetivo del análisis discriminante es dada una población separada en varios grupos conocidos a priori, conseguir funciones que permitan determinar dadas nuevas observaciones en que grupo están las nuevas observaciones. 
 
 \noindent Para ello, se busca una o varias combinaciones lineales de las variables $X_1\ldots X_p$ que brinden un criterio por el cual se pueda determinar si una nueva observación de las variables pertenece a alguno de los grupos conocidos. 
@@ -7,9 +7,77 @@
 \subsection{Formalización del Análisis Discriminante}
  
 \noindent Sea \textbf{X} la matriz de datos de tamaño $n \times p$
-donde $\textbf{x}_i$ es cada una de las observaciones de las $p$ variables. Dichas observaciones están particionadas en general por $q$ grupos, sea $I_k$ el conjunto de observaciones pertenecientes al $k$-ésimo grupo, sea también $n_k$ el número de observaciones que pertenecen al $k$-ésimo grupo.
+donde las filas $\textbf{x}_i$ son cada una de las observaciones de las $p$ variables. Dichas observaciones están particionadas en general por $q$ grupos, sea $I_k$ el conjunto de observaciones pertenecientes al $k$-ésimo grupo, sea también $n_k$ el número de observaciones que pertenecen al $k$-ésimo grupo.
 
 \noindent Se definen las medias muestrales $\overline{x}_j=\frac{1}{n}\sum_{i=1}^n x_{ij}$ de la $j$-ésima variable en la población en total. También se define la media muestral dentro de cada grupo que es $\overline{x}_{jk}=\frac{1}{n_k}\sum 
-_{i\in I_k} x_{ij}$
+_{i\in I_k} x_{ij}$ 
+
+\noindent Por ende podemos dar la distancia entre dos variables como:
+\begin{align}
+Cov(X_j,X_{j'})&=\dfrac{1}{n}\sum_{i=1}^n(x_{ij}-\overline{x}_j)(x_{ij'}-\overline{x}_j')
+\intertext{Esto se puede particionar por grupos de la siguiente manera: }
+Cov(X_j,X_{j'})&=\dfrac{1}{n}\sum_{k=1}^q\sum_{i\in I_k}(x_{ij}-\overline{x}_j)(x_{ij'}-\overline{x}_j')
+\intertext{y a su vez cada uno de los $(x_{ij}-\overline{x}_j)$ se pueden dividir en la parte intergrupos e intragrupos: }
+(x_{ij}-\overline{x}_j)&=(x_{ij}-\overline{x}_{jk})+(\overline{x}_{jk}-\overline{x}_{j})
+\end{align}
+Sustituyendo y simplificando lo necesario: 
+\begin{equation}
+Cov(X_j,X_{j'})=\dfrac{1}{n}\sum_{k=1}^q\sum_{i\in I_k}(x_{ij}-\overline{x}_{jk})(x_{ij'}-\overline{x}_{j'k})+\sum_{k=1}^q\dfrac{n_k}{n}(\overline{x}_{jk}-\overline{x}_{j})(\overline{x}_{j'k}-\overline{x}_{j'})
+\end{equation}
+
+\noindent Esto nos permite dar una descomposición de la matriz de covarianzas total de la siguiente forma :
+\begin{equation}\label{descomposicion varianza}
+\textbf{T}=\textbf{B}+\textbf{W}
+\end{equation}
+\newpage
+Donde:
+\begin{itemize}
+\item \textbf{T} es la matriz que expresa la covarianza total y sus coeficientes  $t_{jj'}=Cov(X_j,X_j')$
+\item \textbf{B} es la matriz que expresa la covarianza entre los grupos y sus coeficientes son $b_{jj'}=\sum_{k=1}^q\dfrac{n_k}{n}(\overline{x}_{jk}-\overline{x}_{j})(\overline{x}_{j'k}-\overline{x}_{j'})$
+\item \textbf{W} es la matriz que expresa la covarianza dentro de los grupos y sus coeficientes son $w_{jj'}=\dfrac{1}{n}\sum_{k=1}^q\sum_{i\in I_k}(x_{ij}-\overline{x}_{jk})(x_{ij'}-\overline{x}_{j'k})$
+\end{itemize}
+
+\noindent Para cualquier combinación lineal que se quiera hacer de las variables de entrada de la forma $\textbf{a}^T \textbf{x}$, donde el vector $\textbf{a}$ es un vector de $p$ constantes,  entonces la varianza se transforma de la siguiente manera:
+\begin{equation}
+Var(\textbf{a}^T \textbf{x})=\textbf{a}^T \Sigma \textbf{a}
+\end{equation}
+
+\noindent Entonces transformando por el vector $\textbf{a}$ tenemos que la Ecuación \eqref{descomposicion varianza} se transforma de la siguiente manera: 
+\begin{equation}
+\textbf{a}^T \textbf{T}\textbf{a}= \textbf{a}^T \textbf{B}\textbf{a}+\textbf{a}^T \textbf{W}\textbf{a}
+\end{equation}
+
+Recopilando, el objetivo del análisis discriminante lineal es encontrar combinaciones lineales que maximicen la varianza entre grupos y minimicen la varianza dentro de los grupos. Eso es equivalente a encontrar el vector $\textbf{a}$ tal que:
+\begin{equation}
+f(\textbf{a})=\dfrac{\textbf{a}^T \textbf{B}\textbf{a}}{\textbf{a}^T \textbf{T}\textbf{a}}
+\end{equation}
+\noindent Es máxima. Si además utilizamos la restricción $\textbf{a}^T \textbf{T}\textbf{a} = 1$. En principio la función objetiva es homogénea, es decir, $f(\mu \textbf{a})=f(\textbf{a})$
+Utilizando el método de los multiplicadores de Lagrange derivamos respecto del vector $\textbf{a}$ tendremos que:
+\begin{align}
+L(\textbf{a})&= \textbf{a}^T \textbf{B}\textbf{a}-\lambda(\textbf{a}^T \textbf{T}\textbf{a}-1) 
+\intertext{al derivarla respecto de \textbf{a} se obtiene que: }
+\dfrac{\partial L(\textbf{a})}{\partial \textbf{a} } &= 2\textbf{B}\textbf{a}-2\lambda\textbf{T}\textbf{a}
+\intertext{En consecuencia: }
+\textbf{B}\textbf{a} &= \lambda \textbf{T} \textbf{a}
+\intertext{Si además \textbf{T} es no singular}
+\textbf{T}^{-1}\textbf{B}\textbf{a}&=\lambda \textbf{a}
+\end{align}
+
+Es decir, el vector $\textbf{a}$ es el vector de valor propio $\lambda$, tomando el valor propio máximo de la matriz $\textbf{T}^{-1}\textbf{B}$.
+
+\begin{defi}
+Al valor $\lambda$ se le conoce como \textit{potencia discriminante} de la combinación \textbf{a}.
+\end{defi}
+
+\noindent  
+
+
+
+
+
+
+
+\noindent \textit{Observación} Esta técnica se diferencia del Análisis de Componentes Principales en que en el Análisis Discriminante se maximiza la distancia o variación entre grupos conocidos, mientras que el Análisis de Componentes Principales únicamente busca las direcciones en las que los datos varían más. 
+
 
 

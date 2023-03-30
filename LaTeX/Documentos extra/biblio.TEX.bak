@@ -22,6 +22,12 @@
 
 \bibitem{Koppen 2000} \textbf{Köppen, M. (2000)} The curse of dimensionality. \textit{5th online world conference on soft computing in industrial applications (WSC5)}  (Vol. 1, pp. 4-8).
           
-\bibitem{Roberto 2008} \textbf{Lopez, R., Balsa-Canto, E. and Oñate, E. (2008)}        
+\bibitem{Roberto 2008} \textbf{Lopez, R., Balsa-Canto, E. and Oñate, E. (2008)} \textit{ Neural networks for variational problems in engineering} Int. J. Numer. Meth. Engng., 75\\ \url{https://doi.org/10.1002/nme.2304} 1341-1360. 
+\bibitem{Joseph Hair 1995}\textbf{Hair, J. F., Black, W. C., Tatham, R. L., y Anderson, R. E. (1995).}
+\textit{ Multivariate data analysis with readings.} Prentice-Hall International, Englewood Cliffs, New Yersey. 
+
+\bibitem{Lebart 1984}\textbf{Lebart, L., Morineau, A.,  Warwick, K. M. (1984)}.\textit{ Multivariate Descriptive Analysis: Correspondence analysis and related techniques for large matrices}. Wiley.
+
+
 \end{thebibliography}
  

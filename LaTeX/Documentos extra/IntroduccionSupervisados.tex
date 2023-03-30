@@ -1,28 +1,40 @@
 \section{Introducción}
-\noindent Sea un caso en el que tenemos unas variables aleatorias \textit{inputs} que influyen o determinan otras variables \textit{outputs}. De estas variables, tomamos observaciones conjuntas de manera que a la hora de predecir las variables respuesta a partir de las variables de entrada. Una vez recogidas estas muestras se planteará un modelo \textit{(Hay varias opciones como se desarrollará a lo largo de este capítulo)}.
-\noindent Sea \textbf{x} el vector aleatorio de longitud $p$ formado por las variables de entrada, sea a su vez las variables respuesta $Y_k$. De esta manera el objetivo de los métodos supervisados es conseguir una función $f$ que consiga que \begin{equation}
-Y=f(\textbf{x})+\varepsilon
-\end{equation}
-En otras palabras, conocidas las variables de entrada de una nueva observación poder predecir sus variables de respuesta con la mayor precisión posible. 
+\noindent Sea un conjunto de datos obtenidos de observar ciertas variables aleatorias de manera simultánea. De ese conjunto de variables se dividirán en:
+\begin{itemize}
+\item \textbf{\textit{Variables de entrada o inputs}}: Son las variables independientes que determinarán de manera aleatoria al segundo conjunto de variables. Al conjunto de variables aleatorias de entrada se la denotará como el vector aleatorio $\textbf{x}^T=[X_1,\ldots X_p]$. \\
+Tomando $n$ observaciones de estas variables se obtiene la \textit{matriz de datos} $\textbf{X}$. Esta matriz es de tamaño $n\times p$ y contiene como filas los vectores de longitud $p$ que representan los datos de cada observación, se denotan como $\textbf{x}_i$. Por ejemplo, en el caso de que se recojan datos sobre distintos modelos de coches serían la potencia del motor, el tipo de combustible $etc\ldots$
+\item \textbf{\textit{Variables de salida u outputs}}: Son las variables dependientes de las anteriores. A este conjunto de variables se les denota con el vector aleatorio $\textbf{y}^T=[Y_1,\ldots Y_k]$, en el caso de que únicamente se tenga una variable respuesta se denotará como $Y$. \\
+Como en el caso de las variables de entrada se tomarán $n$ observaciones de las $k$ observaciones dando como resultado la matriz de respuestas $\textbf{Y}$ de tamaño $n \times k$, donde cada observación es una fila y se denota como $y_i$. Siguiendo el ejemplo anterior, se podrían tener variables respuesta como el tipo de etiqueta medioambiental siendo esta una variable cualitativa o el precio del vehículo que tiene naturaleza cuantitativa. 
+\end{itemize}
+\noindent Por ende, se recogen observaciones simultáneas de las variables de entrada y de salida formando parejas $(\textbf{y}_i,\textbf{x}_i)$. El objetivo de estos métodos supervisados es encontrar una relación funcional o predictor de tal manera que para una nueva observación de las variables de entrada $\textbf{x}_0$ se pueda hacer una predicción $\hat{\textbf{y}}_0$ del valor real $\textbf{y}_0$ de la variable respuesta. 
+ 
 \subsection{Mínimos cuadrados y K-vecinos más cercanos}
-\noindent Supóngase que tenemos una relación lineal entre las variables de entrada \textbf{x} y la variable de salida de manera que el predictor $\hat{Y}$ tiene la siguiente expresión:
+\noindent Supóngase que la relación que se utiliza para realizar predicciones $\hat{y}$ es lineal de manera que se tiene un vector $\hat{\beta}=[\hat{\beta}_0,\ldots,\hat{\beta}_p]$ de parámetros que permite hacer predicciones de la siguiente manera para una nueva observación $\textbf{x}_0$:
 \begin{equation}
-\hat{Y}=\hat{\beta}_0+\sum_{j=1}^p \hat{\beta}_j X_j
-\end{equation}
-\noindent Esta expresión se puede simplificar añadiendo una variable $X_0$ constante 1. Por tanto, tenemos que:
-\begin{equation}
-\hat{Y}=\textbf{x}^T\hat{\beta}\quad \text{ donde } \hat{\beta}^T=[\hat{\beta}_0\ldots \hat{\beta}_p ]
+\hat{y}_0=\hat{\beta}_0+ \sum_{j=1}^p \hat{\beta}_j x_{0j}
 \end{equation}
 
-\noindent El modelo mostrado se puede generalizar al caso de que se tengan multiples variables de salida. Pero hay que tener en cuenta que las parejas de elementos $(\textbf{x},\hat{Y})$ forman en este caso lineal un hiperplano afín
-
-\noindent Para este y muchos otros casos el modelo ha de ajustarse a los datos recogidos para las $p$ variables entrada y las variables respuesta se tengan en ese momento . Para ello se puede definir la suma residual de cuadrados. 
+\noindent Utilizando una primera componente de $\textbf{x}_0$ igual a 1 se puede dar la expresión como producto matricial.
 \begin{equation}
-RSS(\beta)=\sum_{i=1}^N(y_i-\textbf{x}_i^T\beta)^2 
-\end{equation} 
+\hat{y}_0=
+\end{equation}
 
-\noindent En este caso, se considera que la distancia entre los puntos es euclideana, es decir, tomamos como medida del error la suma de las distancias habituales del espacio $\mathbb{R}$ entre las predicciones y los valores reales. Aún así, se puede tomar otras medidas como por ejemplo, el valor absoluto en $\mathbb{R}$.\\
-El problema con esta última, es que no es diferenciable y lo que estamos buscando es minimizar $RSS(\beta)$ en función de los paramétros $\beta$.
+
+\noindent Para este y muchos otros casos el modelo ha de ajustarse a los datos recogidos para las $p$ variables entrada y las variables respuesta se tengan en ese momento . Para ello se puede definir la función de pérdida.
+\begin{defi}
+Se llama \textit{función de pérdida} a la función que cuantifica el error cometido al usar la predicción y se denota como $L(y,\hat{y})$
+\end{defi} 
+
+\noindent Si se toma como medida global la suma de las pérdidas de todas las observaciones, en el caso de que $L(y,\hat{y})=(y-\hat{y})^2$ se obtiene el \textit{Error Cuadrático Acumulado} o \textit{RSS} por su siglas en inglés. 
+\begin{defi}
+Se define el \textit{Error Cuadrático Acumulado} a la suma de las diferencias entre las predicciones y los valores reales de la variable respuesta. En el caso de una sola variable aleatoria respuesta y suponiendo que se han recogido $n$ observaciones conjuntas se expresa de la siguiente manera: 
+\begin{align}
+RSS&=\sum_{i=1}^n (y_i-\hat{y}_i)^2
+\intertext{ para el caso anterior se tiene: } RSS(\beta)&=\sum_{i=1}^n (y_i-\hat{y}_i)^2=\sum_{i=1}^n (y_i-\textbf{x}_i^T \beta)^2
+\end{align}
+\end{defi}
+
+\noindent Para ajustar los parámetros $\beta$ se busca minimizar la cantidad de error que se comete al predecir, por tanto, establecemos el problema de optimización con la función $RSS(\beta)$ como función objetivo. Es por ello que esta debe ser derivable y aunque sea posible elegir otras funciones de pérdida, como pudiera ser $L(y,\hat{y})=\vert y-\hat{y}\vert$, estas resultan en funciones de pérdida globales no derivables. 
 
 \noindent La expresión de $RSS(\beta)$ en forma matricial teniendo en cuenta que $\textbf{X}$ sea la matriz de observaciones de tamaño $(n\times p+1)$ que tiene la primera columna constante 1 y $\textbf{y}$ es el vector columna o matriz que contiene las observaciones de la o las variables respuestas  es la siguiente: 
 \begin{equation}
@@ -34,18 +46,28 @@ Que al derivarla respecto de $\beta$ e igualarlo a $0$ se obtiene que:
 \end{equation}
 Que tiene solución única si la matriz $\textbf{X}^T\textbf{X}$ es invertible resultando en que $\hat{\beta}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}$.
 
-\noindent Otra forma de crear predictores es mediante los k-vecinos más cercanos que toma como predicción de una nueva observación el valor medio de las variables respuesta de las k observaciones más cercanas a la nueva muestra. 
+\noindent Este método de ajuste de los parámetros de la función de predicción se llama método de los \textit{Mínimos Cuadrados}, que es de largo el más utilizado aunque tiene sus problemas. 
+
+\noindent Mientras que el modelo (la relación que se usa como predicción) que se ha utilizado asume una cierta estructura global, que tiene sus desventajas, también se pueden dar métodos que no se centren en la estructura a nivel global, sino local. 
+
+\noindent Con este objetivo se construirá uno de los predictores locales más simples y conocidos el método de $k$-vecinos. 
+
+\begin{defi}
+Sea un conjunto de $n$ observaciones $\textbf{x}_i, i =1,\ldots n$, se define el conjunto $N_k(\textbf{x}_0)$ al conjunto de las $k$ observaciones más cercanas al punto $\textbf{x}_0$.
+\end{defi}
+
+\noindent Una vez definido ese conjunto se puede definir el siguiente predictor: 
 \begin{equation}
-\hat{Y}(x)=\dfrac{1}{k}\sum_{\textbf{x}_i\in N_k(x)}y_i
+\hat{Y}(\textbf{x}_0)=\dfrac{1}{k}\sum_{\textbf{x}_i\in N_k(\textbf{x}_0)}y_i
 \end{equation}
-\noindent En estos casos se necesita definir una distancia sobre el conjunto de las observaciones para poder establecer los $N_k(x)$ que son los entornos. 
 
-\noindent Estos dos acercamientos tienen problemas a la hora de las suposiciones que se hacen. El primero asume que la estructura de los datos es lineal de manera global y el segundo asume que es constante localmente. 
+\noindent Este método de predicción no requiere de que se realice el ajuste de ningún parámetro y además es bastante simple de utilizar, basta con promediar los valores respuesta de cada una de las observaciones del conjunto de datos. 
 
-\noindent Además el método de los k vecinos sufre de lo que se llama la \textit{maldición de la dimensionalidad}. Este suceso consiste en que a medida que aumentamos la dimensión, en este caso la cantidad de variables aleatorias a observar, la densidad de los datos es cada vez menor, en particular es proporcional a $n^{\frac{1}{p}}$, donde $p$ es el número de variables y $n$ el número de observaciones. Por ejemplo, si una muestra densa en $1$ dimensión tiene $n=100$, para mantener dicha densidad en $p=10$ se necesitarían $n = 100^{10}$. 
+\noindent En contraste, el método de los k vecinos y los métodos locales en general, sufren de lo que se llama la \textit{maldición de la dimensionalidad}. Este suceso consiste en que a medida que aumentamos la dimensión, en este caso la cantidad de variables aleatorias a observar, la densidad de los datos es cada vez menor. Esto provoca que por ejemplo que los conjuntos $N_k$ sean conjuntos muy dispersos, por tanto las observaciones que usamos como referencias y la observación de la cual se va a realizar la predicción están muy lejanas.\\
+En particular, la densidad es proporcional a $n^{\frac{1}{p}}$, donde $p$ es el número de variables y $n$ el número de observaciones. Por ejemplo, si una muestra densa en $1$ dimensión tiene $n=100$, para mantener dicha densidad en $p=10$ se necesitarían $n = 100^{10}$. 
 
 \subsection{Decisión Estadística}
-\noindent Sea un vector aleatorio real de entrada $\textbf{x}\in\mathbb{R}^p$, una variable de salida $Y\in\mathbb{R}$ y sea la probabilidad conjunta $\mathbb{P}(Y,\textbf{x})$ de ambas, entonces se busca una función $f(\textbf{x})$ para predecir $Y$. La búsqueda de esta función requiere una forma de saber como de correcta son esas predicciones. Para ello, se definen las \textit{funciones de pérdida}, la más utilizada es el error cuadrático $L(Y,f(\textbf{x}))=(Y-f(\textbf{x}))^2$
+\noindent Sea un vector aleatorio real de entrada $\textbf{x}\in\mathbb{R}^p$, una variable de salida $Y\in\mathbb{R}$ y sea la probabilidad conjunta $\mathbb{P}(Y,\textbf{x})$ de ambas, entonces se busca una función $f(\textbf{x})$ para predecir $Y$, es decir, $\hat{Y}=f(\textbf{x})$. Para ello, se utilizan las funciones de pérdida, en lo sucesivo utilizaremos la pérdida cuadrática $L(Y,\hat{Y})=L(Y,f(\textbf{x}))=(Y-f(\textbf{x}))^2$. 
 \begin{defi}
 Teniendo en cuenta lo anterior, se define el \textit{error de predicción esperado} como la esperanza de la nueva variable que define la función de pérdida.
 \begin{equation}
@@ -83,32 +105,107 @@ Se llama \textit{clasificador bayesiano} al predictor
 \hat{G}(x)=\mathcal{G}_k \text{ si } \mathbb{P}(\mathcal{G}_k|\textbf{x}=x)=\max_{g\in \mathcal{G}}\mathbb{P}(g|\textbf{x}=x)
 \end{equation}
 
-\noindent Es decir, se otorga la categoría que más probabilidad de ser tiene conociendo el valor de $\textbf{x}$
+\noindent Es decir, se otorga la categoría que más probabilidad de ser tiene conociendo el valor de $\textbf{x}$.
 \end{defi}
 
-\noindent Una característica que se puede intuir es que el problema de encontrar el predictor se puede traducir como un problema de aproximación de funciones en $\mathbb{R}^p$ conocidos $n$ puntos.
+\noindent Una vez definidos los principales predictores, hay que tener en cuenta que este tipo de métodos se pueden ver desde el prisma de un problema de aprendizaje automático, en particular, son métodos de aprendizaje supervisado.
 
-\subsection{Modelos Estadísticos}
+\noindent En este tipo de algoritmos tenemos 3 tipos de conjuntos de datos:
+\begin{defi}
+El conjunto de \textit{entrenamiento} $\mathcal{T}$ es el conjunto de datos que se utiliza para ajustar los parámetros del modelo
+\end{defi}
+\begin{defi}
+El conjunto de \textit{selección} $\mathcal{S}$ es el conjunto de datos que permiten comprobar la capacidad de generalización del modelo con unos ciertos parámetros 
+\end{defi}
+\begin{defi}
+El conjunto de \textit{testing} $Test$ permite una vez entrenado y ajustado el modelo dar una idea de su rendimiento a la hora de hacer predicciones. 
+\end{defi}
 
-\noindent Teniendo en cuenta lo anterior, y tomando que $f(x)=E(Y|\textbf{x}=x)$ supongamos que los datos vienen dados según el modelo:
-\begin{equation}
-Y = f(\textbf{x})+\varepsilon
-\end{equation}
-Donde la variable aleatoria $\varepsilon$ reúne todos los valores que no estén reunidos bajo las mediciones de las variables del vector aleatorio $\textbf{x}$ y los errores de medición.
-En particular, la variable $\varepsilon$ es independiente de $\textbf{x}$ y $E(\varepsilon)=0$.
+\noindent En nuestro caso, no se detallará como un problema de aprendizaje automático aunque varios métodos de los detallados se puedan ver de esa manera. 
 
-Este \textit{modelo aditivo} es una buena representación para la  mayoría de situaciones, en caso de que no se dé la suposición de la independencia 
+\noindent Aún así, a estos métodos se les llama \textit{métodos supervisados} ya que partimos del conocimiento de las observaciones $(\textbf{x}_i,\textbf{y}_i)$ y se adapta el modelo y los parámetros conociendo el valor real de las observaciones de la variable respuesta. 
 
-\subsection{Selección del modelo, Sesgo y Varianza}
 
-Una vez que hemos ajustado el modelo a los puntos hay que comprobar su rendimiento, esto se puede hacer teniendo un conjunto de entrenamiento y otro de testing. El conjunto de entrenamiento nos servirá para optimizar los parámetros y el de testing del cual conocemos las x y las y nos permite evaluar su capacidad de generalización. 
 
-\noindent Sea el modelo $Y=f(\textbf{x})+\varepsilon$ donde $E(\varepsilon)=0$ y $Var(\varepsilon)=\sigma^2$. Entonces podemos hacer la siguiente descomposición del error de generalización  esperado en $x_0$, no perteneciente al conjunto de entrenamiento:
-\begin{equation}
-EPE(x_0)=E(Y-\hat{f}(x_0)|\textbf{x}=x_0)^2=\sigma^2+sesgo^2(\hat{f}(x_0))+Var_{\mathcal{T}}(\hat{f}(x_0))
-\end{equation}
 
-\noindent De esta manera, se puede reducir el sesgo y la varianza, pero hay un error que es irreducible que es $\sigma^2$ y los otros dos términos son el resultado de calcular el Error Cuadrático Medio. En términos generales cuanto más complejo es el modelo se tiene 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\noindent Una característica que se puede intuir es que el problema de encontrar el predictor se puede traducir como un problema de aproximación de funciones en $\mathbb{R}^p$ conocidos $n$ puntos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\noindent Teniendo en cuenta lo anterior, y tomando que $f(x)=E(Y|\textbf{x}=x)$ supongamos que los datos vienen dados según el modelo:
+%\begin{equation}
+%Y = f(\textbf{x})+\varepsilon
+%\end{equation}
+%Donde la variable aleatoria $\varepsilon$ reúne todos los valores que no estén reunidos bajo las mediciones de las variables del vector aleatorio $\textbf{x}$ y los errores de medición.
+%En particular, la variable $\varepsilon$ es independiente de $\textbf{x}$ y $E(\varepsilon)=0$.
+%
+%Este \textit{modelo aditivo} es una buena representación para la  mayoría de situaciones, y en caso de que no se dé la suposición de la independencia tomando 
+
+
+
+
+%\subsection{Selección del modelo, Sesgo y Varianza}
+%
+%Una vez que hemos ajustado el modelo a los puntos hay que comprobar su rendimiento, esto se puede hacer teniendo un conjunto de entrenamiento y otro de testing. El conjunto de entrenamiento nos servirá para optimizar los parámetros y el de testing del cual conocemos las x y las y nos permite evaluar su capacidad de generalización. 
+%
+%\noindent Sea el modelo $Y=f(\textbf{x})+\varepsilon$ donde $E(\varepsilon)=0$ y $Var(\varepsilon)=\sigma^2$. Entonces podemos hacer la siguiente descomposición del error de generalización  esperado en $x_0$, no perteneciente al conjunto de entrenamiento:
+%\begin{equation}
+%EPE(x_0)=E(Y-\hat{f}(x_0)|\textbf{x}=x_0)^2=\sigma^2+sesgo^2(\hat{f}(x_0))+Var_{\mathcal{T}}(\hat{f}(x_0))
+%\end{equation}
+%
+%\noindent De esta manera, se puede reducir el sesgo y la varianza, pero hay un error que es irreducible que es $\sigma^2$ y los otros dos términos son el resultado de calcular el Error Cuadrático Medio. En términos generales cuanto más complejo es el modelo se tiene 
 
 
 

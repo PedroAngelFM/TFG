@@ -21,7 +21,7 @@
 \widowpenalty=10000
 \usepackage{makeidx}%glosario de términos
 \usepackage[all]{xy}
-
+\numberwithin{equation}{section}
 \theoremstyle{definition}
 \newtheorem{defi}{Definición}[section]
 

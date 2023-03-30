@@ -50,11 +50,24 @@ Es un mínimo local de $RSS(\beta)$ , si además, $\textbf{X}^T\textbf{X}$ es un
 \begin{equation}
 \hat{\beta}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
 \end{equation}
-
 \begin{propo}
-Esta estimación de los parámetros $\beta$ es equivalente a la estimación de estos mediante el método de máxima verosimilitud
+Esta estimación de los parámetros $\beta$ por mínimos cuadrados es equivalente a la estimación de estos mediante el método de máxima verosimilitud.
 \begin{proof}
+Sea una muestra de tamaño $n$, $y_i, i=1,\ldots n$ de una variable aleatoria $Y$, de manera que su función de probabilidad, $\mathbb{P}_\theta(y)$ depende de los parámetros $\theta$. Entonces el método de máxima verosimilitud busca maximizar la siguiente función.
+\begin{equation}
+L(\theta)=\sum_{i=1}^n \mathbb{P}_{\theta}(y_i)
+\end{equation}
 
+\noindent Suponiendo que es cierto el modelo aditivo se tiene que $Y=f_\theta (\textbf{x})+\varepsilon$, donde $\varepsilon \thicksim \mathcal(0,\sigma^2)$, provoca que si se suponen conocidos a priori el parámetro $\theta$ y el vector aleatorio $\textbf{x}$ entonces :
+\begin{equation}
+\mathbb{P}(Y|\textbf{x},\theta)=\mathcal{N}(f_\theta(\textbf{x}, \sigma^2))
+\end{equation}
+
+\noindent Teniendo esto en cuenta, la función $L(\theta)$ tiene la siguiente expresión:
+\begin{equation}
+L(\theta)=-\dfrac{n}{2}log(2\pi)-n log(\sigma)-\dfrac{1}{2\sigma^2}\sum_{i=1}^n (y_i-f_\theta (x_i))^2
+\end{equation}
+Por tanto, teniendo en cuenta que el último término es $RSS(\theta)$, entonces maximizar $L(\theta)$ es equivalente a minimizar $RSS(\theta)$
 \end{proof}
 \end{propo}
 
@@ -100,13 +113,67 @@ C_{\beta}=\lbrace \beta| (\hat{\beta}-\beta)^T \textbf{X}^T\textbf{X}(\hat{\beta
 \noindent Otro contraste que se puede realizar es comprobar si un subconjunto de variables es más significativo estadísticamente que otro, de manera que se pueda eliminar variables que no aporten información en pos de la sencillez del modelo y su posterior interpretación. 
 
 \noindent Sea $p_1+1$ el número del conjunto más grande de parámetros y $RSS_1$ su error cuadrático respectivo, sean respectivamente $RSS_0$ y $p_0+1$ para el segundo conjunto o subconjunto menor entonces el estadigráfo:
-\begin{equation}
+\begin{equation}\label{ec.F}
 F=\dfrac{\dfrac{(RSS_0-RSS_1)}{p_1-p_0}}{\dfrac{RSS_1}{N-p_1-1}} \thicksim F_{(p_1-p_0),(N-p_1-1)}
 \end{equation}
 
 \noindent Este estadígrafo mide si la diferencia entre los errores cuadráticos es lo suficientemente grande para que hacer el cambio de $p_1$ a $p_0$ parámetros sea útil. 
 
 \subsection{Regresión Múltiple mediante Ortogonalización sucesiva }
+
+
+\subsection{Regresión sobre varias variables}
+\noindent Hasta ahora, se ha considerado una única variable aleatoria respuesta, sea \textbf{y} el vector aleatorio de variables respuesta $\textbf{y}^T=[Y_1,\ldots, Y_K]$ y un vector aleatorio de variables de entrada $\textbf{x}^T=[X_0, X_1,\ldots, X_p]$. Se puede establecer el siguiente modelo análogo:
+\begin{align}
+Y_k&=\beta_{0k}+\sum_{j=1}^p X_j\beta_{jk}+\varepsilon_k=f_k(\textbf{x})+\varepsilon_k\\
+\intertext{Recogidas n muestras tendremos la siguiente expresión matricial: }
+\textbf{Y}&=\textbf{X}\textbf{B}+\textbf{E}
+\end{align}
+
+\noindent Dentro de esa expresión matricial se tiene que: 
+\begin{itemize}
+\item $\textbf{Y}$ es la matriz de tamaño $n\times K$ que contiene los valores observados de las variables respuesta
+\item $\textbf{X}$ matriz de datos habitual de tamaño $n \times p+1$ 
+\item $\textbf{B}$ matriz de tamaño $ p+1 \times K$ que contiene los parámetros de la regresión 
+\item $\textbf{E}$ es la matriz de tamaño $ n \times K$ que contiene los errores. 
+\end{itemize}
+
+\noindent El proceso de ajuste, en el caso de que los errores $\varepsilon^T=[\varepsilon_1,\ldots \varepsilon_K]$ no estén correlados, de la matriz de parámetros es análogo al de una sola variable respuesta de tal manera que minimizando el error cuadrático acumulado se obtiene $\hat{\textbf{B}}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{Y}$. En caso de que los errores tengan una matriz de covarianzas conocida, $\Sigma$, entonces es necesario hacer la siguiente modificación en el $RSS$:
+\begin{equation}
+RSS(\textbf{B},\Sigma)=\sum_{i=1}^n(y_i-f(\textbf{x}_i))^T \Sigma^{-1} (y_i-f(\textbf{x}_i))
+\end{equation}
+
+\noindent En la última expresión se usa la \textit{distancia de Mahalanobis}.
+\begin{defi}
+Según Cuadras \cite{Cuadras 2014} la \textit{distancia de Mahalanobis} entre dos observaciones $\textbf{x}_i, \textbf{x}_j$ extraídas de una misma población con matriz de covarianzas $\Sigma$ se define de la siguiente manera: 
+\begin{equation}
+d_M(\textbf{x}_i, \textbf{x}_j)=\sqrt{(\textbf{x}_i- \textbf{x}_j)^T \Sigma^{-de 1}(\textbf{x}_i-\textbf{x}_j)}
+\end{equation}
+\end{defi}
+
+\noindent En el caso anterior, $(y_i-f(\textbf{x}_i))=\varepsilon_i$ y se está haciendo la distancia de Mahalanobis respecto de su media, el 0. 
+
+
+\subsection{Selección de subconjuntos y métodos penalizados}
+
+\noindent Anteriormente, se ha detallado un estadígrafo que permitía hacer un contraste sobre la cantidad de variables a considerar en la regresión. 
+Esta reducción de características a considerar permite hacer mucho más interpretable el modelo obtenido durante todo el proceso de ajuste y en algunos casos incluso aumentar la precisión del modelo ya que puede ocurrir que estemos eliminando variables que introduzcan ruido en el modelo. 
+
+\noindent Se podría seguir un método exhaustivo que calcule cada uno de los subconjuntos posibles para cada número de variables que creamos necesarias y calcular el error cuadrático acumulado de cada uno de los subconjuntos posibles. Pero este método es de una complejidad computacional alta. 
+
+\noindent Otra posibilidad sería utilizar el estadígrafo de contraste $F$ definido en la Ecuación \eqref{ec.F} empezando con una sola variable e ir añadiendo cada variable que mejore el ajuste. También se puede hacer al revés, empezando con el modelo con todas las variables e ir reduciendo la cantidad de estas. 
+
+\noindent El problema de estos métodos de selección de variables es que es un proceso discreto, una variable es o no considerada para el modelo siguiente y esto puede generar sobreajuste o infraajuste, no habiendo un término medio. 
+
+\noindent Para ello, existen los métodos penalizados o de encogimiento, que añaden un término de penalización para que los parámetros $\beta$ no sean muy grandes, en el caso del ajuste por mínimos cuadrados del modelo lineal. 
+
+\begin{equation}
+RSS(\beta)=\sum_{i=1}^n(\textbf{y}_i-\textbf{x}_i^T\beta)^2+\lambda\sum_{j=1}^p\beta_j^2
+\end{equation}
+
+\noindent El último término hace que parámetros $\beta_j$ grandes sean considerados perjudiciales, y el parámetro $\lambda$ es una forma de regular cuanta importancia tiene dicha penalización, cuanto mayor sea, este provocará un encogimiento mayor de los parámetros. 
+De esta manera, se tiene una forma continua de considerar los pesos no eliminando en de manera total las variables o haciendo el $\beta_j$ correspondiente cercano a 0. 
+
 
 
 
