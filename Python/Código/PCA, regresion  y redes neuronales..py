@@ -16,5 +16,5 @@ import matplotlib.pyplot as plt
 #%% Importación del DataSet
 data=pd.read_csv("C:/Users/Pedro/Documents/TFG/Python/Datasets/solarpowergeneration.csv")
 
-#Veamos las columnas del dataSet
-print(data.shape)
+#Veamos un informe del dataset 
+print (data.describe())
