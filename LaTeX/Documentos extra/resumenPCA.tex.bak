@@ -1,0 +1,242 @@
+\section{Análisis de Componentes Principales}
+%\input{Documentos Extra/introduccionPCA.tex}
+\noindent El análisis de componentes principales fue en primera instancia desarrollado a principios del siglo XX por el estadístico Pearson (1901). Fue una de las primeras técnicas de análisis multivariante. Como muchos otros métodos de este tipo no tuvo un verdadero desarrollo y expansión hasta que la capacidad de computación fue suficiente para manejar cantidades de datos considerables. 
+
+\subsection{Definición y cálculo de las Componentes}
+
+\noindent Sea un vector aleatorio $\textbf{x}^T=[X_1,\ldots X_p]$ con vector de medias $\mu$ y matriz de covarianzas $\Sigma$.
+\begin{defi}
+Las componentes principales son combinaciones lineales de las variables $X_1 \ldots X_p$
+\begin{equation}
+\textbf{z}_j=a_{1j}X_1+\ldots a_{pj}X_p=\textbf{a}_j^T\textbf{x}\quad 
+\end{equation}
+
+\noindent Donde $\textbf{a}_j$ es un vector de constantes y la variable $\textbf{z}_j$ cumple lo siguiente:
+\begin{itemize}
+\item Si $j=1$ $Var(\textbf{z}_1)$ es máxima restringido a $\textbf{a}_1^T \textbf{a}_1=1$
+\item Si $j>1$ debe cumplir:
+\begin{itemize}
+\item $Cov(\textbf{z}_j,\textbf{z}_i)=0\quad \forall i\neq j $
+\item $\textbf{a}_j^T \textbf{a}_j=1$
+\item $Var(\textbf{z}_j)$ es máxima. 
+\end{itemize}
+\end{itemize}
+\noindent De esta manera lo que se busca es una nueva base que reúna las direcciones de máxima variación 
+\end{defi}
+
+\noindent El cálculo de la primera componente principal se lleva a cabo con un proceso de optimización de la función $Var(\textbf{z}_1)$ sujeto a la restricción de que $\textbf{a}_1^T\textbf{a}_1=1$. 
+
+\noindent Aplicando el método de los multiplicadores de Lagrange,  dada una función $f(\textbf{x})=f(x_1,\ldots, x_p)$ diferenciable con una restricción $g(\textbf{x})=g(x_1, \ldots, x_p)=c$,  existe una constante $\lambda$ de manera que la ecuación:
+\begin{equation}
+\dfrac{\partial f}{\partial x_i}-\lambda\dfrac{\partial g}{\partial x_i}=0 \quad i=1,\ldots p 
+\end{equation}
+
+\noindent Tiene como solución los puntos estacionarios de $f(\textbf{x})$. Además, si se define la función $L(\textbf{x})= f(\textbf{x})-\lambda[g(\textbf{x})-c]$  es posible simplificar la expresión anterior a:
+\begin{equation}
+\dfrac{\partial L}{\partial \textbf{x}}=0
+\end{equation}
+
+\noindent Para el caso de las componentes principales, la función objetivo es la varianza de la combinación lineal, es decir, $f(\textbf{x})=\textbf{x}^T \Sigma \textbf{x}$ y la restricción aplicada es $g(\textbf{x})=\textbf{x}^T\textbf{x}=1$. 
+
+\noindent Tomando $\textbf{x}=\textbf{a}_1$ se puede establecer $L(\textbf{a}_1)=\textbf{a}_1^T \Sigma \textbf{a}_1 - \lambda[\textbf{a}_1^T \textbf{a}_1-1]$. Que al derivarla se obtiene:
+%\noindent Para el cálculo de la $L(\textbf{a}_1)=\textbf{a}_1^T \Sigma \textbf{a}_1 - \lambda[\textbf{a}_1^T \textbf{a}_1-1]$. Al derivarla obtenemos que :
+\begin{align*}
+\dfrac{\partial L}{\partial \textbf{a}_1} &= 2\Sigma \textbf{a}_1 - 2\lambda\textbf{a}_1\\
+& = 2(\Sigma-\lambda)\textbf{a}_1 
+\end{align*}
+
+\noindent Igualando a 0 tenemos la siguiente ecuación: 
+\begin{equation}
+(\Sigma-\lambda I)\textbf{a}_1=0
+\end{equation}
+
+\noindent Para que $\textbf{a}_1$ sea un vector no trivial, se elige $\lambda$ de tal manera que $|\Sigma-\lambda I| = 0$, es decir, $\lambda$ es un vector propio de la matriz de covarianzas, $\Sigma$. Al ser ésta una matriz semidefinido positiva y simétrica, los valores propios son reales y positivos. Por tanto, $\textbf{a}_1$ es un vector propio de la matriz de covarianza.
+
+\noindent La función a maximizar es $Var(\textbf{z}_1)=Var(\textbf{a}_1^T\textbf{x})=\textbf{a}_1^T\Sigma \textbf{a}_1=\textbf{a}_1^T\lambda \textbf{a}_1$, y para maximizarla basta tomar $\lambda=\max{\lbrace\lambda_1\ldots \lambda_p\rbrace}$. reordenando si es necesario, se tiene que $\lambda=\lambda_1$ 
+
+\noindent Una vez calculada la primera componente principal $\textbf{z}_1$, la segunda componente se calcula de manera análoga, maximizando $Var(\textbf{z}_2)=Var(\textbf{a}_2^T\textbf{x})$ condicionada por $\textbf{a}_2^T\textbf{a}_2=1$. A esta restricción tenemos que añadir la restricción $Cov(\textbf{z}_1,\textbf{z}_2)=0 $
+
+\begin{propo}
+La condición $Cov(\textbf{z}_1,\textbf{z}_2)=0 $ equivale a la condición $\textbf{a}_2^T\textbf{a}_1 = 0$.
+\begin{proof}
+Utilizando que $\textbf{z}_j=\textbf{a}_j^T \textbf{x}\quad \forall j$ , se tiene entonces que :
+\begin{align*}
+Cov(\textbf{z}_2,\textbf{z}_1)&= Cov (\textbf{a}_2^T\textbf{x},\textbf{a}_1^T\textbf{x})\\ 
+&= \mathbb{E}(\textbf{a}_2^T(\textbf{x}-\mu)(\textbf{x}-\mu)^T \textbf{a}_1)\\
+&= \textbf{a}_2^T \mathbb{E}((\textbf{x}-\mu)(\textbf{x}-\mu)^T) \textbf{a}_1\\
+&= \textbf{a}_2^T \Sigma \textbf{a}_1 \\
+&= \textbf{a}_2^T \lambda_1 \textbf{a}_1
+\end{align*}
+\noindent De manera que, si $a_2^T \lambda_1 a_1 = 0 \Rightarrow a_2^T a_1=0 $, luego son vectores ortogonales entre sí.
+\end{proof}
+\end{propo}
+
+
+\noindent \emph{Observación: } Esta proposición se puede extender de manera simple al caso de tener que calcular la $i$-ésima componente principal habiendo calculado las anteriores de las cuales se sepan los valores propios asociados. 
+
+\begin{coro}
+Las componentes principales son todas ortogonales entre sí. 
+\end{coro}
+
+\noindent Para $k=2$, se dan dos restricciones, $\textbf{a}_2^T\textbf{a}_2=1$ y además $\textbf{a}_1^T \textbf{a}_2=0$. Para este caso existen $\lambda, \phi$ de manera que la función a maximizar es:
+\begin{equation}
+ L(\textbf{a}_2)=\textbf{a}_2^T \Sigma \textbf{a}_2 - \lambda[\textbf{a}_2^T \textbf{a}_2-1]-\phi(\textbf{a}_1^T \textbf{a}_2)
+\end{equation}
+Que al ser derivado respecto $\textbf{a}_2$ obtenemos:
+\begin{equation}
+2\Sigma \textbf{a}_2 - 2\lambda\textbf{a}_2-\phi \textbf{a}_1=0
+\end{equation}
+Que al multiplicar todo por $\textbf{a}_1^T$ resulta que $\phi=0$. De esta manera, se obtiene en la ecuación lo mismo que en el cálculo de la primera. 
+
+\noindent Por tanto, $\lambda=\lambda_2$ que es el segundo valor propio más grande, y $\textbf{a}_2$ es el vector propio de valor propio $\lambda_2$.
+
+\noindent Un proceso similar se puede seguir para calcular el resto de componentes principales. 
+
+\noindent Por ende, se obtiene que las componentes principales vienen dadas por los vectores propios de la matriz de covarianzas $\Sigma $. Además sabemos que $Var(\textbf{a}_k^T \textbf{x})=\lambda_k$ donde $\lambda_k$ es el $k$-ésimo valor propio más grande. 
+
+\noindent Sea ahora la matriz $\textbf{A}$ cuyas columnas son los $\textbf{a}_k$. Entonces el vector \textbf{z} que contiene a las componentes principales viene dado por la transformación:
+\begin{equation}
+\textbf{z}=\textbf{A}^T\textbf{x}
+\end{equation}
+\noindent Se deduce rápidamente que la matriz $\textbf{A}$ es ortonormal, de manera que $\textbf{A}^T\textbf{A}=\textbf{I}$
+
+
+\newpage
+
+\subsection{PCA en matrices de datos}
+
+\noindent Sea \textbf{x} el vector aleatorio de longitud $p$, tomando $n$ observaciones de ese vector se obtienen $\textbf{x}_1\ldots \textbf{x}_n$.
+Esta recopilación de observaciones nos permite construir la matriz de datos $\textbf{X}$ cuyas filas son cada una de las observaciones. Esta matriz \textbf{X} es de tamaño $n\times p$. 
+Para este caso, las componentes principales se definen de manera análoga:
+\begin{defi}
+Dado un un vector aleatorio de longitud $p$ del cual hemos extraído $n$ observaciones se definen las componentes principales como:
+\begin{equation}
+\widetilde{z}_{ij}=\textbf{a}^T_j\textbf{x}_i
+\end{equation}
+Donde $\textbf{a}_j$ es un vector de constantes de longitud $p$ que cumple lo siguiente:
+\begin{itemize}
+\item Si $j=1$, entonces $\textbf{a}_1$ maximiza la varianza de la muestra, es decir máximiza $\frac{1}{n-1}\sum_{i=1}^{n}(\widetilde{z}_{i1}-\overline{z}_1)^2$. Además debe cumplir que $\textbf{a}_1^T\textbf{a}_1=1$
+\item Si $j>1$ debe cumplir:
+\begin{itemize}
+\item Los vectores $\textbf{a}_j$ son ortogonales entre sí. 
+\item $\textbf{a}_j^T \textbf{a}_j=1$
+\item La varianza muestral es máxima. 
+\end{itemize}
+\end{itemize}
+Es decir el factor $\widetilde{z}_{ij}$ es la transformación de la observación $j$-ésima por la $i$-ésima componente principal. 
+ 
+\end{defi}
+
+\noindent Por tanto, el proceso que se detalla para un vector aleatorio \textbf{x} con matriz de covarianzas $\Sigma$ se puede extender a este caso en el conocemos la matriz de covarianzas muestrales \textbf{S}.
+
+\noindent Con el objetivo de hacer las demostraciones más sencillas y compactas tomaremos la matriz $\textbf{X}$ como la matriz centrada $\overline{\textbf{X}}$, es decir: 
+\begin{equation}
+\overline{x}_{ij}=x_{ij}-\overline{x}_j
+\end{equation}
+Donde $\overline{x}_j$ es la media muestral de la $j$-ésima variable. Esto hace que $\textbf{S}=\frac{1}{n-1}\textbf{X}^T\textbf{X}$. Esto permite hablar de los valores y vectores propios de \textbf{S} y de $\textbf{X}^T \textbf{X}$ indistintamente, ya que los vectores propios son los mismos y los valores propios son proporcionales. 
+
+\newpage
+\subsection{Reducción de la dimensionalidad}
+
+\noindent Uno de los objetivos de las componentes principales es reducir la dimensionalidad de la matriz de datos de tamaño $n\times p$, \textbf{X}. Esta matriz de datos se puede interpretar como un conjunto de puntos del espacio $\mathbb{R}^p$. 
+
+\noindent La intención final es buscar una proyección sobre una subvariedad de dimensión $m<p$ que reduzca la pérdida de información de la matriz y que brinde una mayor capacidad de interpretación de los datos, ya que en el caso de que $m=2$ o $m=3$ se podrán hacer representaciones gráficas de manera sencilla . En virtud de conseguir esto se deben definir los siguientes conceptos:
+
+\begin{defi}
+Dada una matriz $\textbf{X}\in  \mathbb{M}_{n\times p}(\mathbb{R})$ existe la descomposición en valores singulares \textit{(SVD en inglés)}:
+\begin{equation}
+\textbf{X}=\textbf{U}\Sigma\textbf{V}^T
+\end{equation}
+Donde:
+\begin{itemize}
+\item \textbf{U} matriz ortogonal y de tamaño $n \times n$
+\item $\Sigma$ matriz de tamaño $n \times p $ diagonal, cuyos elementos no nulos son los valores singulares $\sigma_1\geq\ldots\geq \sigma_r\geq 0$ que son los valores propios de la matriz $\textbf{X}^T\textbf{X}$ y $r=rg(\textbf{X})$
+\item \textbf{V} matriz ortogonal y de tamaño $p \times p$
+\end{itemize}
+\end{defi}
+
+\begin{propo}
+La matriz \textbf{V} de tamaño $(p\times p)$ es la matriz que contiene los vectores para hacer la combinación lineal que definen las componentes principales.
+\begin{proof}
+La matriz $\textbf{X}^T \textbf{X}$ es la matriz de covarianzas $(p \times p)$  por la descomposición en valores singulares tenemos que:
+\begin{align*}
+\textbf{X}^T \textbf{X} &= (\textbf{U}\Sigma \textbf{V}^T)^T (\textbf{U}\Sigma \textbf{V}^T)\\
+&= \textbf{V}\Sigma ^T \textbf{U}^T \textbf{U}\Sigma \textbf{V}^T\\
+&= \textbf{V}\Sigma ^T \Sigma \textbf{V}^T
+\end{align*}
+Donde la matriz $\Sigma ^T \Sigma $ es una matriz diagonal de tamaño $p \times p $ cuyos elementos son los cuadrados de los valores singulares de \textbf{X}, que son a su vez los valores propios de $\textbf{X}^T \textbf{X}$. 
+
+\noindent Añadiendo la condición de ortogonalidad de $\textbf{V}\Rightarrow \textbf{V}^{-1}=V^T$ es fácil ver que la matriz \textbf{V} es la matriz cuyas columnas son los vectores propios de $\textbf{X}^T\textbf{X}$
+\end{proof}
+\end{propo}
+
+\begin{coro}
+El cálculo de las componentes principales de la matriz de datos \textbf{X} es equivalente a calcular la descomposición en valores singulares de la misma. 
+\end {coro}
+\newpage
+\begin{defi}
+Sea $\textbf{A}\in \mathbb{M}_{n\times p}(\mathbb{R})$ definimos la \textit{norma de Frobenius} de la matriz \textbf{A} como :
+\begin{equation}
+||\textbf{A}||_F=(tr(\textbf{A}^T\cdot \textbf{A}))^{\frac{1}{2}}=\left(\sum_{i=1}^{n}\sum _{j=1}^{m}a_{ij}^2\right)^{\frac{1}{2}}
+\end{equation}
+\end{defi}
+
+\begin{propo}
+La norma de Frobenius es invariante a transformaciones ortogonales
+\begin{proof}
+Sea $\mathbf{U}$ una matriz ortogonal, que cumple $\mathbf{U}^T\cdot \mathbf{U}=\mathbf{U}\cdot \mathbf{U}^T=\textbf{I}$, sea una matriz cualquiera $\mathbf{A}$, entonces:
+\begin{align*}
+||\mathbf{U} \cdot \mathbf{A}||_F^2&=tr((\mathbf{U} \mathbf{A})^T\cdot(\mathbf{U} \mathbf{A}))\\
+&=tr((\mathbf{A}^T \mathbf{U}^T)\cdot \mathbf{U} \mathbf{A}))\\
+&=tr(\mathbf{A}^T \mathbf{A})\\
+&=||\mathbf{A}||_F^2\qedhere
+\end{align*}
+\end{proof}
+\end{propo}
+
+\noindent Se ha elegido la norma de frobenius se ha elegido por la siguiente propiedad. 
+\begin{propo}
+Dada una matriz de datos \textbf{X} de tamaño $n\times p$ entonces
+\begin{equation}
+||\textbf{X}||_F^2=(n-1)\sum_{i=1}^p s_{ii}^2
+\end{equation}
+Donde las $s_{ii}^2$ son las varianzas muestrales.
+\begin{proof}
+Debido a la centralidad impuesta a la matriz \textbf{X}, sabemos que la matriz de covarianzas es $\textbf{S}=\frac{1}{n-1}\textbf{X}^T \textbf{X}$ por tanto,se tiene que utilizar la definición de la norma:
+\begin{align*}
+||\textbf{X}||_F^2 &= tr(\textbf{X}^T\textbf{X})\\
+&= (n-1) tr(\textbf{S})\\
+&= (n-1) \sum_{i=1}^p s_{ii}^2 \qedhere
+\end{align*}
+\end{proof}
+\end{propo}
+\noindent Por tanto, la norma de Frobenius da una imagen del tamaño de la matriz de datos en función de la varianza total de los datos, lo que concuerda con la idea de buscar una matriz que aproxime la matriz de datos con la mínima pérdida de variación de los datos.  
+\begin{defi}
+Se llama matriz reducida de orden $m\leq p$ de $\textbf{X}$ y se denota como $\textbf{X}_m$, a la matriz $n\times p$ resultado de:
+\begin{equation}
+\textbf{X}_m=\textbf{U}_m\Sigma_m\textbf{V}^T_m
+\end{equation}
+Donde:
+\begin{itemize}
+\item $\textbf{U}_m$ matriz ortogonal de tamaño $n \times m$, resultado de tomar de \textbf{U} únicamente la matriz las $m$ primeras columnas. 
+\item $\Sigma_m$  matriz cuadrada de tamaño $m$ diagonal con los $m$ primeros valores singulares. 
+\item $\textbf{V}_m$ matriz ortogonal de tamaño $p \times m$ obtenida al tomar las $m$ primeras columnas de \textbf{V}.
+\end{itemize}
+\end{defi}
+
+\begin{teorema}[De Eckart-Young]
+Sea \textbf{A} una matriz de coeficientes reales de tamaño $n\times p$ y rango $r$  entonces se cumple que:
+\begin{equation}
+||\textbf{A}-\textbf{B}||_F\leq ||\textbf{A}-\textbf{A}_m||_F \quad \forall \textbf{B}/ rg(\textbf{B})=m \leq r
+\end{equation} 
+\end{teorema}
+
+\noindent Por tanto, la matriz reducida brinda la mejor aproximación de la matriz de datos teniendo un criterio de aproximación basado en la variación de los datos. En consecuencia se puede 
+
+\noindent Como conclusión, se puede definir un criterio para elegir el orden de la matriz reducida $m$. Se puede entonces definir la variación acumulada de la siguiente manera:
+\begin{equation}
+t_m=\dfrac{\sum_{i=1}^{m}\lambda_i}{\sum_{i=1}^{p}\lambda_i}
+\end{equation}
+\noindent Donde los $\lambda_i$ son los valores propios de la matriz $\textbf{S}=\frac{1}{n-1}\textbf{X}^T\textbf{X}$.
+
+\noindent Cuanto más cercana sea $t_m$ a $1$ manteniendo $m$ lo más pequeña posible mejor por que implicaría que con pocas componentes principales podemos ``explicar'' la mayor parte de la variación de los datos. Según Jollife \cite{Jollife 1986} entre un $0.8$ y $0.9$ es lo más habitual. 

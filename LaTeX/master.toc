@@ -8,23 +8,27 @@
 \contentsline {subsection}{\numberline {1.2.2}Regresión Múltiple mediante Ortogonalización sucesiva }{8}{subsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.2.3}Regresión sobre varias variables}{8}{subsection.1.2.3}%
 \contentsline {subsection}{\numberline {1.2.4}Selección de subconjuntos y métodos penalizados}{9}{subsection.1.2.4}%
-\contentsline {section}{\numberline {1.3}Análisis Discriminante}{10}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Formalización del Análisis Discriminante}{10}{subsection.1.3.1}%
-\contentsline {section}{\numberline {1.4}Redes Neuronales}{12}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Proyection Pursuit Regression}{13}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Red Neuronal de 2 capas }{14}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3}Ajuste y uso de una Red Neuronal}{15}{subsection.1.4.3}%
-\contentsline {section}{\numberline {1.5}Árboles de Regresión y Clasificación}{15}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Métodos no supervisados}{17}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introducción}{17}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Análisis de Componentes Principales}{17}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Definición y cálculo de las Componentes}{17}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}PCA en matrices de datos}{20}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Reducción de la dimensionalidad}{21}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Análisis de Clusters}{24}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Estructuración jerárquica de $\Omega $}{25}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Algoritmos basados en jerarquías}{27}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Elección de las diferencias }{29}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Algoritmos no jerárquicos}{29}{subsection.2.3.4}%
-\contentsline {chapter}{Bibliografía}{31}{chapter*.4}%
+\contentsline {section}{\numberline {1.3}Métodos de Clasificación Lineales}{10}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Regresión lineal de una matriz de indicadores}{10}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Análisis Discriminante}{10}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Formalización del Análisis Discriminante}{11}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}Redes Neuronales}{14}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Proyection Pursuit Regression}{15}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Red Neuronal de 2 capas }{16}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Ajuste y uso de una Red Neuronal}{17}{subsection.1.4.3}%
+\contentsline {section}{\numberline {1.5}Árboles de Regresión y Clasificación}{18}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Árboles de Regresión}{18}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Árboles de Clasificación }{18}{subsection.1.5.2}%
+\contentsline {chapter}{\numberline {2}Métodos no supervisados}{19}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducción}{19}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Análisis de Componentes Principales}{19}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Definición y cálculo de las Componentes}{19}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}PCA en matrices de datos}{22}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Reducción de la dimensionalidad}{23}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Análisis de Clusters}{26}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Estructuración jerárquica de $\Omega $}{27}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Algoritmos basados en jerarquías}{29}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Elección de las diferencias }{31}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Algoritmos no jerárquicos}{31}{subsection.2.3.4}%
+\contentsline {chapter}{Bibliografía}{33}{chapter*.7}%
 \contentsfinish 
