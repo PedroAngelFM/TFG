@@ -16,6 +16,7 @@
 \usepackage{listings}
 \usepackage{titlesec}
 \usepackage{titletoc}
+\usepackage{subfig}
 \renewcommand{\baselinestretch}{1}
 \clubpenalty=10000
 \widowpenalty=10000

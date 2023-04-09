@@ -18,17 +18,17 @@
 \contentsline {subsection}{\numberline {1.4.3}Ajuste y uso de una Red Neuronal}{17}{subsection.1.4.3}%
 \contentsline {section}{\numberline {1.5}Árboles de Regresión y Clasificación}{18}{section.1.5}%
 \contentsline {subsection}{\numberline {1.5.1}Árboles de Regresión}{18}{subsection.1.5.1}%
-\contentsline {subsection}{\numberline {1.5.2}Árboles de Clasificación }{18}{subsection.1.5.2}%
-\contentsline {chapter}{\numberline {2}Métodos no supervisados}{19}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introducción}{19}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Análisis de Componentes Principales}{19}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Definición y cálculo de las Componentes}{19}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}PCA en matrices de datos}{22}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Reducción de la dimensionalidad}{23}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Análisis de Clusters}{26}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Estructuración jerárquica de $\Omega $}{27}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Algoritmos basados en jerarquías}{29}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Elección de las diferencias }{31}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Algoritmos no jerárquicos}{31}{subsection.2.3.4}%
-\contentsline {chapter}{Bibliografía}{33}{chapter*.7}%
+\contentsline {subsection}{\numberline {1.5.2}Árboles de Clasificación }{19}{subsection.1.5.2}%
+\contentsline {chapter}{\numberline {2}Métodos no supervisados}{21}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducción}{21}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Análisis de Componentes Principales}{21}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Definición y cálculo de las Componentes}{21}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}PCA en matrices de datos}{24}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Reducción de la dimensionalidad}{25}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Análisis de Clusters}{28}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Estructuración jerárquica de $\Omega $}{29}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Algoritmos basados en jerarquías}{31}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Elección de las diferencias }{33}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Algoritmos no jerárquicos}{33}{subsection.2.3.4}%
+\contentsline {chapter}{Bibliografía}{35}{chapter*.7}%
 \contentsfinish 

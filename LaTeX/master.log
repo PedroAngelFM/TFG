@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  8 APR 2023 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  9 APR 2023 10:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -899,7 +899,10 @@ File: Documentos Extra/Imagenes/Diagrama de arbol.png Graphic file (type png)
 Package pdftex.def Info: Documentos Extra/Imagenes/Diagrama de arbol.png  used 
 on input line 15.
 (pdftex.def)             Requested size: 168.4376pt x 163.59268pt.
-)
+LaTeX Info: Redefining \. on input line 40.
+LaTeX Info: Redefining \% on input line 40.
+ [18 <./Documentos Extra/Imagenes/Regiones árboles.png> <./Documentos Extra/Im
+agenes/Diagrama de arbol.png>])
 :<-
 )
 :<-
@@ -909,34 +912,36 @@ dos no Supervisados.tex' on input line 97.
 (Métodos no Supervisados.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [18 <./Documentos Extra/Imagenes/Regiones árboles.png> <./Documentos Extra/Im
-agenes/Diagrama de arbol.png>]
+ [19]
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [20
+
+]
 Cap\'{\i }tulo 2.
 Package srcltx Info: Expanded filename `Documentos Extra/resumenPCA.tex' to `Do
 cumentos Extra/resumenPCA.tex' on input line 4.
 :<+ Documentos Extra/resumenPCA.tex
-(Documentos Extra/resumenPCA.tex [19
-
-]
+(Documentos Extra/resumenPCA.tex [21]
 LaTeX Info: Redefining \. on input line 78.
 LaTeX Info: Redefining \% on input line 78.
- [20]
+ [22]
 LaTeX Info: Redefining \. on input line 104.
 LaTeX Info: Redefining \% on input line 104.
- [21]
+ [23]
 LaTeX Info: Redefining \. on input line 138.
 LaTeX Info: Redefining \% on input line 138.
- [22]
+ [24]
 LaTeX Info: Redefining \. on input line 176.
 LaTeX Info: Redefining \% on input line 176.
- [23]
+ [25]
 LaTeX Info: Redefining \. on input line 231.
 LaTeX Info: Redefining \% on input line 231.
- [24])
+ [26])
 :<-
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
-[25]
+[27]
 Package srcltx Info: Expanded filename `Documentos Extra/resumenCA.tex' to `Doc
 umentos Extra/resumenCA.tex' on input line 6.
 
@@ -948,7 +953,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
-[26]
+[28]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 26.
@@ -963,7 +968,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 LaTeX Info: Redefining \. on input line 76.
 LaTeX Info: Redefining \% on input line 76.
-[27]
+[29]
 Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
  []
@@ -975,7 +980,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--111
 
 LaTeX Info: Redefining \. on input line 124.
 LaTeX Info: Redefining \% on input line 124.
-[28]
+[30]
 Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
@@ -992,17 +997,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 161--163
 
 LaTeX Info: Redefining \. on input line 170.
 LaTeX Info: Redefining \% on input line 170.
-[29]
+[31]
 LaTeX Info: Redefining \. on input line 176.
 LaTeX Info: Redefining \% on input line 176.
- [30]
+ [32]
 Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
  []
 
 LaTeX Info: Redefining \. on input line 211.
 LaTeX Info: Redefining \% on input line 211.
-[31]
+[33]
 Underfull \hbox (badness 10000) in paragraph at lines 212--215
 
  []
@@ -1022,15 +1027,15 @@ ntos Extra/biblio.tex' on input line 101.
 (Documentos Extra/biblio.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [32]
-Underfull \hbox (badness 1215) in paragraph at lines 19--20
+ [34]
+Underfull \hbox (badness 1215) in paragraph at lines 27--28
 [][]\OT1/cmr/bx/n/12 Jain, A.K., Ri-chard, C.D., (1988) \OT1/cmr/m/it/12 Al-go-
 rithms for clus-te-ring da-ta.
  []
 
 )
 :<-
-[33
+[35
 
 ] 
 enddocument/afterlastpage: lastpage setting LastPage.
@@ -1045,10 +1050,10 @@ Package rerunfilecheck Info: File `master.out' has not changed.
 (rerunfilecheck)             Checksum: C3D9117855CBE334B6470604CB1410FF;7863.
  ) 
 Here is how much of TeX's memory you used:
- 18443 strings out of 476334
- 290095 string characters out of 5787971
+ 18447 strings out of 476334
+ 290148 string characters out of 5787971
  1868382 words of memory out of 5000000
- 38308 multiletter control sequences out of 15000+600000
+ 38305 multiletter control sequences out of 15000+600000
  526555 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,19n,79p,3251b,786s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1076,9 +1081,9 @@ ers/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.p
 fb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmtt12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb>
-Output written on master.pdf (36 pages, 708553 bytes).
+Output written on master.pdf (38 pages, 715557 bytes).
 PDF statistics:
- 651 PDF objects out of 1000 (max. 8388607)
- 224 named destinations out of 1000 (max. 500000)
+ 668 PDF objects out of 1000 (max. 8388607)
+ 231 named destinations out of 1000 (max. 500000)
  282 words of extra memory for PDF output out of 10000 (max. 10000000)
 
