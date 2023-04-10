@@ -16,9 +16,10 @@
 \contentsline {subsection}{\numberline {1.4.1}Proyection Pursuit Regression}{15}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}Red Neuronal de 2 capas }{16}{subsection.1.4.2}%
 \contentsline {subsection}{\numberline {1.4.3}Ajuste y uso de una Red Neuronal}{17}{subsection.1.4.3}%
-\contentsline {section}{\numberline {1.5}Árboles de Regresión y Clasificación}{18}{section.1.5}%
+\contentsline {section}{\numberline {1.5} Árboles de Decisión y Bosques Aleatorios}{18}{section.1.5}%
 \contentsline {subsection}{\numberline {1.5.1}Árboles de Regresión}{18}{subsection.1.5.1}%
-\contentsline {subsection}{\numberline {1.5.2}Árboles de Clasificación }{19}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.2}Árboles de Clasificación}{20}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}Bosques Aleatorios}{20}{subsection.1.5.3}%
 \contentsline {chapter}{\numberline {2}Métodos no supervisados}{21}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Introducción}{21}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Análisis de Componentes Principales}{21}{section.2.2}%
