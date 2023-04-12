@@ -3,4 +3,7 @@
 \section{Introducción}
 \input{Documentos Extra/resumenPCA.tex}
 \newpage
+\input{Documentos Extra/Análisis Factorial.tex}
+\newpage 
 \input{Documentos Extra/resumenCA.tex}
+\newpage

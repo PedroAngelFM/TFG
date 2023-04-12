@@ -28,6 +28,7 @@ Donde la matriz $\hat{\textbf{B}}=(\textbf{X}^T \textbf{X} )^{-1}\textbf{X}^T \t
 \item Se calcula el vector $\hat{f}(\textbf{x}_0)=[(1,\textbf{x}_0)\hat{\textbf{B}}]^T$ un vector de $K$ componentes.
 \item  Se toma la categoría $k$ como aquella que 
 \end{itemize}
+\newpage
 \subsection{Análisis Discriminante}
 \noindent El objetivo del análisis discriminante es dada una población separada en varios grupos conocidos a priori, conseguir funciones que permitan determinar dadas nuevas observaciones en que grupo están las nuevas observaciones. 
 
@@ -58,7 +59,7 @@ Cov(X_j,X_{j'})=\dfrac{1}{n}\sum_{k=1}^q\sum_{i\in I_k}(x_{ij}-\overline{x}_{jk}
 \begin{equation}\label{descomposicion varianza}
 \textbf{T}=\textbf{B}+\textbf{W}
 \end{equation}
-\newpage
+
 Donde:
 \begin{itemize}
 \item \textbf{T} es la matriz que expresa la covarianza total y sus coeficientes  $t_{jj'}=Cov(X_j,X_j')$
@@ -76,7 +77,7 @@ Var(\textbf{a}^T \textbf{x})=\textbf{a}^T \Sigma \textbf{a}
 \textbf{a}^T \textbf{T}\textbf{a}= \textbf{a}^T \textbf{B}\textbf{a}+\textbf{a}^T \textbf{W}\textbf{a}
 \end{equation}
 
-Recopilando, el objetivo del análisis discriminante lineal es encontrar combinaciones lineales que maximicen la varianza entre grupos y minimicen la varianza dentro de los grupos. Eso es equivalente a encontrar el vector $\textbf{a}$ tal que:
+\noindent Recopilando, el objetivo del análisis discriminante lineal es encontrar combinaciones lineales que maximicen la varianza entre grupos y minimicen la varianza dentro de los grupos. Eso es equivalente a encontrar el vector $\textbf{a}$ tal que:
 \begin{equation}
 f(\textbf{a})=\dfrac{\textbf{a}^T \textbf{B}\textbf{a}}{\textbf{a}^T \textbf{T}\textbf{a}}
 \end{equation}

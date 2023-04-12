@@ -1,5 +1,5 @@
 \newpage
-\section{Redes Neuronales}
+1\section{Redes Neuronales}
 
 \noindent Las redes neuronales artificiales, son un algoritmo basado en el funcionamiento de las propias neuronas del cerebro que reciben señales de entradas de las neuronas con las cuales están conectadas, las procesan y envían el resultado a las neuronas con las que estén conectadas. 
 
@@ -25,9 +25,9 @@ El siguiente diagrama proporciona una forma sencilla de entender el funcionamien
 \includegraphics[scale=0.6]{Documentos Extra/Imagenes/neurona.png}
 \end{center}
 
-El potencial de este tipo de algoritmos es poder conectar neuronas unas con otras, de manera que la salida que produce una funcione de entrada para otra.
+\noindent El potencial de este tipo de algoritmos es poder conectar neuronas unas con otras, de manera que la salida que produce una funcione de entrada para otra.
 \begin{defi}
-Se llama capa de neuronas al un conjunto de neuronas que tienen en común las señales de entrada y producen un vector de salidas que pueden o no servir como señal de entrada para otra. 
+Se llama capa de neuronas a un conjunto de neuronas que tienen en común las señales de entrada y producen un vector de salidas que pueden o no servir como señal de entrada para otra. 
 \end{defi}
 
 \noindent La siguiente imagen es un esquema de una red neuronal con 7 capas de neuronas interconectadas donde la primera capa es de escalado y la última de desescalado. Se puede observar que se predicen las variables $y_1, y_2, y_3$ usando como entrada las variables $x_1,x_2,x_3,x_4$ 
@@ -35,7 +35,7 @@ Se llama capa de neuronas al un conjunto de neuronas que tienen en común las se
 \begin{figure}[h]
 \centering
 %%Hay que pedirle a Carlos que lo edite por que yo la verdad que no se 
-\includegraphics[scale=0.45]{Documentos Extra/Imagenes/red-neuronal-grande.png}
+\includegraphics[scale=0.5]{Documentos Extra/Imagenes/red-neuronal-grande.png}
 \caption{Imagen extraída directamente de www.neuraldesigner.com}
 \end{figure}
 \subsection{Proyection Pursuit Regression}
@@ -45,7 +45,7 @@ Se llama capa de neuronas al un conjunto de neuronas que tienen en común las se
 f(\textbf{x})=\sum_{m=1}^M g_m(\omega_m^T \textbf{x})
 \end{equation}
 
-\noindent En este modelo las funciones $g_m$ no son especificadas y son estimaciones a lo largo de las direcciones de los vectores $\omega_m^T \textbf{x}$. Según Hastie, Tibshirani y Friedman \cite{Hastie 2001} para un $M$ lo suficiente grande y utilizando las $g_m$ apropiadas este modelo puede ayudar a la predicción de cualquier función continua real. 
+\noindent En este modelo las funciones $g_m$ no son especificadas y son estimaciones a lo largo de las direcciones de los vectores $\omega_m^T \textbf{x}$. Según \textit{Hastie, Tibshirani y Friedman} \cite{Hastie 2001} para un $M$ lo suficiente grande y utilizando las $g_m$ apropiadas este modelo puede ayudar a la predicción de cualquier función continua real. 
 
 \noindent Para ajustar este tipo de modelos tenemos un ajuste en dos pasos, primero se estiman las funciones $g_m$ en función de los parámetros $\omega_m$ del paso anterior y luego con las $g_m$ estimadas se optimiza respecto de los parámetros $\omega_m$. Teniendo en cuenta lo siguiente :
 \begin{itemize}
@@ -106,9 +106,14 @@ Sea una matriz de datos $\textbf{X}$ de tamaño $n\times p$, resultado de observ
 
 \noindent Una vez formulado el funcionamiento de una red neuronal, el ajuste de los pesos y sesgos de esta se puede plantear como un problema de minimización de la pérdida en función de los propios pesos, utilizando métodos de optimización numérica como el método del gradiente o el método de Quasi-Newton. 
 
-\noindent Hay que tener en cuenta para seleccionar el modelo, es decir, el número de neuronas y capas, que las redes neuronales son proclives al sobre ajuste. Esto es debido a la gran cantidad de parámetros que se pueden tener en una red con una complejidad media. Es por ello que normalmente se introduce una penalización a términos muy grandes y hace que los pesos sean parecidos a 0.
+\noindent Hay que tener en cuenta para seleccionar el modelo, es decir, el número de neuronas y capas, que las redes neuronales son proclives al sobreajuste. Esto es debido a la gran cantidad de parámetros que se pueden tener en una red con una complejidad media. Teniendo en cuenta esta problemática, se introduce una penalización a términos muy grandes y hace que los pesos sean parecidos a 0.
 
-\noindent Una vez ajustados los pesos el modelo resultante puede ser complejo de interpretar, pero proporciona predicciones que potencialmente pueden ser todo lo precisas que se requieran según el número de capas y neuronas que utilicemos . 
+\noindent Una vez ajustados los pesos el modelo resultante puede ser complejo de interpretar, pero proporciona predicciones que potencialmente pueden ser todo lo precisas que se requieran según el número de capas y neuronas que utilicemos.  
 
 
-\noindent En este trabajo se han detallado los tipos más simples de redes neuronales y de neuronas, con las cuales ya se obtiene una gran capacidad de predicción. Sin embargo, hay estructuras neuronales como las redes convolucionales o las capas LSTM \textit{(Llamadas así por sus siglas en inglés Long-Short Term Memory)} que permiten modelizar sistemas en que los estados futuros son afectados por los estados anteriores como pudiera ser el precio de una acción bursátil o el tiempo atmosférico.
+\noindent En esta memoria se han detallado los tipos más simples de redes neuronales y de neuronas, con las cuales ya se obtiene una gran capacidad de predicción. Sin embargo, hay estructuras neuronales como las redes convolucionales o las capas LSTM cuya estructura \textit{(Llamadas así por sus siglas en inglés Long-Short Term Memory)} que permiten modelizar sistemas en que los estados futuros son afectados por los estados anteriores como pudiera ser el precio de una acción bursátil o el tiempo atmosférico.
+
+\noindent Para evaluar el rendimiento de una red neuronal se pueden utilizar técnicas de validación cruzada o separar el conjunto de entrenamiento en entrenamiento, validación y test. 
+En este proceso, se puede también hacer comparaciones entre varios modelos para elegir el número de neuronas y de capas.
+
+\noindent Para mejorar el rendimiento de la propia red neuronal se pueden aplicar técnicas previamente a los datos como el Análisis de Componentes Principales o seleccionar las variables más significativas como se detalla en la sección de regresión que trata de ello.  

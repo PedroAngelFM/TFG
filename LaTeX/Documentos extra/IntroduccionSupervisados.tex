@@ -3,40 +3,40 @@
 \begin{itemize}
 \item \textbf{\textit{Variables de entrada o inputs}}: Son las variables independientes que determinarán de manera aleatoria al segundo conjunto de variables. Al conjunto de variables aleatorias de entrada se la denotará como el vector aleatorio $\textbf{x}^T=[X_1,\ldots X_p]$. \\
 Tomando $n$ observaciones de estas variables se obtiene la \textit{matriz de datos} $\textbf{X}$. Esta matriz es de tamaño $n\times p$ y contiene como filas los vectores de longitud $p$ que representan los datos de cada observación, se denotan como $\textbf{x}_i$. Por ejemplo, en el caso de que se recojan datos sobre distintos modelos de coches serían la potencia del motor, el tipo de combustible $etc\ldots$
-\item \textbf{\textit{Variables de salida u outputs}}: Son las variables dependientes de las anteriores. A este conjunto de variables se les denota con el vector aleatorio $\textbf{y}^T=[Y_1,\ldots Y_k]$, en el caso de que únicamente se tenga una variable respuesta se denotará como $Y$. \\
-Como en el caso de las variables de entrada se tomarán $n$ observaciones de las $k$ observaciones dando como resultado la matriz de respuestas $\textbf{Y}$ de tamaño $n \times k$, donde cada observación es una fila y se denota como $y_i$. Siguiendo el ejemplo anterior, se podrían tener variables respuesta como el tipo de etiqueta medioambiental siendo esta una variable cualitativa o el precio del vehículo que tiene naturaleza cuantitativa. 
+\item \textbf{\textit{Variables de salida u outputs}}: Son las variables dependientes de las anteriores. A este conjunto de variables se les denota con el vector aleatorio $\textbf{y}^T=[Y_1,\ldots Y_k]$, en el caso de que se tenga una única variable respuesta se denotará como $Y$. \\
+Como en el caso de las variables de entrada, se tomarán $n$ observaciones de las $k$ variables, dando como resultado la matriz de respuestas $\textbf{Y}$ de tamaño $n \times k$, donde cada observación es una fila y se denota como $\textbf{y}_i$, en el caso de que $k>1$ y como $y_i$ cuando $k=1$. Siguiendo el ejemplo anterior, se podrían tener variables respuesta como el tipo de etiqueta medioambiental siendo esta una variable cualitativa o el precio del vehículo que tiene naturaleza cuantitativa. 
 \end{itemize}
 \noindent Por ende, se recogen observaciones simultáneas de las variables de entrada y de salida formando parejas $(\textbf{y}_i,\textbf{x}_i)$. El objetivo de estos métodos supervisados es encontrar una relación funcional o predictor de tal manera que para una nueva observación de las variables de entrada $\textbf{x}_0$ se pueda hacer una predicción $\hat{\textbf{y}}_0$ del valor real $\textbf{y}_0$ de la variable respuesta. 
  
 \subsection{Mínimos cuadrados y K-vecinos más cercanos}
-\noindent Supóngase que la relación que se utiliza para realizar predicciones $\hat{y}$ es lineal de manera que se tiene un vector $\hat{\beta}=[\hat{\beta}_0,\ldots,\hat{\beta}_p]$ de parámetros que permite hacer predicciones de la siguiente manera para una nueva observación $\textbf{x}_0$:
+\noindent Supóngase el caso en el que únicamente tenemos una variable respuesta $Y$. Además supóngase que la relación que se utiliza para realizar predicciones  $\hat{y}$ de los valores respuesta es una combinación lineal de los valores predictores, de manera que se tiene un vector $\hat{\beta}=[\hat{\beta}_0,\ldots,\hat{\beta}_p]$ de parámetros que permite hacer predicciones de la siguiente manera para una nueva observación $\textbf{x}_0$:
 \begin{equation}
 \hat{y}_0=\hat{\beta}_0+ \sum_{j=1}^p \hat{\beta}_j x_{0j}
 \end{equation}
 
 \noindent Utilizando una primera componente de $\textbf{x}_0$ igual a 1 se puede dar la expresión como producto matricial.
 \begin{equation}
-\hat{y}_0=
+\hat{y}_0=\textbf{x}_0^T \hat{\beta}
 \end{equation}
 
-
-\noindent Para este y muchos otros casos el modelo ha de ajustarse a los datos recogidos para las $p$ variables entrada y las variables respuesta se tengan en ese momento . Para ello se puede definir la función de pérdida.
+\noindent Para este y muchos otros casos el modelo ha de ajustarse a los datos recogidos para las $p$ variables de entrada y las variables respuesta que se tengan en ese momento. Para poder dar una medida de la calidad del ajuste se definen las funciones de pérdida. 
 \begin{defi}
 Se llama \textit{función de pérdida} a la función que cuantifica el error cometido al usar la predicción y se denota como $L(y,\hat{y})$
 \end{defi} 
 
 \noindent Si se toma como medida global la suma de las pérdidas de todas las observaciones, en el caso de que $L(y,\hat{y})=(y-\hat{y})^2$ se obtiene el \textit{Error Cuadrático Acumulado} o \textit{RSS} por su siglas en inglés. 
 \begin{defi}
-Se define el \textit{Error Cuadrático Acumulado} a la suma de las diferencias entre las predicciones y los valores reales de la variable respuesta. En el caso de una sola variable aleatoria respuesta y suponiendo que se han recogido $n$ observaciones conjuntas se expresa de la siguiente manera: 
+Se define el \textit{Error Cuadrático Acumulado} a la suma de los cuadrados de las diferencias entre las predicciones y los valores reales de la variable respuesta. En el caso de una sola variable aleatoria respuesta y suponiendo que se han recogido $n$ observaciones conjuntas se expresa de la siguiente manera: 
 \begin{align}
-RSS&=\sum_{i=1}^n (y_i-\hat{y}_i)^2
-\intertext{ para el caso anterior se tiene: } RSS(\beta)&=\sum_{i=1}^n (y_i-\hat{y}_i)^2=\sum_{i=1}^n (y_i-\textbf{x}_i^T \beta)^2
+RSS=\sum_{i=1}^n L(y_i,\hat{y}_i)&=\sum_{i=1}^n (y_i-\hat{y}_i)^2
+\intertext{ para el caso del modelo lineal: } RSS(\beta)=\sum_{i=1}^n (y_i-\hat{y}_i)^2&=\sum_{i=1}^n (y_i-\textbf{x}_i^T \beta)^2
 \end{align}
 \end{defi}
+\noindent En esencia, este error cuadrático acumulado no es más que la pérdida total del conjunto de datos. Esto nos da una forma de la calidad global del ajuste. Además es generalizable a otras funciones de pérdida. 
 
-\noindent Para ajustar los parámetros $\beta$ se busca minimizar la cantidad de error que se comete al predecir, por tanto, establecemos el problema de optimización con la función $RSS(\beta)$ como función objetivo. Es por ello que esta debe ser derivable y aunque sea posible elegir otras funciones de pérdida, como pudiera ser $L(y,\hat{y})=\vert y-\hat{y}\vert$, estas resultan en funciones de pérdida globales no derivables. 
+\noindent Para ajustar los parámetros $\beta$, se busca minimizar la cantidad de error que se comete al predecir, por tanto, establecemos el problema de optimización con la función $RSS(\beta)$ como función objetivo. Es por ello, que esta debe ser derivable y aunque sea posible elegir otras funciones de pérdida, como pudiera ser $L(y,\hat{y})=\vert y-\hat{y}\vert$, estas resultan en funciones de pérdida globales no derivables. 
 
-\noindent La expresión de $RSS(\beta)$ en forma matricial teniendo en cuenta que $\textbf{X}$ sea la matriz de observaciones de tamaño $(n\times p+1)$ que tiene la primera columna constante 1 y $\textbf{y}$ es el vector columna o matriz que contiene las observaciones de la o las variables respuestas  es la siguiente: 
+\noindent La expresión de $RSS(\beta)$ en forma matricial teniendo en cuenta que $\textbf{X}$ sea la matriz de observaciones de tamaño $(n\times p+1)$ que tiene la primera columna constante 1 e $\textbf{y}$ es el vector columna o matriz que contiene las observaciones de la o las variables respuestas es la siguiente: 
 \begin{equation}
 RSS(\beta)=(\textbf{y}-\textbf{X}^T\beta)^T(\textbf{y}-\textbf{X}^T\beta)
 \end{equation}
@@ -58,13 +58,14 @@ Sea un conjunto de $n$ observaciones $\textbf{x}_i, i =1,\ldots n$, se define el
 
 \noindent Una vez definido ese conjunto se puede definir el siguiente predictor: 
 \begin{equation}
-\hat{Y}(\textbf{x}_0)=\dfrac{1}{k}\sum_{\textbf{x}_i\in N_k(\textbf{x}_0)}y_i
+\hat{y}(\textbf{x}_0)=\dfrac{1}{k}\sum_{\textbf{x}_i\in N_k(\textbf{x}_0)}y_i
 \end{equation}
 
-\noindent Este método de predicción no requiere de que se realice el ajuste de ningún parámetro y además es bastante simple de utilizar, basta con promediar los valores respuesta de cada una de las observaciones del conjunto de datos. 
+\noindent Este método de predicción no requiere que se realice el ajuste de ningún parámetro (\textit{es un predictor no paramétrico}) y además es bastante simple de utilizar, basta con promediar los valores respuesta de cada una de las observaciones del conjunto de datos. 
 
-\noindent En contraste, el método de los k vecinos y los métodos locales en general, sufren de lo que se llama la \textit{maldición de la dimensionalidad}. Este suceso consiste en que a medida que aumentamos la dimensión, en este caso la cantidad de variables aleatorias a observar, la densidad de los datos es cada vez menor. Esto provoca que por ejemplo que los conjuntos $N_k$ sean conjuntos muy dispersos, por tanto las observaciones que usamos como referencias y la observación de la cual se va a realizar la predicción están muy lejanas.\\
+\noindent En contraste, el método de los K-Vecinos y los métodos locales en general, sufren de lo que se llama la \textit{maldición de la dimensionalidad}. Este suceso consiste en que a medida que aumentamos la dimensión, en este caso la cantidad de variables aleatorias a observar, la densidad de los datos es cada vez menor. Esto provoca que por ejemplo que los conjuntos $N_k$ sean conjuntos muy dispersos, por tanto las observaciones que usamos como referencias y la observación de la cual se va a realizar la predicción están muy lejanas.\\
 En particular, la densidad es proporcional a $n^{\frac{1}{p}}$, donde $p$ es el número de variables y $n$ el número de observaciones. Por ejemplo, si una muestra densa en $1$ dimensión tiene $n=100$, para mantener dicha densidad en $p=10$ se necesitarían $n = 100^{10}$. 
+De las características de los espacios de observaciones de altas dimensiones se habla en \textit{Koppen,}\cite{Koppen 2000}
 
 \subsection{Decisión Estadística}
 \noindent Sea un vector aleatorio real de entrada $\textbf{x}\in\mathbb{R}^p$, una variable de salida $Y\in\mathbb{R}$ y sea la probabilidad conjunta $\mathbb{P}(Y,\textbf{x})$ de ambas, entonces se busca una función $f(\textbf{x})$ para predecir $Y$, es decir, $\hat{Y}=f(\textbf{x})$. Para ello, se utilizan las funciones de pérdida, en lo sucesivo utilizaremos la pérdida cuadrática $L(Y,\hat{Y})=L(Y,f(\textbf{x}))=(Y-f(\textbf{x}))^2$. 
@@ -82,7 +83,7 @@ EPE(f)& = E(Y-f(\textbf{x}))^2\\
 \begin{equation}
  EPE(f) = E_{\textbf{x}} E_{Y|\textbf{x}}([Y-f(\textbf{x})]^2|\textbf{x})
 \end{equation} 
-Esta expresión otorga según Hastie \textit{et.al} \cite{Hastie 2001} un criterio para elegir la $f$. Basta con tomar $f$ de manera que: 
+Esta expresión otorga según \textit{Hastie et.al} \cite{Hastie 2001} un criterio para elegir la $f$. Basta con tomar $f$ de manera que: 
 \begin{equation}
  f(x)=\text{argmin}_c E_{Y|\textbf{x}}([Y-c]^2|\textbf{x}=x)
 \end{equation}
@@ -92,13 +93,18 @@ Esta expresión otorga según Hastie \textit{et.al} \cite{Hastie 2001} un criter
 \noindent Se llama \textit{función de regresión} a la función $f(x)=E(Y|\textbf{x}=x)$
 \end{defi}
 
-\emph{Aquí podría hacer ejemplos el k- vecinos y el lineal}
+\noindent Por ejemplo, para el caso del modelo de K-Vecinos, la función de regresión es la siguiente:
+\begin{equation}
+\hat{f}(\textbf{x})=\dfrac{1}{k}\sum_{\textbf{x}_i\in N_k(\textbf{x})} y_i 
+\end{equation}
+
+\noindent Hasta ahora, solo se han contemplado los casos en los que la variable respuesta era cualitativa. Para el caso en el que esta sea categórica, la mayoría de conceptos son análogos con ciertas modificaciones.
 
 \noindent Sea el caso de una variable de salida categórica $G$ que toma $k$ valores de manera que el predictor $\hat{G}$ tambien toma esos valores, entonces la única modificación que debemos hacer es la de la función de pérdida que pasa a ser una matriz $\textbf{L}$ de tamaño $k\times k $ donde $L_{i,j}$ es la penalización por categorizar como $\mathcal{G}_j$ algo que en realidad es $\mathcal{G}_i$. Entonces tenemos que \textit{el error de predicción esperado} es: 
 \begin{equation}
 EPE = E[L(G,\hat{G})]= E_{\textbf{x}}\sum_{i=1}^k L[\mathcal{G}_k, \hat{G}(\textbf{x})]\mathbb{P}(\mathcal{G}_k|\textbf{x})
 \end{equation} 
-Esta definición otorga un criterio análogo para establecer el predictor $\hat{G}(x)$, que si se utiliza la pérdida 0-1, es decir, aquella que otorga una penalización de 1, se obtiene el \textit{clasificador bayesiano}:
+Esta definición otorga un criterio análogo para establecer el predictor $\hat{G}(x)$, que si se utiliza la pérdida 0-1, es decir, aquella que otorga una penalización de 1, se obtiene el \textit{clasificador bayesiano}.
 \begin{defi}
 Se llama \textit{clasificador bayesiano} al predictor 
 \begin{equation}
@@ -110,27 +116,42 @@ Se llama \textit{clasificador bayesiano} al predictor
 
 \noindent Una vez definidos los principales predictores, hay que tener en cuenta que este tipo de métodos se pueden ver desde el prisma de un problema de aprendizaje automático, en particular, son métodos de aprendizaje supervisado.
 
-\noindent En este tipo de algoritmos tenemos 3 tipos de conjuntos de datos:
+\noindent En este caso, no se detallará como un problema de aprendizaje automático aunque varios métodos de los detallados frecuentemente se interpreten de esta manera. 
+
+\noindent Otra manera es interpretarlo cómo un problema de aproximación de funciones, de manera que se aproximen teniendo en cuenta los puntos $\textbf{x}_i$ en $\mathbb{R}^p$, por ejemplo, en el caso del modelo lineal se intenta ajustar un hiperplano afín. 
+
+\noindent Aún así, a estos métodos se les llama \textit{métodos supervisados} ya que se parte del conocimiento de las observaciones $(\textbf{x}_i,\textbf{y}_i)$ y se adapta el modelo y los parámetros conociendo el valor real de las observaciones de la variable respuesta. 
+
+\subsection{Sesgo y Varianza del Modelo}
+
+\noindent A la hora de elegir un modelo, hay que tener en cuenta la complejidad del mismo, ya que un modelo demasiado complejo puede ajustarse perfectamente a los datos de entrenamiento, pero tener una capacidad de generalización nula. Por otro lado, un modelo demasiado simple puede no captar las características básicas de los datos. 
+
+\noindent Supóngase que la variable respuesta sigue la siguiente expresión $Y=f(\textbf{x})+\varepsilon$ donde $\mathbb{E}(\varepsilon)=0$ y $Var(\varepsilon)=\sigma^2$, supongamos además que las observaciones $\textbf{x}_i$ son ya conocidas. Entonces, se puede expresar el error de predicción de una nueva observación $\textbf{x}_0$ de la siguiente manera:
+\begin{equation}
+\begin{split}
+EPE(\textbf{x}_0)&=\mathbb{E}[(Y-\hat{f}(x))^2|X=\textbf{x}_0]=\\
+&=\sigma^2+B^2(\hat{f}(\textbf{x}_0))+Var(\hat{f}(\textbf{x}_0))
+\end{split}
+\end{equation}
+
+\noindent Esta expresión está compuesta de dos términos que dependen de la estimación, $\hat{f}$, que son el sesgo y la varianza de esta. Ahora bien, hay un término que no depende de la estimación que es $\sigma^2$, el término de error inevitable. 
+
+\noindent Por ejemplo, el modelo de K-Vecinos más cercanos, la complejidad está influida por el parámetro K. Cuántos más vecinos tenga el vecindario, mayor es el sesgo del predictor, ya que entran en juego más observaciones para calcular el valor de $y_i$ y menor es la varianza.  
+
+\noindent La siguiente gráfica ha sido extraída de \textit{Hastie et. al. } \cite{Hastie 2001} y representa el error de predicción en función de la complejidad del modelo. La línea azul es el error de predicción sobre muestras del conjunto de entrenamiento y la roja sobre muestras nuevas que no han sido utilizadas para el ajuste. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.45]{Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png}
+\end{figure}
+\newpage
+\noindent Hay un punto de equilibrio, en el cual una complejidad media otorga un error de predicción aceptable sobre muestras de entrenamiento y un error de predicción no muy alto sobre muestras que no lo son. Cuando se toma modelos demasiado complejos el modelo puede sufrir de \textit{sobreajuste}
+
 \begin{defi}
-El conjunto de \textit{entrenamiento} $\mathcal{T}$ es el conjunto de datos que se utiliza para ajustar los parámetros del modelo
-\end{defi}
-\begin{defi}
-El conjunto de \textit{selección} $\mathcal{S}$ es el conjunto de datos que permiten comprobar la capacidad de generalización del modelo con unos ciertos parámetros 
-\end{defi}
-\begin{defi}
-El conjunto de \textit{testing} $Test$ permite una vez entrenado y ajustado el modelo dar una idea de su rendimiento a la hora de hacer predicciones. 
+Se dice que un predictor o modelo sufre de \textit{overfitting} o \textit{sobreajuste} en los casos en los que el predictor tiene un bajo sesgo pero una varianza alta. Esto se ve reflejado en un muy buen ajuste en el conjunto de entrenamiento pero una calidad de predicción de nuevos datos mala. 
 \end{defi}
 
-\noindent En nuestro caso, no se detallará como un problema de aprendizaje automático aunque varios métodos de los detallados se puedan ver de esa manera. 
-
-\noindent Aún así, a estos métodos se les llama \textit{métodos supervisados} ya que partimos del conocimiento de las observaciones $(\textbf{x}_i,\textbf{y}_i)$ y se adapta el modelo y los parámetros conociendo el valor real de las observaciones de la variable respuesta. 
-
-
-
-
-
-
-
+\noindent Estos casos de overfitting se dan por ejemplo, cuando tenemos un conjunto de datos con más variables observadas que observaciones. Hay distintos métodos para evitar el sobreajuste en conjuntos de datos con pocas observaciones, estos se detallan en el capítulo 7 de \textit{Hastie et.al.}\cite{Hastie 2001}
 
 
 
@@ -218,8 +239,16 @@ El conjunto de \textit{testing} $Test$ permite una vez entrenado y ajustado el m
 
 
 
-
-
+%\noindent En este tipo de algoritmos tenemos 3 tipos de conjuntos de datos:
+%\begin{defi}
+%El conjunto de \textit{entrenamiento} $\mathcal{T}$ es el conjunto de datos que se utiliza para ajustar los parámetros del modelo
+%\end{defi}
+%\begin{defi}
+%El conjunto de \textit{selección} $\mathcal{S}$ es el conjunto de datos que permiten comprobar la capacidad de generalización del modelo con unos ciertos parámetros 
+%\end{defi}
+%\begin{defi}
+%El conjunto de \textit{testing} $Test$ permite una vez entrenado y ajustado el modelo dar una idea de su rendimiento a la hora de hacer predicciones. 
+%\end{defi}
 
 
 
