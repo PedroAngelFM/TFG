@@ -1,0 +1,183 @@
+\subsection{Árboles de Regresión}
+\noindent Sea un vector aleatorio $\textbf{x}$ de variables predictoras como antes y una variable $Y$ de respuesta. 
+Supóngase que queremos dividir el espacio de observaciones en $M$ regiones, $R_1,\ldots R_M$, se puede modelar en cada una de las regiones como la constante $c_m$. Por tanto teniendo en cuenta, la siguiente definición. 
+\begin{equation}
+\mathbf{1}_m(\textbf{x})=
+\begin{cases}
+0\quad& \text{si } x\notin R_m\\
+1\quad& \text{si } x\in R_m\\
+\end{cases}
+\end{equation}
+Es decir, la función $\mathbf{1}(\textbf{x})$ es la función característica de la región $R_m$, por tanto puede construirse el siguiente predictor:
+\begin{equation}
+f(\textbf{x})=\sum_{m=1}^M c_m \mathbf{1}_m(\textbf{x})
+\end{equation}
+
+\noindent Si se toma como criterio de ajuste los mínimos cuadrados obtendremos que $\hat{c}_m=ave(y_i|x_i\in R_m)$, ya que es la media condicional de la y sabiendo el valor de x. 
+
+\noindent Para obtener las regiones se toma una variable $X_j$ y un valor de separación $s$, es decir, cada separación se puede identificar con una pareja $(j,s)$. 
+Por ejemplo, supóngase una separación $(j,s)$ entonces se generan dos regiones del espacio de las observaciones $R_1, R_2$. 
+\begin{equation}
+R_1=\lbrace\textbf{x}|X_j\leq s\rbrace\quad R_2=\lbrace\textbf{x}|X_j > s\rbrace 
+\end{equation}
+
+\noindent Hay que establecer un criterio para elegir que separaciones se deben hacer en particular, para ello se utilizan los mínimos cuadrados:
+\begin{equation}
+\min_{j,s}\left[\min_{c_1}\sum_{x_i\in R_1}(y_i-c_1)^2+\min_{c_2}\sum_{x_i\in R_2}(y_i-c_2)^2\right]
+\end{equation}
+
+\noindent Es decir, teniendo en cuenta que se va a predecir el valor de la variable respuesta $y_i$ como una constante, la función anterior es la función $RSS$ 
+
+\noindent Las mejores estimaciones de las constantes según el criterio de los mínimos cuadrados sería la media de las respuestas dentro de las regiones, es decir: 
+\begin{equation}
+\hat{c}_m=\dfrac{1}{n_m}\sum_{\textbf{x}_i\in R_m} y_i
+\end{equation}
+
+\noindent De esta manera, con estas estimaciones de las constantes de cada región, es posible encontrar la mejor división del espacio de observaciones. 
+
+\noindent Se puede conseguir la mejor pareja $(j,s)$ fijando la $j$-ésima variable, encontrar el mejor valor $s$ para cada variable, de manera sencilla. 
+
+\noindent El siguiente problema es controlar la complejidad del modelo, en particular, cuanto debe crecer el árbol, ya que un árbol demasiado grande  puede pecar de problemas de sobre ajuste. 
+
+\noindent La estrategia más común es tener un criterio de parada, en particular hacer crecer un árbol grande $T_0$ y ``podarlo" cuando en los nodos terminales tenga menos de $5$ individuos según \textit{Díaz-Uriarte y De Andrés} \cite{Diaz 2006}, además este es el valor por defecto que otorga la librería de  \texttt{R, randomForest}. Si se hace más grande esto provoca que los árboles sean más pequeños. 
+
+\begin{defi}
+Llamaremos tamaño de un árbol $T$ y se denota por $|T|$ al número de nodos terminales, es decir, al número de regiones en las que se particiona el espacio de observaciones.
+\end{defi}
+
+\noindent Se puede entonces definir el error cuadrático medio de un nodo de un árbol de la siguiente manera:
+\begin{equation}
+Q_m(T)= \dfrac{1}{n_m}\sum_{\textbf{x}_i\in R_m}(y_i- \hat{c}_m)^2
+\end{equation}
+
+\noindent Con la anterior función y el concepto del tamaño del árbol, el cual está directamente relacionado con la complejidad del modelo, se puede establecer un criterio para un árbol que penalice la complejidad:
+\begin{equation} \label{Eq Cost-Complexity}
+C_{\alpha}(T)=\sum_{m=1}^{|T|}n_m Q_m(T) + \alpha|T|
+\end{equation}
+
+\noindent El valor de $\alpha$ es un parámetro que es elegido y su valor hace que se penalice más o menos la complejidad del modelo. A valores más altos, tendremos un modelo menos complejo y con $\alpha = 0$ es el modelo obtenido por mínimos cuadrados.
+
+\noindent El objetivo es encontrar el árbol de menor tamaño para cada $\alpha$ que minimice la función \eqref{Eq Cost-Complexity}. Para ello se empieza con el árbol completo o con un árbol inicial $T_0$ e ir juntando los nodos que menor aumento provoquen sobre la función $\sum_{m=1}^{|T|}n_m Q_m(T)$, resultando en una secuencia de árboles entre los cuales se encuentra el que minimiza la función $C_{\alpha}(T)$ para un $\alpha $ determinado. 
+
+
+ 
+\subsection{Árboles de Clasificación}
+\noindent Gran parte de lo anterior se puede detallar de manera análoga a los árboles de regresión. En esencia, un árbol de clasificación es un conjunto de funciones discriminantes utilizadas de manera recurrente obteniéndose en el caso óptimo una partición del espacio de observaciones. Esta partición se busca que sean lo más homogéneas posible, es decir, cada región solo contiene observaciones que pertenezcan a una categoría.
+
+\noindent A partir de este punto, la variable respuesta será una variable categórica con valores posibles $1,\ldots, K$.
+
+\noindent Sea un nodo $m$ que representa una de las regiones $R_m$ en las que se han particionado el espacio con $n_m$ observaciones en ella. Entonces, la proporción de observaciones que son de la clase $k$-ésima en el nodo $m$ es:
+\begin{equation}
+\hat{p}_{mk}=\dfrac{1}{n_m}\sum_{\textbf{x}_i \in R_m}\mathbf{1}(y_i=k)
+\end{equation}
+
+\noindent Una vez definido esto se ha de definir el concepto de pureza de un nodo
+\begin{defi}
+Diremos que un nodo es puro u homogéneo si todas las observaciones que pertenecen a la región establecida por dicho nodo pertenecen a la misma clase. 
+\end{defi}
+
+\noindent En el caso de que un nodo no sea puro, es impuro. Es este concepto de la impureza lo que  permite establecer un criterio para realizar las divisiones del espacio. Es decir, en cada paso se elegirá la división $(j,s)$ que produzca los nodos más puros. 
+
+\noindent Teniendo en cuenta la definición que dimos de $\hat{p}_{mk}$ se pueden dar distintas medidas de la impureza de un nodo. 
+
+
+\begin{defi}
+\noindent Sea un nodo y su región correspondiente, $R_m$, sea además $k$ el valor para el cual $\hat{p}_{mk}$ es mayor que el resto, se define el \textit{Error de Clasificación errónea} como:
+\begin{equation}
+\dfrac{1}{n_m}\sum_{\textbf{x}_i\in R_m}\mathbf{1}(y_i\neq k)=1-\hat{p}_{mk}
+\end{equation}
+\end{defi}
+\noindent Es la proporción de observaciones en el nodo que no tienen la misma categoría que el más frecuente. 
+
+\noindent 
+\subsection{Bosques Aleatorios}
+
+\noindent Los bosques aleatorios es una forma de utilizar varios árboles, de los cuales no se detallará el modo de construirlos. 
+
+\noindent Sean $\textbf{x}, Y$ el vector de variables predictoras y la variable respuesta.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\noindent Sea el vector aleatorio $\textbf{x}$ como se ha mencionado antes y la variable respuesta $Y$ una variable categórica con $K$ posibles valores. 
+
+\noindent Como se ha descrito anteriormente, un árbol es un algoritmo divisivo en el que se obtiene una partición del espacio de observaciones. 
+
+\noindent En un escenario óptimo, el algoritmo conseguiría particionar el espacio de observaciones de tal manera que en cada región las muestras solo tuviesen un posible valor de respuesta.
+
+\noindent Siguiendo la notación de \textit{Hastie et.al}\cite{Hastie 2001} cada nodo $m$ está asociado a una región $R_m$, entonces la proporción de una categoría $K$ dentro de un nodo $m$ con $n_m$ observaciones es:
+\begin{equation}
+\hat{p}_{mk}=\dfrac{1}{n_m}\sum_{\textbf{x}_i \in R_m}\mathbf{1}(y_i=k)
+\end{equation}
+
+\noindent Entonces un árbol óptimo sería aquel en el que todos sus nodos finales o hojas tienen las observaciones de la misma categoría. 
+
+\begin{defi}
+Se dice que un nodo es \textit{puro} si todas las observaciones tienen el mismo valor de la variable categórica
+\end{defi}
+
+\noindent Por tanto, un nodo que no cumpla lo anterior se le llama nodo \textit{impuro}. A este concepto se debe añadir una medida de impureza del nodo. Se pueden definir varias medidas de impureza entre ellas: 
+\begin{defi}
+Para un nodo, $m$ en el cual $k(m)$ sea la categoría que tiene mayor $\hat{p}_{mk(m)}$. Se llama \textit{Error de Clasificación Errónea} a la proporción de observaciones en el nodo $m$ para las cuales $y_i\neq k(m)$ su expresión sería $CE=1-\hat{p}_{mk(m)}=\dfrac{1}{n_m}\sum_{\textbf{x}_i \in R_m} \mathbf{1}(y_i\neq k(m))$.
+\end{defi}
+\begin{defi}
+Se define el \textit{índice-Gini} como la probabilidad de tomar una observación de la región aleatoriamente y que esta no sea igual que $k(m)$, es decir: 
+\begin{equation}
+\sum_{k'\neq k}\hat{p}_{mk}\hat{p}_{mk'}=\sum_{k=1}^K\hat{p}_{mk}(1-\hat{p}_{mk})
+\end{equation}
+\end{defi}
+\noindent Entonces cada división del espacio debe producir una disminución de la impureza, produciendo regiones más puros cada vez. Estas divisiones del espacio se realiza eligiendo una variable $X_j$ y un valor $s$ o lo que es lo mismo eligiendo una pareja $(j,s)$. Supóngase que se empieza con el espacio al completo,  entonces la división $(j,s)$ genera dos regiones $R_1,R_2$:
+\begin{equation}
+R_1=\lbrace\textbf{x}|X_j\leq s\rbrace\quad R_2=\lbrace\textbf{x}|X_j > s\rbrace 
+\end{equation}
+
+\noindent Como se ha dicho antes la función objetivo a minimizar en cada caso es la impureza total \textit{(Se selecciona la medida que se requiera)} de los nodos:
+\begin{equation}
+\min_{(j,s)}[Q_1+Q_2]
+\end{equation}
