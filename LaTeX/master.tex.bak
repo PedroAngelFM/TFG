@@ -1,4 +1,5 @@
-\documentclass[12pt,a4paper,spanish]{book}
+\documentclass[12pt,a4paper,spanish,openany
+]{book}
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
 \usepackage{graphicx}             

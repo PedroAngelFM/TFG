@@ -19,6 +19,9 @@ Las  siguientes imágenes procedentes de \textit{Hastie et. al.}\cite{Hastie 200
 
 \noindent Otra ventaja de este tipo de métodos es que permite trabajar con conjuntos de datos en los que se estudian más variables en comparación de las observaciones, es decir, $p > n$. Por ejemplo, el ejemplo que desarrollan \textit{Díaz-Uriarte y De Andrés} \cite{Diaz 2006}, en el que trabajan con un microarray genético. 
 
+\noindent Otro de los problemas que surgen del propio planteamiento del modelo en sí es que el algoritmo para obtener las divisiones están diseñados para sobreajustarse a los datos por tanto, surgen métodos como la ``poda''. Se desarrollará más adelante, pero el idea es poder modelizar toda la variación del conjunto de entrenamiento. 
+
+\newpage
 \subsection{Árboles de Regresión}
 \noindent Sea un vector aleatorio $\textbf{x}$ de variables predictoras como antes y una variable $Y$ de respuesta. 
 Supóngase que queremos dividir el espacio de observaciones en $M$ regiones, $R_1,\ldots R_M$, se puede modelar en cada una de las regiones como la constante $c_m$. Por tanto teniendo en cuenta, la siguiente definición. 
@@ -92,6 +95,7 @@ C_{\alpha}(T)=\sum_{m=1}^{|T|}n_m Q_m(T) + \alpha|T|
 
 \noindent Para llevar a cabo el proceso completo, se deben aplicar procesos de validación cruzada, por ejemplo  en \textit{Divakaran S.}\cite{Divakaran 2022} o en \textit{James G. et.al.} \cite{James 2013} se detalla el algoritmo de Breiman. En este algoritmo se  usa la validación cruzada de K-folds, \textit{(Para más detalles sobre dicho proceso, léase la sección 7.10 de Hastie et.al \cite{Hastie 2001} o la sección 5.1.3 James et.al. \cite{James 2013})} para poder elegir el $\alpha$ que minimice el error.
 
+
 \subsection{Árboles de Clasificación}
 \noindent Gran parte de lo anterior se puede detallar de manera análoga a los árboles de regresión. En esencia, un árbol de clasificación es un conjunto de funciones discriminantes utilizadas de manera recurrente obteniéndose en el caso óptimo una partición del espacio de observaciones en el que cada región contiene observaciones que pertenecen únicamente a una categoría.
 
@@ -113,7 +117,7 @@ Diremos que un nodo es \textit{puro u homogéneo} si todas las observaciones que
 
 \noindent Es este concepto de la impureza lo que  permite establecer un criterio para realizar las divisiones del espacio. Es decir, en cada paso se elegirá la división $(j,s)$ que produzca los nodos más puros. 
 
-\noindent Teniendo en cuenta la definición que dimos de $\hat{p}_{mk}$ se pueden dar distintas medidas de la impureza de un nodo. 
+\noindent Teniendo en cuenta la definición que dimos de $\hat{p}_{mk}$ se pueden dar distintas medidas de la impureza de un nodo. Como detallan tanto \textit{Hastie et.al}\cite{Hastie 2001} como \textit{Brown et.al.}\cite{Brown 2004}
 
 \begin{defi}
 \noindent Sea un nodo y su región correspondiente, $R_m$, sea además $k$ el valor para el cual $\hat{p}_{mk}$ es mayor que el resto, se define el \textit{Error de Clasificación errónea} como:
@@ -144,7 +148,7 @@ D= - \sum_{k=1}^K \hat{p}_{mk} log(\hat{p}_{mk})
 
 \noindent El algoritmo para construirlos es análogo al de los árboles de regresión. Tomando la medida de impureza o pureza que se desee se puede construir un árbol de clasificación teniendo en cuenta que el error de clasificación produce de manera general según \textit{James et.al.} \cite{James 2013} árboles con una precisión mayor. 
 
-
+\noindent Aunque en la mayoría de casos según \textit{Brown et.al}\cite{Brown 2004} lo que ocurre al utilizar distintas medidas es que los modelos no obtienen errores de predicción muy alejados, sin embargo, pueden provocar que los modelos tengan complejidades muy diferentes. 
 
 
 \subsection{Bosques Aleatorios}
@@ -158,6 +162,7 @@ D= - \sum_{k=1}^K \hat{p}_{mk} log(\hat{p}_{mk})
 
 \noindent El proceso de Bagging tiene como base el hecho de que si se tienen $n$ observaciones independientes de una población con varianza $\sigma^2$ entonces la media de dichas observaciones tendrá varianza $\frac{\sigma^2}{n}$, es decir, tomar la media de distintas observaciones provoca una disminución en la varianza. 
 
+
 \noindent De esta manera, partiendo de un conjunto inicial de datos, se toman muestras aleatorias de los mismos y se entrenan distintos modelos para luego hacer la media entre todos los modelos. Es decir, se hace un muestreo aleatorio entre las $n$ observaciones obteniendo $B$ conjuntos de entrenamiento distintos y se estiman los predictores $\hat{f}_1(\textbf{x}),\ldots, \hat{f}_B(\textbf{x})$ y el modelo final es:
 \begin{equation}
 \hat{f}_{bag}(\textbf{x})=\dfrac{1}{B}\sum_{b=1}^B \hat{f}_b(\textbf{x})
@@ -165,9 +170,9 @@ D= - \sum_{k=1}^K \hat{p}_{mk} log(\hat{p}_{mk})
 
 \noindent Esto se puede aplicar perfectamente al caso de la modelización mediante árboles de decisión aunque esta técnica puede ser útil para cualquier tipo de modelos. 
 
-\noindent En este caso, estamos utilizando en cada división de los árboles todos los predictores, sin embargo, cuando una variable tiene demasiada importancia a la hora de predecir la variable de respuesta, la mayoría de divisiones van a utilizar ese predictor, ya que va a provocar mejoras sustanciales en el $RSS$ o en el \textit{índice Gini} dependiendo del tipo de árbol. 
+\noindent En este caso, estamos utilizando en cada división de los árboles todos los predictores, sin embargo, cuando una variable tiene demasiada importancia a la hora de predecir la variable de respuesta, la mayoría de divisiones en casi todos los árboles van a utilizar ese predictor, ya que va a provocar mejoras sustanciales en el $RSS$ o en el \textit{índice Gini} dependiendo del tipo de árbol. 
 
-\noindent Para evitar dicho problema, en el algoritmo del bosque aleatorio se toma en cada división no el total de predictores si no una muestra aleatoria de tamaño $m$ que habitualmente es $m=\sqrt{p}$ de esta manera, se puede tener modelos con mayor variedad. 
+\noindent Para evitar dicho problema, en el algoritmo del bosque aleatorio se toma en cada división no el total de predictores, si no una muestra aleatoria de tamaño $m$ que habitualmente es $m=\sqrt{p}$ de esta manera, se puede tener modelos con mayor variedad. 
 
 \noindent En \textit{Biau G. y Scornet E.}\cite{Biau 2016} se detalla el algoritmo para la creación de un bosque aleatorio. 
 En este algoritmo se deben definir los siguientes parámetros:
@@ -176,7 +181,7 @@ En este algoritmo se deben definir los siguientes parámetros:
 \item $\mathtt{m}_{\mathtt{try}}$, es el número de predictores que entre los cuales se pueden usar en cada división del espacio. 
 \item $a_n$: Número de observaciones del conjunto de entrenamiento que se utilizarán para entrenar cada árbol. 
 \end{itemize}
-\newpage
+
 \noindent El algoritmo en sí es el siguiente: 
 \hrule
 \textbf{for } $j=1\ldots \mathcal{M} $ \textbf{do:}
@@ -186,8 +191,22 @@ En este algoritmo se deben definir los siguientes parámetros:
 \end{itemize}
 \hrule
 
-\noindent Para hacer la predicción para una nueva observación $\textbf{x}_0$, hay que calcular la predicción para cada uno de los $\mathcal{M}$ árboles. Una vez calculad
+\noindent Para hacer la predicción para una nueva observación $\textbf{x}_0$, hay que calcular la predicción para cada uno de los $\mathcal{M}$ árboles. Una vez calculadas en el caso de que la variable respuesta sea numérica se hace la media de todas las predicciones. Si por el contrario, $Y$ es una variable categórica, se toma como predicción aquella que haya salido con mayor frecuencia, lo que se llama predicción por \textit{voto de mayoría}.
 
-\noindent En el artículo de \textit{Biau, G y Scornet, E.} \cite{Biau 2016} se detallan más en profudidad las distintas características de estos 
+\noindent En el artículo de \textit{Biau, G y Scornet, E.} \cite{Biau 2016} se detallan más en profudidad las distintas características de estos modelos. En particular, se detalla la necesidad de utilizar modelos simplificados para poder analizar las características de los bosques aleatorios. Estos pueden ser los bosques puramente aleatorios que hace particiones totalmente aleatorias sin tener un criterio de acuerdo a los datos y otras modificaciones.
+
+\noindent En particular, \textit{Breiman L.} \cite{Breiman 2004}, utiliza los siguientes resultados empíricos para poder analizar la consistencia y el ratio de convergencia de los bosques aleatorios utilizando un modelo más simplificado de los mismos. 
+\begin{itemize}
+\item El muestreo aleatorio que se hace del conjunto de entrenamiento no tiene efecto en el ratio de error.
+\item Si para conseguir una partición en la que únicamente en cada nodo haya una sola observación se utiliza la mediana de las variables aleatorias esto no tiene efecto en el ratio de error. 
+\item Hacer divisiones sin tener en cuenta las clases que conocemos, sí aumenta el error.
+\end{itemize}
+
+\noindent De esta manera, establece un modelo simplificado en el las variables predictoras se pueden dividir en dos grupos, las variables fuertes $\mathcal{S}$ y las variables débiles $\mathcal{W}$. Las variables fuertes son las que tienen una influencia directa sobre las predicciones y las débiles se pueden interpretar como ruido.
+
+\noindent Teniendo en cuenta lo anterior, las variables aleatorias fuertes se dividen en la mediana, mientras que si es débil se toma un valor aleatorio para la división.  
+
+\noindent Como resultado de dichas modificaciones \textit{Breiman, L.} \cite{Breiman 2004} concluye que el ratio de convergencia es $\mathcal{O}\left(n^{\left(\frac{-0.75}{|\mathcal{S}|log 2+0.75}\right)}\right)$.\\
+Por tanto, el ratio de error depende del número de variables fuertes. 
 
  
