@@ -1,38 +1,26 @@
 \newpage
-\section{Métodos de Clasificación Lineales}
-\noindent Los métodos de clasificación buscan predecir una variable categórica $G$, por tanto, se tiene una división del espacio de observaciones en tantas partes como categorías tenga la variable objetivo. 
-\begin{defi}
-Llamaremos \textit{fronteras de decisión} a las fronteras de las regiones que definen la variables categóricas. 
-\end{defi}
-\noindent Suponiendo que la variable categórica tenga $1\ldots K$ categorías, entonces podemos crear un modelo lineal para cada uno de los indicadores, $\hat{f}_k(\textbf{x})=\hat{\beta}_k0+\hat{\beta}_k^T\textbf{x}$. 
-La frontera de decisión entre dos categorías es el conjunto de puntos tal que $\hat{f}_k(\textbf{x})=\hat{f}_l(\textbf{x})$.
-\begin{defi}
-Llamaremos \textit{función discriminante} $\delta_k(x)$ a una función que dada una nueva observación $\textbf{x}_0$ permite distinguir si es de la $k$-ésima categoría. 
-\end{defi}
-\subsection{Regresión lineal de una matriz de indicadores}
-\noindent Sea una variable categórica con $K$ clases posibles entonces cada observación de dicha categoría tiene $K$ componentes:
-\begin{equation}
-\begin{cases}
-y_k=0 \quad &\text{si la observación no pertenece a la } k \text{-ésima categoría}\\
-y_k=1 \quad &\text{si la observación pertenece a la } k \text{-ésima categoría}\\
-\end{cases}
-\end{equation}
-Entonces se definen dos matrices resultado de tomar $n$ observaciones, la matriz de indicadores $\textbf{Y}$ de tamaño $n\times K$ con únicamente 0's y 1's. Además se crea la matriz de datos $\textbf{X}$ de tamaño $n\times p+1$ donde la primera columna es constante 1. Una vez ajustado el modelo lineal, se obtiene el predictor:
-\begin{equation}
-\hat{\textbf{Y}}=\textbf{X}(\textbf{X}^T \textbf{X} )^{-1}\textbf{X}^T \textbf{Y}  
-\end{equation} 
-Donde la matriz $\hat{\textbf{B}}=(\textbf{X}^T \textbf{X} )^{-1}\textbf{X}^T \textbf{Y}$ es la matriz de parámetros.
+\section{Métodos de Clasificación y Discriminación}
 
-\noindent Para clasificar una nueva observación $\textbf{x}_0$ hay que seguir el siguiente proceso:
-\begin{itemize}
-\item Se calcula el vector $\hat{f}(\textbf{x}_0)=[(1,\textbf{x}_0)\hat{\textbf{B}}]^T$ un vector de $K$ componentes.
-\item  Se toma la categoría $k$ como aquella que 
-\end{itemize}
-\newpage
+\noindent Los métodos de clasificación buscan separar los elementos de un espacio de observaciones en grupos conocidos previamente. 
+
+\begin{defi}
+Llamaremos \textit{discriminación o análisis discriminante} a aquel que busca describir las características principales de cada uno de los grupos o clases mediante \textit{funciones discriminantes} 
+\end{defi}
+
+\begin{defi}
+Llamaremos \textit{métodos de clasificación} a aquellos que dada una nueva observación, \textbf{x}, buscan predecir con la máxima precisión a que clase pertenecen mediante \textit{reglas de clasificación}
+\end{defi}
+
+\noindent Hay que señalar que no siempre hay una diferencia clara entre ambas disciplinas y que puede haber veces que ambas se solapen. 
+
+
 \subsection{Análisis Discriminante}
-\noindent El objetivo del análisis discriminante es dada una población separada en varios grupos conocidos a priori, conseguir funciones que permitan determinar dadas nuevas observaciones en que grupo están las nuevas observaciones. 
 
-\noindent Para ello, se busca una o varias combinaciones lineales de las variables $X_1\ldots X_p$ que brinden un criterio por el cual se pueda determinar si una nueva observación de las variables pertenece a alguno de los grupos conocidos. 
+\noindent Según \textit{Lebart L., Morineau, A. y Warwick K.M.} \cite{Lebart 1984} el análisis discriminante es un conjunto de técnicas que permiten describir y clasificar un gran número de observaciones de las cuales se han medido una gran cantidad de variables. 
+
+\noindent El método que se describe aquí es un método supervisado ya que se conocen las clases a las que pertenecen cada una de las observaciones. 
+
+
 
 \subsection{Formalización del Análisis Discriminante}
  
@@ -99,9 +87,45 @@ Es decir, el vector $\textbf{a}$ es el vector de valor propio $\lambda$, tomando
 Al valor $\lambda$ se le conoce como \textit{potencia discriminante} de la combinación \textbf{a}.
 \end{defi}
 
-\noindent  
-
 \noindent \textit{Observación} Esta técnica se diferencia del Análisis de Componentes Principales en que en el Análisis Discriminante se maximiza la distancia o variación entre grupos conocidos, mientras que el Análisis de Componentes Principales únicamente busca las direcciones en las que los datos varían más. 
 
+\noindent Pero, en caso de ser aplicada, el análisis discriminante desarrollado aquí se puede utilizar como método de reducción de la dimensionalidad para el caso de la clasificación. De esta manera, utilizando mecanismos similares a los que se describirán en la parte del Análisis de Componentes Principales la matriz de datos puede ser reducida. 
 
+\subsection{Métodos de Clasificación}
+
+\noindent Los métodos de clasificaciónn más recurrentes son los geométricos y la regresión logística
+
+\noindent Las siguientes definiciones se dan en el capítulo 11 de \textit{Cuadras, C.M.}\cite{Cuadras 2014}
+\begin{defi}
+Una regla discriminante es un criterio por el cual se pueden asignar una observación a una clase u otra. De esa manera la regla puede dividir el espacio de observaciones. 
+\end{defi}
+
+\noindent De esta manera, se establecen distintas formas de crear las reglas discriminantes. Sea un conjunto de $n$ observaciones de $p$ variables aleatorias las cuales pertenecen a $k$ poblaciones o categorías conocidas $\pi_1,\ldots,\pi_k$. \textit{Cuadras, C.M.}\cite{Cuadras 2014} da 3 aproximaciones. 
+
+\noindent \textbf{Discriminador Lineal}\\
+\noindent Sea la media de cada población  $\pi_i$ el vector $\mu_i$. Supóngase que la matriz de covarianzas es común $\Sigma$, en caso de no ser conocida, tómese la matriz de covarianzas muestral $\textbf{S}$, el razonamiento es análogo. 
+
+\begin{defi}
+Se define la \textit{distancia de Mahalanobis} de la observación $\textbf{x}_0$ a la población $\pi_i$ de la siguiente manera:
+\begin{equation}
+M^2(\textbf{x}_0,\mu_i)=(\textbf{x}_0-\mu_i)^T \Sigma^{-1}(\textbf{x}_0-\mu_i)
+\end{equation}
+\end{defi}
+
+\noindent Esta distancia permite definir el siguiente criterio para decidir si una nueva observación pertenece a una población u otra:
+\begin{equation}
+M^2(\textbf{x}_0,\mu_k)=\min_{i}\lbrace M^2(\textbf{x}_0,\mu_i)\rbrace \Rightarrow \text{ Se asigna a la k-ésima población o clase}
+\end{equation}
+
+\noindent Por tanto podemos definir las siguientes reglas discriminantes:
+\begin{equation}
+L_{ij}(\textbf{x}_0)=(\mu_i-\mu_j)^T\Sigma^{-1}(\textbf{x}_0)-\frac{1}{2}(\mu_i-\mu_j)^T\Sigma^{-1}(\mu_i+\mu_j)
+\end{equation}
+Y se establece el criterio 
+\begin{equation}
+L_{ij}(\textbf{x}_0)> 0 \quad \forall i\neq j\Rightarrow \text{se asigna } \textbf{x}_0 \text{ a } \pi_i
+\end{equation}
+
+\noindent \textbf{Regla de Máxima Verosimilitud}\\
+\noindent Supóngase que las densidades de x en cada población de manera que se puede obtener la verosimilit
 

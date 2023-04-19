@@ -1,0 +1,33 @@
+\noindent Los métodos de clasificación buscan predecir una variable categórica $G$, por tanto, se tiene una división del espacio de observaciones en tantas partes como categorías tenga la variable objetivo. 
+\begin{defi}
+Llamaremos \textit{fronteras de decisión} a las fronteras de las regiones que definen la variables categóricas. 
+\end{defi}
+\noindent Suponiendo que la variable categórica tenga $1\ldots K$ categorías, entonces podemos crear un modelo lineal para cada uno de los indicadores, $\hat{f}_k(\textbf{x})=\hat{\beta}_k0+\hat{\beta}_k^T\textbf{x}$. 
+La frontera de decisión entre dos categorías es el conjunto de puntos tal que $\hat{f}_k(\textbf{x})=\hat{f}_l(\textbf{x})$.
+\begin{defi}
+Llamaremos \textit{función discriminante} $\delta_k(x)$ a una función que dada una nueva observación $\textbf{x}_0$ permite distinguir si es de la $k$-ésima categoría. 
+\end{defi}
+\subsection{Regresión lineal de una matriz de indicadores}
+\noindent Sea una variable categórica con $K$ clases posibles entonces cada observación de dicha categoría tiene $K$ componentes:
+\begin{equation}
+\begin{cases}
+y_k=0 \quad &\text{si la observación no pertenece a la } k \text{-ésima categoría}\\
+y_k=1 \quad &\text{si la observación pertenece a la } k \text{-ésima categoría}\\
+\end{cases}
+\end{equation}
+Entonces se definen dos matrices resultado de tomar $n$ observaciones, la matriz de indicadores $\textbf{Y}$ de tamaño $n\times K$ con únicamente 0's y 1's. Además se crea la matriz de datos $\textbf{X}$ de tamaño $n\times p+1$ donde la primera columna es constante 1. Una vez ajustado el modelo lineal, se obtiene el predictor:
+\begin{equation}
+\hat{\textbf{Y}}=\textbf{X}(\textbf{X}^T \textbf{X} )^{-1}\textbf{X}^T \textbf{Y}  
+\end{equation} 
+Donde la matriz $\hat{\textbf{B}}=(\textbf{X}^T \textbf{X} )^{-1}\textbf{X}^T \textbf{Y}$ es la matriz de parámetros.
+
+\noindent Para clasificar una nueva observación $\textbf{x}_0$ hay que seguir el siguiente proceso:
+\begin{itemize}
+\item Se calcula el vector $\hat{f}(\textbf{x}_0)=[(1,\textbf{x}_0)\hat{\textbf{B}}]^T$ un vector de $K$ componentes.
+\item  Se toma la categoría $k$ como aquella que 
+\end{itemize}
+\newpage
+
+\noindent El objetivo del análisis discriminante es dada una población separada en varios grupos conocidos a priori, conseguir funciones que permitan determinar dadas nuevas observaciones en que grupo están las nuevas observaciones. 
+
+\noindent Para ello, se busca una o varias combinaciones lineales de las variables $X_1\ldots X_p$ que brinden un criterio por el cual se pueda determinar si una nueva observación de las variables pertenece a alguno de los grupos conocidos. 
