@@ -93,39 +93,11 @@ Al valor $\lambda$ se le conoce como \textit{potencia discriminante} de la combi
 
 \subsection{Métodos de Clasificación}
 
-\noindent Los métodos de clasificaciónn más recurrentes son los geométricos y la regresión logística
+\noindent En la introducción de este capítulo se detalló que el clasificador Bayesiano utilizaba las probabilidades conocido el valor de la observación $\textbf{x}_0$. El caso de la regresión logística intenta modelizar el cociente de las probabilidades como una función lineal. 
 
-\noindent Las siguientes definiciones se dan en el capítulo 11 de \textit{Cuadras, C.M.}\cite{Cuadras 2014}
-\begin{defi}
-Una regla discriminante es un criterio por el cual se pueden asignar una observación a una clase u otra. De esa manera la regla puede dividir el espacio de observaciones. 
-\end{defi}
-
-\noindent De esta manera, se establecen distintas formas de crear las reglas discriminantes. Sea un conjunto de $n$ observaciones de $p$ variables aleatorias las cuales pertenecen a $k$ poblaciones o categorías conocidas $\pi_1,\ldots,\pi_k$. \textit{Cuadras, C.M.}\cite{Cuadras 2014} da 3 aproximaciones. 
-
-\noindent \textbf{Discriminador Lineal}\\
-\noindent Sea la media de cada población  $\pi_i$ el vector $\mu_i$. Supóngase que la matriz de covarianzas es común $\Sigma$, en caso de no ser conocida, tómese la matriz de covarianzas muestral $\textbf{S}$, el razonamiento es análogo. 
-
-\begin{defi}
-Se define la \textit{distancia de Mahalanobis} de la observación $\textbf{x}_0$ a la población $\pi_i$ de la siguiente manera:
+\noindent \textit{Hastie et.al.}\cite{Hastie 2001} detallan el caso en profundidad cuando la variable $Y$ tiene dos posibles valores.
 \begin{equation}
-M^2(\textbf{x}_0,\mu_i)=(\textbf{x}_0-\mu_i)^T \Sigma^{-1}(\textbf{x}_0-\mu_i)
-\end{equation}
-\end{defi}
-
-\noindent Esta distancia permite definir el siguiente criterio para decidir si una nueva observación pertenece a una población u otra:
-\begin{equation}
-M^2(\textbf{x}_0,\mu_k)=\min_{i}\lbrace M^2(\textbf{x}_0,\mu_i)\rbrace \Rightarrow \text{ Se asigna a la k-ésima población o clase}
+log \dfrac{P(Y=1|\textbf{x}=\textbf{x}_0)}{P(Y=2|\textbf{x}=\textbf{x}_0)}=\beta^T \textbf{x}_0
 \end{equation}
 
-\noindent Por tanto podemos definir las siguientes reglas discriminantes:
-\begin{equation}
-L_{ij}(\textbf{x}_0)=(\mu_i-\mu_j)^T\Sigma^{-1}(\textbf{x}_0)-\frac{1}{2}(\mu_i-\mu_j)^T\Sigma^{-1}(\mu_i+\mu_j)
-\end{equation}
-Y se establece el criterio 
-\begin{equation}
-L_{ij}(\textbf{x}_0)> 0 \quad \forall i\neq j\Rightarrow \text{se asigna } \textbf{x}_0 \text{ a } \pi_i
-\end{equation}
-
-\noindent \textbf{Regla de Máxima Verosimilitud}\\
-\noindent Supóngase que las densidades de x en cada población de manera que se puede obtener la verosimilit
-
+\noindent Donde $\beta$ es un vector de longitud $p+1$ y a $\textbf{x}_0$ es una observación del vector aleatori$se le ha añadido en la primera componente
