@@ -1,0 +1,13 @@
+\chapter{Aplicaciones Prácticas}
+
+\noindent Para la aplicación de los métodos a distintos conjuntos de datos se ha utilizado el lenguaje de programación Python, además de librerias auxiliares que implementan de manera eficaz varios de los métodos detallados en la memoria. 
+
+\section{Generación Energía Solar}
+
+\noindent El caso que se va a estudiar es una base de datos obtenida del blog de \textit{Neural Designer}, en particular: \href{https://www.neuraldesigner.com/learning/examples/solar-power-generation}{\textit{solar generation}}
+
+
+
+\noindent La base de datos tiene las siguientes variables medidas en 2920 observaciones, que en el transcurso del análisis descriptivo básico de la base se ha decidido eliminar una de ellas por tener datos perdidos. 
+
+\section{Clasificación de }

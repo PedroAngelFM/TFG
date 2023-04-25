@@ -126,6 +126,48 @@ F=\dfrac{\dfrac{(RSS_0-RSS_1)}{p_1-p_0}}{\dfrac{RSS_1}{N-p_1-1}} \thicksim F_{(p
 
 \subsection{Regresión Múltiple mediante Ortogonalización sucesiva }
 
+\noindent Otra manera de afrontar el problema de ajuste es hacerlo de una manera geométrica, se busca un subespacio que se ajuste lo mejor posible a un vector de respuestas, en particular, se buscan proyecciones ortogonales del vector respuesta o del subespacio respuesta en el subespacio de los datos. 
+
+
+\noindent Teniendo en cuenta que el vector de respuestas $\textbf{y}$ sigue el modelo $\textbf{y}=\textbf{X}\beta+\varepsilon$, entonces, $\hat{\textbf{y}}=\textbf{X}\hat{\beta}$ pertenece al subespacio generado por las columnas de la matriz de datos $\textbf{X}$. En caso de que $\textbf{y}\in Col(\textbf{X})$, se tiene que existe un $\beta$ tal que $\textbf{y}=\textbf{X}\beta$. 
+
+\begin{defi}
+Se llama vector residuo $\textbf{r}$ al vector cuyas componentes son $r_i=y_i-\textbf{x}_i\hat{\beta}$, es decir, $\textbf{r}=\textbf{y}-\textbf{X}\hat{\beta}$
+\end{defi}
+
+\noindent Para que la distancia entre el vector respuesta y el espacio de datos sea lo menor posible el vector residuo debe ser ortogonal al espacio que generan las columnas de la matriz de datos y esto provoca lo siguiente:
+\begin{equation}
+\begin{split}
+r \perp \textbf{X}\Rightarrow \textbf{X}^T \textbf{r}&=\textbf{X}^T (\textbf{y}-\textbf{X}\hat{\beta})=0\\
+\textbf{X}^T\textbf{y}-\textbf{X}^T\textbf{X}\hat{\beta}&=0\Rightarrow \hat{\beta}= (\textbf{X}^T\textbf{X})^{-1} \textbf{X}^T \textbf{y}
+\end{split} 
+\end{equation}
+
+\noindent Por tanto, el vector de estimadores $\hat{\beta}$ es equivalente al cálculo por el método de los mínimos cuadrados. 
+Por lo tanto, teniendo en cuenta que $\hat{\textbf{y}}=\textbf{X}(\textbf{X}^T\textbf{X})^{-1} \textbf{X}^T \textbf{y}$. De esta manera, lo que se está haciendo es tomar la proyección de $\textbf{y}$ sobre el espacio $Col(\textbf{X})$. 
+
+\noindent Teniendo en cuenta esto en \textit{Hastie et.al.} \cite{Hastie 2001} define un algoritmo para calcular el vector de parámetros $\beta$. Teniendo en cuenta esto y que $\textbf{y}=(y_1,\ldots,y_n)^T$ el vector  de observaciones de la variable respuesta y $\textbf{x}=(x_1,\ldots x_n)^T$ el vector de observaciones de una única variable predictora. Entonces se puede expresar el vector de parámetros con el producto escalar: 
+\begin{equation}
+\hat{\beta}=\dfrac{\langle \textbf{x},\textbf{y} \rangle}{\langle \textbf{x},\textbf{x} \rangle}
+\end{equation}
+
+\noindent En el caso general, en el que se tienen $p$ variables predictoras, esto cambia, si todas las columnas de la matriz fuesen ortogonales entre sí cada componente se calcularía de la siguiente manera:
+\begin{equation}
+\hat{\beta}_j=\dfrac{\langle \textbf{x}_j,\textbf{y}\rangle}{\langle \textbf{x}_j,\textbf{x}_j\rangle}
+\end{equation}
+
+\noindent En caso contrario, se deben ortogonalizar los datos, para ello, se utiliza el procedimiento de ortogonalización de Gram-Schmidt
+
+
+
+%\noindent Se obtiene el mismo estimador de los parámetros $\beta$ que si se hubiera utilizado el Método de los Mínimos Cuadrados. De esta manera podemos establecer que 
+%\begin{equation}
+%\hat{\beta}=\dfrac{\sum_{i=1}^n\textbf{x}_i y_i}{\sum_{i=1}^n\textbf{x}_i^2} 
+%\end{equation}
+%\noindent De esta manera, se puede establecer una manera recursiva para encontrar cada uno de los parámetros $\beta_j$ distinto. Mediante proyecciones sucesivas se obtiene lo siguiente:
+
+
+
 
 \subsection{Regresión sobre varias variables}
 \noindent Hasta ahora, se ha considerado una única variable aleatoria respuesta, sea \textbf{y} el vector aleatorio de variables respuesta $\textbf{y}^T=[Y_1,\ldots, Y_K]$ y un vector aleatorio de variables de entrada $\textbf{x}^T=[X_0, X_1,\ldots, X_p]$. Se puede establecer el siguiente modelo análogo:

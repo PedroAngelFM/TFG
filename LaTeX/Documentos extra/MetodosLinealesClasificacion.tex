@@ -106,4 +106,17 @@ log \dfrac{P(Y=1|\textbf{x}=\textbf{x}_0)}{P(Y=2|\textbf{x}=\textbf{x}_0)}=\beta
 \begin{equation}
 log \dfrac{P(Y=j|\textbf{x}=\textbf{x}_0)}{P(Y=K|\textbf{x}=\textbf{x}_0)}=\beta_j^T \textbf{x}_0 \quad j=1\ldots K-1
 \end{equation}
-Por tanto, el modelo queda definido por $K-1$ funciones lineales. Es decir estamos asumiendo que la probabilidad $P(Y=j|\textbf{x}=\textbf{x}_0)$ viene dada por una función logística de 
+Por tanto, el modelo queda definido por $K-1$ funciones lineales. Es decir estamos asumiendo que la probabilidad $P(Y=j|\textbf{x}=\textbf{x}_0)$ se puede expresar como una función de la siguiente manera:
+\begin{equation}
+P(Y=j|\textbf{x}=\textbf{x}_0)=\dfrac{e^{\beta_j^T\textbf{x}_0}}{1+\sum_{k=1}^{K-1}e^{\beta_k^T\textbf{x}_0}} \quad j=1\ldots K-1
+\end{equation}
+
+\noindent Además, $P(Y=K|\textbf{x}=\textbf{x}_0)=\dfrac{1}{1+\sum_{k=1}^{K-1}e^{\beta_k^T\textbf{x}_0}}$. 
+
+\noindent El ajuste de estos modelos se lleva a cabo por el método de máxima verosimilitud. Donde tendríamos que \begin{equation}
+l(\theta)=\sum_{i=1}^N log(p_{g_i}(x_i;\theta))
+\end{equation}
+\noindent En el caso de la regresión logística $p_{j}=P(Y=j|\textbf{x}=\textbf{x}_0)$ además supóngase que se tienen únicamente dos clases o dos valores para la variable $Y$ por tanto, la verosimilitud puede ser expresada de la siguiente manera
+\begin{equation}
+l(\beta)
+\end{equation}
