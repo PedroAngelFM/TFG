@@ -1,10 +1,10 @@
 \chapter*{Introducción}
 \pagenumbering{arabic}
-\noindent El Análisis Multivariante es según \textit{Martínez Arias, R.}\cite{Rosario 1999} el conjunto de técnicas y métodos que busca describir y extraer información de las relaciones entre variables medidas entre una o varias muestras u observaciones. Dentro de esta definición entran todos los procedimientos que analizan de manera simultánea. 
+\noindent El Análisis Multivariante es, según \textit{Martínez Arias, R.}\cite{Rosario 1999}, el conjunto de técnicas y métodos que busca describir y extraer información de las relaciones entre variables medidas en una o varias muestras u observaciones. Dentro de esta definición, entran todos los procedimientos que analizan de manera simultánea más de una variable. 
 Los métodos multivariantes se pueden clasificar según el objetivo a perseguir:
 \begin{itemize}
 \item \textbf{\textit{Reducción de datos}}: En estos procedimientos se busca analizar la estructura de los datos para buscar una simplificación de la misma. Dentro de este tipo de técnicas están el \textit{Análisis Factorial}, \textit{Análisis de Componentes Principales,} \textit{Análisis Discriminante} etc. 
-\item \textit{\textbf{Clasificación y Agrupación:}} Es decir, buscar modos de clasificar las observaciones en grupos homogéneos 
+\item \textit{\textbf{Clasificación y Agrupación:}} Es decir, buscar modos de clasificar las observaciones en grupos homogéneos ya sea de acuerdo a una variable categórica conocida o buscando esa homogeneidad dentro de los datos. Podemos incluir aquí el \emph{Análisis de Conglomerados}
 \item \textit{\textbf{Análisis de Relaciones y Dependencias. }}
 \item \textbf{\textit{Construcción de Modelos y pruebas de hipótesis}}
 \end{itemize}
@@ -15,4 +15,4 @@ Los métodos multivariantes se pueden clasificar según el objetivo a perseguir:
 
 \noindent Estas técnicas han visto un auge en los últimos años, debido a su utilidad en el análisis de grandes bases de datos y la creciente capacidad de recogida de datos que se tiene en la actualidad. Además, el llevar a buen término el estudio anteriormente era complejo debido a la gran cantidad de cálculos que se necesitan realizar. Actualmente esos cálculos son automatizados, en algunos casos, con una única línea de código es posible llevar a cabo ciertas técnicas de las descritas.
 
-\noindent Además, ciertos autores como \textit{Hastie T., Tibshirani R. y Friedman J.} \cite{Hastie 2001} enfocan también estos problemas desde el punto del aprendizaje automático, ya sea también supervisado o no.g 
+\noindent Además, ciertos autores como \textit{Hastie T., Tibshirani R. y Friedman J.} \cite{Hastie 2001} enfocan también estos problemas desde el punto del aprendizaje automático, ya sea también supervisado o no.

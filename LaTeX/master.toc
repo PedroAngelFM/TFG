@@ -28,6 +28,7 @@
 \contentsline {subsection}{\numberline {2.2.2}PCA en matrices de datos}{32}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Reducción de la dimensionalidad}{33}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}Análisis Factorial}{36}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Formalización}{36}{subsection.2.3.1}%
 \contentsline {section}{\numberline {2.4}Análisis de Clusters}{37}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Estructuración jerárquica de $\Omega $}{38}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Algoritmos basados en jerarquías}{40}{subsection.2.4.2}%
