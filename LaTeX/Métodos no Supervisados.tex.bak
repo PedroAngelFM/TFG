@@ -1,6 +1,11 @@
 \chapter{Métodos no supervisados}
 
 \section{Introducción}
+\noindent Los métodos no supervisados son aquellos en los que no se conoce la variable a estudiar.  Es decir, no se busca predecir una variable $Y$ en función de los predictores o detallar la relación entre dos grupos de variables. En los métodos supervisados se busca hallar información sobre la estructura de los propios datos, unas veces para simplificar dicha estructura o para formar grupos homogéneos de observaciones. 
+
+\noindent Los métodos que se detallarán a continuación tiene un gran inconveniente, que es la incapacidad para poder validar los resultados, es decir, no hay una medida, en la mayoría que permita establecer la bondad de cada uno de estos métodos una vez aplicados. 
+
+\noindent  
 \input{Documentos Extra/resumenPCA.tex}
 \newpage
 \input{Documentos Extra/Análisis Factorial.tex}

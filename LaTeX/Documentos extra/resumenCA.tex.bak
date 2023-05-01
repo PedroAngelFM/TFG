@@ -1,5 +1,6 @@
 \section{Análisis de Clusters}
-\noindent Según \cite{Jain 1988} el análisis de clusters tiene como objetivo conseguir una clasificación de las observaciones en subconjuntos que tengan sentido de acuerdo al contexto de la investigación. El clustering es un tipo de clasificación de los datos que tiene las siguientes características:
+
+\noindent Según \emph{Jain,A.K. y Richard, C.D; }\cite{Jain 1988} el análisis de clusters tiene como objetivo conseguir una clasificación de las observaciones en subconjuntos que tengan sentido de acuerdo al contexto de la investigación. El clustering es un tipo de clasificación de los datos que tiene las siguientes características:
 \begin{itemize}
 \item \textit{Exclusividad: }Una observación no puede pertenecer a más de un cluster a la vez. 
 \item \textit{Es intrínseco: }No hay ninguna etiqueta que permita clasificar las observaciones, son las características de las propias muestras las que servirán como diferenciadores. Lo que hace que sea un método \textit{no supervisado}.
@@ -7,9 +8,7 @@
 Además de estas características el clustering puede ser jerárquico \textit{(concepto que se desarrollará más adelante)} o particional. \\
 \noindent Por otro lado, los algoritmos se pueden clasificar según  sean \textit{aglomerativos}, en los que se empieza teniendo cada una de las observaciones y se van formando los clusters hasta tener un solo cluster con todas las muestras. Por el contrario, los \textit{algoritmos   divisivos}, empiezas con un solo cluster y se van haciendo subconjuntos del mismo.  
 
-\noindent Otra clasificación puede venir dada por el modo en el que se fijan en las variables, si es \textit{Monotético}, en cada paso se centra en una variable, mientras que si es \textit{Politético} se utilizan todas las variables a la vez.\\
-
-
+\noindent Otra clasificación puede venir dada por el modo en el que se consideran las  variables, si es \textit{Monotético}, en cada paso se centra en una variable, mientras que si es \textit{Politético} se utilizan todas las variables a la vez.\\
 
 \noindent Con el objetivo de formalizar lo anterior, de ahora en adelante, sea el caso en el que se han tomado $n$ observaciones $\omega_1,\ldots, \omega_n$, se denota como $\Omega=\lbrace\omega_1,\ldots, \omega_n\rbrace=\lbrace 1,\ldots, n\rbrace$ para abreviar. 
 

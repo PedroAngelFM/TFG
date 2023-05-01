@@ -1,6 +1,6 @@
 \section{Análisis de Componentes Principales}
-%\input{Documentos Extra/introduccionPCA.tex}
-\noindent El análisis de componentes principales fue en primera instancia desarrollado a principios del siglo XX por el estadístico Pearson (1901). Fue una de las primeras técnicas de análisis multivariante. Como muchos otros métodos de este tipo no tuvo un verdadero desarrollo y expansión hasta que la capacidad de computación fue suficiente para manejar cantidades de datos considerables. 
+
+\noindent El análisis de componentes principales fue en primera instancia, desarrollado a principios del siglo XX por el estadístico Pearson (1901). Fue una de las primeras técnicas de análisis multivariante. Como muchos otros métodos de este tipo no tuvo un verdadero desarrollo y expansión hasta que la capacidad de computación fue suficiente para manejar cantidades de datos considerables. 
 
 \subsection{Definición y cálculo de las Componentes}
 
