@@ -30,7 +30,7 @@ x_{0j}=\mu_j+\lambda_{j1}f_{10}+\ldots\lambda_{jm}f_{m0}+u_{0j}\quad j=1\ldots p
 \begin{equation}
 E((\textbf{x}-\mu)\textbf{f}^T)=\Lambda E(\textbf{f }\textbf{f}^T)+E(\textbf{u f}^T)=\Lambda
 \end{equation}
-\noindent Ya que se ha establecido que los factores son variables incorreladas y con matriz de covarianzas \textbf{I} y además, los factores son independientes de las perturbaciones, por lo tanto. En esta linea, tomando $\psi$, la matriz de covarianzas del vector aleatorio de perturbaciones, se puede dar la siguiente expresión de la matriz de covarianzas de los datos:
+\noindent Ya que se ha establecido que los factores son variables incorreladas y con matriz de covarianzas \textbf{I} y además, los factores son independientes de las perturbaciones. En esta linea, tomando $\psi$, la matriz de covarianzas del vector aleatorio de perturbaciones, se puede dar la siguiente expresión de la matriz de covarianzas de los datos:
 \begin{equation}
 \mathbf{\Sigma}=E[(\textbf{x}-\mu)(\textbf{x}-\mu)^T]=\Lambda E[\textbf{f f}^T]\Lambda^T+E[\textbf{u u}^T] =\Lambda\Lambda^T+\psi
 \end{equation}
@@ -74,8 +74,8 @@ Es decir, en la ecuación de la varianza podemos tener que
 \begin{equation}
 \begin{split}
 \textbf{V}=\mathbf{\Lambda}^T\mathbf{\Lambda}+\psi\\
-(\textbf{V}-\psi)=\mathbf{\Lambda}^T\mathbf{\Lambda}\\
-(\textbf{V}-\psi)\mathbf{\Lambda}=\mathbf{\Lambda}\textbf{D}\qedhere
+(\mathbf{\Sigma}-\psi)=\mathbf{\Lambda}^T\mathbf{\Lambda}\\
+(\mathbf{\Sigma}-\psi)\mathbf{\Lambda}=\mathbf{\Lambda}\textbf{D}\qedhere
 \end{split}
 \end{equation}
 \end{proof}
@@ -96,18 +96,64 @@ En el caso que $\mathbf{\Lambda}^T \psi^{-1}\mathbf{\Lambda}$ no sea diagonal, t
 \end{propo}
 
 \begin{propo}
-La matriz $\psi^{-\frac{1}{2}}\textbf{V}\psi^{-\frac{1}{2}}$ tiene como vectores propios $\psi^{-\frac{1}{2}}\mathbf{\Lambda}$ y los valores propios $\textbf{D}+\textbf{I}$
+La matriz $\psi^{-\frac{1}{2}}\mathbf{\Sigma}\psi^{-\frac{1}{2}}$ tiene como vectores propios $\psi^{-\frac{1}{2}}\mathbf{\Lambda}$ y los valores propios $\textbf{D}+\textbf{I}$
 \begin{proof}
-Basta con a la ecuación $\textbf{V}=\mathbf{\Lambda}^T \mathbf{\Lambda}+\psi $ multiplicarla de la siguiente manera por $\psi^{-1}\mathbf{\Lambda}$:
+Basta con a la ecuación $\mathbf{\Sigma}=\mathbf{\Lambda}^T \mathbf{\Lambda}+\psi $ multiplicarla de la siguiente manera por $\psi^{-1}\mathbf{\Lambda}$:
 \begin{align}
-\textbf{V}\psi^{-1}\mathbf{\Lambda}+\mathbf{\Lambda}&=\mathbf{\Lambda}\textbf{D}
-\intertext{multiplicando por la izquierda por $\psi^{-\frac{1}{2}}$}:
-\psi^{-\frac{1}{2}}\textbf{V}\psi^{-\frac{1}{2}}\psi^{-\frac{1}{2}}\mathbf{\Lambda}&=\psi^{-\frac{1}{2}}\mathbf{\Lambda}\textbf{(D+I)}
+\mathbf{\Sigma}\psi^{-1}\mathbf{\Lambda}+\mathbf{\Lambda}&=\mathbf{\Lambda}\textbf{D}
+\intertext{multiplicando por la izquierda por $\psi^{-\frac{1}{2}}$:}
+\psi^{-\frac{1}{2}}\mathbf{\Sigma}\psi^{-\frac{1}{2}}\psi^{-\frac{1}{2}}\mathbf{\Lambda}&=\psi^{-\frac{1}{2}}\mathbf{\Lambda}\textbf{(D+I)}
 \end{align}
-\noindent Por tanto, $\psi^{-\frac{1}{2}}\textbf{V}\psi^{-\frac{1}{2}}$ es la matriz cuyos valores propios son los elementos de $\textbf{D+I}$ y los vectores propios son las columnas de la matriz $\psi^{-\frac{1}{2}}\mathbf{\Lambda}$
+\noindent Por tanto, $\psi^{-\frac{1}{2}}\mathbf{\Sigma}\psi^{-\frac{1}{2}}$ es la matriz cuyos valores propios son los elementos de $\textbf{D+I}$ y los vectores propios son las columnas de la matriz $\psi^{-\frac{1}{2}}\mathbf{\Lambda}$. 
 \end{proof}
 \end{propo}
 
+\noindent Esta restricción se utiliza en el método máximo verosímil de estimación de los factores.
+
+\noindent En estos casos lo que se quiere hallar son los términos de la matriz $\mathbf{\Lambda}$ que es un total de $pm$ y los $p$ términos de la matriz $\mathbf{\psi}$, suponiendo que se da la restricción de que $\mathbf{\Lambda}^T \psi^{-1}\mathbf{\Lambda}$, entonces hay $\frac{m(m-1)}{2}$ restricciones. Además usando la matriz de covarianzas muestrales $\textbf{S}$, obtenemos $\frac{p(p+1)}{2}$ ecuaciones de manera que si se desea que el sistema quede  determinado la condición necesaria es que se de la siguiente condición:
+\begin{equation}
+\begin{split}
+p+pm-\dfrac{m(m-1)}{2}&\leq\dfrac{p(p+1)}{2}\\
+(p-m)^2&\geq p+m
+\end{split} 
+\end{equation} 
+
+\noindent Teniendo en cuenta estos conceptos, hay que desarrollar métodos para estimar los parámetros desconocidos, los más comunes son el método del Factor Principal y el método de Máxima Verosimilitud.
+
+
+\subsection{Método del Factor Principal}
+
+\noindent En el Análisis Factorial hay un principio que se debe seguir:
+\begin{defi}
+El \emph{Principio de Parsimonia} es aquel por el cual se toma la solución con menos factores comunes con el fin de obtener el modelo menos complejo. 
+\end{defi}
+
+\noindent En el caso del método del Factor Principal se busca lo mismo que en el caso de una Componente Principal, que este tenga una varianza máxima y que esté incorrelada. En \emph{Cuadras C.M.}\cite{Cuadras 2014} se detalla el proceso de obtención de la descomposición que detallaremos a continuación, esta es similar a la realizada en la sección de las Componentes Principales. 
+
+\noindent Sea $\mathbf{S}$ la matriz de covarianzas muestrales, de manera que si tenemos en cuenta estimaciones de la matriz de covarianzas de las perturbaciones $\mathbf{\hat{\psi}}$, entonces: 
+\begin{equation}
+\mathbf{S}-\mathbf{\hat{\psi}}=\mathbf{\Lambda}^T\mathbf{\Lambda}
+\end{equation}
+
+\noindent Entonces la matriz $\textbf{S}-\psi$, es simétrica ya que la propia $\textbf{S}$ lo es y la matriz $\hat{\psi}$ es diagonal por hipótesis del modelo, \emph{Cuadras C.M.} \cite{Cuadras 2014}. Teniendo en cuenta estas consideraciones se obtiene la descomposición:
+\begin{equation}
+\textbf{S}-\psi=(\textbf{HG}^{\frac{1}{2}})(\textbf{HG}^{\frac{1}{2}})^T
+\end{equation}
+
+\noindent Donde $\textbf{H}$ es una matriz de tamaño $p\times p$ cuadrada y ortogonal y $\textbf{G}$ es una matriz con la siguiente distribución:
+\begin{equation}
+\textbf{G}=\left(
+\begin{matrix}
+\textbf{G}_{1 m\times m} & \mathbf{0}_{m\times(p-m)}\\
+\mathbf{0}_{(p-m)\times m} & \mathbf{0}_{(p-m)\times(p-m)}
+\end{matrix}
+\right)
+\end{equation}
+
+\noindent Donde $m$ es el rango de la matriz $\textbf{S}-\psi$. De manera análoga al caso de las Componentes Principales podemos tener una reducción de la matriz de rango $m$ con la mínima pérdida de variabilidad \emph{(Teorema de Eckart-Young)}. Tomando $\textbf{H}_1$ la matriz de tamaño $p \times m$
+Por tanto, tomamos $\mathbf{\hat{\Lambda}}=$
+\begin{propo}
+\end{propo}
 
 
 

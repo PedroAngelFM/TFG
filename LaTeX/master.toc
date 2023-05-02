@@ -30,10 +30,11 @@
 \contentsline {section}{\numberline {2.3}Análisis Factorial}{37}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Formalización}{37}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2} Unicidad del modelo }{38}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}Análisis de Clusters}{40}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Estructuración jerárquica de $\Omega $}{41}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Algoritmos basados en jerarquías}{43}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Elección de las diferencias }{44}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.4.4}Algoritmos no jerárquicos}{45}{subsection.2.4.4}%
-\contentsline {chapter}{Bibliografía}{46}{chapter*.11}%
+\contentsline {subsection}{\numberline {2.3.3}Método del Factor Principal}{40}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Análisis de Clusters}{41}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Estructuración jerárquica de $\Omega $}{42}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Algoritmos basados en jerarquías}{44}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Elección de las diferencias }{45}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Algoritmos no jerárquicos}{46}{subsection.2.4.4}%
+\contentsline {chapter}{Bibliografía}{47}{chapter*.11}%
 \contentsfinish 
