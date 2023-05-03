@@ -3,9 +3,11 @@
 
 \noindent De esta manera, no se explora más allá de la varianza la relación de las variables. En el caso del Análisis Factorial el objetivo es encontrar un conjunto de variables nuevas (\emph{que pueden ser combinaciones o transformaciones no lineales }) de las variables iniciales. De tal manera que se consigan detallar variables latentes o subyacentes no medidas. 
 
-\noindent El caso que inició este tipo de análisis fue la comprensión de la inteligencia humana donde Pearson y Spearman intentaron dimensionarla. 
+\noindent El caso que inició este tipo de análisis fue la comprensión de la inteligencia humana donde Pearson y Spearman intentaron dimensionarla con un único factor \emph{``g"}. También otros casos clásicos son la estructura de la personalidad medida con tests y escalas, pero resumida a dos factores. 
 
-\noindent A lo largo de esta sección seguiremos \emph{Peña, D.;}\cite{Peña 2002} y tomaremos ciertas definiciones de \emph{Chatfield, C. y A.J.;} \cite{Chatfield 1989}. 
+\noindent Como se ha podido observar, el Análisis Factorial tiene su mayor predicación en la psicología y sociología donde los factores ayudan a los investigadores a resumir la información de manera sencilla y concisa. Este Análisis Factorial puede ser confirmatorio o descriptivo como se detallará más adelante.  
+
+\noindent A lo largo de esta sección se seguirán \emph{Peña, D.;}\cite{Peña 2002} y \emph{Cuadras C.M}\cite{Cuadras 2014}, y  se tomarán ciertas definiciones de \emph{Chatfield, C. y A.J.;} \cite{Chatfield 1989}. 
 
 \subsection{Formalización}
 \noindent Según \emph{Peña, D.} \cite{Peña 2002}, la relación que establece el modelo factorial dado un conjunto de $n$ observaciones sobre $p$ variables aleatorias representadas por la matriz \textbf{X} es la siguiente:
@@ -53,7 +55,7 @@ h_i^2=\sum_{j=1}^m \lambda_{ij}^2
 \noindent Además si se toma una matriz de transformación ortogonal, \textbf{H} se obtiene un modelo equivalente en el que los factores son incorrelados, por tanto los modelos son invariantes por rotaciones. 
 
 \noindent Para resolver este problema de indeterminación  se pueden dar dos restricciones:
-\begin{equation}
+\begin{equation}\label{Condicion FP}
 \mathbf{\Lambda}^T\mathbf{\Lambda}=\textbf{D} 
 \end{equation} 
 \noindent Donde $D$ es una matriz diagonal. 
@@ -150,10 +152,65 @@ El \emph{Principio de Parsimonia} es aquel por el cual se toma la solución con 
 \right)
 \end{equation}
 
-\noindent Donde $m$ es el rango de la matriz $\textbf{S}-\psi$. De manera análoga al caso de las Componentes Principales podemos tener una reducción de la matriz de rango $m$ con la mínima pérdida de variabilidad \emph{(Teorema de Eckart-Young)}. Tomando $\textbf{H}_1$ la matriz de tamaño $p \times m$
-Por tanto, tomamos $\mathbf{\hat{\Lambda}}=$
+\noindent Donde $m$ es el rango de la matriz $\textbf{S}-\psi$. De manera análoga al caso de las Componentes Principales podemos tener una reducción de la matriz de rango $m$ con la mínima pérdida de variabilidad \emph{(Teorema de Eckart-Young)}. Tomando $\textbf{H}_1$ la matriz ortogonal de tamaño $p \times m$ con los vectores propios con valores propios no nulos de $\textbf{S}-\psi$ y $\textbf{G}_1$ es la matriz diagonal cuadrada de orden $m$ cuyos elementos de la diagonal son los valores propios no nulos. Entonces, tomando $\mathbf{\hat{\Lambda}}=\textbf{H}_1\textbf{G}_1^{\frac{1}{2}}$ 
+
 \begin{propo}
+La matriz $\mathbf{\hat{\Lambda}}$ cumple la condición \eqref{Condicion FP}
+\begin{proof}
+Tomando la definición dada de la matriz $\mathbf{\hat{\Lambda}}=\textbf{H}_1\textbf{G}_1^{\frac{1}{2}}$. Se tiene:
+\begin{equation}
+\mathbf{\hat{\Lambda}}^T \mathbf{\hat{\Lambda}}=(\textbf{H}_1\textbf{G}_1^{\frac{1}{2}})^T(\textbf{H}_1\textbf{G}_1^{\frac{1}{2}})= \textbf{G}_1^{\frac{1}{2}}\textbf{H}_1^T\textbf{H}_1\textbf{G}_1^{\frac{1}{2}}=\textbf{G}_1
+\end{equation}
+
+\noindent Donde al ser $\textbf{H}_1$ ortogonal, $\textbf{H}_1^T\textbf{H}_1=\textbf{I}$. Y como $\textbf{G}_1$ es una matriz diagonal, se cumple \eqref{Condicion FP}\qedhere
+\end{proof}
 \end{propo}
+
+\noindent Ahora hay que ser capaz de ofrecer una estimación de las comunalidades.
+
+\noindent Las comunalidades son  la suma de la variación de los datos que explicaban los factores comunes para cada una de las variables, es decir, se sabe que $s^2_i=h_i^2+\hat{\psi}_i^2$
+
+\noindent A la hora de tomar una estimación, se pueden asumir de manera inicial como $\hat{\psi}_i^2=0$, es decir, se asume que $s^2_i=\hat{h}_i^2$ de manera que toda la variabilidad de los datos está explicada por la factores, lo cual no siempre es adecuado por que se puede obtener una estimación sesgada.  
+
+\noindent Otra opción sería tomar $\hat{\psi}_j^2=\dfrac{1}{s^{*}_{jj}}$ donde $s^{*}_{jj}$ es el j-ésimo elemento de la diagonal de la matriz $\textbf{S}^{-1}$. De esta manera lo que se busca es que la comunalidad $\hat{h}_j^2$ sea la variabilidad que no es común al resto de variables, es decir:
+\begin{equation}
+\hat{h}_j^2=s_j^2-s_j^2(1-R_j^2)=s_j^2R_j^2
+\end{equation}
+ 
+\noindent De esta manera se tienen dos maneras de estimar de manera inicial las comunalidades para poder realizar el siguiente método\\
+\paragraph*{Método del Factor Principal}
+\hrule
+\begin{enumerate}
+\item Se toma una estimación inicial de las comunalidades como se ha visto anteriormente, en el caso de que sea la primera iteración, $\hat{\psi}_0$ se toma cualquiera de las alternativas, en caso contrario $\hat{\psi}_i=diag(\textbf{S}-\hat{\mathbf{\Lambda}}_{i})$
+\item Se calcula la matriz simétrica $\textbf{Q}_i=\textbf{S}-\hat{\psi}_i$
+\item Se obtiene la descomposición espectral de $\textbf{Q}_i=\textbf{H}_{1i}\textbf{G}_{1i}\textbf{H}_{1i}^T+\textbf{H}_{2i}\textbf{G}_{2i}\textbf{H}_{2i}^T$. Donde la matriz $\textbf{H}_{1i}$ son los $m$ vectores propios con los mayores valores propios y $\textbf{G}_{1i}$ es la matriz que contiene en la diagonal estos $m$ mayores valores propios. Puede ocurrir que $\textbf{Q}_i$ sea no definida positiva y por tanto, haya valores propios negativos. 
+\item Tomar $\hat{\Lambda}_{i+1}\textbf{H}_{1i}\textbf{G}_{1i}^{\frac{1}{2}}$ e iterar hasta que se de el criterio de parada o de convergencia $||\hat{\Lambda}_{i+1}-\hat{\Lambda}_{i}||\leq \varepsilon$.
+\end{enumerate}
+\hrule
+
+\noindent En \emph{Peña, D}\cite{Peña 2002} se muestran ejemplos de aplicación simples en el que se utiliza el método del factor principal para realizar la estimación de la matriz de cargas de un solo factor.
+
+\noindent En  esencia lo que se realiza con este algoritmo es minimizar la siguiente función:
+\begin{equation}
+F=tr(\textbf{S}-\mathbf{\Lambda^T\Lambda}-\psi)^2
+\end{equation}
+A su vez es equivalente a minimizar lo siguiente: 
+\begin{equation}
+F=\sum_{i=1}^p\sum_{j=1}^p(s_{ij}-v_{ij})^2
+\end{equation}
+
+\noindent Donde $\mathbf{V}=\mathbf{\Lambda\Lambda^T}+\psi$, de manera que la mejor aproximación a la matriz de covarianzas de rango $m$ es como en el caso análisis de Componentes Principales, $\textbf{A}=\textbf{H}\textbf{D}^{\frac{1}{2}}$, donde como en el método anterior, donde $\textbf{H}$ contiene los $m$ vectores  propios con mayores valores propios de $\textbf{A}^T\textbf{A}$ y $\textbf{D}^\frac{1}{2}$ la matriz diagonal con las raíces de los $m$ valores propios más altos. 
+
+\subsection{Método Máximo Verosímil}
+
+\noindent Otra forma de estimar los parámetros es utilizando ecuaciones de Máxima Verosimilitud, en este caso lo que se busca estimar es la matriz de covarianzas de una distribución de datos que en principio es $\mathcal{N}_p(\mathbf{\mu},\textbf{V})$ que tomando el estimador de la media por la media muestral obtenemos que la función logarítmica es: 
+
+\begin{align}
+log(\textbf{V}|\textbf{X})&=-\dfrac{n}{2}log|\textbf{V}|-\dfrac{n}{2}tr(\textbf{SV}^{-1})\\
+\intertext{ Sustituyendo \textbf{V} por el modelo en el que $\textbf{V}=\mathbf{\Lambda^T\Lambda}+\psi$}
+L(\mathbf{\Lambda},\psi)&=-\dfrac{n}{2}(log|\mathbf{\Lambda^T\Lambda}+\psi|+tr(\textbf{S}(\mathbf{\Lambda^T\Lambda}+\psi)^{-1}))
+\end{align}
+
 
 
 

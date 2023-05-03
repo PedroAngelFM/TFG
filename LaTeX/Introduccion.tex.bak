@@ -6,7 +6,7 @@ Los métodos multivariantes se pueden clasificar según el objetivo a perseguir:
 \item \textbf{\textit{Reducción de datos}}: En estos procedimientos se busca analizar la estructura de los datos para buscar una simplificación de la misma. Dentro de este tipo de técnicas están el \textit{Análisis Factorial}, \textit{Análisis de Componentes Principales,} \textit{Análisis Discriminante} etc. 
 \item \textit{\textbf{Clasificación y Agrupación:}} Es decir, buscar modos de clasificar las observaciones en grupos homogéneos ya sea de acuerdo a una variable categórica conocida o buscando esa homogeneidad dentro de los datos. Podemos incluir aquí el \emph{Análisis de Conglomerados}
 \item \textit{\textbf{Análisis de Relaciones y Dependencias: }} Con fines predictivos o descriptivos, este tipo de estudios pueden ser usados en aplicaciones médicas, como pueden ser los diagnósticos precoces, aunque también pueden ser utilizados en campos como la sociología, la psicología  etc... 
-\item \textbf{\textit{Construcción de Modelos y pruebas de hipótesis}}
+\item \textbf{\textit{Construcción de Modelos y pruebas de hipótesis}}: Ya sean modelos predictivos, como lo son en su mayoría las \emph{Redes Neuronales.} También permite a los investigadores contrastar hipótesis de manera simple, dando mecanismos inferenciales. 
 \end{itemize}
 
 \noindent También se pueden clasificar  según el conocimiento de los datos o de la variable a analizar como métodos supervisados o no supervisados. 
@@ -15,9 +15,9 @@ Los métodos multivariantes se pueden clasificar según el objetivo a perseguir:
 
 \noindent Estas técnicas han visto un auge en los últimos años, debido a su utilidad en el análisis de grandes bases de datos y la creciente capacidad de recogida de datos que se tiene en la actualidad. Además, el llevar a buen término el estudio anteriormente era complejo debido a la gran cantidad de cálculos que se necesitan realizar. Actualmente esos cálculos son automatizados, en algunos casos, con una única línea de código es posible llevar a cabo ciertas técnicas de las descritas.
 
-\noindent Además, ciertos autores como \textit{Hastie T., Tibshirani R. y Friedman J.} \cite{Hastie 2001} enfocan también estos problemas desde el punto del aprendizaje automático, ya sea también supervisado o no. \noindent El crecimiento de la disciplina llamada \emph{Ciencia de Datos} ha conseguido que unidos al aprendizaje automático estos modelos consigan grandes aplicaciones, por ejemplo, las redes neuronales se han conseguido aplicar exitosamente en varios campos. 
+\noindent Además, ciertos autores como \textit{Hastie T., Tibshirani R. y Friedman J.} \cite{Hastie 2001} o  \emph{James G, Witten D, Hastie T, y  Tibshirani R.} \cite{James 2013} enfocan también estos problemas desde el punto del aprendizaje automático, ya sea también supervisado o no. \noindent El crecimiento de la disciplina llamada \emph{Ciencia de Datos} ha conseguido que unidos al aprendizaje automático, estos modelos consigan grandes aplicaciones, por ejemplo, las redes neuronales se han conseguido aplicar exitosamente en varios campos. 
 
-\noindent De manera regular estos métodos se han dado en campos en los que hay que estudiar fenómenos de gran complejidad como la psicología y sociología en los que se busca tener mejor entendimiento de un suceso y tomar medidas efectivas y todo lo óptimas posibles, \textit{(Véanse \cite{Diez 2002}, \cite{Galindo 2015} y \cite{Echeverri 2015})}, o también para detectar factores de riesgo de conductas dañinas como el consumo de drogas etc...
+\noindent De manera regular, estos métodos se han usado en campos en los que hay que estudiar fenómenos de gran complejidad como la psicología y sociología en los que se busca tener mejor entendimiento de un suceso y tomar medidas efectivas y todo lo óptimas posibles, \textit{(Véanse \cite{Diez 2002}, \cite{Galindo 2015} y \cite{Echeverri 2015})}, o también para detectar factores de riesgo de conductas dañinas como el consumo de drogas etc...
 
-\noindent Es por ello que el Análisis Multivariante 
+\noindent El Análisis Multivariante permite a distintos tipos de investigadores sacar conclusiones de manera sistemática y simple. Además ahora con la cantidad de librerías y paquetes que están disponibles en los distintos lenguajes, es más accesible que nunca el poder hacer un análisis multivariante. 
  
