@@ -7,7 +7,9 @@
 
 \noindent Sin embargo esa necesidad de estudiar las estructuras de los datos más allá de la dependencia funcional de unos grupos de variables con otros como pueden ser la mayoría de métodos de regresión que se han expuesto anteriormente es lo que dan a este tipo de métodos multivariantes la importancia que tienen. 
 
-\noindent En el caso del Análisis de Componentes Principales y el Análisis Factorial, se busca extraer la máxima información de la matriz de covarianzas o de correlaciones para poder dar una simplificación de la estructura de los datos.Sin embargo, en el caso del Análisis de Clusters el objetivo no es simplificar la estructura de los datos si no ver como estos están agrupados y en algunos casos como de homogéneos son. Otros métodos multivariantes no supervisados serían las Reglas de
+\noindent En el caso del Análisis de Componentes Principales y el Análisis Factorial, se busca extraer la máxima información de la matriz de covarianzas o de correlaciones para poder dar una simplificación de la estructura de los datos.Sin embargo, en el caso del Análisis de Clusters el objetivo no es simplificar la estructura de los datos si no ver como estos están agrupados y en algunos casos como de homogéneos son. Otros métodos multivariantes no supervisados serían las \emph{Reglas de Asociación} que detallan \emph{Hastie et.al.}\cite{Hastie 2001} en el capítulo 14 que busca asociaciones entre variables. 
+
+\noindent También hay variaciones de las técnicas que se verán en esta memoria, como Curvas o Superficies Principales o las técnicas de escalado multidimensional, que por falta de tiempo no han sido consideradas.  
 
 \noindent  
 \input{Documentos Extra/resumenPCA.tex}

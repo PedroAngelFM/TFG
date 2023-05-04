@@ -20,23 +20,25 @@
 \noindent Donde:
 \begin{itemize}
 
-\item La matriz $\textbf{F}$ de tamaño $(n\times m)$ obtenida de realizar $n$ observaciones del vector aleatorio $\textbf{f}$ que sigue una distribución normal $\mathcal{N}_m(\mathbf{0},\textbf{I})$, a este vector aleatorio se le llama \emph{vector de factores} que son las llamadas variables latentes.  
-\item $\Lambda$ es la \emph{matriz de carga} de tamaño $(p\times m)$ que contiene la información de como $\textbf{f}$ se relaciona con $\textbf{x}$.
+\item La matriz $\textbf{F}$ de tamaño $(n\times m)$ obtenida de realizar $n$ observaciones del vector aleatorio $\textbf{f}$ formado por $m$ variables aleatorias que siguen una distribución normal multivariante $\mathcal{N}_m(\mathbf{0},\textbf{I})$, a este vector aleatorio se le llama \emph{vector de factores} que son las llamadas variables latentes.  
+\item $\mathbf{\Lambda}$ es la \emph{matriz de carga} de tamaño $(p\times m)$ que contiene la información de como $\textbf{f}$ se relaciona con $\textbf{x}$.
 \item La matriz $\textbf{U}$ es la matriz de perturbaciones de tamaño $(n\times p )$ que contiene las $n$ observaciones del vector aleatorio $\textbf{u}$ cuya información no está recopilada por el vector de factores. 
 \end{itemize}
 
+\noindent \emph{Observación: }De esta manera, se establecen los factores como ortogonales o incorrelados, esta condición no es precisamente necesaria pero no se detallará el caso contrario. A los modelos que no cumplen dicha condición se les llama factores oblicuos y presentan ciertas particularidades a la hora de la estimación. 
+
 \noindent Por tanto, se puede expresar cada observación $\textbf{x}_0$, como la suma de $m+2$ términos de la siguiente manera :
 \begin{equation}
-x_{0j}=\mu_j+\lambda_{j1}f_{10}+\ldots\lambda_{jm}f_{m0}+u_{0j}\quad j=1\ldots p
+x_{0j}=\mu_j+\mathbf{\Lambda}_{j1}f_{10}+\ldots\mathbf{\Lambda}_{jm}f_{m0}+u_{0j}\quad j=1\ldots p
 \end{equation}
 
 \noindent Para calcular la varianza teniendo en cuenta las distribuciones que se han supuesto. Entonces, se tiene que:
 \begin{equation}
-E((\textbf{x}-\mu)\textbf{f}^T)=\Lambda E(\textbf{f }\textbf{f}^T)+E(\textbf{u f}^T)=\Lambda
+E((\textbf{x}-\mu)\textbf{f}^T)=\mathbf{\Lambda} E(\textbf{f }\textbf{f}^T)+E(\textbf{u f}^T)=\mathbf{\Lambda}
 \end{equation}
 \noindent Ya que se ha establecido que los factores son variables incorreladas y con matriz de covarianzas \textbf{I} y además, los factores son independientes de las perturbaciones. En esta linea, tomando $\psi$, la matriz de covarianzas del vector aleatorio de perturbaciones, se puede dar la siguiente expresión de la matriz de covarianzas de los datos:
 \begin{equation}
-\mathbf{\Sigma}=E[(\textbf{x}-\mu)(\textbf{x}-\mu)^T]=\Lambda E[\textbf{f f}^T]\Lambda^T+E[\textbf{u u}^T] =\Lambda\Lambda^T+\psi
+\mathbf{\Sigma}=E[(\textbf{x}-\mu)(\textbf{x}-\mu)^T]=\mathbf{\Lambda} E[\textbf{f f}^T]\mathbf{\Lambda}^T+E[\textbf{u u}^T] =\mathbf{\Lambda}\mathbf{\Lambda}^T+\psi
 \end{equation}
 
 \noindent Se detallan en \emph{Chatfield, C y Collins, A.J. }\cite{Chatfield 1989} algunos conceptos que ayudan a simplificar la discusión 
@@ -154,14 +156,14 @@ El \emph{Principio de Parsimonia} es aquel por el cual se toma la solución con 
 \right)
 \end{equation}
 
-\noindent Donde $m$ es el rango de la matriz $\textbf{S}-\psi$. De manera análoga al caso de las Componentes Principales podemos tener una reducción de la matriz de rango $m$ con la mínima pérdida de variabilidad \emph{(Teorema de Eckart-Young)}. Tomando $\textbf{H}_1$ la matriz ortogonal de tamaño $p \times m$ con los vectores propios con valores propios no nulos de $\textbf{S}-\psi$ y $\textbf{G}_1$ es la matriz diagonal cuadrada de orden $m$ cuyos elementos de la diagonal son los valores propios no nulos. Entonces, tomando $\mathbf{\hat{\Lambda}}=\textbf{H}_1\textbf{G}_1^{\frac{1}{2}}$ 
+\noindent Donde $m$ es el rango de la matriz $\textbf{S}-\psi$. De manera análoga al caso de las Componentes Principales podemos tener una reducción de la matriz de rango $m$ con la mínima pérdida de variabilidad \emph{(Teorema de Eckart-Young)}. Tomando $\textbf{H}_1$ la matriz ortogonal de tamaño $p \times m$ con los vectores propios con valores propios no nulos de $\textbf{S}-\psi$ y $\textbf{G}_1$ es la matriz diagonal cuadrada de orden $m$ cuyos elementos de la diagonal son los valores propios no nulos. Entonces, tomando $\mathbf{\hat{\mathbf{\Lambda}}}=\textbf{H}_1\textbf{G}_1^{\frac{1}{2}}$ 
 
 \begin{propo}
-La matriz $\mathbf{\hat{\Lambda}}$ cumple la condición \eqref{Condicion FP}
+La matriz $\mathbf{\hat{\mathbf{\Lambda}}}$ cumple la condición \eqref{Condicion FP}
 \begin{proof}
-Tomando la definición dada de la matriz $\mathbf{\hat{\Lambda}}=\textbf{H}_1\textbf{G}_1^{\frac{1}{2}}$. Se tiene:
+Tomando la definición dada de la matriz $\mathbf{\hat{\mathbf{\Lambda}}}=\textbf{H}_1\textbf{G}_1^{\frac{1}{2}}$. Se tiene:
 \begin{equation}
-\mathbf{\hat{\Lambda}}^T \mathbf{\hat{\Lambda}}=(\textbf{H}_1\textbf{G}_1^{\frac{1}{2}})^T(\textbf{H}_1\textbf{G}_1^{\frac{1}{2}})= \textbf{G}_1^{\frac{1}{2}}\textbf{H}_1^T\textbf{H}_1\textbf{G}_1^{\frac{1}{2}}=\textbf{G}_1
+\mathbf{\hat{\mathbf{\Lambda}}}^T \mathbf{\hat{\mathbf{\Lambda}}}=(\textbf{H}_1\textbf{G}_1^{\frac{1}{2}})^T(\textbf{H}_1\textbf{G}_1^{\frac{1}{2}})= \textbf{G}_1^{\frac{1}{2}}\textbf{H}_1^T\textbf{H}_1\textbf{G}_1^{\frac{1}{2}}=\textbf{G}_1
 \end{equation}
 
 \noindent Donde al ser $\textbf{H}_1$ ortogonal, $\textbf{H}_1^T\textbf{H}_1=\textbf{I}$. Y como $\textbf{G}_1$ es una matriz diagonal, se cumple \eqref{Condicion FP}\qedhere
@@ -179,14 +181,14 @@ Tomando la definición dada de la matriz $\mathbf{\hat{\Lambda}}=\textbf{H}_1\te
 \hat{h}_j^2=s_j^2-s_j^2(1-R_j^2)=s_j^2R_j^2
 \end{equation}
  
-\noindent De esta manera se tienen dos maneras de estimar de manera inicial las comunalidades para poder realizar el siguiente método\\
+\noindent De esta manera se tienen dos maneras de estimar de manera inicial las comunalidades para poder realizar el siguiente método.
 \paragraph*{Método del Factor Principal}
 \hrule
 \begin{enumerate}
 \item Se toma una estimación inicial de las comunalidades como se ha visto anteriormente, en el caso de que sea la primera iteración, $\hat{\psi}_0$ se toma cualquiera de las alternativas, en caso contrario $\hat{\psi}_i=diag(\textbf{S}-\hat{\mathbf{\Lambda}}_{i})$
 \item Se calcula la matriz simétrica $\textbf{Q}_i=\textbf{S}-\hat{\psi}_i$
 \item Se obtiene la descomposición espectral de $\textbf{Q}_i=\textbf{H}_{1i}\textbf{G}_{1i}\textbf{H}_{1i}^T+\textbf{H}_{2i}\textbf{G}_{2i}\textbf{H}_{2i}^T$. Donde la matriz $\textbf{H}_{1i}$ son los $m$ vectores propios con los mayores valores propios y $\textbf{G}_{1i}$ es la matriz que contiene en la diagonal estos $m$ mayores valores propios. Puede ocurrir que $\textbf{Q}_i$ sea no definida positiva y por tanto, haya valores propios negativos. 
-\item Tomar $\hat{\Lambda}_{i+1}\textbf{H}_{1i}\textbf{G}_{1i}^{\frac{1}{2}}$ e iterar hasta que se de el criterio de parada o de convergencia $||\hat{\Lambda}_{i+1}-\hat{\Lambda}_{i}||\leq \varepsilon$.
+\item Tomar $\hat{\mathbf{\Lambda}}_{i+1}\textbf{H}_{1i}\textbf{G}_{1i}^{\frac{1}{2}}$ e iterar hasta que se de el criterio de parada o de convergencia $||\hat{\mathbf{\Lambda}}_{i+1}-\hat{\mathbf{\Lambda}}_{i}||\leq \varepsilon$.
 \end{enumerate}
 \hrule
 
@@ -194,24 +196,27 @@ Tomando la definición dada de la matriz $\mathbf{\hat{\Lambda}}=\textbf{H}_1\te
 
 \noindent En  esencia lo que se realiza con este algoritmo es minimizar la siguiente función:
 \begin{equation}
-F=tr(\textbf{S}-\mathbf{\Lambda^T\Lambda}-\psi)^2
+F=tr(\textbf{S}-\mathbf{\mathbf{\Lambda}^T\mathbf{\Lambda}}-\psi)^2
 \end{equation}
 A su vez es equivalente a minimizar lo siguiente: 
 \begin{equation}
 F=\sum_{i=1}^p\sum_{j=1}^p(s_{ij}-v_{ij})^2
 \end{equation}
 
-\noindent Donde $\mathbf{V}=\mathbf{\Lambda\Lambda^T}+\psi$, de manera que la mejor aproximación a la matriz de covarianzas de rango $m$ es como en el caso análisis de Componentes Principales, $\textbf{A}=\textbf{H}\textbf{D}^{\frac{1}{2}}$, donde como en el método anterior, donde $\textbf{H}$ contiene los $m$ vectores  propios con mayores valores propios de $\textbf{A}^T\textbf{A}$ y $\textbf{D}^\frac{1}{2}$ la matriz diagonal con las raíces de los $m$ valores propios más altos. 
+\noindent Donde $\mathbf{V}=\mathbf{\mathbf{\Lambda}\mathbf{\Lambda}^T}+\psi$, de manera que la mejor aproximación a la matriz de covarianzas de rango $m$ es como en el caso análisis de Componentes Principales, $\textbf{A}=\textbf{H}\textbf{D}^{\frac{1}{2}}$, donde como en el método anterior, donde $\textbf{H}$ contiene los $m$ vectores  propios con mayores valores propios de $\textbf{A}^T\textbf{A}$ y $\textbf{D}^\frac{1}{2}$ la matriz diagonal con las raíces de los $m$ valores propios más altos. 
 
 \subsection{Método Máximo Verosímil}
 
-\noindent Otra forma de estimar los parámetros es utilizando ecuaciones de Máxima Verosimilitud, en este caso lo que se busca estimar es la matriz de covarianzas de una distribución de datos que en principio es $\mathcal{N}_p(\mathbf{\mu},\textbf{V})$ que tomando el estimador de la media por la media muestral obtenemos que la función logarítmica es: 
+\noindent Otra forma de estimar los parámetros es utilizando ecuaciones de Máxima Verosimilitud, en este caso lo que se busca estimar es la matriz de covarianzas de una distribución de datos que en principio es $\mathcal{N}_p(\mathbf{\mu},\mathbf{\Sigma})$ que tomando el estimador de la media por la media muestral obtenemos que la función logarítmica es: 
+\begin{equation}
+log(\mathbf{\Sigma}|\textbf{X})=-\dfrac{n}{2}log|\mathbf{\Sigma}|-\dfrac{n}{2}tr(\mathbf{S\Sigma}^{-1})
+\end{equation}
+\noindent Sustituyendo $\mathbf{\Sigma}$ por el modelo en el que $\mathbf{\Sigma}=\mathbf{\mathbf{\Lambda}^T\mathbf{\Lambda}}+\psi$
+\begin{equation}
+L(\mathbf{\Lambda},\psi)=-\dfrac{n}{2}(log|\mathbf{\mathbf{\Lambda}^T\mathbf{\Lambda}}+\psi| +tr(\textbf{S}(\mathbf{\mathbf{\Lambda}^T\mathbf{\Lambda}}+\psi)^{-1}))
+\end{equation}
 
-\begin{align}
-log(\textbf{V}|\textbf{X})&=-\dfrac{n}{2}log|\textbf{V}|-\dfrac{n}{2}tr(\textbf{SV}^{-1})\\
-\intertext{ Sustituyendo \textbf{V} por el modelo en el que $\textbf{V}=\mathbf{\Lambda^T\Lambda}+\psi$}
-L(\mathbf{\Lambda},\psi)=-\dfrac{n}{2}(log|\mathbf{\Lambda^T\Lambda}+\psi|&+tr(\textbf{S}(\mathbf{\Lambda^T\Lambda}+\psi)^{-1}))
-\end{align}
+\noindent Ahora el objetivo es maximizar esta función respecto de $\mathbf{\Lambda}$  y de $\psi$ como en el método univariante de Máxima Verosimilitud. \emph{Peña D.}\cite{Peña 2002} 
 
 
 

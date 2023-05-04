@@ -1,6 +1,6 @@
 \section{Métodos Lineales para regresión}
 
-\noindent El objetivo de la regresión es conseguir una relación funcional que permita predecir los valores de una variable respuesta cuantitativa en función de los valores de unas variables de entrada. En el caso de la regresión lineal, ya sea simple o múltiple, se asume que esa relación funcional es lineal. 
+\noindent El objetivo de la regresión en este caso lineal es encontrar la forma de dependencia que 
 
 \noindent Para ello, se tendrá en cuenta que las observaciones de la variable respuesta siguen la relación que se detallaba anteriormente:
 \begin{equation}

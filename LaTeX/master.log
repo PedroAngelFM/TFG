@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  4 MAY 2023 09:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  4 MAY 2023 12:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -879,32 +879,28 @@ to `Documentos Extra/Redes Neuronales.tex' on input line 12.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [18]
-<Documentos Extra/Imagenes/neurona.png, id=422, 443.40656pt x 237.13594pt>
+<Documentos Extra/Imagenes/neurona.png, id=423, 443.40656pt x 237.13594pt>
 File: Documentos Extra/Imagenes/neurona.png Graphic file (type png)
 <use Documentos Extra/Imagenes/neurona.png>
 Package pdftex.def Info: Documentos Extra/Imagenes/neurona.png  used on input l
-ine 25.
+ine 27.
 (pdftex.def)             Requested size: 266.04597pt x 142.28265pt.
-<Documentos Extra/Imagenes/red-neuronal-grande.png, id=423, 556.0775pt x 301.12
+LaTeX Info: Redefining \. on input line 36.
+LaTeX Info: Redefining \% on input line 36.
+ [19 <./Documentos Extra/Imagenes/neurona.png>]
+<Documentos Extra/Imagenes/red-neuronal-grande.png, id=435, 556.0775pt x 301.12
 5pt>
 File: Documentos Extra/Imagenes/red-neuronal-grande.png Graphic file (type png)
 
 <use Documentos Extra/Imagenes/red-neuronal-grande.png>
 Package pdftex.def Info: Documentos Extra/Imagenes/red-neuronal-grande.png  use
-d on input line 38.
+d on input line 40.
 (pdftex.def)             Requested size: 278.03807pt x 150.56212pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-LaTeX Info: Redefining \. on input line 44.
-LaTeX Info: Redefining \% on input line 44.
-[19 <./Documentos Extra/Imagenes/neurona.png>]
-LaTeX Info: Redefining \. on input line 70.
-LaTeX Info: Redefining \% on input line 70.
+LaTeX Info: Redefining \. on input line 69.
+LaTeX Info: Redefining \% on input line 69.
  [20 <./Documentos Extra/Imagenes/red-neuronal-grande.png>]
-LaTeX Info: Redefining \. on input line 108.
-LaTeX Info: Redefining \% on input line 108.
+LaTeX Info: Redefining \. on input line 102.
+LaTeX Info: Redefining \% on input line 102.
  [21])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/ArbolesRegresionClasif
@@ -915,14 +911,14 @@ icación.tex' to `Documentos Extra/ArbolesRegresionClasificación.tex' on input
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [22]
-<Documentos Extra/Imagenes/Regiones árboles.png, id=456, 338.01282pt x 302.630
+<Documentos Extra/Imagenes/Regiones árboles.png, id=458, 338.01282pt x 302.630
 63pt>
 File: Documentos Extra/Imagenes/Regiones árboles.png Graphic file (type png)
 <use Documentos Extra/Imagenes/Regiones árboles.png>
 Package pdftex.def Info: Documentos Extra/Imagenes/Regiones árboles.png  used 
 on input line 12.
 (pdftex.def)             Requested size: 168.4376pt x 150.80698pt.
-<Documentos Extra/Imagenes/Diagrama de arbol.png, id=457, 287.57437pt x 279.293
+<Documentos Extra/Imagenes/Diagrama de arbol.png, id=459, 287.57437pt x 279.293
 44pt>
 File: Documentos Extra/Imagenes/Diagrama de arbol.png Graphic file (type png)
 <use Documentos Extra/Imagenes/Diagrama de arbol.png>
@@ -989,31 +985,27 @@ x' to `Documentos Extra/Análisis Factorial.tex' on input line 17.
 
 :<+ Documentos Extra/Análisis Factorial.tex
 (Documentos Extra/Análisis Factorial.tex
-LaTeX Info: Redefining \. on input line 36.
-LaTeX Info: Redefining \% on input line 36.
+LaTeX Info: Redefining \. on input line 33.
+LaTeX Info: Redefining \% on input line 33.
  [37]
-LaTeX Info: Redefining \. on input line 84.
-LaTeX Info: Redefining \% on input line 84.
+LaTeX Info: Redefining \. on input line 70.
+LaTeX Info: Redefining \% on input line 70.
  [38]
-LaTeX Info: Redefining \. on input line 128.
-LaTeX Info: Redefining \% on input line 128.
+LaTeX Info: Redefining \. on input line 120.
+LaTeX Info: Redefining \% on input line 120.
  [39
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.3.
 8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.128 \subsection{Método del Factor Principal}
-                                               ]
-LaTeX Info: Redefining \. on input line 168.
-LaTeX Info: Redefining \% on input line 168.
+l.120 \begin{equation}
+                      ]
+LaTeX Info: Redefining \. on input line 164.
+LaTeX Info: Redefining \% on input line 164.
  [40]
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
-
- []
-
-LaTeX Info: Redefining \. on input line 205.
-LaTeX Info: Redefining \% on input line 205.
-[41])
+LaTeX Info: Redefining \. on input line 200.
+LaTeX Info: Redefining \% on input line 200.
+ [41])
 :<-
 LaTeX Info: Redefining \. on input line 18.
 LaTeX Info: Redefining \% on input line 18.
@@ -1118,10 +1110,10 @@ Package rerunfilecheck Info: File `master.out' has not changed.
 (rerunfilecheck)             Checksum: FA421DCE959C2622CD88980AFDFFE053;9254.
  ) 
 Here is how much of TeX's memory you used:
- 18601 strings out of 476334
- 292842 string characters out of 5787971
+ 18603 strings out of 476334
+ 292874 string characters out of 5787971
  1868382 words of memory out of 5000000
- 38353 multiletter control sequences out of 15000+600000
+ 38354 multiletter control sequences out of 15000+600000
  527396 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,19n,79p,3251b,786s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1150,9 +1142,9 @@ fb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmtt12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmtt8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (54 pages, 838885 bytes).
+Output written on master.pdf (54 pages, 841690 bytes).
 PDF statistics:
- 909 PDF objects out of 1000 (max. 8388607)
- 324 named destinations out of 1000 (max. 500000)
+ 915 PDF objects out of 1000 (max. 8388607)
+ 325 named destinations out of 1000 (max. 500000)
  343 words of extra memory for PDF output out of 10000 (max. 10000000)
 
