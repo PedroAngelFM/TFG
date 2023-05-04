@@ -1,11 +1,13 @@
 \section{Análisis Factorial}
 \noindent El Ánalisis de componentes principales no era más que una descomposición de la varianza de las variables observadas, y luego una transformación de las variables mediante transformaciones ortogonales. 
 
-\noindent De esta manera, no se explora más allá de la varianza la relación de las variables. En el caso del Análisis Factorial el objetivo es encontrar un conjunto de variables nuevas (\emph{que pueden ser combinaciones o transformaciones no lineales }) de las variables iniciales. De tal manera que se consigan detallar variables latentes o subyacentes no medidas. 
+\noindent De esta manera, no se explora más allá de la varianza. En el caso del Ánalisis Factorial, se explora la correlación que se da entre las distintas variables, por ejemplo, un conjunto de éstas están muy correladas entre sí y no con el resto, estas pueden ser resumidas por un único factor sin mucha pérdida de información. 
+
+\noindent De esta manera, tanto el Análisis de Componentes Principales y el Análisis Factorial buscan lo mismo una aproximación de la matriz de covarianzas, aunque este último da un acercamiento más elaborado 
 
 \noindent El caso que inició este tipo de análisis fue la comprensión de la inteligencia humana donde Pearson y Spearman intentaron dimensionarla con un único factor \emph{``g"}. También otros casos clásicos son la estructura de la personalidad medida con tests y escalas, pero resumida a dos factores. 
 
-\noindent Como se ha podido observar, el Análisis Factorial tiene su mayor predicación en la psicología y sociología donde los factores ayudan a los investigadores a resumir la información de manera sencilla y concisa. Este Análisis Factorial puede ser confirmatorio o descriptivo como se detallará más adelante.  
+\noindent Como se ha podido observar, el Análisis Factorial tiene su mayor predicación en la psicología y sociología donde los factores ayudan a los investigadores a resumir la información de manera sencilla y concisa. Este Análisis Factorial puede ser confirmatorio o descriptivo como se detallará más adelante. 
 
 \noindent A lo largo de esta sección se seguirán \emph{Peña, D.;}\cite{Peña 2002} y \emph{Cuadras C.M}\cite{Cuadras 2014}, y  se tomarán ciertas definiciones de \emph{Chatfield, C. y A.J.;} \cite{Chatfield 1989}. 
 
@@ -48,7 +50,7 @@ h_i^2=\sum_{j=1}^m \lambda_{ij}^2
 
 \noindent Ahora, se plantean varios problemas, entre ellos, ¿Es único este modelo?, ¿ Cuántos factores se deben elegir?, ¿ Cuáles son los efectos de los factores y cómo se calculan ? ¿ Cómo se calculan los factores ? 
 
-\subsection{ Unicidad del modelo }
+\subsection{Unicidad del modelo }
 
 \noindent Sea el modelo con los vectores aleatorios, $\textbf{x}=\mu+\mathbf{\Lambda} \textbf{f}+\textbf{u}$ , entonces tomando una matriz $\textbf{A}$ no singular el modelo anterior es equivalente a $\textbf{x}=\mu+\mathbf{\Lambda} \textbf{A}\textbf{A}^{-1} \textbf{f}+\textbf{u}$, entonces la matriz $\mathbf{\Lambda}'=\mathbf{\Lambda} \textbf{A}$ y $\textbf{f}'=\textbf{A}^{-1}\textbf{f}$ en este caso tenemos un modelo equivalente con factores que pueden ser correlados y con la misma precisión. 
 
@@ -208,7 +210,7 @@ F=\sum_{i=1}^p\sum_{j=1}^p(s_{ij}-v_{ij})^2
 \begin{align}
 log(\textbf{V}|\textbf{X})&=-\dfrac{n}{2}log|\textbf{V}|-\dfrac{n}{2}tr(\textbf{SV}^{-1})\\
 \intertext{ Sustituyendo \textbf{V} por el modelo en el que $\textbf{V}=\mathbf{\Lambda^T\Lambda}+\psi$}
-L(\mathbf{\Lambda},\psi)&=-\dfrac{n}{2}(log|\mathbf{\Lambda^T\Lambda}+\psi|+tr(\textbf{S}(\mathbf{\Lambda^T\Lambda}+\psi)^{-1}))
+L(\mathbf{\Lambda},\psi)=-\dfrac{n}{2}(log|\mathbf{\Lambda^T\Lambda}+\psi|&+tr(\textbf{S}(\mathbf{\Lambda^T\Lambda}+\psi)^{-1}))
 \end{align}
 
 

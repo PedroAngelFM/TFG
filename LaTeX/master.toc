@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {2.2.3}Reducción de la dimensionalidad}{34}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}Análisis Factorial}{37}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Formalización}{37}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2} Unicidad del modelo }{38}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.2}Unicidad del modelo }{38}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Método del Factor Principal}{40}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Método Máximo Verosímil}{42}{subsection.2.3.4}%
 \contentsline {section}{\numberline {2.4}Análisis de Clusters}{43}{section.2.4}%

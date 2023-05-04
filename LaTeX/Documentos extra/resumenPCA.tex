@@ -1,7 +1,13 @@
 \newpage
 \section{Análisis de Componentes Principales}
 
-\noindent El análisis de componentes principales fue en primera instancia, desarrollado a principios del siglo XX por el estadístico Pearson (1901). Fue una de las primeras técnicas de análisis multivariante. Como muchos otros métodos de este tipo no tuvo un verdadero desarrollo y expansión hasta que la capacidad de computación fue suficiente para manejar cantidades de datos considerables. 
+\noindent El Análisis de componentes principales fue en primera instancia, desarrollado a principios del siglo XX por el estadístico Pearson (1901). Fue una de las primeras técnicas de análisis multivariante. Como muchos otros métodos de este tipo no tuvo un verdadero desarrollo y expansión hasta que la capacidad de computación fue suficiente para manejar cantidades de datos considerables. 
+
+\noindent El Análisis de Componentes Principales, es una de las técnicas que exploran la matriz de covarianzas $\mathbf{\Sigma}$. De esta manera, se persiguen dos objetivos, la reducción del tamaño de los datos con la mínima pérdida de información y la mejora de la interpretabilidad de los mismos. 
+
+\noindent Normalmente, el \emph{Análisis de Componentes Principales} es un método intermedio que ayuda a facilitar la aplicación de otros muchos como puede ser el \emph{Análisis de Clusters} o la \emph{Regresión Múltiple}. 
+
+\noindent En esta sección se siguen los  cálculos de las componentes de \emph{Chatfield,C y Collins A.J} \cite{Chatfield 1989}, se toman definiciones de \emph{Cuadras C.M.}\cite{Cuadras 2014} y  algunos resultados de \emph{Jollife I.T}  \cite{Jollife 1986}. Por último, para facilitar la comprensión se ha utilizado \emph{González García, N., y  Taborda Londoño, A.}\cite{González 2015} 
 
 \subsection{Definición y cálculo de las Componentes}
 
@@ -170,7 +176,7 @@ Donde la matriz $\mathbf{\Sigma} ^T \mathbf{\Sigma} $ es una matriz diagonal de 
 \begin{coro}
 El cálculo de las componentes principales de la matriz de datos \textbf{X} es equivalente a calcular la descomposición en valores singulares de la misma. 
 \end {coro}
-\newpage
+
 \begin{defi}
 Sea $\textbf{A}\in \mathbb{M}_{n\times p}(\mathbb{R})$ definimos la \textit{norma de Frobenius} de la matriz \textbf{A} como :
 \begin{equation}
@@ -191,7 +197,7 @@ Sea $\mathbf{U}$ una matriz ortogonal, que cumple $\mathbf{U}^T\cdot \mathbf{U}=
 \end{proof}
 \end{propo}
 
-\noindent Se ha elegido la norma de Frbenius por la siguiente propiedad
+\noindent Se ha elegido la norma de Frobenius por la siguiente propiedad
 \begin{propo}
 Dada una matriz de datos \textbf{X} de tamaño $n\times p$ entonces
 \begin{equation}
@@ -208,8 +214,6 @@ Debido a la centralidad impuesta a la matriz \textbf{X}, sabemos que la matriz d
 \end{proof}
 \end{propo}
 \noindent Por tanto, la norma de Frobenius da una imagen del tamaño de la matriz de datos en función de la varianza total de los datos, lo que concuerda con la idea de buscar una matriz que aproxime la matriz de datos con la mínima pérdida de variación de los datos.  
-
-\newpage
 
 \begin{defi}
 Se llama matriz reducida de orden $m\leq p$ de $\textbf{X}$ y se denota como $\textbf{X}_m$, a la matriz $n\times p$ resultado de:

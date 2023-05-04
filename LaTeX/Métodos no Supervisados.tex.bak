@@ -1,9 +1,13 @@
 \chapter{Métodos no supervisados}
 
 \section{Introducción}
-\noindent Los métodos no supervisados son aquellos en los que no se conoce la variable a estudiar.  Es decir, no se busca predecir una variable $Y$ en función de los predictores o detallar la relación entre dos grupos de variables. En los métodos supervisados se busca hallar información sobre la estructura de los propios datos, unas veces para simplificar dicha estructura o para formar grupos homogéneos de observaciones. 
+\noindent Los métodos no supervisados son aquellos en los que no se conoce la variable a estudiar.  Es decir, no se busca predecir una variable $Y$ en función de los predictores o detallar la relación entre dos grupos de variables. En los métodos no supervisados se busca hallar información sobre la estructura de los propios datos, unas veces para simplificar dicha estructura o para formar grupos homogéneos de observaciones. 
 
-\noindent Los métodos que se detallarán a continuación tiene un gran inconveniente, que es la incapacidad para poder validar los resultados, es decir, no hay una medida, en la mayoría que permita establecer la bondad de cada uno de estos métodos una vez aplicados. 
+\noindent Los métodos no supervisados aunque muy útiles y con un gran abanico de aplicaciones posibles, no permiten dar una medida de cuanto de bien funcionan, donde en los supervisados se tiene la función de pérdida de una manera u otra, en los métodos no supervisados hay que utilizar herramientas más complejas y algunas como el Análisis Factorial, incluso hay que utilizar restricciones para que los métodos de obtención de los estimadores resulten únicos.
+
+\noindent Sin embargo esa necesidad de estudiar las estructuras de los datos más allá de la dependencia funcional de unos grupos de variables con otros como pueden ser la mayoría de métodos de regresión que se han expuesto anteriormente es lo que dan a este tipo de métodos multivariantes la importancia que tienen. 
+
+\noindent En el caso del Análisis de Componentes Principales y el Análisis Factorial, se busca extraer la máxima información de la matriz de covarianzas o de correlaciones para poder dar una simplificación de la estructura de los datos.Sin embargo, en el caso del Análisis de Clusters el objetivo no es simplificar la estructura de los datos si no ver como estos están agrupados y en algunos casos como de homogéneos son. Otros métodos multivariantes no supervisados serían las Reglas de
 
 \noindent  
 \input{Documentos Extra/resumenPCA.tex}
