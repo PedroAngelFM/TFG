@@ -216,14 +216,39 @@ log(\mathbf{\Sigma}|\textbf{X})=-\dfrac{n}{2}log|\mathbf{\Sigma}|-\dfrac{n}{2}tr
 L(\mathbf{\Lambda},\psi)=-\dfrac{n}{2}(log|\mathbf{\mathbf{\Lambda}^T\mathbf{\Lambda}}+\psi| +tr(\textbf{S}(\mathbf{\mathbf{\Lambda}^T\mathbf{\Lambda}}+\psi)^{-1}))
 \end{equation}
 
-\noindent Ahora el objetivo es maximizar esta función respecto de $\mathbf{\Lambda}$  y de $\psi$ como en el método univariante de Máxima Verosimilitud. \emph{Peña D.}\cite{Peña 2002} 
+\noindent Ahora el objetivo es maximizar esta función respecto de $\mathbf{\Lambda}$  y de $\psi$ como en el método univariante de Máxima Verosimilitud. \emph{Peña D.}\cite{Peña 2002} obtiene las siguientes expresiones una vez se ha derivado respecto a las matrices $\mathbf{\Lambda}, \psi$
+\begin{align}
+\hat{\psi}&=diag(\textbf{S}-\mathbf{\hat{\Lambda}}\mathbf{\hat{\Lambda}}^T)\\
+(\hat{\psi}^{\frac{-1}{2}}(\textbf{S}-\textbf{I})\hat{\psi}^{\frac{-1}{2}})&(\hat{\psi}^{\frac{-1}{2}}\mathbf{\hat{\Lambda}})=(\hat{\psi}^{\frac{-1}{2}}\mathbf{\hat{\Lambda}})\textbf{D}
+\end{align}
+\noindent De esta manera la matriz $(\hat{\psi}^{\frac{-1}{2}}\mathbf{\hat{\Lambda}})$ es la matriz que tiene como columnas los vectores propios de la matriz $(\hat{\psi}^{\frac{-1}{2}}(\textbf{S}-\textbf{I})\hat{\psi}^{\frac{-1}{2}})$ y plantea ecuaciones que pueden resolverse de manera iterativa, para ello, \emph{Peña, D}\cite{Peña 2002} propone el siguiente algoritmo iterativo:
 
+\newpage
+\noindent Se calcula una estimación inicial de la matriz de cargas $\mathbf{\hat{\Lambda}}_0$ que puede ser calculada mediante el método del factor principal
+\begin{enumerate}
+\item Una vez se tiene $\mathbf{\hat{\Lambda}}_i$ se calcula $\hat{\psi}_i$ mediante la ecuación $\mathbf{\hat{\psi}}_i=diag(\textbf{S}_i-\hat{\Lambda}_i\hat{\Lambda}_i^T )$
+\item Se calcula la matriz $\textbf{A}_i=(\hat{\psi}^{\frac{-1}{2}}(\textbf{S}-\hat{\psi}_i)\hat{\psi}^{\frac{-1}{2}})=\hat{\psi}^{\frac{-1}{2}}\textbf{S}\hat{\psi}^{\frac{-1}{2}}-\textbf{I}$ de manera que se ponderan las covarianzas en función de su componente específica. 
+\item Se calcula la descomposición espectral de $\textbf{A}_i=\textbf{H}_{1i}\textbf{G}_{1i}\textbf{H}_{1i}^T+\textbf{H}_{2i}\textbf{G}_{2i}\textbf{H}_{2i}^T$ de manera análoga al método del factor principal. Y por tanto, la matriz $\textbf{G}_{1i}$ contiene los $m$ valores propios mayores, de la matriz.  
+\item Se toma $\mathbf{\hat{\Lambda}}_{i+1}=\hat{\psi}^{\frac{1}{2}}\textbf{H}_{1i}\textbf{G}_{1i}^{\frac{1}{2}}$ se sustituye en la función de verosimilitud y se maximiza respecto a $\psi$, después se vuelve al segundo paso hasta llegar al criterio de parada. 
+\end{enumerate}
 
+\noindent Como se puede observar, el método de máxima verosimilitud se desarrolla de manera bastante similar al del factor principal, pero tiene una complejidad mucho más alta, aunque tiene varias propiedades interesantes que se detallan en la siguiente proposición. 
 
+\begin{propo}
+La estimación Máximo Verosímil es invariante por transformaciones lineales. 
+\begin{proof}
+Sea $\textbf{D}$ una matriz diagonal cualquiera, de esta manera, se tiene la transformación lineal $\textbf{y}=\textbf{D}\textbf{X}$ de los datos, entonces la matriz de covarianzas muestrales $\textbf{S}_y=\textbf{D}\textbf{S}_x\textbf{D}$, por ejemplo, podría ser la matriz que contiene las desviaciones estándar, por lo que se transformaría $\textbf{S}$ en la matriz de correlaciones. De manera análoga la parte específica de la varianza se transforma $\psi_y=\textbf{D}\psi_x \textbf{D}$
 
+\noindent De esta manera, la matriz de la cual se calcula la descomposición espectral
+\begin{equation}
+ \hat{\psi}_y^{\frac{-1}{2}}\textbf{S}_y\hat{\psi}_y^{\frac{-1}{2}}=(\textbf{D}\psi_x \textbf{D})^{\frac{-1}{2}}\textbf{D}\textbf{S}_y\textbf{D}(\textbf{D}\psi_x \textbf{D})^{\frac{-1}{2}}= \hat{\psi}_x^{\frac{-1}{2}}\textbf{S}_x\hat{\psi}_x^{\frac{-1}{2}}
+\end{equation}\qedhere
+\end{proof}
+\end{propo}
+\noindent De esta manera, la ventaja de estos métodos de máxima verosimilitud sale a la luz, que es poder trabajar con variables estandarizadas o no obteniendo los mismos resultados. Lo que facilita a la hora de preprocesar los datos 
 
-
-
+\subsection*{Otras consideraciones}
+\noindent Sobre este modelo se puede realizar contrastes de hipótesis para poder analizar la conveniencia del propio modelo obtenido. Además se pueden aplicar transformaciones ortogonales que nos permitan tener las máximas variaciones entre los factores, el llamado método \emph{Varimax}. Incluso existen maneras de dar modelos factoriales los cuales estén correlados, algo que aquí ha sido obviado de manera deliberada por falta de tiempo. 
 
 
 
