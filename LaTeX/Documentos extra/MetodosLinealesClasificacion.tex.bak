@@ -1,29 +1,77 @@
 \newpage
-\section{Métodos de Clasificación y Discriminación}
+\section{Clasificación supervisada}
 
-\noindent Los métodos de clasificación buscan separar los elementos de un espacio de observaciones en grupos conocidos previamente. 
+\noindent Supóngase un conjunto de observaciones de un vector aleatorio $\textbf{x}$ de tamaño $p$ las cuales pertenecen a dos o más poblaciones conocidas a priori. El objetivo es dada una nueva observación $\textbf{x}_0$ poder asignarla a una de las poblaciones. Otro objetivo que se puede buscar con estas técnicas es determinar que variables son determinantes y tienen mayor importancia a la hora de discriminar entre varias categorías. 
+
+\noindent Este problema se le conoce como \emph{Clasificación Supervisada}, ya que  se conoce un conjunto de observaciones de las cuales se sabe a que población pertenece. También se le conoce como \emph{Análisis Discriminante}, ya que se pueden establecer funciones que permitan discriminar observaciones unas de otras. 
+
+\noindent Alguna de las aplicaciones que utilizan las técnicas que se describen en esta sección son el reconocimiento de patrones, la concesión de créditos, o asignación de textos a autores. 
+
+\noindent Las primeras aproximaciones que se dieron de estas técnicas fueron dadas por \emph{Fisher R.} en 1936 introduciendo el conjunto de datos  \emph{Iris de Fisher} para la clasificación. 
+
+\noindent Durante esta sección se seguirán \emph{Hastie T. et.al.}\cite{Hastie 2001}, \emph{Cuadras C.M.}\cite{Cuadras 2014} y \emph{Peña D.} \cite{Peña 2002}
+
+\subsection{Formalización}
+
+\noindent Supóngase dadas dos poblaciones $P_1,P_2 $ de las cuales son conocidas sus funciones de densidad $f_1, f_2 $. Si además se conocen las probabilidades a priori de pertenencia a cada una de las poblaciones $\pi_1,\pi_2$ Entonces la probabilidad conociendo el valor de $\textbf{x}_0$ de pertencia a $i=1,2$ es :
+\begin{equation}
+P(i|\textbf{x}_0)=\dfrac{P(\textbf{x}_0|i)\pi_i}{\pi_1P(\textbf{x}_0|1)+\pi_2P(\textbf{x}_0|2)}=\dfrac{f_i(\textbf{x}_0)\pi_i}{f_1(\textbf{x}_0)\pi_1+f_2(\textbf{x}_0)\pi_2}
+\end{equation}
+
+\noindent De esta manera se puede clasificar como una población dependiendo de que $f_i(\textbf{x}_0)\pi_i$ sea mayor \emph{(Esto es generalizable a más poblaciones.)}
 
 \begin{defi}
-Llamaremos \textit{discriminación o análisis discriminante} a aquel que busca describir las características principales de cada uno de los grupos o clases mediante \textit{funciones discriminantes} 
+Se llama \textit{función discriminante } aquella que:
+\begin{equation}
+f_i:\mathbf{\Omega}\longrightarrow \mathbb{R}
+\end{equation}
+Definida de tal manera que si $f_i(\textbf{x}_0)>0\Rightarrow \textbf{x}_0\in P_i$ y en caso contrario $\textbf{x}_0\notin P_i$
 \end{defi}
+
+\noindent En el caso anterior de dos poblaciones, $f_1(\textbf{x}_0)\pi_1-f_2(\textbf{x}_0)\pi_2$ sería la función discriminante para discernir si $\textbf{x}_0$ pertenece a $P_1$. 
 
 \begin{defi}
-Llamaremos \textit{métodos de clasificación} a aquellos que dada una nueva observación, \textbf{x}, buscan predecir con la máxima precisión a que clase pertenecen mediante \textit{reglas de clasificación}
+Se llama \emph{Error de clasificación} al coste de clasificar de manera errónea una observación y se denota como $c(i|j)=$\emph{``Error de clasificar como $P_i$ una observacuión perteneciente a $P_j$"}
 \end{defi}
 
-\noindent Hay que señalar que no siempre hay una diferencia clara entre ambas disciplinas y que puede haber veces que ambas se solapen. 
+\noindent De esta manera, si el coste de mala clasificación en una y otra población son distintas podemos trasladarlo a la función discriminante de la siguiente manera:
+\begin{equation}
+\dfrac{f_1(\textbf{x}_0)\pi_1}{c(1|2)}-\dfrac{f_2(\textbf{x}_0)\pi_2}{c(2|1)}
+\end{equation}
+
+\noindent Por consiguiente, a igualdad de los otros términos escogeremos el que menos coste, el que mayor verosimilitud  o el que mayor probabilidad a priori tenga.
+
+\noindent Supóngase ahora que tanto $f_1,f_2$ son densidades normales con medias distintas $\mu_1,\mu_2$ pero con una matriz de covarianzas común $\mathbf{\Sigma}$:
+\begin{equation}
+f_i(\textbf{x})=\dfrac{1}{(2\pi)^{\frac{p}{2}}|\mathbf{\Sigma}|^{\frac{1}{2}}} exp \left\lbrace\dfrac{-1}{2}(\textbf{x}-\mu_i)^T \mathbf{\Sigma}^{-1}(\textbf{x}-\mu_i) \right\rbrace
+\end{equation}
+
+\noindent De esta manera la función discriminante se puede transformar sustituyendo las densidades por la expresión anterior y tomando logaritmos : 
+\begin{equation}
+(\textbf{x}-\mu_1)^T \mathbf{\Sigma}^{-1}(\textbf{x}-\mu_1)+log\left(\dfrac{\pi_1}{c(1|2)}\right)-(\textbf{x}-\mu_2)^T \mathbf{\Sigma}^{-1} (\textbf{x}-\mu_2)-log\left(\dfrac{\pi_2}{c(2|1)}\right)
+\end{equation}
+
+\noindent Hay que tener en cuenta que el término $D_i^2=(\textbf{x}-\mu_i)^T \mathbf{\Sigma}^{-1} (\textbf{x}-\mu_i)$ se puede interpretar como la \emph{distancia de Mahalanobis} de la observación \textbf{x} a la $i-$ésima población. Por otro lado, se tiene un término que relaciona probabilidad de pertenencia con el coste de clasificación errónea. En el caso de que tanto las probabilidades como el coste fueran iguales, entonces la función discriminante para la población 1 sería:
+\begin{equation}
+D_2^2 > D_1^2
+\end{equation}
+
+\begin{defi}
+Llamaremos \emph{frontera de decisión} al hiperplano que divide el espacio de observaciones en tantas regiones como poblaciones haya. En el caso de una función discriminante como las desarrolladas la frontera son las observaciones tales que $f(\textbf{x})=0$
+\end{defi}
+\noindent Para obtener la frontera de decisión se igualan ambos términos y desarrollando ambas distancias podríamos desechar el término $\mathbf{x^T\Sigma^{-1} x}$ ya que es común a ambas, obteniendo la siguiente expresión:
+\begin{equation}
+.
+\end{equation}
 
 
-\subsection{Análisis Discriminante}
 
-\noindent Según \textit{Lebart L., Morineau, A. y Warwick K.M.} \cite{Lebart 1984} el análisis discriminante es un conjunto de técnicas que permiten describir y clasificar un gran número de observaciones de las cuales se han medido una gran cantidad de variables. 
+\subsection{Análisis mediante Variables Canónicas discriminantes}
 
-\noindent El método que se describe aquí es un método supervisado ya que se conocen las clases a las que pertenecen cada una de las observaciones. 
+\noindent Hasta ahora, se han supuesto conocidas las distribuciones de las poblaciones estudiadas de manera que utilizando las probabilidades de pertenencia y los costes se desarrollan funciones discriminantes de manera sencilla. Pero la realidad pocas veces se ajusta a estos supuestos, es por ello que surgen las técnicas que descomponen la varianza en dos términos la varianza dentro de los grupos y fuera de ellos de tal manera que se busca minimizar la primera y maximizar la segunda. 
 
+\noindent Es por ello, que a continuación se detallará el método por el cual se va a calcular una nueva base del espacio de observaciones que cumpla lo anterior, minimizar la variación entre poblaciones y maximizar la variabilidad entre grupos siguiendo el desarrollo dado por \textit{Lebart L., Morineau, A. y Warwick K.M.} \cite{Lebart 1984} 
 
-
-\subsection{Formalización del Análisis Discriminante}
- 
 \noindent Sea \textbf{X} la matriz de datos de tamaño $n \times p$
 donde las filas $\textbf{x}_i$ son cada una de las observaciones de las $p$ variables. Dichas observaciones están particionadas en general por $q$ grupos, sea $I_k$ el conjunto de observaciones pertenecientes al $k$-ésimo grupo, sea también $n_k$ el número de observaciones que pertenecen al $k$-ésimo grupo.
 
@@ -72,51 +120,39 @@ f(\textbf{a})=\dfrac{\textbf{a}^T \textbf{B}\textbf{a}}{\textbf{a}^T \textbf{T}\
 \noindent Es máxima. Si además utilizamos la restricción $\textbf{a}^T \textbf{T}\textbf{a} = 1$. En principio la función objetiva es homogénea, es decir, $f(\mu \textbf{a})=f(\textbf{a})$
 Utilizando el método de los multiplicadores de Lagrange derivamos respecto del vector $\textbf{a}$ tendremos que:
 \begin{align}
-L(\textbf{a})&= \textbf{a}^T \textbf{B}\textbf{a}-\lambda(\textbf{a}^T \textbf{T}\textbf{a}-1) 
+L(\textbf{a})= \textbf{a}^T \textbf{B}\textbf{a}&-\lambda(\textbf{a}^T \textbf{T}\textbf{a}-1) 
 \intertext{al derivarla respecto de \textbf{a} se obtiene que: }
-\dfrac{\partial L(\textbf{a})}{\partial \textbf{a} } &= 2\textbf{B}\textbf{a}-2\lambda\textbf{T}\textbf{a}
+\dfrac{\partial L(\textbf{a})}{\partial \textbf{a} } = 2\textbf{B}\textbf{a}&-2\lambda\textbf{T}\textbf{a}
 \intertext{En consecuencia: }
 \textbf{B}\textbf{a} &= \lambda \textbf{T} \textbf{a}
 \intertext{Si además \textbf{T} es no singular}
 \textbf{T}^{-1}\textbf{B}\textbf{a}&=\lambda \textbf{a}
 \end{align}
 
-Es decir, el vector $\textbf{a}$ es el vector de valor propio $\lambda$, tomando el valor propio máximo de la matriz $\textbf{T}^{-1}\textbf{B}$.
+\noindent Es decir, el vector $\textbf{a}$ es el vector de valor propio $\lambda$, tomando el valor propio máximo de la matriz $\textbf{T}^{-1}\textbf{B}$.
 
 \begin{defi}
 Al valor $\lambda$ se le conoce como \textit{potencia discriminante} de la combinación \textbf{a}.
 \end{defi}
 
-\noindent \textit{Observación} Esta técnica se diferencia del Análisis de Componentes Principales en que en el Análisis Discriminante se maximiza la distancia o variación entre grupos conocidos, mientras que el Análisis de Componentes Principales únicamente busca las direcciones en las que los datos varían más. 
+\begin{propo}
+El desarrollo antes detallado es análogo para $f(\textbf{a})=\dfrac{\textbf{a}^T \textbf{B}\textbf{a}}{\textbf{a}^T \textbf{W}\textbf{a}}$
+\end{propo}
 
-\noindent Pero, en caso de ser aplicada, el análisis discriminante desarrollado aquí se puede utilizar como método de reducción de la dimensionalidad para el caso de la clasificación. De esta manera, utilizando mecanismos similares a los que se describirán en la parte del Análisis de Componentes Principales la matriz de datos puede ser reducida. 
+\noindent En el caso de que tomamos el desarrollo para obtener los vectores propios de $\mathbf{W^{-1}B}$ es una matriz con rango $r=\min(p,q-1)$ entonces podemos utilizar la matriz de cambio de base $\mathbf{U_r}$ que tiene como columnas los vectores propios de la matriz $\mathbf{W^{-1}B}$ y $\mathbf{x}$ el vector a transformar, de esta manera, tenemos que $\mathbf{z=U_r^T x}$.
 
-\subsection{Métodos de Clasificación}
+\noindent A continuación para determinar si una nueva observación $\mathbf{x}_0$ basta con calcular la distancia con las medias de los grupos transformadas, es decir, $||\mathbf{z_0-U_r\mu_i}||^2$ y comprobar cual es la menor. 
 
-\noindent En la introducción de este capítulo se detalló que el clasificador Bayesiano utilizaba las probabilidades conocido el valor de la observación $\textbf{x}_0$. El caso de la regresión logística intenta modelizar el cociente de las probabilidades como una función lineal. 
+\noindent Para determinar cuantas variables canónicas se puede utilizar la varianza entre grupos que explica cada variable canónica. 
 
-\noindent \textit{Hastie et.al.}\cite{Hastie 2001} detallan el caso en profundidad cuando la variable $Y$ tiene dos posibles valores.
+\begin{propo}
+La varianza explicada por cada variable canónica es el valor propio de la matriz $\mathbf{W^{-1} B}$ de su vector propio asociado, su \emph{potencia discriminante}. 
+\begin{proof}
+Sea el vector propio $\textbf{a}_i$ con valor propio $\lambda_i$ entonces tendremos que por construcción $\mathbf{a}_i^T \mathbf{W a}_i=1$, entonces los vectores son unitarios respecto a la métrica que induce la matriz de covarianzas intra-grupos, entonces la varianza explicada por cada variable es $VE(\textbf{a}_i)=\mathbf{a}_i^T\mathbf{Ba}_i$, por ser valores propios de $\mathbf{W^{-1}B}$ se cumple que $\mathbf{Ba}_i=\lambda_i \mathbf{W a}_i$, entonces
 \begin{equation}
-log \dfrac{P(Y=1|\textbf{x}=\textbf{x}_0)}{P(Y=2|\textbf{x}=\textbf{x}_0)}=\beta^T \textbf{x}_0
+VE(\textbf{a}_i)\mathbf{a}_i^T\mathbf{Ba}_i=\lambda_i \mathbf{a}_i^T\mathbf{Wa}_i=\lambda_i\qedhere
 \end{equation}
+\end{proof}
+\end{propo}
 
-\noindent Donde $\beta$ es un vector de longitud $p+1$ y a $\textbf{x}_0$ es una observación del vector aleatorio y se le ha añadido en la primera componente el valor constante 1.
-
-\noindent Esto sería el caso para $2$ valores posibles pero en el caso de que se tuviesen $K$ valores posibles, se definen las siguientes funciones lineales:
-\begin{equation}
-log \dfrac{P(Y=j|\textbf{x}=\textbf{x}_0)}{P(Y=K|\textbf{x}=\textbf{x}_0)}=\beta_j^T \textbf{x}_0 \quad j=1\ldots K-1
-\end{equation}
-Por tanto, el modelo queda definido por $K-1$ funciones lineales. Es decir estamos asumiendo que la probabilidad $P(Y=j|\textbf{x}=\textbf{x}_0)$ se puede expresar como una función de la siguiente manera:
-\begin{equation}
-P(Y=j|\textbf{x}=\textbf{x}_0)=\dfrac{e^{\beta_j^T\textbf{x}_0}}{1+\sum_{k=1}^{K-1}e^{\beta_k^T\textbf{x}_0}} \quad j=1\ldots K-1
-\end{equation}
-
-\noindent Además, $P(Y=K|\textbf{x}=\textbf{x}_0)=\dfrac{1}{1+\sum_{k=1}^{K-1}e^{\beta_k^T\textbf{x}_0}}$. 
-
-\noindent El ajuste de estos modelos se lleva a cabo por el método de máxima verosimilitud. Donde tendríamos que \begin{equation}
-l(\theta)=\sum_{i=1}^N log(p_{g_i}(x_i;\theta))
-\end{equation}
-\noindent En el caso de la regresión logística $p_{j}=P(Y=j|\textbf{x}=\textbf{x}_0)$ además supóngase que se tienen únicamente dos clases o dos valores para la variable $Y$ por tanto, la verosimilitud puede ser expresada de la siguiente manera
-\begin{equation}
-l(\beta)
-\end{equation}
+\noindent Para elegir un número de variables canónicas a usar se puede fijar un umbral por el cual tomemos las $m$ variables cuya varianza explicada acumulada sea superior. De esta manera, se puede llevar a cabo una reducción de la dimensionalidad de los datos de manera parecida a la que se desarrollará en el \emph{Análisis de Componentes Principales.}

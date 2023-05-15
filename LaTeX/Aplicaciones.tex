@@ -1,13 +1,19 @@
-\chapter{Aplicaciones Prácticas}
+\chapter{Aplicación sobre datos}
 
-\noindent Para la aplicación de los métodos a distintos conjuntos de datos se ha utilizado el lenguaje de programación Python, además de librerias auxiliares que implementan de manera eficaz varios de los métodos detallados en la memoria. 
+\noindent A lo largo de este capítulo se  aplicarán algunas de las técnicas desarrolladas anteriormente a ejemplos prácticos con bases de datos reales obtenidas de distintos repositorios. 
 
-\section{Generación Energía Solar}
+\noindent La principal herramienta usada ha sido el lenguaje de programación Python, utilizando librerías como Pandas para el manejo de las bases de datos, Scikit-Learn para la implementación de los modelos  y otras librerias de visualización como Matplotlib para la inclusión de gráficos sencillos. 
 
-\noindent El caso que se va a estudiar es una base de datos obtenida del blog de \textit{Neural Designer}, en particular: \href{https://www.neuraldesigner.com/learning/examples/solar-power-generation}{\textit{solar generation}}
+\section{Clasificación de Iris}
 
+\noindent Uno de los ejemplos básicos del análisis discriminante es el conjunto de datos de distintas clases de flores Iris, en particular \emph{Iris Setosa,Iris virginica, e Iris versicolor}. 
 
+\noindent El dataset que se va a utilizar recoge datos de 150 muestras y toma las siguientes 5 medidas, ancho y largo del pétalo y ancho y largo del sépalo, además de su clasificación dentro de  1  las 3 especies antes detalladas. 
 
-\noindent La base de datos tiene las siguientes variables medidas en 2920 observaciones, que en el transcurso del análisis descriptivo básico de la base se ha decidido eliminar una de ellas por tener datos perdidos. 
+\noindent Uno de los objetivos es encontrar un factor latente por el cual se pueda explicar la mayoría del conjunto, ya que en este caso, ese factor común podría interpretarse como una variable \emph{tamaño de la flor} y de esta manera poder simplificar el estudio del conjunto de datos. 
 
-\section{Clasificación de }
+\noindent Tras esto se aplicará un análisis discriminante tanto a los datos sin transformar como transformados para comprobar la influencia de esa reducción de dimensionalidad a la hora de realizar un análisis discriminante posterior. 
+
+\noindent Tras aplicar el análisis factorial con función implementada de la biblioteca \emph{Scikit-Learn}, se ha podido obtener un modelo de un sólo factor común que acumula casi el $92\%$ de la variabilidad de las variables, siendo el resto repartido  
+
+\noindent En el ejemplo tras ajustar las funciones discriminantes con los datos, se consigue un \texttt{acuracy\_score} del $100\%$, sin embargo, utilizando los datos proyectados sobre el factor común, se puede observar que el modelo entrenado tiene una precisión del $95.5\%$ lo cual no es una pérdida significativa de precisión en comparación con la reducción de dimensionalidad realizada en la que hemos pasado de 4 a 1 variables predictoras. Hay ejemplos en los que debemos hacer una reducción más importante, por lo cual perdemos una cantidad mayor de información. 

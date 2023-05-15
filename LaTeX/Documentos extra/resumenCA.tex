@@ -5,224 +5,112 @@
 \item \textit{Exclusividad: }Una observación no puede pertenecer a más de un cluster a la vez. 
 \item \textit{Es intrínseco: }No hay ninguna etiqueta que permita clasificar las observaciones, son las características de las propias muestras las que servirán como diferenciadores. Lo que hace que sea un método \textit{no supervisado}.
 \end{itemize}
-Además de estas características el clustering puede ser jerárquico \textit{(concepto que se desarrollará más adelante)} o particional. \\
-\noindent Por otro lado, los algoritmos se pueden clasificar según  sean \textit{aglomerativos}, en los que se empieza teniendo cada una de las observaciones y se van formando los clusters hasta tener un solo cluster con todas las muestras. Por el contrario, los \textit{algoritmos   divisivos}, empiezas con un solo cluster y se van haciendo subconjuntos del mismo.  
+
+\noindent Una vez clarificado las características esenciales del clustering, este se puede dar de manera \emph{jerárquica} o \emph{particional}.
+
+\begin{defi}
+Se dice que un método de clustering es \emph{jerárquico} si genera una secuencia de particiones del espacio de observaciones las cuales están anidadas 
+\end{defi}
+
+\begin{defi}
+Un método de clustering \emph{particional} genera una única partición del espacio. 
+\end{defi}
+
+\noindent Por otro lado, los algoritmos se pueden clasificar según  sean \textit{aglomerativos}, en los que se empieza teniendo cada una de las observaciones y se van formando los clusters hasta tener un solo cluster con todas las muestras. Por el contrario, los \textit{algoritmos   divisivos}, se empieza con un solo cluster y se van haciendo subconjuntos del mismo.  
 
 \noindent Otra clasificación puede venir dada por el modo en el que se consideran las  variables, si es \textit{Monotético}, en cada paso se centra en una variable, mientras que si es \textit{Politético} se utilizan todas las variables a la vez.
 
-\noindent Con el objetivo de formalizar lo anterior, de ahora en adelante, sea el caso en el que se han tomado $n$ observaciones $\omega_1,\ldots, \omega_n$, se denota como $\Omega=\lbrace\omega_1,\ldots, \omega_n\rbrace=\lbrace 1,\ldots, n\rbrace$ para abreviar. 
+\noindent También hay que distinguir métodos que usan como fundamento el álgebra matricial, centrándose en los datos que nos puede dar la matriz de distancias entre observaciones o en la Teoría de Grafos. 
 
-\noindent Crear una clasificación entre las observaciones de $\Omega$ es establecer una relación de equivalencia $\mathcal{R}$ sobre $\Omega$. De esta manera, podemos establecer que:
-\begin{equation}
-\Omega=\bigsqcup_{i=1}^m c_i
-\end{equation}
-\noindent Donde $c_i$ son las clases de equivalencia de la relación $\mathcal{R}$.
+\noindent En primer lugar, es necesario definir los conceptos principales de esta sección que es un clustering y un cluster:
 
 \begin{defi}
 Se llama \textit{clustering} a la partición que provoca la relación $\mathcal{R}$ y se definen los \textit{clusters} como las clases de equivalencia de dicha relación, $\lbrace c_i\rbrace$. 
 \end{defi}
-\newpage
-\subsection{Estructuración jerárquica de $\Omega$}\label{Estructuración jerárquica}
 
-\noindent En un proceso de clustering jerárquico se crea una sucesión de particiones sobre el mismo conjunto donde los sucesivos clusterings se obtienen agrupando clusters.  
+\noindent Por tanto, el análisis de clusters es equivalente a establecer una relación de equivalencia entre las observaciones.  
 
-\noindent Para poder formalizar el clustering jerárquico debemos definir el concepto de \textit{jerarquía indexada}
+\subsection{Algoritmos Jerárquicos}
+\noindent Los algoritmos jerárquicos son aquellos que utilizan como entrada no la matriz de los datos per sé, en su lugar, estas utilizan como entrada la matriz de distancias o similaridad.
 
-\begin{defi}
-Una \textit{jerarquía indexada} $(C,\alpha)$ sobre un conjunto $\Omega$, es una colección de clusters $C\subset \mathcal{P}(\Omega)$ y un índice que cumplen:
-\begin{itemize}
-\item \textit{Intersección}. Si $c,c'\in C$ entonces $c\cap c'\in\lbrace c, c', \emptyset\rbrace$. Es decir, dos clusters o están contenido el uno en el otro o son disjuntos. 
-\item \textit{Reunión} Cada cluster se puede caracterizar como la unión de los clusters que contiene. Es decir, $c\in C \Rightarrow c=\cup \lbrace c'/c'\in C, \quad c'\subset c\rbrace$
-\item El conjunto de todos los clusters es el conjunto total.
-\end{itemize}
-
-\noindent El índice es una aplicación $\alpha:C \rightarrow \mathbb{R}$ que cumple lo siguiente :
-\begin{equation}
-\alpha(i)=0, \forall i\in\Omega \quad\quad \alpha(c)\leq \alpha(c') \text{ si } c\subset c'
-\end{equation}
-De esta manera, el índice puede medir como de heterogéneos son los clusters, es decir, puede otorgar una medida de lo similares o no que son las observaciones dentro de un mismo cluster. 
-\end{defi}
-
-\begin{propo}
-Para todo $x\geq 0 $ la relación $\mathcal{R}_x$ sobre $\Omega$:
-\begin{equation}
-i\mathcal{R}_x j \quad \text{ si } \quad i,j\in c \quad \text{ siendo }\quad\alpha(c)\leq x
-\end{equation}
-Es una relación de equivalencia.
-\end{propo}
-\noindent Es decir, con esta relación se establece que dos elementos son ``iguales'' cuando hay un cluster de un nivel de heterogeneidad menor que un umbral que los contiene. Es decir, se fija un criterio por el cual dos observaciones son lo suficientemente similares.
+\noindent Uno de los inconvenientes mayores de este tipo de algoritmos es como calcular la matriz de similaridades o distancias. En el caso de que las variables sean numéricas y continuas entonces se puede utilizar la distancia euclídea entre elementos de $\mathbb{R}^p$. Además hay que tener en cuenta si se va a estandarizar ya que en el caso de que si se estandarice se dará el mismo peso a todas las variables, dando igual su escala, en cambio si no se estandariza, la escala provoca que las características con mayores valores tengan mayor peso en las distancias. Por otro lado, si se tienen variables binarias o categóricas hay que tener en cuenta cómo medir sus distancias, todo esto se soluciona con las siguiente definición y consideraciones:
 
 \begin{defi}
-Un espacio ultramétrico es una pareja $(\Omega,u)$ donde $\Omega$ es un conjunto finito y $u$ una función distancia sobre $\Omega\times \Omega $ que verifica para cada elemento de $i,j,k\in \Omega$
+Llamaremos similaridad entre dos muestras $i,h$ según la variable $j$ a una función $s_{jih}$ la cual cumpla que:
 \begin{itemize}
-\item $u(i,j)\geq u(i,i)=0$
-\item $u(i,j)=u(j,i)$
-\item \textit{Propiedad ultramétrica: } $u(i,j)\leq \sup \lbrace u(i,k),u(j,k)\rbrace $
+\item La similaridad de una muestra consigo misma es igual a la unidad $s_{jii}=1 \forall j,i$
+\item $0\leq s_{jih} \leq 1\quad \forall j,i,h $
+\item Simetría: $s_{jih}=s_{jhi}$
 \end{itemize}
 \end{defi}
-\noindent Se puede ver que toda distancia ultramétrica cumple la desigualdad triangular. Por tanto, todo espacio ultramétrico es métrico. Cómo añadido, juntando los elementos próximos de $\Omega$ se mantiene la propiedad ultramétrica. 
 
-\begin{teorema}
-Supongamos un clustering con $m$ clusters de $\Omega =\bigsqcup_{i=1}^m c_i$ sobre el que se tiene una distancia ultramétrica $u$.\\
-Tomando $c_i,c_j$ los dos clusters más cercanos y uniéndolos podemos definir una nueva distancia $u'$ sobre los $m-1$ clusters nuevos. 
-\begin{proof}
-Sea $k\neq i,j$ por la propiedad ultramétrica se tiene que: 
+\noindent Una vez considerado esto, se puede crear un coeficiente de similaridad entre dos mediante el coeficiente de \emph{Gower}:
 \begin{equation}
-\begin{split}
-u(i,k)&\leq sup\lbrace u(i,j),u(j,k) \rbrace = u(j,k) \\
-u(j,k)&\leq sup\lbrace u(i,j),u(i,k) \rbrace = u(i,k)
-\end{split}
+s_{ih}=\dfrac{\sum_{j=1}^{p}w_{jih}s_{jih}}{\sum_{j=1}^{p}w_{jih}}
 \end{equation}
-En consecuencia, $u(i,k)=u(j,k)$ y por tanto, $u(c_k,c_i)=u(c_k,c_j)$.\\
-Definiendo de la distancia ultramétrica $u'$:
-\begin{equation}
-\begin{split}
-u'(c_k,c_i\cup c_j) &= u(c_k,c_i) = u(c_k,c_j) \quad k\neq i,j\\
-u'(c_a,c_b) &= u(c_a,c_b) \quad a,b\neq i,j
-\end{split}
-\end{equation}
-Con esta nueva distancia se cumple la propiedad ultramétrica. Para elementos $c_a,c_b$ con $a,b \neq i,j $ es evidente, pues no hemos cambiado la definición de la distancia para esos clusters. Ahora sea el siguiente caso:
-\begin{equation}
-\begin{split}
-u'(c_a,c_i\cup c_j)=u(c_a,c_i)&\leq \sup\lbrace u(c_a,c_b), u(c_b,c_i)\rbrace =\\
-&= \sup\lbrace u'(c_a,c_b), u'(c_b,c_i\cup c_j)\rbrace
-\end{split}
-\end{equation}
-Por tanto, haciendo uniones entre los elementos más cercanos no modifica la estructura de espacio ultramétrico. \\
-\qedhere
-\end{proof}
-\end{teorema}
+\noindent Donde la variable $w_{jih}$ puede ser 0 ó 1, dependiendo de si se quiere tomar o no dicha variable o no en la comparación de dichas muestras. 
 
-\noindent Dado estos resultados se puede seguir el siguiente procedimiento para obtener una jerarquía indexada.   
-
-\noindent \textbf{Algoritmo fundamental de clasificación}
-
-\noindent Dado un espacio ultramétrico $(\Omega, u)$ utilizando el teorema anterior se pueden ir juntando los clusters más próximos conservamos la distancia ultramétrica. \\
-\begin{enumerate}
-\hrule
-\item Se empieza con el clustering $\Omega= \lbrace 1\rbrace \sqcup \ldots \sqcup\lbrace n \rbrace$. 
-\item Calculamos todas las distancias $u(c_a,c_b)$ y unimos los clusters que más cercanos estén utilizando la misma distancia ultramétrica como en el teorema anterior.
-\item Se considera la nueva partición
-\begin{equation}
-\Omega= \lbrace 1\rbrace \sqcup\ldots \sqcup \lbrace i,j\rbrace \sqcup \ldots \sqcup\lbrace n \rbrace
-\end{equation}
-Cada vez que se une $c_i$ con $c_j$ se define el índice $\alpha(c_i\cup c_j)=u(c_i,c_j)$.\\
-\hrule
-\end{enumerate}
-
-
-\noindent Este procedimiento nos brinda una forma sencilla de dada una distancia ultramétrica construir una jerarquía indexada. 
-
-\noindent En el caso contrario en el que se disponga de una jerarquía indexada, se puede crear un espacio ultramétrico con la siguiente proposición. 
-\begin{propo}
-Dado un conjunto $\Omega$ finito sobre el que tenemos una jerarquía indexada $(C,\alpha)$ podemos establecer sobre $\Omega$ una estructura de espacio ultramétrico. 
-\begin{proof}
-Definiendo la distancia
-\begin{equation}
-u(i,j)=\alpha(c_{ij})
-\end{equation}
-Donde $c_{ij}$ es el mínimo cluster que contiene a ambos $i,j$. Sean ahora los clusters mínimos que contienen a $\lbrace i,k\rbrace,\lbrace j,k\rbrace, c_{ik},c_{jk}$ respectivamente, entonces:
-\begin{equation}
-c_{ik}\cap c_{jk}\neq \emptyset
-\end{equation}
-Por ser una jerarquía indexada tenemos dos posibilidades de inclusión uno en el otro:
-\begin{equation}
-\begin{cases}
-c_{ik}\subset c_{jk}\Rightarrow i,j,k\in c_{jk}\Rightarrow c_{ij}\subset c_ {jk}\Rightarrow u(i,j)=\alpha(c_{ij})\leq u(j,k)=\alpha(c_{jk})\\
-c_{jk}\subset c_{ik}\Rightarrow i,j,k\in c_{ik}\Rightarrow c_{ij}\subset c_ {ik}\Rightarrow u(i,j)=\alpha(c_{ij})\leq u(i,k)=\alpha(c_{ik})
-\end{cases}
-\end{equation}
-Por tanto, se obtiene que $u(i,j)\leq \sup\lbrace u(i,k),u(j,k) \rbrace$\\
-\qedhere
-\end{proof}
-\end{propo}
-
-\subsection{Algoritmos basados en jerarquías}
-\noindent Sea ahora una matriz de datos $\textbf{X}$ resultante de hacer $n$ observaciones sobre $p$ variables aleatorias. Sea una distancia $\delta$ \textit{(Se detallará más adelante como elegirla en función del tipo de datos que tengamos.)} sobre el espacio de observaciones y $\Delta$ la matriz $\Delta=(\delta(i,j))$ de tamaño $n \times n$, la matriz que contiene todas las distancias entre observaciones. 
-
-\noindent En el caso de que $\delta$ sea ultramétrica se puede utilizar el algoritmo fundamental, en el caso contrario hay que realizar una modificación. \\
-
-\noindent \textbf{Algoritmo de clasificación de observaciones}
-
-\noindent Lo que se busca en este tipo de algoritmos es convertir $\delta$ en una distancia últramétrica, por ende dado el espacio métrico $(\Omega, \delta)$ el algoritmo es el siguiente:\\
-\begin{enumerate}
-\hrule
-\item Se empieza con el clustering $\Omega= \lbrace 1\rbrace \sqcup \ldots \sqcup\lbrace n \rbrace$. 
-\item Calculamos todas las distancias $u(c_a,c_b)$ y unimos los clusters que más cercanos estén y se define la distancia de un elemento $k$ al cluster de la siguiente manera:
-\begin{equation}
-\delta(k,\lbrace i,j \rbrace)=f(\delta(i,k),\delta(j,k))
-\end{equation}
-Donde la función $f$ hace que $\delta$ cumpla la propiedad ultramétrica
-
-\item Se considera la nueva partición
-\begin{equation}
-\Omega= \lbrace 1\rbrace \sqcup\ldots \sqcup \lbrace i,j\rbrace \sqcup \ldots \sqcup\lbrace n \rbrace
-\end{equation}
-Cada vez que se une $c_i$ con $c_j$ se define el índice $\alpha(c_i\cup c_j)=\delta'(c_i,c_j)$.\\
-\hrule
-\end{enumerate}
-De esta manera se obtiene también una jerarquía indexada $(C,\alpha)$
-
-\noindent Dependiendo de la función $f$ que se elija, se tienen distintos algoritmos:
+\noindent Lo más habitual para formalizar las similaridades es tomar lo siguiente:
 \begin{itemize}
-\item Si $f(x,y)=min(x,y)$ se obtiene el algoritmo de \textit{single linkage}.
-\item  Si $f(x,y)=min(x,y)$ se obtiene el algoritmo de \textit{complete linkage}.
-\item  Si $f(x,y)=\dfrac{x+y}{2}$ se obtiene el algoritmo de \textit{average linkage}.
+\item Para continuas se puede tomar el valor $s_{jih}=1-\frac{|x_{ji}-x_{hi}|}{rango(X_j)}$
+\item En cambio para variables binarias en el caso de que coincida el atributo $x_{ji}=x_{jh}$ la similaridad es 1 y 0 en el caso contrario. También se puede decir que si hay presencia del atributo y coinciden es 1 y en caso contrario 0. 
 \end{itemize}
 
-\noindent Es decir, tomando distintas $f$ obtenemos distintos algoritmos. En estos casos, los algoritmos todos son algoritmos aglomerativos. 
+\noindent Una vez decidida la forma de decir de inicialmente dar la matriz de distancias o similaridades, se da el algoritmo aglomerativo de generación de la jerarquía:
+\begin{itemize}
+\item Se comienza con un \emph{clustering} que tiene $n$ \emph{clusters} con una observación cada uno y se calcula la matriz de distancias
+\item Se toman los elementos que más cercanos están y se forman una nueva clase.
+\item Se sustituyen los dos elementos anteriores por la clase y se calcula la distancia entre la clase y el resto de observaciones de acuerdo con uno de los criterios preestablecidos. 
+\item Repetir los dos pasos anteriores hasta obtener una única clase. 
+\end{itemize}
 
-\subsection{Elección de las diferencias }
-\noindent Añadir a esto que el mayor problema que conllevan este tipo de algoritmos es elegir y definir una distancia. Sea un vector aleatorio \textbf{x} de longitud $p$ sobre el que se realizan $n$ observaciones, entonces la forma más habitual de definir la distancia entre dos observaciones es:
-\begin{equation}
-D(x_i,x_j)=\sum_{k=1}^p \omega_k \cdot d_k(x_{ik},x_{jk}); \quad \sum_{k=1}^p \omega_k=1
-\end{equation}
+\noindent Dependiendo de la forma que se de unir los grupos se obtendrá un algoritmo u otro de clustering:
+\begin{itemize}
+\item Si $f(x,y)=min(x,y)$ es decir, se toma como distancia entre la clase y el resto de observaciones como el mínimo de las que se den, a este algoritmo se le llama \textit{single linkage}.
+\item  Si $f(x,y)=max(x,y)$ es análogo al anterior, pero tomando la distancia máxima, a este método se le llama \textit{complete linkage}.
+\item  Si $f(x,y)=\dfrac{x+y}{2}$ se hace la media de las distancias de los dos grupos antes de unirlos, a este método se le llama \textit{average linkage}.
+\end{itemize}
 
-\noindent Donde las $d_k$ son las distancias adaptadas al tipo de variable que sea la variable aleatoria $X_k$. En particular:
+\noindent Este tipo de métodos aporta una jerarquía en la agrupación de los datos en función de su similitud, de manera que a distintos grados de similitud se pueden establecer distintas reparticiones del espacio de observaciones. Además esto se puede representar fácilmente con un dendograma o diagrama de árboles otorgando una manera sencilla de establecer un criterio de similitud máxima. 
 
-\noindent \textbf{\textit{Variables Cuantitativas}: }Basta con que sea una función monótona creciente del valor absoluto de la diferencia entre las dos observaciones. De manera general, se utilizaría la distancia euclídea, pero esta tiene el problema de que no tiene en cuenta las escalas de los datos es por eso que tenemos que estandarizar y centrar los datos para que no haya problemas de escalas. Una medida de distancia que suple esto es la distancia de Mahalanobis.
-\begin{defi}
-Dadas dos muestras u observaciones $\textbf{x}_i,\textbf{x}_j$ sacadas de la misma población de un total de $n$ de las cuales se observan $p$ variables aleatorias, con matriz de covarianzas muestrales $\textbf{S}$. Se define la distancia de Mahalanobis de la siguiente manera: 
-\begin{equation}
-\textbf{M}^2(\textbf{x}_i,\textbf{x}_j)=(\textbf{x}_i,\textbf{x}_j)^T \textbf{S}^{-1} (\textbf{x}_i,\textbf{x}_j)
-\end{equation}
-\end{defi}
-\noindent \textbf{\textit{Variables Ordinales: }} Para una variable categórica cuyos $M$ valores tienen un orden se puede hacer la siguiente transformación para tratarlas como una variable cuantitativa:
-\begin{equation}
-\dfrac{i-\frac{1}{2}}{M} \quad i=1\ldots M
-\end{equation}
-\noindent \textbf{\textit{Variables Categóricas: }}En este caso, suponiendo que la variable tiene $M$ posibles valores, lo habitual es definir una matriz $\textbf{L}$ de tamaño $M\times M$ simétrica , de manera que el elemento $L_{r,r'}=L_{r',r}$ es la distancia entre la categoría $r$ y la $r'$ que habitualmente se suele tomar como 1 y la diagonal igual a 0. 
-
-\noindent De esta manera, podemos definir de manera general una distancia entre las observaciones. 
-
-\subsection{Algoritmos no jerárquicos}
-
+\subsection{Algoritmos Particionales}
 \noindent Teniendo en cuenta como deben ser los clusterings el objetivo es conseguir $g$ clusters que provocan una partición exhaustiva del conjunto de observaciones. 
 Sea el espacio métrico $(\Omega,d)$ se puede considerar que la \textit{dispersión total de las muestras} dada un clustering con $g$ clusters tiene la siguiente expresión:
 \begin{equation}
 \textbf{T}=\textbf{B}+\textbf{W}
 \end{equation}
-\noindent Donde $B$ es la distancia inter-clusters y $W$ es la distancia intra-cluster del clustering realizado.\\
-\noindent Por tanto, de acuerdo a nuestro objetivo un clustering en $g$ clusters debe ser aquel que minimice $W$ y maximice $B$
+\noindent Donde $\mathbf{B}$ es la distancia inter-clusters y $\mathbf{W}$ es la distancia intra-cluster del clustering realizado.\\
+\noindent Por tanto, de acuerdo a nuestro objetivo un clustering en $g$ clusters debe ser aquel que minimice $\mathbf{W}$ y maximice $\mathbf{B}$
 
-\noindent El número de posibles clusterings de un mismo conjunto de $n$ observaciones es de $\frac{g^n}{g!}$. Hay muchas de esas posibles particiones que no son óptimas y hay algunas que son mínimos locales. El algoritmo más habitual es el de K-medias o K-medoides.\\
+\noindent El número de posibles clusterings de un mismo conjunto de $n$ observaciones es de $\frac{g^n}{g!}$. Pero el número que siempre minimizará la $tr(\mathbf{W})$ que nos da la suma de las varianzas dentro de los grupos, es utilizar tantos clusters como observaciones, pero \emph{Peña, D.} \cite{Peña 2002} propone hacer un test estadístico con el siguiente estadígrafo, aunque no se suelan dar las hipótesis necesarias para aplicar una \emph{F}:
+\begin{equation}
+F=\dfrac{tr(\mathbf{W}(g))-tr(\mathbf{W}(g+1))}{\frac{tr(\mathbf{W}(g+1))}{(n-g-1)}}
+\end{equation}
+
+\noindent Lo más habitual es introducir otro grupo si este cociente presenta un valor mayor que 10. Este cociente compara la disminución de variabilidad de los datos con la varianza promedio. Por tanto, el procedimiento es aplicar el algoritmo de K-medias para distintos número de clusters y hacer la comparación. 
+
+\noindent 
+
+
 
 \noindent \textbf{Algoritmo de K-medias y K-medoides}\\
-Este algoritmo requiere que se prefije el número de clusters que se van a utilizar, además de que las variables sean cuantitativas,\textit{(El algoritmo de K-medoides es una modificación de este que soluciona dicha restricción)} .\\
+Este algoritmo requiere que se prefije el número de clusters que se van a utilizar, además de que las variables sean cuantitativas ya que los centroides son las medias aritméticas, operación que con variables no numéricas no es posible. \\
 \begin{enumerate}
 \hrule
 
 \item Se inicializa con $g$ puntos aleatorios del espacio $\mathbb{R}^p$. Se asigna a cada observación un cluster de acuerdo a cual de los $g$ puntos es más cercano.
 \item Se calculan los puntos medios de cada cluster y se reasignan las observaciones de acuerdo a cual está más próximo 
-\item Se repite el paso anterior, calculando $W$ en cada paso y se detiene el proceso cuando no haya mejora ninguna o se de un criterio de parada. 
+\item Se repite el paso anterior, calculando $\mathbf{W}$ en cada paso y se detiene el proceso cuando no haya mejora ninguna o se de un criterio de parada. 
 
 \end{enumerate}
 \hrule
 
-\noindent En este algoritmo ocurre que la distancia al cuadrado de los puntos de cada cluster al centroide disminuye en cada paso debido a como está formulado. 
+\noindent Este algoritmo es dependiente según \emph{Peña, D.}\cite{Peña 2002} de la asignación inicial de las observaciones, de manera que es conveniente para eliminar esa aleatoriedad hacer varias iteraciones del propio algoritmo. 
 
-\noindent Además del problema de elegir el número de clusters, se da el problema que sólo se puede utilizar con variables cuantitativas. Haciendo una modificación en el algoritmo de K-medias obtenemos el algoritmo de K-medoides. \\
+\noindent El algoritmo de K-medias es un \emph{algoritmo voraz}, de manera que se busca minimizar de manera heurística la suma de las distancias cuadradas de las observaciones al centro del cluster, es decir, en realidad se busca minimizar la varianza dentro de los grupos, es decir, se busca minimizar $tr(\mathbf{W})$ es por eso que también 
 
+
+\noindent Además hay que destacar que la restricción de las variables cuantitativas debe ser solventada, esto se hace planteando el método de K-medoides que se desarrolla de la siguiente manera :
 
 \begin{enumerate}
 \hrule
@@ -238,19 +126,4 @@ Este algoritmo requiere que se prefije el número de clusters que se van a utili
 
 \noindent Adicionalmente, este es uno de los algoritmos afectados por la maldición de la dimensionalidad en la que al aumentar la dimensión del espacio de posibles observaciones cada vez es menos denso en información y necesitamos más muestras. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\noindent Para poder analizar 
