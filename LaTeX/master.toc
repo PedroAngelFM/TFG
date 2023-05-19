@@ -36,5 +36,7 @@
 \contentsline {subsection}{\numberline {2.4.2}Algoritmos Particionales}{47}{subsection.2.4.2}%
 \contentsline {chapter}{\numberline {3}Aplicación sobre datos}{49}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Clasificación de Iris}{49}{section.3.1}%
-\contentsline {chapter}{Bibliografía}{50}{chapter*.11}%
+\contentsline {section}{\numberline {3.2}Alubias secas}{50}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Comparación regresión lineal, árboles de regresión y redes neuronales.}{50}{section.3.3}%
+\contentsline {chapter}{Bibliografía}{51}{chapter*.11}%
 \contentsfinish 

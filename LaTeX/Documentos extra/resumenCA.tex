@@ -66,7 +66,7 @@ s_{ih}=\dfrac{\sum_{j=1}^{p}w_{jih}s_{jih}}{\sum_{j=1}^{p}w_{jih}}
 
 \noindent Dependiendo de la forma que se de unir los grupos se obtendrá un algoritmo u otro de clustering:
 \begin{itemize}
-\item Si $f(x,y)=min(x,y)$ es decir, se toma como distancia entre la clase y el resto de observaciones como el mínimo de las que se den, a este algoritmo se le llama \textit{single linkage}.
+\item Si $f(x,y)=min(x,y)$ es decir, se toma como distancia entre la clase y el resto de observaciones como el mínimo de las que se den, a este algoritmo se le llama \textit{single linkage}, este tipo de enlace tiende a formar.
 \item  Si $f(x,y)=max(x,y)$ es análogo al anterior, pero tomando la distancia máxima, a este método se le llama \textit{complete linkage}.
 \item  Si $f(x,y)=\dfrac{x+y}{2}$ se hace la media de las distancias de los dos grupos antes de unirlos, a este método se le llama \textit{average linkage}.
 \end{itemize}
@@ -74,56 +74,56 @@ s_{ih}=\dfrac{\sum_{j=1}^{p}w_{jih}s_{jih}}{\sum_{j=1}^{p}w_{jih}}
 \noindent Este tipo de métodos aporta una jerarquía en la agrupación de los datos en función de su similitud, de manera que a distintos grados de similitud se pueden establecer distintas reparticiones del espacio de observaciones. Además esto se puede representar fácilmente con un dendograma o diagrama de árboles otorgando una manera sencilla de establecer un criterio de similitud máxima. 
 
 \subsection{Algoritmos Particionales}
-\noindent Teniendo en cuenta como deben ser los clusterings el objetivo es conseguir $g$ clusters que provocan una partición exhaustiva del conjunto de observaciones. 
-Sea el espacio métrico $(\Omega,d)$ se puede considerar que la \textit{dispersión total de las muestras} dada un clustering con $g$ clusters tiene la siguiente expresión:
+
+\noindent El clustering particional busca dado un conjunto de datos heterogéneos dividirlos en grupos homogéneos, como por ejemplo la segmentación de clientes o votantes.
+, buscaremos un criterio por el cual podamos afirmar que una partición del espacio es mejor que la anterior o no. En estos casos la variabilidad total de todas las observaciones se puede descomponer como la variabilidad intra-cluster y la inter-cluster como se detalla en la sección del análisis discriminante.
+
+\begin{defi}
+Se llama \emph{centroide} de un cluster, $C_k,\quad k=1\ldots K$ al elemento que resulta de hacer la media de todos los elementos del cluster $C_k$:
 \begin{equation}
-\textbf{T}=\textbf{B}+\textbf{W}
+\overline{x}_{jk}=\dfrac{1}{|C_k|}\sum_{i\in C_k} x_{ij}
 \end{equation}
-\noindent Donde $\mathbf{B}$ es la distancia inter-clusters y $\mathbf{W}$ es la distancia intra-cluster del clustering realizado.\\
-\noindent Por tanto, de acuerdo a nuestro objetivo un clustering en $g$ clusters debe ser aquel que minimice $\mathbf{W}$ y maximice $\mathbf{B}$
+\end{defi}
 
-\noindent El número de posibles clusterings de un mismo conjunto de $n$ observaciones es de $\frac{g^n}{g!}$. Pero el número que siempre minimizará la $tr(\mathbf{W})$ que nos da la suma de las varianzas dentro de los grupos, es utilizar tantos clusters como observaciones, pero \emph{Peña, D.} \cite{Peña 2002} propone hacer un test estadístico con el siguiente estadígrafo, aunque no se suelan dar las hipótesis necesarias para aplicar una \emph{F}:
+\begin{defi}
+Se llama variabilidad o variación intra-cluster del cluster $C_k\quad k=1\ldots K$ a la siguiente expresión:
 \begin{equation}
-F=\dfrac{tr(\mathbf{W}(g))-tr(\mathbf{W}(g+1))}{\frac{tr(\mathbf{W}(g+1))}{(n-g-1)}}
+\mathbf{W}(C_k)=\sum_{i\in C_k}\sum_{j=1}^{p} (x_{ij}-\overline{x}_{jk})^2
 \end{equation}
+\noindent Esta medida también se podría dar como la media de las diferencias cuadradas entre las observaciones del cluster, pero se seleccionará esta expresión. 
+\end{defi}
 
-\noindent Lo más habitual es introducir otro grupo si este cociente presenta un valor mayor que 10. Este cociente compara la disminución de variabilidad de los datos con la varianza promedio. Por tanto, el procedimiento es aplicar el algoritmo de K-medias para distintos número de clusters y hacer la comparación. 
-
-\noindent 
-
-
-
-\noindent \textbf{Algoritmo de K-medias y K-medoides}\\
-Este algoritmo requiere que se prefije el número de clusters que se van a utilizar, además de que las variables sean cuantitativas ya que los centroides son las medias aritméticas, operación que con variables no numéricas no es posible. \\
+\noindent Una vez dadas estas definiciones y criterios se puede construir un algoritmo iterativo como es el método de K-means que se puede resumir de la siguiente manera, sabiendo el número inicial de clusters, por ejemplo $K$:
 \begin{enumerate}
-\hrule
-
-\item Se inicializa con $g$ puntos aleatorios del espacio $\mathbb{R}^p$. Se asigna a cada observación un cluster de acuerdo a cual de los $g$ puntos es más cercano.
-\item Se calculan los puntos medios de cada cluster y se reasignan las observaciones de acuerdo a cual está más próximo 
-\item Se repite el paso anterior, calculando $\mathbf{W}$ en cada paso y se detiene el proceso cuando no haya mejora ninguna o se de un criterio de parada. 
-
-\end{enumerate}
-\hrule
-
-\noindent Este algoritmo es dependiente según \emph{Peña, D.}\cite{Peña 2002} de la asignación inicial de las observaciones, de manera que es conveniente para eliminar esa aleatoriedad hacer varias iteraciones del propio algoritmo. 
-
-\noindent El algoritmo de K-medias es un \emph{algoritmo voraz}, de manera que se busca minimizar de manera heurística la suma de las distancias cuadradas de las observaciones al centro del cluster, es decir, en realidad se busca minimizar la varianza dentro de los grupos, es decir, se busca minimizar $tr(\mathbf{W})$ es por eso que también 
-
-
-\noindent Además hay que destacar que la restricción de las variables cuantitativas debe ser solventada, esto se hace planteando el método de K-medoides que se desarrolla de la siguiente manera :
-
+\item Se inicializa la asignación de manera aleatoria, agrupando en los $K$ clusters observaciones aleatoriamente. 
+\item Se itera lo siguiente hasta que no haya cambio en los clusters:
 \begin{enumerate}
-\hrule
-
-\item Para una asignación de clusters se calculan las distancias entre los puntos de cada cluster. Y se toma de cada cluster el que minimice la suma las distancias del cluster. Que serán los medoides de cada cluster. 
-\item Se asigna a cada punto el cluster cuyo medoide sea más cercano a dicha observación 
-\item Se repiten los pasos anteriores hasta que las asignaciones no cambien. 
-
+\item Se calculan los centroides de cada uno de los $K$ clusters
+\item Se reasignan las observaciones de acuerdo a qué centroide es más cercano según la distancia euclidiana. 
 \end{enumerate}
-\hrule
- 
-\noindent Por tanto, los puntos de referencia de este algoritmo son observaciones, no como las medias que pueden no serlo. Además es mucho más costoso a nivel computacional. 
+\end{enumerate}
 
-\noindent Adicionalmente, este es uno de los algoritmos afectados por la maldición de la dimensionalidad en la que al aumentar la dimensión del espacio de posibles observaciones cada vez es menos denso en información y necesitamos más muestras. 
+\begin{propo}
+El algoritmo de $K$-means sólo puede mejorar el criterio de la variación dentro de clusters. 
+\begin{proof}
+El paso 2a minimiza la suma de las desviaciones cuadradas y en el paso 2b la reasignación solo puede mejorar eso ya que se busca que la distancia euclídea al \emph{centroide} sea la mínima. 
+\end{proof}
+\end{propo}
 
-\noindent Para poder analizar 
+\noindent Esto provoca que el algoritmo no para hasta que no se da una mejora en el criterio. Sin embargo, este minimo que alcanza la función no tiene por qué ser global, ya que esta no es convexa y por tanto la consecución de este mínimo puede estar condicionada por la asignación inicial. Para solucionar estos problemas, se deben hacer varias ejecuciones del algoritmo para poder compararlas entre sí, por ejemplo \emph{Scikit-Learn} implementa el método \emph{k-means++} que no es más que realizar multiples ejecuciones con asignaciones iniciales distintas y luego las compara y otorga la mejor. 
+Para poder compararlas se puede utilizar el parámetro inercia. 
+
+\begin{defi}
+Se llama \emph{inercia} de un clustering a la suma de las variaciones intra-clusters:
+\begin{equation}
+inercia=\sum_{k=1}^K \textbf{W}(C_k)
+\end{equation}
+La inercia representa como de compacta es nuestra partición a menor inercia más compacta es y por tanto más homogéneos son. 
+\end{defi}
+
+\noindent Otro de los problemas de este tipo de algoritmos es que se deben conocer a priori el número de clusters en los que se quieren dividir las observaciones. Para ello \emph{Peña D.}\cite{Peña 2002} propone un contraste de hipótesis  utilizando la inercia haciéndola depender del número de clusters
+\begin{equation}
+F=\dfrac{inercia(K)-inercia(K+1)}{\frac{inercia(K+1)}{n-K-1}}
+\end{equation}
+Este cociente compara la disminución de la variación entre una partición con $K$ y $K+1$ clústers, de esta manera, puede compararse con una F con $p,p(n-K-1)$ grados de libertad, pero que en la práctica no se puede asumir las hipótesis, por tanto, en la práctica si se da un valor mayor que 10 se asume que es conveniente añadir un clúster más. 
+

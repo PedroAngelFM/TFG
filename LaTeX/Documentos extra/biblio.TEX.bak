@@ -72,5 +72,8 @@
 
 \bibitem{Hornik 1989} \textbf{Hornik, K., Stinchcombe, M., and White, H. } \emph{Multilayer feedforward networks are universal approximators.} Neural networks, 2(5), 359-366, 1989.
 \url{https://doi.org/10.1016/0893-6080(89)90020-8}
+\bibitem{Iris Fisher} \textbf{Fisher,R. A.. (1988).} Iris. \emph{UCI Machine Learning Repository. }\url{https://doi.org/10.24432/C56C76}. 
+\bibitem{Alubias} \textbf{Dry Bean Dataset. (2020)}.\emph{ UCI Machine Learning Repository.} \url{https://doi.org/10.24432/C50S4B.}
+
 \end{thebibliography}
  

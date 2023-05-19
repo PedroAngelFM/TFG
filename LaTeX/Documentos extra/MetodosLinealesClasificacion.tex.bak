@@ -25,13 +25,12 @@ Se llama \textit{función discriminante } aquella que:
 \begin{equation}
 f_i:\mathbf{\Omega}\longrightarrow \mathbb{R}
 \end{equation}
-Definida de tal manera que si $f_i(\textbf{x}_0)>0\Rightarrow \textbf{x}_0\in P_i$ y en caso contrario $\textbf{x}_0\notin P_i$
+Donde $\Omega$ es el espacio de observaciones posibles. Definida de tal manera que si $f_i(\textbf{x}_0)>0\Rightarrow \textbf{x}_0\in P_i$ y en caso contrario $\textbf{x}_0\notin P_i$. 
 \end{defi}
-
-\noindent En el caso anterior de dos poblaciones, $f_1(\textbf{x}_0)\pi_1-f_2(\textbf{x}_0)\pi_2$ sería la función discriminante para discernir si $\textbf{x}_0$ pertenece a $P_1$. 
+\noindent En el caso anterior de dos poblaciones, $f_1(\textbf{x}_0)\pi_1-f_2(\textbf{x}_0)\pi_2$ sería la función discriminante para discernir si $\textbf{x}_0$ pertenece a $P_1$. Ya que representa la probabilidad de ser de dicha clase conociendo el valor de las variables predictoras.
 
 \begin{defi}
-Se llama \emph{Error de clasificación} al coste de clasificar de manera errónea una observación y se denota como $c(i|j)=$\emph{``Error de clasificar como $P_i$ una observacuión perteneciente a $P_j$"}
+Se llama \emph{Error de clasificación} al coste de clasificar de manera errónea una observación y se denota como $c(i|j)=$\emph{``Error de clasificar como $P_i$ una observación perteneciente a $P_j$"}
 \end{defi}
 
 \noindent De esta manera, si el coste de mala clasificación en una y otra población son distintas podemos trasladarlo a la función discriminante de la siguiente manera:
@@ -155,4 +154,4 @@ VE(\textbf{a}_i)\mathbf{a}_i^T\mathbf{Ba}_i=\lambda_i \mathbf{a}_i^T\mathbf{Wa}_
 \end{proof}
 \end{propo}
 
-\noindent Para elegir un número de variables canónicas a usar se puede fijar un umbral por el cual tomemos las $m$ variables cuya varianza explicada acumulada sea superior. De esta manera, se puede llevar a cabo una reducción de la dimensionalidad de los datos de manera parecida a la que se desarrollará en el \emph{Análisis de Componentes Principales.}
+\noindent Para elegir un número de variables canónicas a usar se puede fijar un umbral por el cual tomemos las $m$ variables cuya varianza explicada acumulada sea superior. De esta manera, se puede llevar a cabo una reducción de la dimensionalidad de los datos de manera parecida a la que se desarrollará en el \emph{Análisis de Componentes Principales.} La principal diferencia con este último es que mientras uno busca representar de una manera simple la variabilidad de los datos, esta busca las direcciones en las cuales los grupos o clases se distinguen de manera más significativa

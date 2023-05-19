@@ -1,6 +1,6 @@
 \section{Métodos Lineales para regresión}
 
-\noindent El objetivo de la regresión en este caso lineal es encontrar la forma de dependencia que 
+\noindent El objetivo de la regresión es encontrar como un conjunto de variables respuesta se ven afectadas por otro conjunto de variables predictoras. En este caso, se estudia como una combinación lineal de las variables puede afectar a las variables respuesta. Esto se puede hallar con fines predictivos o con el fin de analizar cómo cada una de las variables predictivas afectan a las variables respuesta. 
 
 \noindent Para ello, se tendrá en cuenta que las observaciones de la variable respuesta siguen la relación que se detallaba anteriormente:
 \begin{equation}

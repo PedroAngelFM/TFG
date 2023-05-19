@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  15 MAY 2023 16:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  18 MAY 2023 15:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -741,7 +741,7 @@ Package srcltx Info: Expanded filename `Documentos Extra/portada.tex' to `Docum
 entos Extra/portada.tex' on input line 85.
 :<+ Documentos Extra/portada.tex
 (Documentos Extra/portada.tex
-<Documentos Extra/Imagenes/escudo2tintas.pdf, id=155, 240.9pt x 199.74625pt>
+<Documentos Extra/Imagenes/escudo2tintas.pdf, id=163, 240.9pt x 199.74625pt>
 File: Documentos Extra/Imagenes/escudo2tintas.pdf Graphic file (type pdf)
 <use Documentos Extra/Imagenes/escudo2tintas.pdf>
 Package pdftex.def Info: Documentos Extra/Imagenes/escudo2tintas.pdf  used on i
@@ -809,7 +809,7 @@ LaTeX Info: Redefining \% on input line 73.
 LaTeX Info: Redefining \. on input line 115.
 LaTeX Info: Redefining \% on input line 115.
  [6]
-<Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png, id=291, 559.33969pt x 34
+<Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png, id=301, 559.33969pt x 34
 4.03531pt>
 File: Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png Graphic file (type p
 ng)
@@ -862,17 +862,17 @@ e 11.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [14]
-LaTeX Info: Redefining \. on input line 44.
-LaTeX Info: Redefining \% on input line 44.
+LaTeX Info: Redefining \. on input line 39.
+LaTeX Info: Redefining \% on input line 39.
  [15]
-LaTeX Info: Redefining \. on input line 77.
-LaTeX Info: Redefining \% on input line 77.
+LaTeX Info: Redefining \. on input line 76.
+LaTeX Info: Redefining \% on input line 76.
  [16]
-LaTeX Info: Redefining \. on input line 114.
-LaTeX Info: Redefining \% on input line 114.
+LaTeX Info: Redefining \. on input line 113.
+LaTeX Info: Redefining \% on input line 113.
  [17]
-LaTeX Info: Redefining \. on input line 154.
-LaTeX Info: Redefining \% on input line 154.
+LaTeX Info: Redefining \. on input line 153.
+LaTeX Info: Redefining \% on input line 153.
  [18])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/Redes Neuronales.tex' 
@@ -882,7 +882,7 @@ to `Documentos Extra/Redes Neuronales.tex' on input line 12.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [19]
-<Documentos Extra/Imagenes/neurona.png, id=428, 443.40656pt x 237.13594pt>
+<Documentos Extra/Imagenes/neurona.png, id=438, 443.40656pt x 237.13594pt>
 File: Documentos Extra/Imagenes/neurona.png Graphic file (type png)
 <use Documentos Extra/Imagenes/neurona.png>
 Package pdftex.def Info: Documentos Extra/Imagenes/neurona.png  used on input l
@@ -891,7 +891,7 @@ ine 27.
 LaTeX Info: Redefining \. on input line 36.
 LaTeX Info: Redefining \% on input line 36.
  [20 <./Documentos Extra/Imagenes/neurona.png>]
-<Documentos Extra/Imagenes/red-neuronal-grande.png, id=440, 556.0775pt x 301.12
+<Documentos Extra/Imagenes/red-neuronal-grande.png, id=450, 556.0775pt x 301.12
 5pt>
 File: Documentos Extra/Imagenes/red-neuronal-grande.png Graphic file (type png)
 
@@ -914,14 +914,14 @@ icación.tex' to `Documentos Extra/ArbolesRegresionClasificación.tex' on input
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [23]
-<Documentos Extra/Imagenes/Regiones árboles.png, id=463, 338.01282pt x 302.630
+<Documentos Extra/Imagenes/Regiones árboles.png, id=473, 338.01282pt x 302.630
 63pt>
 File: Documentos Extra/Imagenes/Regiones árboles.png Graphic file (type png)
 <use Documentos Extra/Imagenes/Regiones árboles.png>
 Package pdftex.def Info: Documentos Extra/Imagenes/Regiones árboles.png  used 
 on input line 12.
 (pdftex.def)             Requested size: 168.4376pt x 150.80698pt.
-<Documentos Extra/Imagenes/Diagrama de arbol.png, id=464, 287.57437pt x 279.293
+<Documentos Extra/Imagenes/Diagrama de arbol.png, id=474, 287.57437pt x 279.293
 44pt>
 File: Documentos Extra/Imagenes/Diagrama de arbol.png Graphic file (type png)
 <use Documentos Extra/Imagenes/Diagrama de arbol.png>
@@ -1027,12 +1027,14 @@ LaTeX Info: Redefining \% on input line 37.
 LaTeX Info: Redefining \. on input line 71.
 LaTeX Info: Redefining \% on input line 71.
  [46]
-Underfull \hbox (badness 10000) in paragraph at lines 96--99
-
+Overfull \hbox (5.34999pt too wide) in paragraph at lines 89--90
+[][]\OT1/cmr/bx/n/12 Definici^^Son 2.4.6. [][]\OT1/cmr/m/n/12 Se lla-ma va-ria-
+bi-li-dad o va-ria-ci^^Son intra-cluster del clus-ter $\OML/cmm/m/it/12 C[] k \
+OT1/cmr/m/n/12 =
  []
 
-LaTeX Info: Redefining \. on input line 103.
-LaTeX Info: Redefining \% on input line 103.
+LaTeX Info: Redefining \. on input line 109.
+LaTeX Info: Redefining \% on input line 109.
 [47])
 :<-
 LaTeX Info: Redefining \. on input line 20.
@@ -1044,39 +1046,45 @@ Package srcltx Info: Expanded filename `Aplicaciones.tex' to `Aplicaciones.tex'
 :<+ Aplicaciones.tex
 (Aplicaciones.tex
 Cap\'{\i }tulo 3.
-)
+[49
+
+])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/biblio.tex' to `Docume
 ntos Extra/biblio.tex' on input line 103.
 :<+ Documentos Extra/biblio.tex
-(Documentos Extra/biblio.tex [49
-
-]
+(Documentos Extra/biblio.tex
+LaTeX Info: Redefining \. on input line 2.
+LaTeX Info: Redefining \% on input line 2.
+ [50]
 Underfull \hbox (badness 1215) in paragraph at lines 31--32
 [][]\OT1/cmr/bx/n/12 Jain, A.K., Ri-chard, C.D., (1988) \OT1/cmr/m/it/12 Al-go-
 rithms for clus-te-ring da-ta.
  []
 
-[50
+[51
 
-])
+]
+LaTeX Info: Redefining \. on input line 77.
+LaTeX Info: Redefining \% on input line 77.
+ [52])
 :<-
 LaTeX Info: Redefining \. on input line 106.
 LaTeX Info: Redefining \% on input line 106.
-[51] 
+[53] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (master.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 4C37E8FEEF08C8B269B6A60BA70E36C2;8743.
+(rerunfilecheck)             Checksum: 6D61328E7BDB5BA57B1ED45C145A4F89;9353.
  ) 
 Here is how much of TeX's memory you used:
- 18597 strings out of 476334
- 292804 string characters out of 5787971
+ 18611 strings out of 476334
+ 292974 string characters out of 5787971
  1868382 words of memory out of 5000000
- 38354 multiletter control sequences out of 15000+600000
+ 38358 multiletter control sequences out of 15000+600000
  527200 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,19n,79p,3251b,786s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1105,9 +1113,9 @@ fb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmtt12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmtt8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (55 pages, 846037 bytes).
+Output written on master.pdf (57 pages, 852930 bytes).
 PDF statistics:
- 908 PDF objects out of 1000 (max. 8388607)
- 316 named destinations out of 1000 (max. 500000)
- 335 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 938 PDF objects out of 1000 (max. 8388607)
+ 326 named destinations out of 1000 (max. 500000)
+ 351 words of extra memory for PDF output out of 10000 (max. 10000000)
 
