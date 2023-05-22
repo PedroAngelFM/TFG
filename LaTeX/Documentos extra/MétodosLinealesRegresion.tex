@@ -2,68 +2,89 @@
 
 \noindent El objetivo de la regresión es encontrar como un conjunto de variables respuesta se ven afectadas por otro conjunto de variables predictoras. En este caso, se estudia como una combinación lineal de las variables puede afectar a las variables respuesta. Esto se puede hallar con fines predictivos o con el fin de analizar cómo cada una de las variables predictivas afectan a las variables respuesta. 
 
-\noindent Para ello, se tendrá en cuenta que las observaciones de la variable respuesta siguen la relación que se detallaba anteriormente:
+\noindent Para ello, se tendrá en cuenta que las observaciones de la variable respuesta siguen la siguiente relación:
 \begin{equation}
 Y=f(\textbf{x})+\varepsilon
 \end{equation}
+\noindent Donde $\varepsilon$ es una variable aleatoria con $\mathbb{E}(\varepsilon)=0$ y $Var(\varepsilon)=\sigma^2$. Además supóngase que el vector de datos de entrada sigue una distribución normal multivariante $N_p(\mathbf{\mu},\mathbf{\Sigma})$ donde $\mathbf{\Sigma }$ es una matriz semidefinido positiva y simétrica \cite{Chatfield 1989}.
 
-\noindent Donde $\varepsilon$ es una variable aleatoria con $\mathbb{E}(\varepsilon)=0$ y $Var(\varepsilon)=\sigma^2$.
 
-\noindent En este tipo de métodos se supone que $f$ es una función lineal de las variables de entrada del vector aleatorio $\textbf{x}^T=[X_1\ldots X_p]$. De esta manera, se tiene que:  
+\noindent En este tipo de métodos se supone que $f$ es una función lineal de las variables de entrada del vector aleatorio $\textbf{x}=[X_1\ldots X_p]$. De esta manera, se tiene que:  
 \begin{equation}
 f(\textbf{x})=\beta_0+\sum_{j=1}^p X_j\beta_j
 \end{equation}
 
-\noindent Por tanto, la predicción de la variable de salida $\hat{y
-}_i$ para una observación $\textbf{x}_i$ del vector aleatorio  se puede expresar de la siguiente manera:
+\begin{defi}
+Se llaman \emph{parámetros de regresión} al vector $\beta=[\beta_0, \beta_1, \ldots \beta_p]$ de tamaño $(p+1)$ con los coeficientes necesarios para la regresión. 
+\end{defi} 
+
+\noindent Añadiendo al vector $\mathbf{x}$ una nueva variable aleatoria $X_0$ que sea constantemente 1, se puede dar la siguiente expresión matricial de la función $f$:
 \begin{equation}
-\hat{y}_i=f(\textbf{x}_i)=\beta_0+\sum_{j=1}^p x_{ij}\beta_j
+f(\mathbf{x})= \mathbf{x}\beta^T
 \end{equation}
 
-\noindent De esta manera, se tiene un vector de $p$ parámetros $\beta_1 \ldots \beta_p$ además de otro $\beta_0$. Esto se puede simplificar añadiendo al vector aleatorio una variable aleatoria que sea constantemente 1. De esta manera, sea $\beta^T=[\beta_0,\beta_1\ldots \beta_p]$ y una observación $\textbf{x}_i^T=[1,x_{i1},\ldots x_{ip}]$ la expresión anterior se simplifica de la siguiente manera: 
+\noindent De esta manera, tomando la matriz de datos de entrada de tamaño $N\times (p+1)$ entonces se puede generar un vector de predicciones de tamaño $N$ de la siguiente manera:
 \begin{equation}
-\hat{y}_i= f(\textbf{x}_i)=\textbf{x}_i^T\beta
-\end{equation}
+\mathbf{\hat{y}}=\mathbf{X}\beta^T  
+\end{equation}  
 
-\noindent Y en general, para una matriz de datos $\textbf{X}$ de tamaño $n\times p $ al que se le añade una primera columna de 1's por tanto, acaba siendo una matriz de tamaño $n\times (p+1)$ y sea $\hat{\textbf{y}}=[\hat{y}_1,\ldots \hat{y}_p]$ el vector de predicciones. Entonces, se obtiene la siguiente expresión  simplificada:
-\begin{equation}
-\hat{\textbf{y}}=\textbf{X}\beta
-\end{equation} 
+\noindent Si en particular se quiere hacer una predicción para una nueva observación  $\mathbf{x}_0$ basta con calcular basta con calcular $f(\textbf{x}_0).$
 
-\noindent Los parámetros $\beta$ son parámetros poblacionales y desconocidos, por ende, se deben estimar conociendo únicamente una muestra de la población general. En las siguientes secciones se detallan la obtención de dichas estimaciones mediante el método de mínimos cuadrados y las propiedades inferenciales que estos estimadores $\hat{\beta}$ tienen. 
+Una vez establecida la notación y los supuestos que tomaremos de ahora en adelante, hay que estimar los parámetros de regresión, para ello utilizaremos 
 
 \newpage
 \subsection{Ajuste de los parámetros por mínimos cuadrados}
-\noindent Sea una matriz de datos $\textbf{X}$ de tamaño $n\times p+1$ resultado de hacer $n$ observaciones de $p$ variables aleatorias y añadir a la primera componente de cada observación un 1. Sea también un vector de respuestas $\textbf{y}^T=[y_1,\ldots y_n]$ de tamaño $n$, resultado de observar la variable respuesta $Y$. 
+\noindent Sea una matriz de datos $\textbf{X}$ de tamaño $N\times (p+1)$ resultado de hacer $N$ observaciones de $p$ variables aleatorias y añadir a la primera componente de cada observación un 1. Sea también un vector de respuestas $\textbf{y}=[y_1,\ldots y_N]$ de tamaño $N$, resultado de observar la variable respuesta $Y$. 
 
-\noindent Tomando la suma de los errores cuadrados y minimizando se puede obtener una estimación de máxima verosimilitud del vector de parámetros $\beta$. Utilizando las expresiones anteriores:
-\begin{align}
-RSS(\beta)=\sum_{i=1}^n(y_i-\hat{y}_i) &= \sum_{i=1}^n(y_i-\textbf{x}_i^T\beta )=\textbf{y}-\textbf{X}\beta\\
-\intertext{Derivando respecto al vector de parámetros $\beta$:}
-\dfrac{\partial RSS (\beta)}{\partial \beta}&=-2\textbf{X}^T(\textbf{y}-\textbf{X}\beta)\\
-\intertext{Y la segunda derivada respecto de $\beta^T$: }
-\dfrac{\partial^2 RSS (\beta)}{\partial \beta \partial \beta^T} &=  -2 \textbf{X}^T\textbf{X}
-\end{align}
+\noindent Ahora podemos sea el vector de parámetros de regresión $\beta$ de tamaño $p+1$ definido como antes, entonces podemos definir el concepto de función de pérdida
+
+\begin{defi}
+Se llama \emph{función de pérdida} \cite{Hastie 2001} a una función $L(\textbf{y},\mathbf{\hat{y}})$ monótona creciente de la diferencia entre la predicción y el valor real de una variable
+\end{defi}
+
+\noindent Aunque esta definición sea más propia del aprendizaje automático, también se usa para el método de los mínimos cuadrados \cite{Abdi 2007}. 
+
+\begin{defi}
+Se llama \emph{error de predicción cuadrático} entre una variable observada, $y$ y la predicción obtenida por un cierto modelo $\hat{y}$ a la expresión $(y-\hat{y})^2$
+\end{defi}
+
+\noindent Tomando la suma de los errores cuadrados y minimizando se puede obtener una estimación  del vector de parámetros $\beta$. Utilizando las expresiones anteriores:
+\begin{equation}
+RSS(\beta)=\sum_{i=1}^n(y_i-\hat{y}_i)^2 = \sum_{i=1}^n(y_i-\textbf{x}_i\beta^T)^2=(\textbf{y}-\textbf{X}\beta^T)(\textbf{y}-\textbf{X}\beta^T)^T\\
+\end{equation}
+
+\noindent Para obtener el mínimo se debe hallar los puntos estacionarios, lo que implica calcular la derivada de la suma de residuos cuadrados respecto del vector $\beta$, y como esta es una forma cuadrática general respecto de $\beta$, entonces \cite{Morrison 1976}:
+\begin{equation}
+\dfrac{\partial RSS(\beta)}{\partial \beta}= -2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta^T)^T
+\end{equation}
+
+\noindent La segunda derivada respecto del vector de parámetro, entonces la segunda derivada es la matriz $2\mathbf{X}^T\mathbf{X}$ que es semidefinida positiva, ya que todos los valores propios son positivos o nulos. Entonces los $\beta$ en los que $-2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta^T)^T=0$ son mínimos.  
 
 \noindent Asumiendo que $\textbf{X}$ es una matriz de rango máximo, de lo contrario, habría dos columnas o más que son combinación lineal la una de la otra, la matriz $\textbf{X}^T\textbf{X}$ es definida positiva, por tanto la solución de la siguiente ecuación:
 \begin{equation}
 \textbf{X}^T(\textbf{y}-\textbf{X}\beta)=0
 \end{equation}
-Es un mínimo local de $RSS(\beta)$ , si además, $\textbf{X}^T\textbf{X}$ es una matriz invertible, entonces tiene solución única y es :
+
+\noindent Si además, $\textbf{X}^T\textbf{X}$ es una matriz invertible, entonces tiene solución única y es :
 \begin{equation}
 \hat{\beta}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
 \end{equation}
+
+\noindent Para el cálculo de este parámetro se ha utilizado lo que se conoce por el método de los mínimos cuadrados. Aún así hay otros métodos de obtención como el geométrico o el de máxima verosimilitud. 
+
+\noindent Con la siguiente proposición se puede ver la equivalencia entre los mínimos cuadrados y el de máxima verosimilitud:
+
 \begin{propo}
 Esta estimación de los parámetros $\beta$ por mínimos cuadrados es equivalente a la estimación de estos mediante el método de máxima verosimilitud.
 \begin{proof}
-Sea una muestra de tamaño $n$, $y_i, i=1,\ldots n$ de una variable aleatoria $Y$, de manera que su función de probabilidad, $\mathbb{P}_\theta(y)$ depende de los parámetros $\theta$. Entonces el método de máxima verosimilitud busca maximizar la siguiente función.
+Sea una muestra de tamaño $N$, $y_i, i=1,\ldots N$ de una variable aleatoria $Y$, de manera que su función de probabilidad, $\mathbb{P}_\theta(y)$ depende de los parámetros $\theta$. Entonces el método de máxima verosimilitud busca maximizar la siguiente función.
 \begin{equation}
 L(\theta)=\sum_{i=1}^n log( \mathbb{P}_{\theta}(y_i))
 \end{equation}
 
-\noindent Suponiendo que la variable respuesta cumple como antes que  $Y=f_\theta (\textbf{x})+\varepsilon$, donde $\varepsilon \thicksim \mathcal{N}(0,\sigma^2)$, provoca que si se suponen conocidos a priori el parámetro $\theta$ y el vector aleatorio $\textbf{x}$ entonces :
+\noindent Suponiendo que la variable respuesta cumple como antes que  $Y=f_\theta (\textbf{x})+\varepsilon$, donde $\varepsilon \thicksim N(0,\sigma^2)$, provoca que si se suponen conocidos a priori el parámetro $\theta$ y el vector aleatorio $\textbf{x}$ entonces :
 \begin{equation}
-\mathbb{P}(Y|\textbf{x},\theta)=\mathcal{N}(f_\theta(\textbf{x}), \sigma^2)
+\mathbb{P}(Y|\textbf{x},\theta)=N(f_\theta(\textbf{x}), \sigma^2)
 \end{equation}
 
 \noindent Teniendo esto en cuenta, la función $L(\theta)$ tiene la siguiente expresión:

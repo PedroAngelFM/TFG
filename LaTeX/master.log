@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  18 MAY 2023 15:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  22 MAY 2023 17:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -741,7 +741,7 @@ Package srcltx Info: Expanded filename `Documentos Extra/portada.tex' to `Docum
 entos Extra/portada.tex' on input line 85.
 :<+ Documentos Extra/portada.tex
 (Documentos Extra/portada.tex
-<Documentos Extra/Imagenes/escudo2tintas.pdf, id=163, 240.9pt x 199.74625pt>
+<Documentos Extra/Imagenes/escudo2tintas.pdf, id=147, 240.9pt x 199.74625pt>
 File: Documentos Extra/Imagenes/escudo2tintas.pdf Graphic file (type pdf)
 <use Documentos Extra/Imagenes/escudo2tintas.pdf>
 Package pdftex.def Info: Documentos Extra/Imagenes/escudo2tintas.pdf  used on i
@@ -781,7 +781,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.19 
+l.20 
       [1
 
 ])
@@ -797,36 +797,14 @@ Cap\'{\i }tulo 1.
 Package srcltx Info: Expanded filename `Documentos Extra/IntroduccionSupervisad
 os.tex' to `Documentos Extra/IntroduccionSupervisados.tex' on input line 9.
 :<+ Documentos Extra/IntroduccionSupervisados.tex
-(Documentos Extra/IntroduccionSupervisados.tex [3
+(Documentos Extra/IntroduccionSupervisados.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
-]
-LaTeX Info: Redefining \. on input line 42.
-LaTeX Info: Redefining \% on input line 42.
- [4]
-LaTeX Info: Redefining \. on input line 73.
-LaTeX Info: Redefining \% on input line 73.
- [5]
-LaTeX Info: Redefining \. on input line 115.
-LaTeX Info: Redefining \% on input line 115.
- [6]
-<Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png, id=301, 559.33969pt x 34
-4.03531pt>
-File: Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png Graphic file (type p
-ng)
-<use Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png>
-Package pdftex.def Info: Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png  
-used on input line 145.
-(pdftex.def)             Requested size: 251.70053pt x 154.81445pt.
+ []
 
+[3
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-LaTeX Info: Redefining \. on input line 147.
-LaTeX Info: Redefining \% on input line 147.
-[7]
-LaTeX Info: Redefining \. on input line 347.
-LaTeX Info: Redefining \% on input line 347.
- [8 <./Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png>])
+])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/MétodosLinealesRegres
 ion.tex' to `Documentos Extra/MétodosLinealesRegresion.tex' on input line 10.
@@ -834,25 +812,28 @@ ion.tex' to `Documentos Extra/MétodosLinealesRegresion.tex' on input line 10.
 (Documentos Extra/MétodosLinealesRegresion.tex
 LaTeX Info: Redefining \. on input line 35.
 LaTeX Info: Redefining \% on input line 35.
- [9]
-LaTeX Info: Redefining \. on input line 74.
-LaTeX Info: Redefining \% on input line 74.
- [10]
-Overfull \hbox (6.3875pt too wide) in paragraph at lines 84--85
+ [4]
+LaTeX Info: Redefining \. on input line 81.
+LaTeX Info: Redefining \% on input line 81.
+ [5]
+Overfull \hbox (6.3875pt too wide) in paragraph at lines 105--106
 []\OT1/cmr/m/n/12 Si se to-ma el es-pa-cio $\U/msb/m/n/12 R[]$ \OT1/cmr/m/n/12 
 ge-ne-ra-do por las co-lum-nas de la ma-triz de da-tos $[][]\OML/cmm/m/it/12 ; 
 [][]; [] [][]$\OT1/cmr/m/n/12 ,
  []
 
-LaTeX Info: Redefining \. on input line 116.
-LaTeX Info: Redefining \% on input line 116.
-[11]
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
- [12]
-LaTeX Info: Redefining \. on input line 195.
-LaTeX Info: Redefining \% on input line 195.
- [13])
+LaTeX Info: Redefining \. on input line 125.
+LaTeX Info: Redefining \% on input line 125.
+[6]
+LaTeX Info: Redefining \. on input line 157.
+LaTeX Info: Redefining \% on input line 157.
+ [7]
+LaTeX Info: Redefining \. on input line 203.
+LaTeX Info: Redefining \% on input line 203.
+ [8]
+LaTeX Info: Redefining \. on input line 236.
+LaTeX Info: Redefining \% on input line 236.
+ [9])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/MetodosLinealesClasifi
 cacion.tex' to `Documentos Extra/MetodosLinealesClasificacion.tex' on input lin
@@ -861,19 +842,19 @@ e 11.
 (Documentos Extra/MetodosLinealesClasificacion.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [14]
+ [10]
 LaTeX Info: Redefining \. on input line 39.
 LaTeX Info: Redefining \% on input line 39.
- [15]
+ [11]
 LaTeX Info: Redefining \. on input line 76.
 LaTeX Info: Redefining \% on input line 76.
- [16]
+ [12]
 LaTeX Info: Redefining \. on input line 113.
 LaTeX Info: Redefining \% on input line 113.
- [17]
+ [13]
 LaTeX Info: Redefining \. on input line 153.
 LaTeX Info: Redefining \% on input line 153.
- [18])
+ [14])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/Redes Neuronales.tex' 
 to `Documentos Extra/Redes Neuronales.tex' on input line 12.
@@ -881,8 +862,8 @@ to `Documentos Extra/Redes Neuronales.tex' on input line 12.
 (Documentos Extra/Redes Neuronales.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [19]
-<Documentos Extra/Imagenes/neurona.png, id=438, 443.40656pt x 237.13594pt>
+ [15]
+<Documentos Extra/Imagenes/neurona.png, id=391, 443.40656pt x 237.13594pt>
 File: Documentos Extra/Imagenes/neurona.png Graphic file (type png)
 <use Documentos Extra/Imagenes/neurona.png>
 Package pdftex.def Info: Documentos Extra/Imagenes/neurona.png  used on input l
@@ -890,8 +871,8 @@ ine 27.
 (pdftex.def)             Requested size: 266.04597pt x 142.28265pt.
 LaTeX Info: Redefining \. on input line 36.
 LaTeX Info: Redefining \% on input line 36.
- [20 <./Documentos Extra/Imagenes/neurona.png>]
-<Documentos Extra/Imagenes/red-neuronal-grande.png, id=450, 556.0775pt x 301.12
+ [16 <./Documentos Extra/Imagenes/neurona.png>]
+<Documentos Extra/Imagenes/red-neuronal-grande.png, id=404, 556.0775pt x 301.12
 5pt>
 File: Documentos Extra/Imagenes/red-neuronal-grande.png Graphic file (type png)
 
@@ -901,10 +882,10 @@ d on input line 40.
 (pdftex.def)             Requested size: 278.03807pt x 150.56212pt.
 LaTeX Info: Redefining \. on input line 69.
 LaTeX Info: Redefining \% on input line 69.
- [21 <./Documentos Extra/Imagenes/red-neuronal-grande.png>]
+ [17 <./Documentos Extra/Imagenes/red-neuronal-grande.png>]
 LaTeX Info: Redefining \. on input line 102.
 LaTeX Info: Redefining \% on input line 102.
- [22])
+ [18])
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/ArbolesRegresionClasif
 icación.tex' to `Documentos Extra/ArbolesRegresionClasificación.tex' on input
@@ -913,15 +894,15 @@ icación.tex' to `Documentos Extra/ArbolesRegresionClasificación.tex' on input
 (Documentos Extra/ArbolesRegresionClasificación.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [23]
-<Documentos Extra/Imagenes/Regiones árboles.png, id=473, 338.01282pt x 302.630
+ [19]
+<Documentos Extra/Imagenes/Regiones árboles.png, id=426, 338.01282pt x 302.630
 63pt>
 File: Documentos Extra/Imagenes/Regiones árboles.png Graphic file (type png)
 <use Documentos Extra/Imagenes/Regiones árboles.png>
 Package pdftex.def Info: Documentos Extra/Imagenes/Regiones árboles.png  used 
 on input line 12.
 (pdftex.def)             Requested size: 168.4376pt x 150.80698pt.
-<Documentos Extra/Imagenes/Diagrama de arbol.png, id=474, 287.57437pt x 279.293
+<Documentos Extra/Imagenes/Diagrama de arbol.png, id=427, 287.57437pt x 279.293
 44pt>
 File: Documentos Extra/Imagenes/Diagrama de arbol.png Graphic file (type png)
 <use Documentos Extra/Imagenes/Diagrama de arbol.png>
@@ -930,23 +911,23 @@ on input line 15.
 (pdftex.def)             Requested size: 168.4376pt x 163.59268pt.
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
- [24 <./Documentos Extra/Imagenes/Regiones árboles.png> <./Documentos Extra/Im
+ [20 <./Documentos Extra/Imagenes/Regiones árboles.png> <./Documentos Extra/Im
 agenes/Diagrama de arbol.png>]
 LaTeX Info: Redefining \. on input line 73.
 LaTeX Info: Redefining \% on input line 73.
- [25]
+ [21]
 LaTeX Info: Redefining \. on input line 104.
 LaTeX Info: Redefining \% on input line 104.
- [26]
+ [22]
 LaTeX Info: Redefining \. on input line 149.
 LaTeX Info: Redefining \% on input line 149.
- [27]
+ [23]
 LaTeX Info: Redefining \. on input line 176.
 LaTeX Info: Redefining \% on input line 176.
- [28]
+ [24]
 LaTeX Info: Redefining \. on input line 206.
 LaTeX Info: Redefining \% on input line 206.
- [29])
+ [25])
 :<-
 )
 :<-
@@ -956,33 +937,37 @@ dos no Supervisados.tex' on input line 99.
 (Métodos no Supervisados.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [30]
+ [26]
 Cap\'{\i }tulo 2.
 Package srcltx Info: Expanded filename `Documentos Extra/resumenPCA.tex' to `Do
 cumentos Extra/resumenPCA.tex' on input line 15.
 :<+ Documentos Extra/resumenPCA.tex
-(Documentos Extra/resumenPCA.tex [31
+(Documentos Extra/resumenPCA.tex [27
 
 ]
+
+LaTeX Warning: Citation `González 2015' on page 28 undefined on input line 10.
+
+
 LaTeX Info: Redefining \. on input line 44.
 LaTeX Info: Redefining \% on input line 44.
- [32]
+[28]
 LaTeX Info: Redefining \. on input line 86.
 LaTeX Info: Redefining \% on input line 86.
- [33]
+ [29]
 LaTeX Info: Redefining \. on input line 132.
 LaTeX Info: Redefining \% on input line 132.
- [34]
+ [30]
 LaTeX Info: Redefining \. on input line 169.
 LaTeX Info: Redefining \% on input line 169.
- [35]
+ [31]
 LaTeX Info: Redefining \. on input line 219.
 LaTeX Info: Redefining \% on input line 219.
- [36])
+ [32])
 :<-
 LaTeX Info: Redefining \. on input line 16.
 LaTeX Info: Redefining \% on input line 16.
-[37]
+[33]
 Package srcltx Info: Expanded filename `Documentos Extra/Análisis Factorial.te
 x' to `Documentos Extra/Análisis Factorial.tex' on input line 17.
 
@@ -990,13 +975,13 @@ x' to `Documentos Extra/Análisis Factorial.tex' on input line 17.
 (Documentos Extra/Análisis Factorial.tex
 LaTeX Info: Redefining \. on input line 33.
 LaTeX Info: Redefining \% on input line 33.
- [38]
+ [34]
 LaTeX Info: Redefining \. on input line 70.
 LaTeX Info: Redefining \% on input line 70.
- [39]
+ [35]
 LaTeX Info: Redefining \. on input line 120.
 LaTeX Info: Redefining \% on input line 120.
- [40
+ [36
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.3.
 8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1005,17 +990,17 @@ l.120 \begin{equation}
                       ]
 LaTeX Info: Redefining \. on input line 164.
 LaTeX Info: Redefining \% on input line 164.
- [41]
+ [37]
 LaTeX Info: Redefining \. on input line 201.
 LaTeX Info: Redefining \% on input line 201.
- [42]
+ [38]
 LaTeX Info: Redefining \. on input line 223.
 LaTeX Info: Redefining \% on input line 223.
- [43])
+ [39])
 :<-
 LaTeX Info: Redefining \. on input line 18.
 LaTeX Info: Redefining \% on input line 18.
-[44]
+[40]
 Package srcltx Info: Expanded filename `Documentos Extra/resumenCA.tex' to `Doc
 umentos Extra/resumenCA.tex' on input line 19.
 
@@ -1023,10 +1008,10 @@ umentos Extra/resumenCA.tex' on input line 19.
 (Documentos Extra/resumenCA.tex
 LaTeX Info: Redefining \. on input line 37.
 LaTeX Info: Redefining \% on input line 37.
- [45]
+ [41]
 LaTeX Info: Redefining \. on input line 71.
 LaTeX Info: Redefining \% on input line 71.
- [46]
+ [42]
 Overfull \hbox (5.34999pt too wide) in paragraph at lines 89--90
 [][]\OT1/cmr/bx/n/12 Definici^^Son 2.4.6. [][]\OT1/cmr/m/n/12 Se lla-ma va-ria-
 bi-li-dad o va-ria-ci^^Son intra-cluster del clus-ter $\OML/cmm/m/it/12 C[] k \
@@ -1035,18 +1020,18 @@ OT1/cmr/m/n/12 =
 
 LaTeX Info: Redefining \. on input line 109.
 LaTeX Info: Redefining \% on input line 109.
-[47])
+[43])
 :<-
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
-[48])
+[44])
 :<-
 Package srcltx Info: Expanded filename `Aplicaciones.tex' to `Aplicaciones.tex'
  on input line 101.
 :<+ Aplicaciones.tex
 (Aplicaciones.tex
 Cap\'{\i }tulo 3.
-[49
+[45
 
 ])
 :<-
@@ -1056,35 +1041,38 @@ ntos Extra/biblio.tex' on input line 103.
 (Documentos Extra/biblio.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [50]
-Underfull \hbox (badness 1215) in paragraph at lines 31--32
+ [46]
+Underfull \hbox (badness 1215) in paragraph at lines 33--34
 [][]\OT1/cmr/bx/n/12 Jain, A.K., Ri-chard, C.D., (1988) \OT1/cmr/m/it/12 Al-go-
 rithms for clus-te-ring da-ta.
  []
 
-[51
+[47
 
 ]
-LaTeX Info: Redefining \. on input line 77.
-LaTeX Info: Redefining \% on input line 77.
- [52])
+LaTeX Info: Redefining \. on input line 84.
+LaTeX Info: Redefining \% on input line 84.
+ [48])
 :<-
 LaTeX Info: Redefining \. on input line 106.
 LaTeX Info: Redefining \% on input line 106.
-[53] 
+[49] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (master.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 6D61328E7BDB5BA57B1ED45C145A4F89;9353.
+(rerunfilecheck)             Checksum: 319EE45A52E3244EBBF7E21E1FAF006B;8440.
  ) 
 Here is how much of TeX's memory you used:
- 18611 strings out of 476334
- 292974 string characters out of 5787971
+ 18583 strings out of 476334
+ 292317 string characters out of 5787971
  1868382 words of memory out of 5000000
- 38358 multiletter control sequences out of 15000+600000
+ 38354 multiletter control sequences out of 15000+600000
  527200 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,19n,79p,3251b,786s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1113,9 +1101,9 @@ fb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmtt12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmtt8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (57 pages, 852930 bytes).
+Output written on master.pdf (53 pages, 811514 bytes).
 PDF statistics:
- 938 PDF objects out of 1000 (max. 8388607)
- 326 named destinations out of 1000 (max. 500000)
- 351 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 883 PDF objects out of 1000 (max. 8388607)
+ 303 named destinations out of 1000 (max. 500000)
+ 314 words of extra memory for PDF output out of 10000 (max. 10000000)
 
