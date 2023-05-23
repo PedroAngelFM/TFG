@@ -5,34 +5,34 @@
 \contentsline {subsection}{\numberline {1.1.2}Regresión Múltiple mediante Ortogonalización sucesiva }{7}{subsection.1.1.2}%
 \contentsline {subsection}{\numberline {1.1.3}Regresión sobre varias variables}{8}{subsection.1.1.3}%
 \contentsline {subsection}{\numberline {1.1.4}Selección de subconjuntos y métodos penalizados}{9}{subsection.1.1.4}%
-\contentsline {section}{\numberline {1.2}Clasificación supervisada}{11}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Formalización}{11}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Análisis mediante Variables Canónicas discriminantes}{12}{subsection.1.2.2}%
-\contentsline {section}{\numberline {1.3}Redes Neuronales}{16}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Proyection Pursuit Regression}{17}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Red Neuronal de 2 capas }{18}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}Ajuste y uso de una Red Neuronal}{19}{subsection.1.3.3}%
-\contentsline {section}{\numberline {1.4} Árboles de Decisión y Bosques Aleatorios}{20}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Árboles de Regresión}{21}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Árboles de Clasificación}{23}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3}Bosques Aleatorios}{24}{subsection.1.4.3}%
-\contentsline {chapter}{\numberline {2}Métodos no supervisados}{27}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introducción}{27}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Análisis de Componentes Principales}{28}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Definición y cálculo de las Componentes}{28}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}PCA en matrices de datos}{30}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Reducción de la dimensionalidad}{31}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Análisis Factorial}{34}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Formalización}{34}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Unicidad del modelo }{35}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Método del Factor Principal}{37}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Método Máximo Verosímil}{39}{subsection.2.3.4}%
-\contentsline {section}{\numberline {2.4}Análisis de Clusters}{41}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Algoritmos Jerárquicos}{41}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Algoritmos Particionales}{43}{subsection.2.4.2}%
-\contentsline {chapter}{\numberline {3}Aplicación sobre datos}{45}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Clasificación de Iris}{45}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Alubias secas}{46}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Comparación regresión lineal, árboles de regresión y redes neuronales.}{46}{section.3.3}%
-\contentsline {chapter}{Bibliografía}{47}{chapter*.10}%
+\contentsline {section}{\numberline {1.2}Clasificación supervisada}{10}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Formalización}{10}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Análisis mediante Variables Canónicas discriminantes}{11}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Redes Neuronales}{15}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Proyection Pursuit Regression}{16}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Red Neuronal de 2 capas }{17}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Ajuste y uso de una Red Neuronal}{18}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4} Árboles de Decisión y Bosques Aleatorios}{19}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Árboles de Regresión}{20}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Árboles de Clasificación}{22}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Bosques Aleatorios}{23}{subsection.1.4.3}%
+\contentsline {chapter}{\numberline {2}Métodos no supervisados}{26}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducción}{26}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Análisis de Componentes Principales}{27}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Definición y cálculo de las Componentes}{27}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}PCA en matrices de datos}{29}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Reducción de la dimensionalidad}{30}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Análisis Factorial}{33}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Formalización}{33}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Unicidad del modelo }{34}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Método del Factor Principal}{36}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Método Máximo Verosímil}{38}{subsection.2.3.4}%
+\contentsline {section}{\numberline {2.4}Análisis de Clusters}{40}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Algoritmos Jerárquicos}{40}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Algoritmos Particionales}{42}{subsection.2.4.2}%
+\contentsline {chapter}{\numberline {3}Aplicación sobre datos}{44}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Clasificación de Iris}{44}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Alubias secas}{45}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Comparación regresión lineal, árboles de regresión y redes neuronales.}{45}{section.3.3}%
+\contentsline {chapter}{Bibliografía}{46}{chapter*.10}%
 \contentsfinish 

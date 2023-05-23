@@ -6,7 +6,7 @@
 \begin{equation}
 Y=f(\textbf{x})+\varepsilon
 \end{equation}
-\noindent Donde $\varepsilon$ es una variable aleatoria con $\mathbb{E}(\varepsilon)=0$ y $Var(\varepsilon)=\sigma^2$. Además supóngase que el vector de datos de entrada sigue una distribución normal multivariante $N_p(\mathbf{\mu},\mathbf{\Sigma})$ donde $\mathbf{\Sigma }$ es una matriz semidefinido positiva y simétrica \cite{Chatfield 1989}.
+\noindent Donde $\varepsilon$ es una variable aleatoria con $\mathbb{E}(\varepsilon)=0$ y $Var(\varepsilon)=\sigma^2$, habitualmente $\varepsilon \sim N(0,\sigma^2)$. Además supóngase que el vector de datos de entrada sigue una distribución normal multivariante $N_p(\mathbf{\mu},\mathbf{\Sigma})$ donde $\mathbf{\Sigma }$ es una matriz semidefinido positiva y simétrica \cite{Chatfield 1989}.
 
 
 \noindent En este tipo de métodos se supone que $f$ es una función lineal de las variables de entrada del vector aleatorio $\textbf{x}=[X_1\ldots X_p]$. De esta manera, se tiene que:  
@@ -30,9 +30,8 @@ f(\mathbf{x})= \mathbf{x}\beta^T
 
 \noindent Si en particular se quiere hacer una predicción para una nueva observación  $\mathbf{x}_0$ basta con calcular basta con calcular $f(\textbf{x}_0).$
 
-Una vez establecida la notación y los supuestos que tomaremos de ahora en adelante, hay que estimar los parámetros de regresión, para ello utilizaremos 
+\noindent Una vez establecida la notación y los supuestos que tomaremos de ahora en adelante, hay que estimar los parámetros de regresión, para ello utilizaremos distintos métodos como el método de los mínimos cuadrados o el de Máxima verosimilitud, a parte de esto, veremos las características inferenciales de los estimadores obtenidos y su interpretación geométrica. 
 
-\newpage
 \subsection{Ajuste de los parámetros por mínimos cuadrados}
 \noindent Sea una matriz de datos $\textbf{X}$ de tamaño $N\times (p+1)$ resultado de hacer $N$ observaciones de $p$ variables aleatorias y añadir a la primera componente de cada observación un 1. Sea también un vector de respuestas $\textbf{y}=[y_1,\ldots y_N]$ de tamaño $N$, resultado de observar la variable respuesta $Y$. 
 
@@ -58,27 +57,33 @@ RSS(\beta)=\sum_{i=1}^n(y_i-\hat{y}_i)^2 = \sum_{i=1}^n(y_i-\textbf{x}_i\beta^T)
 \dfrac{\partial RSS(\beta)}{\partial \beta}= -2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta^T)^T
 \end{equation}
 
-\noindent La segunda derivada respecto del vector de parámetro, entonces la segunda derivada es la matriz $2\mathbf{X}^T\mathbf{X}$ que es semidefinida positiva, ya que todos los valores propios son positivos o nulos. Entonces los puntos en los que la primera derivada 
+\noindent La segunda derivada respecto del vector de parámetro, entonces la segunda derivada es la matriz $2\mathbf{X}^T\mathbf{X}$ que es semidefinida positiva, ya que todos los valores propios son positivos o nulos. Entonces los $\beta$ en los que $-2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta^T)^T=0$ son mínimos.  
 
 \noindent Asumiendo que $\textbf{X}$ es una matriz de rango máximo, de lo contrario, habría dos columnas o más que son combinación lineal la una de la otra, la matriz $\textbf{X}^T\textbf{X}$ es definida positiva, por tanto la solución de la siguiente ecuación:
 \begin{equation}
 \textbf{X}^T(\textbf{y}-\textbf{X}\beta)=0
 \end{equation}
-Es un mínimo local de $RSS(\beta)$ , si además, $\textbf{X}^T\textbf{X}$ es una matriz invertible, entonces tiene solución única y es :
+
+\noindent Si además, $\textbf{X}^T\textbf{X}$ es una matriz invertible, entonces tiene solución única y es :
 \begin{equation}
 \hat{\beta}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
 \end{equation}
+
+\noindent Para el cálculo de este parámetro se ha utilizado lo que se conoce por el método de los mínimos cuadrados. Aún así hay otros métodos de obtención como el geométrico o el de máxima verosimilitud. 
+
+\noindent Con la siguiente proposición se puede ver la equivalencia entre los mínimos cuadrados y el de máxima verosimilitud:
+
 \begin{propo}
 Esta estimación de los parámetros $\beta$ por mínimos cuadrados es equivalente a la estimación de estos mediante el método de máxima verosimilitud.
 \begin{proof}
-Sea una muestra de tamaño $n$, $y_i, i=1,\ldots n$ de una variable aleatoria $Y$, de manera que su función de probabilidad, $\mathbb{P}_\theta(y)$ depende de los parámetros $\theta$. Entonces el método de máxima verosimilitud busca maximizar la siguiente función.
+Sea una muestra de tamaño $N$, $y_i, i=1,\ldots N$ de una variable aleatoria $Y$, de manera que su función de probabilidad, $\mathbb{P}_\theta(y)$ depende de los parámetros $\theta$. Entonces el método de máxima verosimilitud busca maximizar la siguiente función.
 \begin{equation}
 L(\theta)=\sum_{i=1}^n log( \mathbb{P}_{\theta}(y_i))
 \end{equation}
 
-\noindent Suponiendo que la variable respuesta cumple como antes que  $Y=f_\theta (\textbf{x})+\varepsilon$, donde $\varepsilon \thicksim \mathcal{N}(0,\sigma^2)$, provoca que si se suponen conocidos a priori el parámetro $\theta$ y el vector aleatorio $\textbf{x}$ entonces :
+\noindent Suponiendo que la variable respuesta cumple como antes que  $Y=f_\theta (\textbf{x})+\varepsilon$, donde $\varepsilon \thicksim N(0,\sigma^2)$, provoca que si se suponen conocidos a priori el parámetro $\theta$ y el vector aleatorio $\textbf{x}$ entonces :
 \begin{equation}
-\mathbb{P}(Y|\textbf{x},\theta)=\mathcal{N}(f_\theta(\textbf{x}), \sigma^2)
+\mathbb{P}(Y|\textbf{x},\theta)=N(f_\theta(\textbf{x}), \sigma^2)
 \end{equation}
 
 \noindent Teniendo esto en cuenta, la función $L(\theta)$ tiene la siguiente expresión:
@@ -100,45 +105,43 @@ Las estimaciones para cualquier $f_{\theta}$ obtenidas por el método de los mí
 
 \subsection*{Inferencias Estadísticas sobre $\hat{\beta}$}
 
-\noindent Sean las observaciones $y_i$ no correlacionadas y con varianza constante $\sigma^2$, sean los $\textbf{x}_i$ no aleatorios ya conocidos, entonces:
+\noindent En esta parte se estudian las propiedades de los estimadores obtenidos mediante el método de los mínimos cuadrados. 
+
+\noindent Para empezar supóngase como antes que el vector $\mathbf{X}$ sigue una distribución normal multivariante con $p$ variables independientes entre ellas. Además supóngase que  la matriz de datos cumple que $\mathbf{X^T X}$ es semidefinido positiva y conocida. 
+
+\begin{propo}
+El estimador $\hat{\beta}$ es un estimador insesgado \cite{Greene 2008}
+\begin{proof}
+Teniendo en cuenta las anteriores hipótesis anteriores, incluyendo que la variable respuesta es $\mathbf{y}=\mathbf{X\beta^T}+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2)$. 
+
+\noindent De esta manera, se obtiene que $\hat{\beta}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T(\mathbf{X}\beta^T+\varepsilon)=\beta+(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon$
+
+\noindent Entonces, se tiene que conocida $\mathbf{X} \Rightarrow \mathbb{E}(\hat{\beta}|\mathbf{X})=\mathbb{E}(\beta+(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon|\mathbf{X})=\beta +\mathbb{E}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon|X)=\beta$ debido a la distribución de $\varepsilon$
+
+\noindent Por tanto como $\mathbb{E}(\mathbb{E}(\hat{\beta}|\mathbf{X}))=\mathbb{E}(\beta)=\beta$
+\end{proof}
+\end{propo}
+
+\begin{propo}
+La varianza del estimador $Var(\hat{\beta})= \sigma^2 (\mathbf{X}^T \mathbf{X})^{-1}$\cite{Hastie 2001},\cite{Greene 2008}
+\begin{proof}
 \begin{equation}
-Var(\hat{\beta})=(\textbf{X}^T\textbf{X})^{-1} \sigma^2
+\begin{split}
+Var(\hat{\beta})&=\mathbb{E}((\mathbf{X}^T \mathbf{X})^{-1}\mathbf{X}^T \varepsilon \varepsilon\mathbf{X}(\mathbf{X}^T \mathbf{X})^{-1}|X)\\
+&=\mathbb{E}(\varepsilon^2) (\mathbf{X}^T \mathbf{X})^{-1}(\mathbf{X}^T \mathbf{X})(\mathbf{X}^T \mathbf{X})^{-1} \\
+&=\sigma^2 (\mathbf{X}^T \mathbf{X})^{-1}
+\end{split}
 \end{equation}
+\end{proof}
+\end{propo}
 
-\noindent Supóngase además que se sabe que el modelo lineal es correcto, de esta manera se tiene que la media condicional es lineal y tendremos que los datos son de la forma:
+\noindent Por último, tenemos que el parámetro de estimadores $\hat{\beta}= \beta+(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon$, es una combinación afín de $\varepsilon$ una variable con distribución por tanto, tendremos que cada uno de los componentes del vector $\hat{\beta},\hat{\beta}_j\sim N(\beta_j, \sigma^2(\mathbf{X^TX}_{jj}^{-1})) j=1\ldots p$ donde $(\mathbf{X^TX}_{jj}^{-1})$ es el j-ésimo elemento de la diagonal de la matriz $(\mathbf{X}^T\mathbf{X})^{-1}$.
+
+\noindent Esto nos permite establecer estadígrafos de contraste. Por ejemplo se puede plantear la siguiente hipótesis nula:
 \begin{equation}
-Y=\beta_0+\sum_{j=1}^p X_j\beta_j + \varepsilon
+H_0: \beta_j=0
 \end{equation}
-\noindent Teniendo en cuenta las propiedades de $\varepsilon$ que se asumían al tomar un modelo aditivo.
- 
-\noindent Un estimador insesgado que se puede dar de la varianza $\sigma^2$ es el siguiente:
-\begin{align}
-\hat{\sigma}^2 = \dfrac{1}{n-p-1}&\sum_{i=1}^n(y_i-\hat{y}_i)^2\\
-\intertext{Por tanto la distribución de este estimador es:}
-(n-p-1)\hat{\sigma}^2&\thicksim \sigma^2 \chi_{n-p-1}^2
-\end{align}
-
-\noindent Teniendo que el vector de parámetros estimados es un estimador insesgado tendrá una distribución $\hat{\beta}\thicksim \mathcal{N}(\beta, (\textbf{X}^T\textbf{X})^{-1}\sigma^2)$.\\
-Teniendo en cuenta lo anterior, la construcción del siguiente estadígrafo de contraste para el parámetro estimado $\hat{\beta}_j$ es relativamente sencilla:
-\begin{equation}
-z_j=\dfrac{\hat{\beta}_j}{\hat{\sigma}\sqrt{v_j}}\thicksim t_{n-p-1}
-\end{equation}
-\noindent Donde $v_j$ es el elemento $j$-ésimo de la matriz $(\textbf{X}^T\textbf{X})^{-1}$. Por tanto, podemos generar un intervalo de confianza a un nivel de confianza de $1-2\alpha$
-\begin{align}
-(\hat{\beta}_j-z^{(1-\alpha)}v_j\hat{\sigma}&,\hat{\beta}_j+z^{(1-\alpha)}v_j\hat{\sigma})
-\intertext{Esto permite hacer un conjunto de confianza para el vector de parámetros $\beta$}
-C_{\beta}=\lbrace \beta| (\hat{\beta}-\beta)^T \textbf{X}^T\textbf{X}&(\hat{\beta}-\beta)\leq \hat{\sigma}^2 \chi_{p+1}^{2\quad (1-\alpha)}\rbrace
-\end{align}
-
-\noindent Otro contraste que se puede realizar es comprobar si un subconjunto de variables es más significativo estadísticamente que otro, de manera que se pueda eliminar variables que no aporten información en pos de la sencillez del modelo y su posterior interpretación. 
-
-\noindent Sea $p_1+1$ el número del conjunto más grande de parámetros y $RSS_1$ su error cuadrático respectivo, sean respectivamente $RSS_0$ y $p_0+1$ para el segundo conjunto o subconjunto menor entonces el estadigráfo:
-\begin{equation}\label{ec.F}
-F=\dfrac{\dfrac{(RSS_0-RSS_1)}{p_1-p_0}}{\dfrac{RSS_1}{N-p_1-1}} \thicksim F_{(p_1-p_0),(N-p_1-1)}
-\end{equation}
-
-\noindent Este estadígrafo mide si la diferencia entre los errores cuadráticos es lo suficientemente grande para que hacer el cambio de $p_1$ a $p_0$ parámetros sea útil. 
-
+\noindent De esta manera, se puede 
 \subsection{Regresión Múltiple mediante Ortogonalización sucesiva }
 
 \noindent Otra manera de afrontar el problema de ajuste es hacerlo de una manera geométrica, se busca un subespacio que se ajuste lo mejor posible a un vector de respuestas, en particular, se buscan proyecciones ortogonales del vector respuesta o del subespacio respuesta en el subespacio de los datos. 
