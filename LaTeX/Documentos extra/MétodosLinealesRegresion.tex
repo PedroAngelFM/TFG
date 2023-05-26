@@ -32,7 +32,7 @@ f(\mathbf{x})= \mathbf{x}\beta^T
 
 \noindent Una vez establecida la notación y los supuestos que tomaremos de ahora en adelante, hay que estimar los parámetros de regresión, para ello utilizaremos distintos métodos como el método de los mínimos cuadrados o el de Máxima verosimilitud, a parte de esto, veremos las características inferenciales de los estimadores obtenidos y su interpretación geométrica. 
 
-\subsection{Ajuste de los parámetros por mínimos cuadrados}
+\subsection{Métodos de ajuste}
 \noindent Sea una matriz de datos $\textbf{X}$ de tamaño $N\times (p+1)$ resultado de hacer $N$ observaciones de $p$ variables aleatorias y añadir a la primera componente de cada observación un 1. Sea también un vector de respuestas $\textbf{y}=[y_1,\ldots y_N]$ de tamaño $N$, resultado de observar la variable respuesta $Y$. 
 
 \noindent Ahora podemos sea el vector de parámetros de regresión $\beta$ de tamaño $p+1$ definido como antes, entonces podemos definir el concepto de función de pérdida
@@ -61,7 +61,7 @@ RSS(\beta)=\sum_{i=1}^n(y_i-\hat{y}_i)^2 = \sum_{i=1}^n(y_i-\textbf{x}_i\beta^T)
 
 \noindent Asumiendo que $\textbf{X}$ es una matriz de rango máximo, de lo contrario, habría dos columnas o más que son combinación lineal la una de la otra, la matriz $\textbf{X}^T\textbf{X}$ es definida positiva, por tanto la solución de la siguiente ecuación:
 \begin{equation}
-\textbf{X}^T(\textbf{y}-\textbf{X}\beta)=0
+\textbf{X}^T(\textbf{y}-\textbf{X}\beta^T)=0
 \end{equation}
 
 \noindent Si además, $\textbf{X}^T\textbf{X}$ es una matriz invertible, entonces tiene solución única y es :
@@ -96,19 +96,19 @@ Por tanto, teniendo en cuenta que el último término es $RSS(\theta)$, entonces
 \begin{coro}
 Las estimaciones para cualquier $f_{\theta}$ obtenidas por el método de los mínimos cuadrados son equivalentes a las del método de máxima verosimilitud.  
 \end{coro}
-\noindent Por tanto, los valores predichos $\hat{\textbf{y}}$ se calculan de la siguiente manera:
+\noindent Por tanto, los valores predichos observados $\hat{\textbf{y}}$ se calculan de la siguiente manera:
 \begin{equation}
 \hat{\textbf{y}}=\textbf{X}\hat{\beta}=\textbf{X}^T(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
 \end{equation}
 
-\noindent Si se toma el espacio $\mathbb{R}^n$ generado por las columnas de la matriz de datos $\textbf{x}_0,\textbf{x}_1,\ldots \textbf{x}_p$, entonces $\hat{\textbf{y}}$ es tal que $\textbf{y}-\hat{\textbf{y}}$ es ortogonal a ese subespacio. 
+\noindent De esta manera, se está calculando la predicción de la respuesta $\hat{y}_i$ para cada una de las observaciones $\mathbf{x}_i, i =1, \ldots N$. 
 
-\subsection{Regresión Múltiple mediante Ortogonalización sucesiva }
+\noindent Otra forma de afrontar el ajuste del modelo desde el punto de vista del algebra lineal. Esto se puede hacer mediante proyecciones ortogonales, tomando el subespacio de $\mathbb{R}^N$ generado por las columnas de la matriz de datos.
 
-\noindent Otra forma de afrontar el ajuste del modelo desde el punto de vista del algebra lineal. 
+\noindent En lo sucesivo se considera a no ser que se diga lo contrario que $N>p+1$ y que la matriz de datos $\mathbf{X}$ es de rango máximo, $p+1$. 
 
 \begin{defi}
-Llamamos $C_{p+1}(\mathbf{X})$ al subespacio lineal de $\mathbb{R}^{N}$ generado por las columnas de la matriz $\mathbf{X}$
+Se llama  $C_{p+1}(\mathbf{X})$ al subespacio lineal de $\mathbb{R}^{N}$ generado por las columnas de la matriz $\mathbf{X}$ \cite{Cuadras 2014}.
 \end{defi}
 \begin{propo}
 El vector $\hat{\mathbf{e}}=\mathbf{y}-\mathbf{X\hat{\beta}^T}$ es ortogonal al subespacio $C_{p+1}(\mathbf{X})$.
@@ -127,7 +127,7 @@ Premultiplicando por $\mathbf{X}$:
 
 \noindent En esta parte se estudian las propiedades de los estimadores obtenidos mediante el método de los mínimos cuadrados. 
 
-\noindent Hay que tener en cuenta los siguientes supuestos el vector $\mathbf{x}\sim N_p(\mu, \mathbf{\Sigma})$ una distribución multivariante de dimensión $p$, del cual tomamos $N$ observaciones independientes obteniendo la matriz de datos $\mathbf{X}$ que a no ser que se diga lo contrario se supondrá conocida.   Además, supóngase el vector de $N$ observaciones de la variable respuesta sigue el siguiente modelo $\mathbf{y}= \mathbf{X \beta}^T+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2\mathbf{I})$,es un vector de longitud $N$ en el que cada componente es una normal $N(0,\sigma^2)$  independientes entre sí. Esto nos permite dar la siguiente proposición \cite{Cuadras 2014}
+\noindent Hay que tener en cuenta los siguientes supuestos el vector $\mathbf{x}\sim N_p(\mu, \mathbf{\Sigma})$ una distribución multivariante de dimensión $p$, del cual tomamos $N$ observaciones independientes obteniendo la matriz de datos $\mathbf{X}$, que a no ser que se diga lo contrario, se supondrá conocida. Además, supóngase el vector de $N$ observaciones de la variable respuesta sigue el siguiente modelo $\mathbf{y}= \mathbf{X \beta}^T+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2\mathbf{I}_N)$,es un vector de longitud $N$ en el que cada componente es una normal $N(0,\sigma^2)$  independientes entre sí. Esto nos permite dar la siguiente proposición \cite{Cuadras 2014}
 \begin{propo}
 El vector aleatorio formado por $N$ observaciones de la variable respuesta conocida la matriz de datos y el vector de parámetros $\beta$ sigue una distribución
 $\mathbf{y}\sim N_N(\mathbf{X\beta}^T, \sigma^2\mathbf{I}_N)$, donde $\mathbf{I}_N$ es la matriz identidad de tamaño $N$.  
@@ -179,7 +179,7 @@ Var(\hat{\beta})&=\mathbb{E}((\mathbf{X}^T \mathbf{X})^{-1}\mathbf{X}^T \varepsi
 
 \noindent Si el parámetro $\sigma^2$ fuera conocido, entonces se podría llevar a cabo los contrastes de manera sencilla. En este caso, $z_j=\dfrac{\hat{\beta}_j}{\sigma \sqrt{v_j}}\sim N(0,1)$
 
-\noindent Para poder hacer los estadígrafos de contrastes se debe construir un estimador de esta varianza, ya habitualmente no es conocida. Para ello \emph{Hastie et. al.} proponen el siguiente estimador de la varianza, suponiendo que unicamente hay una variable respuesta: 
+\noindent Para poder hacer los estadígrafos de contrastes se debe construir un estimador de esta varianza, ya que habitualmente no es conocida. Para ello \emph{Hastie et. al.} proponen el siguiente estimador de la varianza, suponiendo que unicamente hay una variable respuesta: 
 \begin{equation}
 \hat{\sigma}^2=\dfrac{1}{N-p-1}\sum_{i=1}^N (y_i-\hat{y}_i)^2 
 \end{equation} 
@@ -192,18 +192,59 @@ El estimador $\hat{\sigma}^2$ cumple lo siguiente :
 \item  $\hat{\sigma}^2 \sim \frac{\sigma^2}{N-p-1}\chi_{N-p-1}^2 $
 \end{itemize}
 \begin{proof}
-\noindent Sea $\lbrace t_{1}\ldots t_{p+1}, t_{p+2}, \ldots t_{N}\rbrace$ una base ortogonal del espacio $\mathbb{R}^N$ dentro de los cuales $t_{1},\ldots t_{p+1}$ es base de $C_{p+1}(\mathbf{X})$, de tal manera que los últimos $N-p-1$ vectores son ortogonales a la $C_{p+1}(\mathbf{X})$. Por tanto si tomamos la matriz de cambio de base $\mathbf{T}$ con los vectores $\lbrace t_{1}\ldots t_{p+1}, t_{p+2}, \ldots t_{N}\rbrace$ como vectores. 
+\noindent Sea $\lbrace t_{1}\ldots t_{p+1}, t_{p+2}, \ldots t_{N}\rbrace$ una base ortogonal del espacio $\mathbb{R}^N$ dentro de los cuales $t_{1},\ldots t_{p+1}$ es base de $C_{p+1}(\mathbf{X})$, de tal manera que los últimos $N-p-1$ vectores son ortogonales a la $C_{p+1}(\mathbf{X})$. Por tanto si tomamos la matriz de cambio de base $\mathbf{T}$ con los vectores $\lbrace t_{1}\ldots t_{p+1}, t_{p+2}, \ldots t_{N}\rbrace$ como columnas. 
 
-\noindent Sea $\mathbf{z}=\mathbf{T}^T \mathbf{y}$ de esta manera, tendremos que $z=()$
+\noindent Sea el cambio de base $\mathbf{z}=\mathbf{T} \mathbf{y}\Rightarrow \mathbb{E}(z_i)=t_i^T \mathbf{X}\beta^T=0 $ cuando $i\geq p+1$ Por ello, cambiando de base el vector $\hat{\mathbf{e}}\Rightarrow \mathbf{T}\hat{\mathbf{e}}=(\overbrace{0\ldots 0}^{p+1},z_{p+2},\ldots z_{N})^T$.
 
+\noindent La esperanza de $\mathbb{E}(\hat{\mathbf{e}})=\mathbb{E}(\mathbf{T}\hat{\mathbf{e}})=0$ De esta manera, se obtiene lo siguiente:
+\begin{equation}
+\mathbb{E}(\hat{\mathbf{e}}^T\hat{\mathbf{e}})=\mathbb{E}(\hat{\mathbf{e}}^T \mathbf{T^T T}\hat{\mathbf{e}})=\sum_{i=p+2}^N\mathbb{E}(z_i^2)=
+\end{equation}
+
+\noindent De esta manera, como $\sum_{i=1}^N(y_i-\hat{y}_i)^2=\hat{\mathbf{e}}^T\hat{\mathbf{e}}= \hat{\mathbf{e}}^T \mathbf{T^T T} \hat{\mathbf{e}}=\sum_{i=p+2}^N z_i$ entonces el estimador:
+\begin{equation}
+\hat{\sigma}^2=\dfrac{1}{N-p-1}\sum_{i=p+2}^N z_i^2=\dfrac{1}{N-p-1}\hat{\mathbf{e}}^T\hat{\mathbf{e}}
+\end{equation}
+
+\noindent Tomando esperanzas se obtiene que efectivamente el estimador es insesgado. 
+Por tanto, tenemos un estimador insesgado que es suma de $N-p-1$ normales estándar multiplicadas por $\sigma^2$ y dividas entre $N-p-1$, por tanto, tenemos que además $\hat{\sigma}^2\sim \dfrac{\sigma^2}{N-p-1}\chi_{N-p-1}$
 \end{proof}
 \end{propo}
 
+\noindent Por tanto, ahora ya podemos establecer, conocidas las distribuciones de los estimadores construidos que \cite{Greene 2008}, \cite{Hastie 2001}:
+\begin{equation}
+t_j=\dfrac{\hat{\beta}_j}{\hat{\sigma}^2\sqrt{v_j}}, j=1,\ldots ,p+1 \sim t_{N-p-1}
+\end{equation}
+
+\noindent Donde $v_j$ es como antes el $j-$ésimo elemento de la diagonal de $\mathbf{X}^T \mathbf{X}$
+
+\noindent Conocer la distribución de los estimadores permite realizar contrastes sobre los distintos parámetros. De manera habitual, se plantea la hipótesis nula $H_0: \beta_j=0 $. Esta hipótesis busca comprobar si la variable $X_j$ es importante en el modelo lineal. En caso de que se acepte la hipótesis esa variable puede ser eliminada del modelo. 
 
 
+\noindent Teniendo en cuenta esto,  hay ocasiones en las que se desea comprobar si un subconjunto de variables es más significativo estadísticamente que otro, de manera que se pueda eliminar variables que no aporten información en pos de la sencillez del modelo y su posterior interpretación. 
 
+\noindent Sea $p_1+1$ el número del conjunto más grande de parámetros o de variables a considerar y $RSS_1$ su error cuadrático respectivo, sean respectivamente $RSS_0$ y $p_0+1$ para el segundo conjunto o subconjunto menor, si además contamos que :
+\begin{equation}
+\frac{RSS(\hat{\beta})}{N-p-1}=\frac{1}{N-p-1}\sum_{i=1}^N(y_i-\hat{y}_i)^2\sim \sigma^2 \chi_{N-p-1}
+\end{equation}
 
+\noindent Se puede definir el estadígrafo: 
+\begin{equation}\label{ec.F}
+F=\dfrac{\dfrac{(RSS_0-RSS_1)}{p_1-p_0}}{\dfrac{RSS_1}{N-p_1-1}} 
+\end{equation}
 
+\noindent Que cumple: 
+\begin{propo}
+El estadígrafo $F\thicksim F_{(p_1-p_0),(N-p_1-1)}$
+\begin{proof}
+Teniendo en cuenta lo anterior, se puede comprobar que:
+\begin{equation}
+F\sim \dfrac{\chi^2_{p_1-p_0}}{\chi^2_{N-p_1-1}}=F_{(p_1-p_0),(N-p_1-1)}\qedhere
+\end{equation}
+\end{proof}
+\end{propo}
+
+\noindent Este estadígrafo se referencia en secciones sucesivas con el objetivo de reducir las variables involucradas en la regresión.
 
 \subsection{Regresión multivariante}
 \noindent Hasta ahora, se ha considerado una única variable aleatoria respuesta, sea \textbf{y} el vector aleatorio de variables respuesta $\textbf{y}=[Y_1,\ldots, Y_K]$ y un vector aleatorio de variables de entrada $\textbf{x}^T=[X_0, X_1,\ldots, X_p]$. Se puede establecer el siguiente modelo análogo, donde :
@@ -245,16 +286,18 @@ Esta reducción de características a considerar permite hacer mucho más interp
 
 \noindent Se podría seguir un método exhaustivo que calcule cada uno de los subconjuntos posibles para cada número de variables que creamos necesarias y calcular el error cuadrático acumulado de cada uno de los subconjuntos posibles. Pero este método es de una complejidad computacional alta. 
 
-\noindent Otra posibilidad sería utilizar el estadígrafo de contraste $F$ definido en la Ecuación \eqref{ec.F} empezando con una sola variable e ir añadiendo cada variable que mejore el ajuste. También se puede hacer al revés, empezando con el modelo con todas las variables e ir reduciendo la cantidad de estas. 
+\noindent Otra posibilidad sería utilizar el estadígrafo de contraste $F$ definido en la Ecuación \eqref{ec.F} empezando con una sola variable e ir añadiendo cada variable que mejore el ajuste. También se puede hacer al revés, empezando con el modelo con todas las variables e ir reduciendo la cantidad de estas. A estos algoritmo se les llaman \emph{algoritmos voraces} los cuales buscan una solución óptima en cada paso y no en global. 
 
 \noindent El problema de estos métodos de selección de variables es que es un proceso discreto, una variable es o no considerada para el modelo siguiente y esto puede generar sobreajuste o infraajuste, no habiendo un término medio. 
 
-\noindent Para ello, existen los métodos penalizados o de encogimiento, que añaden un término de penalización para que los parámetros $\beta$ no sean muy grandes, en el caso del ajuste por mínimos cuadrados del modelo lineal. 
+\noindent Para ello, existen los métodos penalizados o de encogimiento, que añaden un término de penalización para que los parámetros $\beta$ no sean muy grandes.
 
+\begin{defi} 
+Llamamos \emph{Errores Cuadrados Acumulados Penalizados, PRSS,} a la suma de los cuadrados de los errores cometidos con el modelo lineal que usa el  vector de parámetros $\beta$, añadiendo un término regulador $\lambda >0$: 
 \begin{equation}
 PRSS(\beta)=\sum_{i=1}^n(\textbf{y}_i-\textbf{x}_i^T\beta)^2+\lambda\sum_{j=1}^p\beta_j^2
 \end{equation}
-
+\end{defi}
 \noindent El último término hace que parámetros $\beta_j$ grandes sean considerados perjudiciales, y el parámetro $\lambda$ es una forma de regular cuanta importancia tiene dicha penalización, cuanto mayor sea, este provocará un encogimiento mayor de los parámetros. 
 De esta manera, se tiene una forma continua de considerar los pesos no eliminando en de manera total las variables o haciendo el $\beta_j$ correspondiente cercano a 0. 
 
