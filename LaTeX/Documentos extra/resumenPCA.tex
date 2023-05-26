@@ -1,24 +1,23 @@
 \newpage
 \section{Análisis de Componentes Principales}
 
-\noindent El Análisis de componentes principales fue en primera instancia, desarrollado a principios del siglo XX por el estadístico Pearson (1901). Fue una de las primeras técnicas de análisis multivariante. Como muchos otros métodos de este tipo no tuvo un verdadero desarrollo y expansión hasta que la capacidad de computación fue suficiente para manejar cantidades de datos considerables. 
+\noindent El Análisis de componentes principales fue en primera instancia, desarrollado a principios del siglo XX por el estadístico Pearson (1901) aunque fue en 1936 cuando Eckart y Young dierom. Fue una de las primeras técnicas de análisis multivariante. Como muchos otros métodos de este tipo no tuvo un verdadero desarrollo y expansión hasta que la capacidad de computación fue suficiente para manejar cantidades de datos considerables. 
 
 \noindent El Análisis de Componentes Principales, es una de las técnicas que exploran la matriz de covarianzas $\mathbf{\Sigma}$. De esta manera, se persiguen dos objetivos, la reducción del tamaño de los datos con la mínima pérdida de información y la mejora de la interpretabilidad de los mismos. 
 
-\noindent Normalmente, el \emph{Análisis de Componentes Principales} es un método intermedio que ayuda a facilitar la aplicación de otros muchos como puede ser el \emph{Análisis de Clusters} o la \emph{Regresión Múltiple}. 
+\noindent El Análisis de componentes principales de manera habitual se utiliza con el objetivo de representar los datos en un gráfico de dimensión menor que $p$, de esta manera
 
-\noindent En esta sección se siguen los  cálculos de las componentes de \emph{Chatfield,C y Collins A.J} \cite{Chatfield 1989}, se toman definiciones de \emph{Cuadras C.M.}\cite{Cuadras 2014} y  algunos resultados de \emph{Jollife I.T}  \cite{Jollife 1986}. Por último, para facilitar la comprensión se ha utilizado \emph{González García, N., y  Taborda Londoño, A.}\cite{González 2015} 
-
+\noindent En esta sección se siguen los  cálculos de las componentes de  \cite{Chatfield 1989}, se toman definiciones de \cite{Cuadras 2014} y  algunos resultados de \cite{Jollife 1986}. Por último, para facilitar la comprensión se ha utilizado 
 \subsection{Definición y cálculo de las Componentes}
 
 \noindent Sea un vector aleatorio $\textbf{x}^T=[X_1,\ldots X_p]$ con vector de medias $\mu$ y matriz de covarianzas $\mathbf{\Sigma}$.
 \begin{defi}
-\emph{Cuadras C.M.} \cite{Cuadras 2014}las componentes principales son combinaciones lineales de las variables $X_1 \ldots X_p$
+\emph{Cuadras C.M.} \cite{Cuadras 2014}las componentes principales $\mathbf{z}_j$ son combinaciones lineales del vector aleatorio $\mathbf{x}= X_1 \ldots X_p$
 \begin{equation}
-\textbf{z}_j=a_{1j}X_1+\ldots a_{pj}X_p=\textbf{a}_j^T\textbf{x}\quad 
+\textbf{z}_j=v_{1j}X_1+\ldots v_{pj}X_p=\textbf{v}_j^T\textbf{x}\quad j=1\ldots p 
 \end{equation}
 
-\noindent Donde $\textbf{a}_j$ es un vector de constantes y la variable $\textbf{z}_j$ cumple lo siguiente:
+\noindent Donde $\textbf{v}_j$ es un vector de escalares y la variable $\textbf{z}_j$ cumple lo siguiente:
 \begin{itemize}
 \item Si $j=1$ $Var(\textbf{z}_1)$ es máxima restringido a $\textbf{a}_1^T \textbf{a}_1=1$
 \item Si $j>1$ debe cumplir:
@@ -107,7 +106,7 @@ Que al multiplicar todo por $\textbf{a}_1^T$ resulta que $\phi=0$. De esta maner
 \end{equation}
 \noindent Se deduce rápidamente que la matriz $\textbf{A}$ es ortonormal, de manera que $\textbf{A}^T\textbf{A}=\textbf{I}$
 
-\subsection{PCA en matrices de datos}
+\subsection{PCA muestral}
 
 \noindent Sea \textbf{x} el vector aleatorio de longitud $p$, tomando $n$ observaciones de ese vector se obtienen $\textbf{x}_1\ldots \textbf{x}_n$.
 Esta recopilación de observaciones nos permite construir la matriz de datos $\textbf{X}$ cuyas filas son cada una de las observaciones. Esta matriz \textbf{X} es de tamaño $n\times p$. 
@@ -139,7 +138,7 @@ Es decir el factor $\widetilde{z}_{ij}$ es la transformación de la observación
 \end{equation}
 Donde $\overline{x}_j$ es la media muestral de la $j$-ésima variable. Esto hace que $\textbf{S}=\frac{1}{n-1}\textbf{X}^T\textbf{X}$. Esto permite hablar de los valores y vectores propios de \textbf{S} y de $\textbf{X}^T \textbf{X}$ indistintamente, ya que los vectores propios son los mismos y los valores propios son proporcionales. 
 
-\subsection{Reducción de la dimensionalidad}
+\subsection{Reconstrucción de los datos}
 
 \noindent Uno de los objetivos de las componentes principales es reducir la dimensionalidad de la matriz de datos de tamaño $n\times p$, \textbf{X}. Esta matriz de datos se puede interpretar como un conjunto de puntos del espacio $\mathbb{R}^p$. 
 

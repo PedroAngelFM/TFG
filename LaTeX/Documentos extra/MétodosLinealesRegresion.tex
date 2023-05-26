@@ -103,16 +103,56 @@ Las estimaciones para cualquier $f_{\theta}$ obtenidas por el método de los mí
 
 \noindent Si se toma el espacio $\mathbb{R}^n$ generado por las columnas de la matriz de datos $\textbf{x}_0,\textbf{x}_1,\ldots \textbf{x}_p$, entonces $\hat{\textbf{y}}$ es tal que $\textbf{y}-\hat{\textbf{y}}$ es ortogonal a ese subespacio. 
 
-\subsection*{Inferencias Estadísticas sobre $\hat{\beta}$}
+\subsection{Regresión Múltiple mediante Ortogonalización sucesiva }
+
+\noindent Otra forma de afrontar el ajuste del modelo desde el punto de vista del algebra lineal. 
+
+\begin{defi}
+Llamamos $C_{p+1}(\mathbf{X})$ al subespacio lineal de $\mathbb{R}^{N}$ generado por las columnas de la matriz $\mathbf{X}$
+\end{defi}
+\begin{propo}
+El vector $\hat{\mathbf{e}}=\mathbf{y}-\mathbf{X\hat{\beta}^T}$ es ortogonal al subespacio $C_{p+1}(\mathbf{X})$.
+\begin{proof}
+Premultiplicando por $\mathbf{X}$:
+\begin{equation}
+\begin{split}
+\mathbf{X\hat{\mathbf{e}}}^T=\mathbf{X}(\mathbf{y-X}\beta^T)^T=\mathbf{Xy}^T-\mathbf{X^T X}\beta=0
+\end{split}
+\end{equation}
+\end{proof}
+\end{propo}
+
+
+\subsection{Inferencias Estadísticas sobre $\hat{\beta}$}
 
 \noindent En esta parte se estudian las propiedades de los estimadores obtenidos mediante el método de los mínimos cuadrados. 
 
-\noindent Para empezar supóngase como antes que el vector $\mathbf{X}$ sigue una distribución normal multivariante con $p$ variables independientes entre ellas. Además supóngase que  la matriz de datos cumple que $\mathbf{X^T X}$ es semidefinido positiva y conocida. 
-
+\noindent Hay que tener en cuenta los siguientes supuestos el vector $\mathbf{x}\sim N_p(\mu, \mathbf{\Sigma})$ una distribución multivariante de dimensión $p$, del cual tomamos $N$ observaciones independientes obteniendo la matriz de datos $\mathbf{X}$ que a no ser que se diga lo contrario se supondrá conocida.   Además, supóngase el vector de $N$ observaciones de la variable respuesta sigue el siguiente modelo $\mathbf{y}= \mathbf{X \beta}^T+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2\mathbf{I})$,es un vector de longitud $N$ en el que cada componente es una normal $N(0,\sigma^2)$  independientes entre sí. Esto nos permite dar la siguiente proposición \cite{Cuadras 2014}
+\begin{propo}
+El vector aleatorio formado por $N$ observaciones de la variable respuesta conocida la matriz de datos y el vector de parámetros $\beta$ sigue una distribución
+$\mathbf{y}\sim N_N(\mathbf{X\beta}^T, \sigma^2\mathbf{I}_N)$, donde $\mathbf{I}_N$ es la matriz identidad de tamaño $N$.  
+\begin{proof}
+Basta con comprobar que:
+\begin{equation}
+\mathbb{E}(\mathbf{y})=\mathbb{E}(\mathbf{X\beta}^T)+\mathbb{E}(\varepsilon)=\mathbb{E}(\mathbf{X\beta}^T)=\mathbf{X\beta}^T
+\end{equation}
+Y la varianza :
+\begin{equation}
+\begin{split}
+\mathbb{E}(\mathbf{X\beta}^T+\varepsilon)(\mathbf{X\beta}^T+\varepsilon)^T)=\mathbf{X\beta}^T\mathbf{\beta X}^T+ Var(\varepsilon
+)\\
+Var(\mathbf{y})=\mathbf{X\beta}^T\mathbf{\beta X}^T+ Var(\varepsilon
+)-\mathbf{X\beta}^T\mathbf{\beta X}^T=Var(\varepsilon)=\sigma^2\mathbf{I}_N
+\end{split}
+\end{equation}
+\noindent Y se concluye ya que el vector $\varepsilon$ es una normal. 
+\end{proof}
+\end{propo}
+\noindent Añadamos a las suposiciones  que la matriz $\mathbf{X}$ es de rango máximo y por tanto, $\mathbf{X}^T\mathbf{X}$ es semidefinido positiva. 
 \begin{propo}
 El estimador $\hat{\beta}$ es un estimador insesgado \cite{Greene 2008}
 \begin{proof}
-Teniendo en cuenta las anteriores hipótesis anteriores, incluyendo que la variable respuesta es $\mathbf{y}=\mathbf{X\beta^T}+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2)$. 
+Teniendo en cuenta las anteriores hipótesis anteriores, incluyendo que la variable respuesta es:  
 
 \noindent De esta manera, se obtiene que $\hat{\beta}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T(\mathbf{X}\beta^T+\varepsilon)=\beta+(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon$
 
@@ -135,95 +175,70 @@ Var(\hat{\beta})&=\mathbb{E}((\mathbf{X}^T \mathbf{X})^{-1}\mathbf{X}^T \varepsi
 \end{proof}
 \end{propo}
 
-\noindent Por último, tenemos que el parámetro de estimadores $\hat{\beta}= \beta+(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon$, es una combinación afín de $\varepsilon$ una variable con distribución por tanto, tendremos que cada uno de los componentes del vector $\hat{\beta},\hat{\beta}_j\sim N(\beta_j, \sigma^2(\mathbf{X^TX}_{jj}^{-1})) j=1\ldots p$ donde $(\mathbf{X^TX}_{jj}^{-1})$ es el j-ésimo elemento de la diagonal de la matriz $(\mathbf{X}^T\mathbf{X})^{-1}$.
+\noindent Por último, tenemos que el parámetro de estimadores $\hat{\beta}= \beta+(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon$, es una combinación afín de $\varepsilon$ una variable con distribución por tanto, tendremos que cada uno de los componentes del vector $\hat{\beta},\hat{\beta}_j\sim N(\beta_j, \sigma^2(\mathbf{X^TX}_{jj}^{-1})) j=1\ldots p$ donde $(\mathbf{X^TX}_{jj}^{-1})$ es el j-ésimo elemento de la diagonal de la matriz $(\mathbf{X}^T\mathbf{X})^{-1}$ \cite{Johnson 2007}.
 
-\noindent Esto nos permite establecer estadígrafos de contraste. Por ejemplo se puede plantear la siguiente hipótesis nula:
+\noindent Si el parámetro $\sigma^2$ fuera conocido, entonces se podría llevar a cabo los contrastes de manera sencilla. En este caso, $z_j=\dfrac{\hat{\beta}_j}{\sigma \sqrt{v_j}}\sim N(0,1)$
+
+\noindent Para poder hacer los estadígrafos de contrastes se debe construir un estimador de esta varianza, ya habitualmente no es conocida. Para ello \emph{Hastie et. al.} proponen el siguiente estimador de la varianza, suponiendo que unicamente hay una variable respuesta: 
 \begin{equation}
-H_0: \beta_j=0
-\end{equation}
-\noindent De esta manera, se puede contrastar la importancia de una variable en la regresión. De hecho el estadígrafo:
-\begin{equation}
-
-\end{equation}
-
-\subsection{Regresión Múltiple mediante Ortogonalización sucesiva }
-
-\noindent Otra manera de afrontar el problema de ajuste es hacerlo de una manera geométrica, se busca un subespacio que se ajuste lo mejor posible a un vector de respuestas, en particular, se buscan proyecciones ortogonales del vector respuesta o del subespacio respuesta en el subespacio de los datos. 
+\hat{\sigma}^2=\dfrac{1}{N-p-1}\sum_{i=1}^N (y_i-\hat{y}_i)^2 
+\end{equation} 
 
 
-\noindent Teniendo en cuenta que el vector de respuestas $\textbf{y}$ sigue el modelo $\textbf{y}=\textbf{X}\beta+\varepsilon$, entonces, $\hat{\textbf{y}}=\textbf{X}\hat{\beta}$ pertenece al subespacio generado por las columnas de la matriz de datos $\textbf{X}$. En caso de que $\textbf{y}\in Col(\textbf{X})$, se tiene que existe un $\beta$ tal que $\textbf{y}=\textbf{X}\beta$. 
+\begin{propo}
+El estimador $\hat{\sigma}^2$ cumple lo siguiente :
+\begin{itemize}
+\item $\mathbb{E}(\hat{\sigma} ^2)=\sigma^2$ (Es un estimador insesgado de la varianza)
+\item  $\hat{\sigma}^2 \sim \frac{\sigma^2}{N-p-1}\chi_{N-p-1}^2 $
+\end{itemize}
+\begin{proof}
+\noindent Sea $\lbrace t_{1}\ldots t_{p+1}, t_{p+2}, \ldots t_{N}\rbrace$ una base ortogonal del espacio $\mathbb{R}^N$ dentro de los cuales $t_{1},\ldots t_{p+1}$ es base de $C_{p+1}(\mathbf{X})$, de tal manera que los últimos $N-p-1$ vectores son ortogonales a la $C_{p+1}(\mathbf{X})$. Por tanto si tomamos la matriz de cambio de base $\mathbf{T}$ con los vectores $\lbrace t_{1}\ldots t_{p+1}, t_{p+2}, \ldots t_{N}\rbrace$ como vectores. 
 
-\begin{defi}
-Se llama vector residuo $\textbf{r}$ al vector cuyas componentes son $r_i=y_i-\textbf{x}_i\hat{\beta}$, es decir, $\textbf{r}=\textbf{y}-\textbf{X}\hat{\beta}$
-\end{defi}
+\noindent Sea $\mathbf{z}=\mathbf{T}^T \mathbf{y}$ de esta manera, tendremos que $z=()$
 
-\noindent Para que la distancia entre el vector respuesta y el espacio de datos sea lo menor posible el vector residuo debe ser ortogonal al espacio que generan las columnas de la matriz de datos y esto provoca lo siguiente:
-\begin{equation}
-\begin{split}
-r \perp \textbf{X}\Rightarrow \textbf{X}^T \textbf{r}&=\textbf{X}^T (\textbf{y}-\textbf{X}\hat{\beta})=0\\
-\textbf{X}^T\textbf{y}-\textbf{X}^T\textbf{X}\hat{\beta}&=0\Rightarrow \hat{\beta}= (\textbf{X}^T\textbf{X})^{-1} \textbf{X}^T \textbf{y}
-\end{split} 
-\end{equation}
-
-\noindent Por tanto, el vector de estimadores $\hat{\beta}$ es equivalente al cálculo por el método de los mínimos cuadrados. 
-Por lo tanto, teniendo en cuenta que $\hat{\textbf{y}}=\textbf{X}(\textbf{X}^T\textbf{X})^{-1} \textbf{X}^T \textbf{y}$. De esta manera, lo que se está haciendo es tomar la proyección de $\textbf{y}$ sobre el espacio $Col(\textbf{X})$. 
-
-\noindent Teniendo en cuenta esto en \textit{Hastie et.al.} \cite{Hastie 2001} define un algoritmo para calcular el vector de parámetros $\beta$. Teniendo en cuenta esto y que $\textbf{y}=(y_1,\ldots,y_n)^T$ el vector  de observaciones de la variable respuesta y $\textbf{x}=(x_1,\ldots x_n)^T$ el vector de observaciones de una única variable predictora. Entonces se puede expresar el vector de parámetros con el producto escalar: 
-\begin{equation}
-\hat{\beta}=\dfrac{\langle \textbf{x},\textbf{y} \rangle}{\langle \textbf{x},\textbf{x} \rangle}
-\end{equation}
-
-\noindent En el caso general, en el que se tienen $p$ variables predictoras, esto cambia, si todas las columnas de la matriz fuesen ortogonales entre sí cada componente se calcularía de la siguiente manera:
-\begin{equation}
-\hat{\beta}_j=\dfrac{\langle \textbf{x}_j,\textbf{y}\rangle}{\langle \textbf{x}_j,\textbf{x}_j\rangle}
-\end{equation}
-
-\noindent En caso contrario, se deben ortogonalizar los datos, para ello, se utiliza el procedimiento de ortogonalización de Gram-Schmidt
-
-
-
-%\noindent Se obtiene el mismo estimador de los parámetros $\beta$ que si se hubiera utilizado el Método de los Mínimos Cuadrados. De esta manera podemos establecer que 
-%\begin{equation}
-%\hat{\beta}=\dfrac{\sum_{i=1}^n\textbf{x}_i y_i}{\sum_{i=1}^n\textbf{x}_i^2} 
-%\end{equation}
-%\noindent De esta manera, se puede establecer una manera recursiva para encontrar cada uno de los parámetros $\beta_j$ distinto. Mediante proyecciones sucesivas se obtiene lo siguiente:
+\end{proof}
+\end{propo}
 
 
 
 
-\subsection{Regresión sobre varias variables}
-\noindent Hasta ahora, se ha considerado una única variable aleatoria respuesta, sea \textbf{y} el vector aleatorio de variables respuesta $\textbf{y}^T=[Y_1,\ldots, Y_K]$ y un vector aleatorio de variables de entrada $\textbf{x}^T=[X_0, X_1,\ldots, X_p]$. Se puede establecer el siguiente modelo análogo:
+
+
+
+\subsection{Regresión multivariante}
+\noindent Hasta ahora, se ha considerado una única variable aleatoria respuesta, sea \textbf{y} el vector aleatorio de variables respuesta $\textbf{y}=[Y_1,\ldots, Y_K]$ y un vector aleatorio de variables de entrada $\textbf{x}^T=[X_0, X_1,\ldots, X_p]$. Se puede establecer el siguiente modelo análogo, donde :
 \begin{align}
-Y_k=\beta_{0k}+\sum_{j=1}^p& X_j\beta_{jk}+\varepsilon_k=f_k(\textbf{x})+\varepsilon_k\\
-\intertext{Recogidas n muestras tendremos la siguiente expresión matricial: }
-\textbf{Y}=&\textbf{X}\textbf{B}+\textbf{E}
+Y_k=\beta_{0k}+\sum_{j=1}^p X_j\beta_{jk}+\varepsilon_k =& f_k(\textbf{x})+\varepsilon_k, \quad k=1,\ldots K \\
+\intertext{Donde el término $\varepsilon_k \sim N(0, \sigma_k^2)$ es el error inevitable para la variable $Y_k, k=1\ldots K$.
+De esta manera, si se toman $N$ observaciones se puede crear las matrices de datos de respuesta y de entrada y obtener la siguiente expresión: }
+\mathbf{Y} =& \mathbf{XB+E}
 \end{align}
 
 \noindent Dentro de esa expresión matricial se tiene que: 
 \begin{itemize}
-\item $\textbf{Y}$ es la matriz de tamaño $n\times K$ que contiene los valores observados de las variables respuesta
-\item $\textbf{X}$ matriz de datos habitual de tamaño $n \times p+1$ 
-\item $\textbf{B}$ matriz de tamaño $ p+1 \times K$ que contiene los parámetros de la regresión 
-\item $\textbf{E}$ es la matriz de tamaño $ n \times K$ que contiene los errores. 
+\item $\textbf{Y}$ es la matriz de tamaño $N \times K$ que contiene los valores observados de las variables respuesta
+\item $\textbf{X}$ matriz de datos habitual de tamaño $N \times (p+1)$ 
+\item $\textbf{B}$ matriz de tamaño $ (p+1) \times K$ que contiene los parámetros de la regresión 
+\item $\textbf{E}$ es la matriz de tamaño $ N \times K$ que contiene las errores cometidos en cada uno de las variables respuesta. 
 \end{itemize}
 
-\noindent El proceso de ajuste, en el caso de que los errores $\varepsilon^T=[\varepsilon_1,\ldots \varepsilon_K]$ no estén correlados, de la matriz de parámetros es análogo al de una sola variable respuesta de tal manera que minimizando el error cuadrático acumulado se obtiene $\hat{\textbf{B}}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{Y}$. En caso de que los errores tengan una matriz de covarianzas conocida, $\Sigma$, entonces es necesario hacer la siguiente modificación en el $RSS$:
+\noindent El proceso de ajuste, en el caso de que los errores $\varepsilon^T=[\varepsilon_1,\ldots \varepsilon_K]$ no estén correlados, de la matriz de parámetros es análogo al de una sola variable respuesta de tal manera que minimizando el error cuadrático acumulado se obtiene $\hat{\textbf{B}}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{Y}$. En caso de que los errores tengan una matriz de covarianzas conocida, $\mathbf{\Sigma}$, entonces es necesario hacer la siguiente modificación en el $RSS$:
 \begin{equation}
 RSS(\textbf{B},\Sigma)=\sum_{i=1}^n(y_i-f(\textbf{x}_i))^T \Sigma^{-1} (y_i-f(\textbf{x}_i))
 \end{equation}
 
 \noindent En la última expresión se usa la \textit{distancia de Mahalanobis}.
 \begin{defi}
-Según \textit{Cuadras C.M.}\cite{Cuadras 2014} la \textit{distancia de Mahalanobis} entre dos observaciones $\textbf{x}_i, \textbf{x}_j$ extraídas de una misma población con matriz de covarianzas $\Sigma$ se define de la siguiente manera: 
+La \textit{distancia de Mahalanobis} entre dos observaciones $\textbf{x}_i, \textbf{x}_j$ extraídas de una misma población con matriz de covarianzas $\Sigma$ se define de la siguiente manera\cite{Cuadras 2014}: 
 \begin{equation}
-d_M(\textbf{x}_i, \textbf{x}_j)=\sqrt{(\textbf{x}_i- \textbf{x}_j)^T \Sigma^{-1}(\textbf{x}_i-\textbf{x}_j)}
+d_M(\textbf{x}_i, \textbf{x}_j)=\sqrt{(\textbf{x}_i- \textbf{x}_j)^T \mathbf{\Sigma}^{-1}(\textbf{x}_i-\textbf{x}_j)}
 \end{equation}
 \end{defi}
 
 \noindent En el caso anterior, $(y_i-f(\textbf{x}_i))=\varepsilon_i$ y se está haciendo la distancia de Mahalanobis respecto de su media, el 0. 
 
 
-\subsection{Selección de subconjuntos y métodos penalizados}
+\subsection*{Selección de subconjuntos y métodos penalizados}
 
 \noindent Anteriormente, se ha detallado un estadígrafo que permitía hacer un contraste sobre la cantidad de variables a considerar en la regresión. 
 Esta reducción de características a considerar permite hacer mucho más interpretable el modelo obtenido durante todo el proceso de ajuste y en algunos casos incluso aumentar la precisión del modelo ya que puede ocurrir que se eliminen variables que introduzcan ruido en el modelo. 
