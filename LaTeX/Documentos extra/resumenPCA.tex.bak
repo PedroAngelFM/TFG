@@ -1,20 +1,22 @@
 \newpage
 \section{Análisis de Componentes Principales}
+\noindent El Análisis de componentes principales, es una de las técnicas multivariantes más antiguas en primera instancia fueron desarrolladas en paralelo por Pearson (1901) y Hotelling (1933) \cite{Jollife 1986} con distintos enfoques. 
 
-\noindent El Análisis de componentes principales fue en primera instancia, desarrollado a principios del siglo XX por el estadístico Pearson (1901) aunque fue en 1936 cuando Eckart y Young dierom. Fue una de las primeras técnicas de análisis multivariante. Como muchos otros métodos de este tipo no tuvo un verdadero desarrollo y expansión hasta que la capacidad de computación fue suficiente para manejar cantidades de datos considerables. 
+\noindent Pearson en su aproximación, buscó la forma de ajustar de mejor manera puntos de un espacio de dimensión $p$ a una recta o plano. Es decir, Pearson buscó un enfoque de optimización geométrica que llevó a las componentes principales.
 
-\noindent El Análisis de Componentes Principales, es una de las técnicas que exploran la matriz de covarianzas $\mathbf{\Sigma}$. De esta manera, se persiguen dos objetivos, la reducción del tamaño de los datos con la mínima pérdida de información y la mejora de la interpretabilidad de los mismos. 
+\noindent Por el otro lado Hotelling buscaba un conjunto de variables menor que pudiera determinar de igual manera o parecida los datos. Hotelling maximizó la contribución que aportaba cada componente a la varianza. Al utilizar para este fin el método de los multiplicadores de Lagrange, obtuvo el problema de valores principales que se desarrolla en esta sección. Aún así, el trabajo de Hotelling tenia ciertas diferencias con las actuales componentes principales, por ejemplo, consideraba que las variables originales  debían ser combinaciones de las componentes y no al revés. Tampoco usaba la notación matricial ni la matriz de covarianzas, en su lugar utilizaba la de correlaciones. 
 
-\noindent El Análisis de componentes principales de manera habitual se utiliza con el objetivo de representar los datos en un gráfico de dimensión menor que $p$, de esta manera
+\noindent El objetivo cuando se quiere aplicar este método es el de reducir la dimensionalidad o simplificar la estructura de los datos como el resto de métodos no supervisados. En este caso, se buscan las direcciones en las que los datos presentan la mayor variabilidad en orden decreciente de manera que las primeras componentes obtenidas deben ser las que mayor variabilidad expresan. 
 
-\noindent En esta sección se siguen los  cálculos de las componentes de  \cite{Chatfield 1989}, se toman definiciones de \cite{Cuadras 2014} y  algunos resultados de \cite{Jollife 1986}. Por último, para facilitar la comprensión se ha utilizado 
+\noindent En esta sección se detallará en principio cómo se calculan las componentes principales solo teniendo en cuenta las propiedades del vector aleatorio $\mathbf{x}$ de longitud $p$. Tras esto, tomaremos $N$ observaciones con las que poder construir estimadores de las componentes y se analizará como esta reducción de la dimensionalidad es la que permite una mejor reconstrucción de los datos mediante el Teorema de Eckart-Young. 
+
 \subsection{Definición y cálculo de las Componentes}
 
-\noindent Sea un vector aleatorio $\textbf{x}^T=[X_1,\ldots X_p]$ con vector de medias $\mu$ y matriz de covarianzas $\mathbf{\Sigma}$.
+\noindent Sea un vector aleatorio de longitud $p$, $\mathbf{x}=[X_1,\ldots X_p]$ con una distribución normal $p$-multivariante $N_p(\mu,\mathbf{\Sigma})$
 \begin{defi}
-\emph{Cuadras C.M.} \cite{Cuadras 2014}las componentes principales $\mathbf{z}_j$ son combinaciones lineales del vector aleatorio $\mathbf{x}= X_1 \ldots X_p$
+\emph{Cuadras C.M.},\cite{Cuadras 2014} define las componentes principales 
 \begin{equation}
-\textbf{z}_j=v_{1j}X_1+\ldots v_{pj}X_p=\textbf{v}_j^T\textbf{x}\quad j=1\ldots p 
+\mathbf{z}_j=v_{1j}X_1+\ldots v_{pj}X_p=\mathbf{x}\mathbf{v}_j \quad j=1\ldots p
 \end{equation}
 
 \noindent Donde $\textbf{v}_j$ es un vector de escalares y la variable $\textbf{z}_j$ cumple lo siguiente:
@@ -27,45 +29,35 @@
 \item $Var(\textbf{z}_j)$ es máxima. 
 \end{itemize}
 \end{itemize}
-\noindent De esta manera lo que se busca es una nueva base que reúna las direcciones de máxima variación 
+\noindent De esta manera lo que se busca es una nueva base que reúna las direcciones de máxima variación y que sean ortogonales respecto a la matriz de covarianzas, es decir, que sean no correladas.
 \end{defi}
 
-\noindent En \emph{Chatfield C. y Collins A.J} \cite{Chatfield 1989},  el cálculo de la primera componente principal se lleva a cabo mediante un proceso de optimización de la función $Var(\textbf{z}_1)$ sujeto a la restricción $\textbf{a}_1^T\textbf{a}_1=1$. 
+\noindent \emph{Chatfield C. y Collins A.J} \cite{Chatfield 1989}, utilizan el método de los multiplicadores de Lagrange para resolver el problema de maximizar  $Var(\textbf{z}_1)$ sujeto a la restricción $\textbf{v}_1^T\textbf{v}_1=1$. Todo esto con el objetivo de calcular el vector $\mathbf{v}_1$, el cálculo de sucesivas componentes cambia en ciertos aspectos. 
 
-\noindent Aplicando el método de los multiplicadores de Lagrange,  dada una función $f(\textbf{x})=f(x_1,\ldots, x_p)$ diferenciable con una restricción $g(\textbf{x})=g(x_1, \ldots, x_p)=c$,  existe una constante $\lambda$ de manera que la ecuación:
-\begin{equation}
-\dfrac{\partial f}{\partial x_i}-\lambda\dfrac{\partial g}{\partial x_i}=0 \quad i=1,\ldots p 
-\end{equation}
+\noindent Aplicando el método de los multiplicadores, la función objetivo es la varianza de la combinación lineal, es decir, $f(\mathbf{x})=\mathbf{x}^T \mathbf{\Sigma} \mathbf{x}$ y la restricción aplicada es $g(\textbf{x})=\textbf{x}^T\textbf{x}=1$. 
 
-\noindent Tiene como solución los puntos estacionarios de $f(\textbf{x})$. Además, si se define la función $L(\textbf{x})= f(\textbf{x})-\lambda[g(\textbf{x})-c]$  es posible simplificar la expresión anterior a:
-\begin{equation}
-\dfrac{\partial L}{\partial \textbf{x}}=0
-\end{equation}
+\noindent Tomando $\textbf{x}=\textbf{v}_1$ se puede establecer $L(\textbf{v}_1)=\textbf{v}_1^T \mathbf{\Sigma} \textbf{v}_1 - \lambda[\textbf{v}_1^T \textbf{v}_1-1]$. Que al derivarla se obtiene:
 
-\noindent Para el caso de las componentes principales, la función objetivo es la varianza de la combinación lineal, es decir, $f(\textbf{x})=\textbf{x}^T \mathbf{\Sigma} \textbf{x}$ y la restricción aplicada es $g(\textbf{x})=\textbf{x}^T\textbf{x}=1$. 
-
-\noindent Tomando $\textbf{x}=\textbf{a}_1$ se puede establecer $L(\textbf{a}_1)=\textbf{a}_1^T \mathbf{\Sigma} \textbf{a}_1 - \lambda[\textbf{a}_1^T \textbf{a}_1-1]$. Que al derivarla se obtiene:
-%\noindent Para el cálculo de la $L(\textbf{a}_1)=\textbf{a}_1^T \mathbf{\Sigma} \textbf{a}_1 - \lambda[\textbf{a}_1^T \textbf{a}_1-1]$. Al derivarla obtenemos que :
 \begin{align*}
-\dfrac{\partial L}{\partial \textbf{a}_1} &= 2\mathbf{\Sigma} \textbf{a}_1 - 2\lambda\textbf{a}_1\\
-& = 2(\mathbf{\Sigma}-\lambda)\textbf{a}_1 
+\dfrac{\partial L}{\partial \textbf{v}_1} &= 2\mathbf{\Sigma} \textbf{v}_1 - 2\lambda\textbf{v}_1\\
+& = 2(\mathbf{\Sigma}-\lambda)\textbf{v}_1 
 \end{align*}
 
 \noindent Igualando a 0 tenemos la siguiente ecuación: 
 \begin{equation}
-(\mathbf{\Sigma}-\lambda I)\textbf{a}_1=0
+(\mathbf{\Sigma}-\lambda I)\textbf{v}_1=0
 \end{equation}
 
-\noindent Para que $\textbf{a}_1$ sea un vector no trivial, se elige $\lambda$ de tal manera que $|\mathbf{\Sigma}-\lambda I| = 0$, es decir, $\lambda$ es un vector propio de la matriz de covarianzas, $\mathbf{\Sigma}$. Al ser ésta una matriz semidefinido positiva y simétrica, los valores propios son reales y positivos. Por tanto, $\textbf{a}_1$ es un vector propio de la matriz de covarianza.
+\noindent Para que $\textbf{v}_1$ sea un vector no trivial, se elige $\lambda$ de tal manera que $|\mathbf{\Sigma}-\lambda I| = 0$, es decir, $\lambda$ es un vector propio de la matriz de covarianzas, $\mathbf{\Sigma}$. Al ser ésta una matriz semidefinido positiva y simétrica, los valores propios son reales y positivos. Por tanto, $\textbf{v}_1$ es un vector propio de la matriz de covarianza.
 
-\noindent La función a maximizar es $Var(\textbf{z}_1)=Var(\textbf{a}_1^T\textbf{x})=\textbf{a}_1^T\mathbf{\Sigma} \textbf{a}_1=\textbf{a}_1^T\lambda \textbf{a}_1$, y para maximizarla basta tomar $\lambda=\max{\lbrace\lambda_1\ldots \lambda_p\rbrace}$. reordenando si es necesario, se tiene que $\lambda=\lambda_1$ 
+\noindent La función a maximizar es $Var(\textbf{z}_1)=Var(\textbf{v}_1^T\textbf{x})=\textbf{v}_1^T\mathbf{\Sigma} \textbf{v}_1=\textbf{v}_1^T\lambda \textbf{v}_1=\lambda$, y para maximizarla basta tomar $\lambda=\max{\lbrace\lambda_1\ldots \lambda_p\rbrace}$. Reordenando si es necesario, se tiene que $\lambda=\lambda_1$, por tanto la primera componente es el vector propio $\mathbf{z}_1$ y además la varianza de la nueva variable cumple $Var(\mathbf{z}_1)=\lambda_1$ 
 
-\noindent Una vez calculada la primera componente principal $\textbf{z}_1$, la segunda componente se calcula de manera análoga, maximizando $Var(\textbf{z}_2)=Var(\textbf{a}_2^T\textbf{x})$ condicionada por $\textbf{a}_2^T\textbf{a}_2=1$. A esta restricción tenemos que añadir la restricción $Cov(\textbf{z}_1,\textbf{z}_2)=0 $
+\noindent Una vez calculada la primera componente principal $\textbf{z}_1$, la segunda componente se calcula de manera análoga, maximizando $Var(\textbf{z}_2)=Var(\textbf{v}_2^T\textbf{x})$ condicionada por $\textbf{v}_2^T\textbf{v}_2=1$. A esta restricción tenemos que añadir la restricción $Cov(\textbf{z}_1,\textbf{z}_2)=0 $
 
 \begin{propo}
-La condición $Cov(\textbf{z}_1,\textbf{z}_2)=0 $ equivale a la condición $\textbf{a}_2^T\textbf{a}_1 = 0$.
+La condición $Cov(\textbf{z}_1,\textbf{z}_2)=0 $ equivale a la condición $\textbf{v}_2^T\textbf{v}_1 = 0$.
 \begin{proof}
-Utilizando que $\textbf{z}_j=\textbf{a}_j^T \textbf{x}\quad \forall j$ , se tiene entonces que :
+Utilizando que $\textbf{z}_j=\textbf{v}_j^T \textbf{x}\quad \forall j=1,\ldots p$ , se tiene entonces que :
 \begin{align*}
 Cov(\textbf{z}_2,\textbf{z}_1)&= Cov (\textbf{a}_2^T\textbf{x},\textbf{a}_1^T\textbf{x})\\ 
 &= \mathbb{E}(\textbf{a}_2^T(\textbf{x}-\mu)(\textbf{x}-\mu)^T \textbf{a}_1)\\
