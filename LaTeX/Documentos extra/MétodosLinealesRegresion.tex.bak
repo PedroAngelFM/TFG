@@ -15,17 +15,17 @@ f(\textbf{x})=\beta_0+\sum_{j=1}^p X_j\beta_j
 \end{equation}
 
 \begin{defi}
-Se llaman \emph{parámetros de regresión} al vector $\beta=[\beta_0, \beta_1, \ldots \beta_p]$ de tamaño $(p+1)$ con los coeficientes necesarios para la regresión. 
+Se llaman \emph{parámetros de regresión} al vector columna $\beta=[\beta_0, \beta_1, \ldots \beta_p]^T$ de tamaño $(p+1)$ con los coeficientes necesarios para la regresión. 
 \end{defi} 
 
 \noindent Añadiendo al vector $\mathbf{x}$ una nueva variable aleatoria $X_0$ que sea constantemente 1, se puede dar la siguiente expresión matricial de la función $f$:
 \begin{equation}
-f(\mathbf{x})= \mathbf{x}\beta^T
+f(\mathbf{x})= \mathbf{x}\beta
 \end{equation}
 
 \noindent De esta manera, tomando la matriz de datos de entrada de tamaño $N\times (p+1)$ entonces se puede generar un vector de predicciones de tamaño $N$ de la siguiente manera:
 \begin{equation}
-\mathbf{\hat{y}}=\mathbf{X}\beta^T  
+\mathbf{\hat{y}}=\mathbf{X}\beta 
 \end{equation}  
 
 \noindent Si en particular se quiere hacer una predicción para una nueva observación  $\mathbf{x}_0$ basta con calcular basta con calcular $f(\textbf{x}_0).$
@@ -33,7 +33,8 @@ f(\mathbf{x})= \mathbf{x}\beta^T
 \noindent Una vez establecida la notación y los supuestos que tomaremos de ahora en adelante, hay que estimar los parámetros de regresión, para ello utilizaremos distintos métodos como el método de los mínimos cuadrados o el de Máxima verosimilitud, a parte de esto, veremos las características inferenciales de los estimadores obtenidos y su interpretación geométrica. 
 
 \subsection{Métodos de ajuste}
-\noindent Sea una matriz de datos $\textbf{X}$ de tamaño $N\times (p+1)$ resultado de hacer $N$ observaciones de $p$ variables aleatorias y añadir a la primera componente de cada observación un 1. Sea también un vector de respuestas $\textbf{y}=[y_1,\ldots y_N]$ de tamaño $N$, resultado de observar la variable respuesta $Y$. 
+
+\noindent Sea una matriz de datos $\textbf{X}$ de tamaño $N\times (p+1)$ resultado de hacer $N$ observaciones de $p$ variables aleatorias y añadir a la primera componente de cada observación un 1. Sea también un vector de respuestas $\textbf{y}=[y_1,\ldots y_N]^T$ de tamaño $N$, resultado de observar la variable respuesta $Y$. 
 
 \noindent Ahora podemos sea el vector de parámetros de regresión $\beta$ de tamaño $p+1$ definido como antes, entonces podemos definir el concepto de función de pérdida
 
@@ -41,7 +42,7 @@ f(\mathbf{x})= \mathbf{x}\beta^T
 Se llama \emph{función de pérdida} \cite{Hastie 2001} a una función $L(\textbf{y},\mathbf{\hat{y}})$ monótona creciente de la diferencia entre la predicción y el valor real de una variable
 \end{defi}
 
-\noindent Aunque esta definición sea más propia del aprendizaje automático, también se usa para el método de los mínimos cuadrados \cite{Abdi 2007}. 
+\noindent Aunque el término sea más utilizado en el marco del aprendizaje automático \cite{James 2013}, el concepto de error cuadrático o la función de pérdida cuadrática es el que se suele usar en el ajuste de los parámetros de regresión. En particular la pérdida cuadrática se define de la siguiente manera \cite{Abdi 2007}:
 
 \begin{defi}
 Se llama \emph{error de predicción cuadrático} entre una variable observada, $y$ y la predicción obtenida por un cierto modelo $\hat{y}$ a la expresión $(y-\hat{y})^2$
@@ -49,19 +50,20 @@ Se llama \emph{error de predicción cuadrático} entre una variable observada, $
 
 \noindent Tomando la suma de los errores cuadrados y minimizando se puede obtener una estimación  del vector de parámetros $\beta$. Utilizando las expresiones anteriores:
 \begin{equation}
-RSS(\beta)=\sum_{i=1}^n(y_i-\hat{y}_i)^2 = \sum_{i=1}^n(y_i-\textbf{x}_i\beta^T)^2=(\textbf{y}-\textbf{X}\beta^T)(\textbf{y}-\textbf{X}\beta^T)^T\\
+RSS(\beta)=\sum_{i=1}^N(y_i-\hat{y}_i)^2 = \sum_{i=1}^N(y_i-\textbf{x}_i\beta)^2=(\textbf{y}-\textbf{X}\beta)(\textbf{y}-\textbf{X}\beta)^T\\
 \end{equation}
 
-\noindent Para obtener el mínimo se debe hallar los puntos estacionarios, lo que implica calcular la derivada de la suma de residuos cuadrados respecto del vector $\beta$, y como esta es una forma cuadrática general respecto de $\beta$, entonces \cite{Morrison 1976}:
+\noindent Para obtener el mínimo se debe hallar los puntos estacionarios, lo que implica calcular la derivada de la suma de residuos cuadrados respecto del vector $\beta$, y como esta es una forma cuadrática general respecto de $\beta$,\emph{(Para el desarrollo de la expresión véase \cite{Morrison 1976})}:
+
 \begin{equation}
-\dfrac{\partial RSS(\beta)}{\partial \beta}= -2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta^T)^T
+\dfrac{\partial RSS(\beta)}{\partial \beta}= -2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta)^T
 \end{equation}
 
-\noindent La segunda derivada respecto del vector de parámetro, entonces la segunda derivada es la matriz $2\mathbf{X}^T\mathbf{X}$ que es semidefinida positiva, ya que todos los valores propios son positivos o nulos. Entonces los $\beta$ en los que $-2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta^T)^T=0$ son mínimos.  
+\noindent La segunda derivada respecto del vector de parámetros es $2\mathbf{X}^T\mathbf{X}$, entonces es  semidefinido positiva, ya que todos los valores propios son positivos o nulos. Entonces los $\beta$ en los que $-2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta)^T=0$ son mínimos.  
 
-\noindent Asumiendo que $\textbf{X}$ es una matriz de rango máximo, de lo contrario, habría dos columnas o más que son combinación lineal la una de la otra, la matriz $\textbf{X}^T\textbf{X}$ es definida positiva, por tanto la solución de la siguiente ecuación:
+\noindent Asumiendo que $\textbf{X}$ es una matriz de rango máximo $p+1$, de lo contrario, habría dos columnas o más que son combinación lineal la una de la otra, la matriz $\textbf{X}^T\textbf{X}$ es definida positiva, por tanto la solución de la siguiente ecuación:
 \begin{equation}
-\textbf{X}^T(\textbf{y}-\textbf{X}\beta^T)=0
+\textbf{X}^T(\textbf{y}-\textbf{X}\beta)=0
 \end{equation}
 
 \noindent Si además, $\textbf{X}^T\textbf{X}$ es una matriz invertible, entonces tiene solución única y es :
@@ -74,7 +76,7 @@ RSS(\beta)=\sum_{i=1}^n(y_i-\hat{y}_i)^2 = \sum_{i=1}^n(y_i-\textbf{x}_i\beta^T)
 \noindent Con la siguiente proposición se puede ver la equivalencia entre los mínimos cuadrados y el de máxima verosimilitud:
 
 \begin{propo}
-Esta estimación de los parámetros $\beta$ por mínimos cuadrados es equivalente a la estimación de estos mediante el método de máxima verosimilitud.
+Esta estimación de los parámetros $\beta$ por mínimos cuadrados es equivalente a la estimación de estos mediante el método de máxima verosimilitud \cite{Hastie 2001}.
 \begin{proof}
 Sea una muestra de tamaño $N$, $y_i, i=1,\ldots N$ de una variable aleatoria $Y$, de manera que su función de probabilidad, $\mathbb{P}_\theta(y)$ depende de los parámetros $\theta$. Entonces el método de máxima verosimilitud busca maximizar la siguiente función.
 \begin{equation}
@@ -98,74 +100,71 @@ Las estimaciones para cualquier $f_{\theta}$ obtenidas por el método de los mí
 \end{coro}
 \noindent Por tanto, los valores predichos observados $\hat{\textbf{y}}$ se calculan de la siguiente manera:
 \begin{equation}
-\hat{\textbf{y}}=\textbf{X}\hat{\beta}=\textbf{X}^T(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
+\hat{\textbf{y}}=\textbf{X}\hat{\beta}=\textbf{X}(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
 \end{equation}
 
 \noindent De esta manera, se está calculando la predicción de la respuesta $\hat{y}_i$ para cada una de las observaciones $\mathbf{x}_i, i =1, \ldots N$. 
 
-\noindent Otra forma de afrontar el ajuste del modelo desde el punto de vista del algebra lineal. Esto se puede hacer mediante proyecciones ortogonales, tomando el subespacio de $\mathbb{R}^N$ generado por las columnas de la matriz de datos.
+\noindent Se podría afrontar el problema del ajuste del modelo lineal de manera que los residuos se 
 
 \noindent En lo sucesivo se considera a no ser que se diga lo contrario que $N>p+1$ y que la matriz de datos $\mathbf{X}$ es de rango máximo, $p+1$. 
 
 \begin{defi}
 Se llama  $C_{p+1}(\mathbf{X})$ al subespacio lineal de $\mathbb{R}^{N}$ generado por las columnas de la matriz $\mathbf{X}$ \cite{Cuadras 2014}.
 \end{defi}
-\begin{propo}
-El vector $\hat{\mathbf{e}}=\mathbf{y}-\mathbf{X\hat{\beta}^T}$ es ortogonal al subespacio $C_{p+1}(\mathbf{X})$.
+\begin{propo}\label{prop ort}
+El vector $\hat{\mathbf{\varepsilon}}=\mathbf{y}-\mathbf{X\hat{\beta}}$ es ortogonal al subespacio $C_{p+1}(\mathbf{X})$.
 \begin{proof}
-Premultiplicando por $\mathbf{X}$:
+Premultiplicando por $\mathbf{X}^T$:
 \begin{equation}
 \begin{split}
-\mathbf{X\hat{\mathbf{e}}}^T=\mathbf{X}(\mathbf{y-X}\beta^T)^T=\mathbf{Xy}^T-\mathbf{X^T X}\beta=0
+\mathbf{X^T\hat{\mathbf{\varepsilon}}}=\mathbf{X}^T(\mathbf{y-X}\beta)=\mathbf{X}^T\mathbf{y}-\mathbf{X^T X}\beta=0 \qedhere
 \end{split}
 \end{equation}
 \end{proof}
 \end{propo}
 
-\noindent Supongamos además que los vectores columna de la matriz $\mathbf{X}$ $\mathbf{x}_0, \mathbf{x}_1 \ldots \mathbf{x}_p$ y sea $\mathbf{y}$ el vector de tamaño $N\times 1$ sean ortogonales entre si. Por tanto $\mathbf{X}$ es ortogonal y  se cumple en ese caso lo siguiente \cite{Hastie 2001}: 
-\begin{equation}
-\hat{\beta}_j=\dfrac{\mathbf{x}_j^T\mathbf{y}}{\mathbf{x}_j^T \mathbf{x}_j}
-\end{equation}
+\noindent \emph{Abdi, H} \cite{Abdi 2007} desarrolla este tipo de ajuste de manera superficial, mientras que  \emph{Hastie et.al.} \cite{Hastie 2001} detallan este marco geométrico utilizando el proceso de ortonormalización de Graham-Schmidt. Este proceso se basa como se puede ver, en el hecho de que el vector de residuo generado debe ser ortogonal al espacio $C_{p+1}(X)$. Aunque no se desarrolle el ajuste en su totalidad, la proposición anterior será utilizada para demostrar una propiedad de las distribuciones de los estimadores hallados. 
 
-\noindent Si $\mathbf{X}$ además es 
-
-\noindent Este caso no es realista ya que normalmente las columnas no suelen ser ortogonales. Es por ello, que hay que crear una nueva base ortonormal con los residuos
 \subsection{Inferencias Estadísticas sobre $\hat{\beta}$}
 
 \noindent En esta parte se estudian las propiedades de los estimadores obtenidos mediante el método de los mínimos cuadrados. 
 
-\noindent Hay que tener en cuenta los siguientes supuestos el vector $\mathbf{x}\sim N_p(\mu, \mathbf{\Sigma})$ una distribución multivariante de dimensión $p$, del cual tomamos $N$ observaciones independientes obteniendo la matriz de datos $\mathbf{X}$, que a no ser que se diga lo contrario, se supondrá conocida. Además, supóngase el vector de $N$ observaciones de la variable respuesta sigue el siguiente modelo $\mathbf{y}= \mathbf{X \beta}^T+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2\mathbf{I}_N)$,es un vector de longitud $N$ en el que cada componente es una normal $N(0,\sigma^2)$  independientes entre sí. Esto nos permite dar la siguiente proposición \cite{Cuadras 2014}
+\noindent Hay que tener en cuenta los siguientes supuestos el vector $\mathbf{x}\sim N_p(\mu, \mathbf{\Sigma})$ una distribución multivariante de dimensión $p$, del cual tomamos $N$ observaciones independientes obteniendo la matriz de datos $\mathbf{X}$, que a no ser que se diga lo contrario, se supondrá conocida. Además, supóngase el vector de $N$ observaciones de la variable respuesta sigue el siguiente modelo $\mathbf{y}= \mathbf{X \beta}+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2\mathbf{I}_N)$,es un vector de longitud $N$ en el que cada componente es una normal $N(0,\sigma^2)$  independientes entre sí. Esto nos permite dar la siguiente proposición \cite{Cuadras 2014}
 \begin{propo}
 El vector aleatorio formado por $N$ observaciones de la variable respuesta conocida la matriz de datos y el vector de parámetros $\beta$ sigue una distribución
-$\mathbf{y}\sim N_N(\mathbf{X\beta}^T, \sigma^2\mathbf{I}_N)$, donde $\mathbf{I}_N$ es la matriz identidad de tamaño $N$.  
+$\mathbf{y}\sim N_N(\mathbf{X\beta}, \sigma^2\mathbf{I}_N)$, donde $\mathbf{I}_N$ es la matriz identidad de tamaño $N$.  
 \begin{proof}
 Basta con comprobar que:
 \begin{equation}
-\mathbb{E}(\mathbf{y})=\mathbb{E}(\mathbf{X\beta}^T)+\mathbb{E}(\varepsilon)=\mathbb{E}(\mathbf{X\beta}^T)=\mathbf{X\beta}^T
+\mathbb{E}(\mathbf{y})=\mathbb{E}(\mathbf{X\beta})+\mathbb{E}(\varepsilon)=\mathbb{E}(\mathbf{X\beta})=\mathbf{X\beta}
 \end{equation}
 Y la varianza :
 \begin{equation}
 \begin{split}
-\mathbb{E}(\mathbf{X\beta}^T+\varepsilon)(\mathbf{X\beta}^T+\varepsilon)^T)=\mathbf{X\beta}^T\mathbf{\beta X}^T+ Var(\varepsilon
+\mathbb{E}((\mathbf{X\beta}+\varepsilon)(\mathbf{X\beta}+\varepsilon)^T)=\mathbf{X\beta}\mathbf{\beta}^T \mathbf{X}^T+ Var(\varepsilon
 )\\
-Var(\mathbf{y})=\mathbf{X\beta}^T\mathbf{\beta X}^T+ Var(\varepsilon
-)-\mathbf{X\beta}^T\mathbf{\beta X}^T=Var(\varepsilon)=\sigma^2\mathbf{I}_N
+Var(\mathbf{y})=\mathbf{X\beta}\mathbf{\beta}^T \mathbf{X}^T+ Var(\varepsilon
+)-\mathbf{X\beta}\mathbf{\beta}^T \mathbf{X}^T=Var(\varepsilon)=\sigma^2\mathbf{I}_N
 \end{split}
 \end{equation}
-\noindent Y se concluye ya que el vector $\varepsilon$ es una normal. 
+\noindent Y se concluye que el vector $\mathbf{y}\sim N_N(\mathbf{X\beta}, \sigma^2\mathbf{I}_N)$, ya que el vector $\varepsilon\sim N_N(0,\sigma^2 \mathbf{I}_N)$ por hipótesis. 
 \end{proof}
 \end{propo}
-\noindent Añadamos a las suposiciones  que la matriz $\mathbf{X}$ es de rango máximo y por tanto, $\mathbf{X}^T\mathbf{X}$ es semidefinido positiva. 
+
+\noindent Añadamos a las suposiciones  que la matriz $\mathbf{X}$ es de rango máximo y por tanto, $\mathbf{X}^T\mathbf{X}$ es semidefinido positiva.
+A continuación se detallarán las cualidades inferenciales del vector $\hat{\beta}$, como que es insesgado, su varianza y su distribución. 
+\newpage
 \begin{propo}
 El estimador $\hat{\beta}$ es un estimador insesgado \cite{Greene 2008}
 \begin{proof}
 Teniendo en cuenta las anteriores hipótesis anteriores, incluyendo que la variable respuesta es:  
 
-\noindent De esta manera, se obtiene que $\hat{\beta}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T(\mathbf{X}\beta^T+\varepsilon)=\beta+(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon$
+\noindent De esta manera, se obtiene que $\hat{\beta}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T(\mathbf{X}\beta+\varepsilon)=\beta+(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon$
 
-\noindent Entonces, se tiene que conocida $\mathbf{X} \Rightarrow \mathbb{E}(\hat{\beta}|\mathbf{X})=\mathbb{E}(\beta+(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon|\mathbf{X})=\beta +\mathbb{E}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon|X)=\beta$ debido a la distribución de $\varepsilon$
+\noindent Entonces, se tiene que conocida $\mathbf{X} \Rightarrow \mathbb{E}(\hat{\beta}|\mathbf{X})=\mathbb{E}(\beta+(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon|\mathbf{X})=\beta +\mathbb{E}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon|\mathbf{X})=\beta$ debido a la distribución de $\varepsilon$.
 
-\noindent Por tanto como $\mathbb{E}(\mathbb{E}(\hat{\beta}|\mathbf{X}))=\mathbb{E}(\beta)=\beta$
+\noindent Por tanto como $\mathbb{E}(\mathbb{E}(\hat{\beta}|\mathbf{X}))=\mathbb{E}(\beta)=\beta$ queda demostrado. 
 \end{proof}
 \end{propo}
 
@@ -174,19 +173,19 @@ La varianza del estimador $Var(\hat{\beta})= \sigma^2 (\mathbf{X}^T \mathbf{X})^
 \begin{proof}
 \begin{equation}
 \begin{split}
-Var(\hat{\beta})&=\mathbb{E}((\mathbf{X}^T \mathbf{X})^{-1}\mathbf{X}^T \varepsilon \varepsilon\mathbf{X}(\mathbf{X}^T \mathbf{X})^{-1}|X)\\
-&=\mathbb{E}(\varepsilon^2) (\mathbf{X}^T \mathbf{X})^{-1}(\mathbf{X}^T \mathbf{X})(\mathbf{X}^T \mathbf{X})^{-1} \\
+Var(\hat{\beta})&=\mathbb{E}((\mathbf{X}^T \mathbf{X})^{-1}\mathbf{X}^T \varepsilon \varepsilon^T\mathbf{X}(\mathbf{X}^T \mathbf{X})^{-1}|\mathbf{X})\\
+&=\mathbb{E}(\varepsilon\varepsilon^T) (\mathbf{X}^T \mathbf{X})^{-1}(\mathbf{X}^T \mathbf{X})(\mathbf{X}^T \mathbf{X})^{-1} \\
 &=\sigma^2 (\mathbf{X}^T \mathbf{X})^{-1}
 \end{split}
 \end{equation}
 \end{proof}
 \end{propo}
 
-\noindent Por último, tenemos que el parámetro de estimadores $\hat{\beta}= \beta+(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon$, es una combinación afín de $\varepsilon$ una variable con distribución por tanto, tendremos que cada uno de los componentes del vector $\hat{\beta},\hat{\beta}_j\sim N(\beta_j, \sigma^2(\mathbf{X^TX}_{jj}^{-1})) j=1\ldots p$ donde $(\mathbf{X^TX}_{jj}^{-1})$ es el j-ésimo elemento de la diagonal de la matriz $(\mathbf{X}^T\mathbf{X})^{-1}$ \cite{Johnson 2007}.
+\noindent Por último, tenemos que el parámetro de estimadores $\hat{\beta}= \beta+(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T \varepsilon$, es una combinación afín de $\varepsilon$ una variable con distribución por tanto, tendremos que cada uno de los componentes del vector $\hat{\beta},\hat{\beta}_j\sim N(\beta_j, \sigma^2(\mathbf{X^TX}_{jj}^{-1}))$ donde $ j=1\ldots p$ y $(\mathbf{X^TX}_{jj}^{-1})$ es el j-ésimo elemento de la diagonal de la matriz $(\mathbf{X}^T\mathbf{X})^{-1}$ \cite{Johnson 2007}.
 
 \noindent Si el parámetro $\sigma^2$ fuera conocido, entonces se podría llevar a cabo los contrastes de manera sencilla. En este caso, $z_j=\dfrac{\hat{\beta}_j}{\sigma \sqrt{v_j}}\sim N(0,1)$
 
-\noindent Para poder hacer los estadígrafos de contrastes se debe construir un estimador de esta varianza, ya que habitualmente no es conocida. Para ello \emph{Hastie et. al.} proponen el siguiente estimador de la varianza, suponiendo que unicamente hay una variable respuesta: 
+\noindent Para poder hacer los estadígrafos de contrastes se debe construir un estimador de esta varianza, ya que habitualmente no es conocida. Para ello \emph{Hastie et. al.}\cite{Hastie 2001} y \emph{Cuadras C.M} \cite{Cuadras 2014} proponen el siguiente estimador de la varianza, suponiendo que unicamente hay una variable respuesta: 
 \begin{equation}
 \hat{\sigma}^2=\dfrac{1}{N-p-1}\sum_{i=1}^N (y_i-\hat{y}_i)^2 
 \end{equation} 
@@ -199,24 +198,28 @@ El estimador $\hat{\sigma}^2$ cumple lo siguiente :
 \item  $\hat{\sigma}^2 \sim \frac{\sigma^2}{N-p-1}\chi_{N-p-1}^2 $
 \end{itemize}
 \begin{proof}
-\noindent Sea $\lbrace t_{1}\ldots t_{p+1}, t_{p+2}, \ldots t_{N}\rbrace$ una base ortogonal del espacio $\mathbb{R}^N$ dentro de los cuales $t_{1},\ldots t_{p+1}$ es base de $C_{p+1}(\mathbf{X})$, de tal manera que los últimos $N-p-1$ vectores son ortogonales a la $C_{p+1}(\mathbf{X})$. Por tanto si tomamos la matriz de cambio de base $\mathbf{T}$ con los vectores $\lbrace t_{1}\ldots t_{p+1}, t_{p+2}, \ldots t_{N}\rbrace$ como columnas. 
+El término $\sum_{i=1}^N (y_i-\hat{y}_i)^2=RSS(\hat{\beta})$, se puede expresar como un producto escalar, tomando el vector residuo $\hat{\mathbf{\varepsilon}}= \mathbf{y}-\mathbf{X \hat{\beta}}=\mathbf{y}-\mathbf{\hat{y}}$, se puede ver que el $RSS(\hat{\beta})=\hat{\mathbf{\varepsilon}}^T\hat{\mathbf{\varepsilon}}$. 
 
-\noindent Sea el cambio de base $\mathbf{z}=\mathbf{T} \mathbf{y}\Rightarrow \mathbb{E}(z_i)=t_i^T \mathbf{X}\beta^T=0 $ cuando $i\geq p+1$ Por ello, cambiando de base el vector $\hat{\mathbf{e}}\Rightarrow \mathbf{T}\hat{\mathbf{e}}=(\overbrace{0\ldots 0}^{p+1},z_{p+2},\ldots z_{N})^T$.
+\noindent Sabiendo que $\mathbf{\hat{e}}\in \mathbb{R}^N$, consideremos una nueva base, del espacio, $t_1,\ldots t_{p+1},t_{p+2},\ldots, t_N$, de tal manera que los $p+1$ primeros son una base de $C_{p+1}(\mathbf{X})$ y que sean ortonormales entre si, entonces, se puede tomar la matriz de cambio de base $\mathbf{T}$, es una matriz ortogonal, de manera que 
+$\mathbf{T}^T\mathbf{T}=\mathbf{TT}^T=\mathbf{I}$. 
 
-\noindent La esperanza de $\mathbb{E}(\hat{\mathbf{e}})=\mathbb{E}(\mathbf{T}\hat{\mathbf{e}})=0$ De esta manera, se obtiene lo siguiente:
+\noindent Entonces el vector $\mathbf{T\hat{\varepsilon}}=(\overbrace{0\ldots 0}^{p+1},e'_{p+2},\ldots e'_{N})^T$ por la proposición \ref{prop ort}, y se cumple que $\mathbb{E}(\mathbf{\hat{\varepsilon}})=\mathbb{E}(\mathbf{T\hat{\varepsilon}})=0$, por la distribución que tiene el vector $\varepsilon$ además $\mathbf{E}((e'_i)^2)=\sigma^2, i=p+2\ldots N $ ya que para los anteriores es 0 y por último, $\mathbb{E}(\mathbf{\hat{\varepsilon}}^T\mathbf{\hat{\varepsilon}})=\mathbb{E}(\mathbf{\hat{\varepsilon}}^T\mathbf{T}^T\mathbf{T}\mathbf{\hat{\varepsilon}})=\sum_{p+2}^N \mathbf{(e'_i)^2}=(N-p-1) \sigma^2$
+
+\noindent Por tanto:
 \begin{equation}
-\mathbb{E}(\hat{\mathbf{e}}^T\hat{\mathbf{e}})=\mathbb{E}(\hat{\mathbf{e}}^T \mathbf{T^T T}\hat{\mathbf{e}})=\sum_{i=p+2}^N\mathbb{E}(z_i^2)=
+\mathbb{E}(\hat{\sigma}^2)= \dfrac{1}{N-p-1}\mathbb{E}(RSS(\hat{\beta}))=\sigma^2
 \end{equation}
 
-\noindent De esta manera, como $\sum_{i=1}^N(y_i-\hat{y}_i)^2=\hat{\mathbf{e}}^T\hat{\mathbf{e}}= \hat{\mathbf{e}}^T \mathbf{T^T T} \hat{\mathbf{e}}=\sum_{i=p+2}^N z_i$ entonces el estimador:
-\begin{equation}
-\hat{\sigma}^2=\dfrac{1}{N-p-1}\sum_{i=p+2}^N z_i^2=\dfrac{1}{N-p-1}\hat{\mathbf{e}}^T\hat{\mathbf{e}}
-\end{equation}
+\noindent Se concluye entonces que el estimador $\hat{\sigma}^2$, es insesgado. 
 
-\noindent Tomando esperanzas se obtiene que efectivamente el estimador es insesgado. 
-Por tanto, tenemos un estimador insesgado que es suma de $N-p-1$ normales estándar multiplicadas por $\sigma^2$ y dividas entre $N-p-1$, por tanto, tenemos que además $\hat{\sigma}^2\sim \dfrac{\sigma^2}{N-p-1}\chi_{N-p-1}$
+\noindent Y para terminar se puede ver que el estimador es suma de $N-p-1$ normales estándar multiplicadas por $\sigma^2$ y dividas entre $N-p-1$, por tanto, tenemos que además $\hat{\sigma}^2\sim \dfrac{\sigma^2}{N-p-1}\chi_{N-p-1}$
 \end{proof}
 \end{propo}
+
+\noindent \emph{Observación: } en el caso de que la matriz de datos $\mathbf{X}$ sea de rango $r<p+1$ se debe construir un estimador distinto , para el cual se puede seguir el mismo razonamiento:
+\begin{equation}
+\hat{\sigma}^2=\dfrac{1}{N-r}\sum_{i=1}{N}(y_i-\hat{y}_i)^2
+\end{equation}
 
 \noindent Por tanto, ahora ya podemos establecer, conocidas las distribuciones de los estimadores construidos que \cite{Greene 2008}, \cite{Hastie 2001}:
 \begin{equation}

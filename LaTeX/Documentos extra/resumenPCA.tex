@@ -6,7 +6,10 @@
 
 \noindent Por el otro lado, Hotelling buscaba un conjunto de variables menor que pudiera determinar de igual manera o parecida los datos. Hotelling maximizó la contribución que aportaba cada componente a la varianza. Al utilizar para este fin el método de los multiplicadores de Lagrange, obtuvo el problema de valores propios que se desarrolla en esta sección. Aún así, el trabajo de Hotelling tenia ciertas diferencias con el enfoque que actualmente se le da actualmente a las componentes principales, por ejemplo, consideraba que las variables originales  debían ser combinaciones de las componentes y no al revés. Tampoco usaba la notación matricial ni la matriz de covarianzas, en su lugar utilizaba la de correlaciones. Añadir que aunque en esta memoria se trabajará con la matriz de covarianza, \emph{Chatfield, C. y Collins A.J.}\cite{Chatfield 1989} desarrollan ambos enfoques. 
 
-\noindent El objetivo cuando se quiere aplicar este método es el de reducir la dimensionalidad o simplificar la estructura de los datos como el resto de métodos no supervisados. En este caso, se buscan las direcciones en las que los datos presentan la mayor variabilidad en orden decreciente de manera que las primeras componentes obtenidas deben ser las que mayor variabilidad expresan. De esta manera, variables bastante correladas, se simplificarán en una que tenga toda la variabilidad de ambas \cite{Chatfield 1989}, \cite{Everitt 2011}
+\noindent Según \emph{Abdi, H} \cite{Abdi 2010} esta técnica tiene varios objetivos, entre los cuales están el extraer la información más importante de los datos, reduciendo la dimensionalidad y simplificando la descripción en el proceso de los mismos. Y por último, analizar la estructura de los datos. 
+
+
+\noindent De esta manera, variables bastante correladas, se simplificarán en una que tenga toda la variabilidad de ambas \cite{Chatfield 1989}, \cite{Everitt 2011} ya que a fin de cuentas la información que expresan estaría repetida. 
 
 \noindent En esta sección se detallará en principio cómo se calculan las componentes principales solo teniendo en cuenta las propiedades del vector aleatorio $\mathbf{x}$ de longitud $p$. Tras esto, tomaremos $N$ observaciones con las que poder construir estimadores de las componentes y se analizará como esta reducción de la dimensionalidad es la que permite una mejor reconstrucción de los datos mediante el Teorema de Eckart-Young. 
 
@@ -209,15 +212,15 @@ Sea $\mathbf{U}$ una matriz ortogonal, que cumple $\mathbf{U}^T\cdot \mathbf{U}=
 \begin{propo}
 Dada una matriz de datos \textbf{X} de tamaño $N\times p$ entonces
 \begin{equation}
-||\textbf{X}||_F^2=(n-1)\sum_{j=1}^p s_{jj}^2
+||\textbf{X}||_F^2=(N-1)\sum_{j=1}^p s_{jj}^2
 \end{equation}
 Donde las $s_{ii}^2$ son las varianzas muestrales.
 \begin{proof}
 Debido a la centralidad impuesta a la matriz \textbf{X}, sabemos que la matriz de covarianzas es $\textbf{S}=\frac{1}{n-1}\textbf{X}^T \textbf{X}$ por tanto,se tiene que utilizar la definición de la norma:
 \begin{align*}
 ||\textbf{X}||_F^2 &= tr(\textbf{X}^T\textbf{X})\\
-&= (n-1) tr(\textbf{S})\\
-&= (n-1) \sum_{i=1}^p s_{ii}^2 \qedhere
+&= (N-1) tr(\textbf{S})\\
+&= (N-1) \sum_{i=1}^p s_{ii}^2 \qedhere
 \end{align*}
 \end{proof}
 \end{propo}
@@ -230,7 +233,7 @@ Se llama matriz reducida de orden $m\leq p$ de $\textbf{X}$ y se denota como $\t
 \end{equation}
 Donde:
 \begin{itemize}
-\item $\textbf{U}_m$ matriz ortogonal de tamaño $n \times m$, resultado de tomar de \textbf{U} únicamente la matriz las $m$ primeras columnas. 
+\item $\textbf{U}_m$ matriz ortogonal de tamaño $N \times m$, resultado de tomar de \textbf{U} únicamente la matriz las $m$ primeras columnas. 
 \item $\mathbf{D}_m$  matriz cuadrada de tamaño $m$ diagonal con los $m$ primeros valores singulares. 
 \item $\textbf{V}_m$ matriz ortogonal de tamaño $p \times m$ obtenida al tomar las $m$ primeras columnas de \textbf{V}.
 \end{itemize}
