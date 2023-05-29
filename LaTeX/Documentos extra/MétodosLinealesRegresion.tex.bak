@@ -122,7 +122,14 @@ Premultiplicando por $\mathbf{X}$:
 \end{proof}
 \end{propo}
 
+\noindent Supongamos además que los vectores columna de la matriz $\mathbf{X}$ $\mathbf{x}_0, \mathbf{x}_1 \ldots \mathbf{x}_p$ y sea $\mathbf{y}$ el vector de tamaño $N\times 1$ sean ortogonales entre si. Por tanto $\mathbf{X}$ es ortogonal y  se cumple en ese caso lo siguiente \cite{Hastie 2001}: 
+\begin{equation}
+\hat{\beta}_j=\dfrac{\mathbf{x}_j^T\mathbf{y}}{\mathbf{x}_j^T \mathbf{x}_j}
+\end{equation}
 
+\noindent Si $\mathbf{X}$ además es 
+
+\noindent Este caso no es realista ya que normalmente las columnas no suelen ser ortogonales. Es por ello, que hay que crear una nueva base ortonormal con los residuos
 \subsection{Inferencias Estadísticas sobre $\hat{\beta}$}
 
 \noindent En esta parte se estudian las propiedades de los estimadores obtenidos mediante el método de los mínimos cuadrados. 
@@ -286,16 +293,18 @@ Esta reducción de características a considerar permite hacer mucho más interp
 
 \noindent Se podría seguir un método exhaustivo que calcule cada uno de los subconjuntos posibles para cada número de variables que creamos necesarias y calcular el error cuadrático acumulado de cada uno de los subconjuntos posibles. Pero este método es de una complejidad computacional alta. 
 
-\noindent Otra posibilidad sería utilizar el estadígrafo de contraste $F$ definido en la Ecuación \eqref{ec.F} empezando con una sola variable e ir añadiendo cada variable que mejore el ajuste. También se puede hacer al revés, empezando con el modelo con todas las variables e ir reduciendo la cantidad de estas. 
+\noindent Otra posibilidad sería utilizar el estadígrafo de contraste $F$ definido en la Ecuación \eqref{ec.F} empezando con una sola variable e ir añadiendo cada variable que mejore el ajuste. También se puede hacer al revés, empezando con el modelo con todas las variables e ir reduciendo la cantidad de estas. A estos algoritmo se les llaman \emph{algoritmos voraces} los cuales buscan una solución óptima en cada paso y no en global. 
 
 \noindent El problema de estos métodos de selección de variables es que es un proceso discreto, una variable es o no considerada para el modelo siguiente y esto puede generar sobreajuste o infraajuste, no habiendo un término medio. 
 
-\noindent Para ello, existen los métodos penalizados o de encogimiento, que añaden un término de penalización para que los parámetros $\beta$ no sean muy grandes, en el caso del ajuste por mínimos cuadrados del modelo lineal. 
+\noindent Para ello, existen los métodos penalizados o de encogimiento, que añaden un término de penalización para que los parámetros $\beta$ no sean muy grandes.
 
+\begin{defi} 
+Llamamos \emph{Errores Cuadrados Acumulados Penalizados, PRSS,} a la suma de los cuadrados de los errores cometidos con el modelo lineal que usa el  vector de parámetros $\beta$, añadiendo un término regulador $\lambda >0$: 
 \begin{equation}
 PRSS(\beta)=\sum_{i=1}^n(\textbf{y}_i-\textbf{x}_i^T\beta)^2+\lambda\sum_{j=1}^p\beta_j^2
 \end{equation}
-
+\end{defi}
 \noindent El último término hace que parámetros $\beta_j$ grandes sean considerados perjudiciales, y el parámetro $\lambda$ es una forma de regular cuanta importancia tiene dicha penalización, cuanto mayor sea, este provocará un encogimiento mayor de los parámetros. 
 De esta manera, se tiene una forma continua de considerar los pesos no eliminando en de manera total las variables o haciendo el $\beta_j$ correspondiente cercano a 0. 
 

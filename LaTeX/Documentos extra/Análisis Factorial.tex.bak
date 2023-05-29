@@ -1,4 +1,6 @@
+\newpage
 \section{Análisis Factorial}
+
 \noindent El Ánalisis de componentes principales no era más que una descomposición de la varianza de las variables observadas, y luego una transformación de las variables mediante transformaciones ortogonales. 
 
 \noindent De esta manera, no se explora más allá de la varianza. En el caso del Ánalisis Factorial, se explora la correlación que se da entre las distintas variables, por ejemplo, un conjunto de éstas están muy correladas entre sí y no con el resto, estas pueden ser resumidas por un único factor sin mucha pérdida de información. 
@@ -181,17 +183,14 @@ Tomando la definición dada de la matriz $\mathbf{\hat{\mathbf{\Lambda}}}=\textb
 \hat{h}_j^2=s_j^2-s_j^2(1-R_j^2)=s_j^2R_j^2
 \end{equation}
  
-\noindent De esta manera se tienen dos maneras de estimar de manera inicial las comunalidades para poder realizar el siguiente método.
-\paragraph*{Método del Factor Principal}
-\hrule
+\noindent De esta manera se tienen dos maneras de estimar de manera inicial las comunalidades para poder realizar el siguiente método:
+
 \begin{enumerate}
 \item Se toma una estimación inicial de las comunalidades como se ha visto anteriormente, en el caso de que sea la primera iteración, $\hat{\psi}_0$ se toma cualquiera de las alternativas, en caso contrario $\hat{\psi}_i=diag(\textbf{S}-\hat{\mathbf{\Lambda}}_{i})$
 \item Se calcula la matriz simétrica $\textbf{Q}_i=\textbf{S}-\hat{\psi}_i$
 \item Se obtiene la descomposición espectral de $\textbf{Q}_i=\textbf{H}_{1i}\textbf{G}_{1i}\textbf{H}_{1i}^T+\textbf{H}_{2i}\textbf{G}_{2i}\textbf{H}_{2i}^T$. Donde la matriz $\textbf{H}_{1i}$ son los $m$ vectores propios con los mayores valores propios y $\textbf{G}_{1i}$ es la matriz que contiene en la diagonal estos $m$ mayores valores propios. Puede ocurrir que $\textbf{Q}_i$ sea no definida positiva y por tanto, haya valores propios negativos. 
 \item Tomar $\hat{\mathbf{\Lambda}}_{i+1}\textbf{H}_{1i}\textbf{G}_{1i}^{\frac{1}{2}}$ e iterar hasta que se de el criterio de parada o de convergencia $||\hat{\mathbf{\Lambda}}_{i+1}-\hat{\mathbf{\Lambda}}_{i}||\leq \varepsilon$.
 \end{enumerate}
-\hrule
-
 \noindent En \emph{Peña, D}\cite{Peña 2002} se muestran ejemplos de aplicación simples en el que se utiliza el método del factor principal para realizar la estimación de la matriz de cargas de un solo factor.
 
 \noindent En  esencia lo que se realiza con este algoritmo es minimizar la siguiente función:
@@ -245,10 +244,13 @@ Sea $\textbf{D}$ una matriz diagonal cualquiera, de esta manera, se tiene la tra
 \end{equation}\qedhere
 \end{proof}
 \end{propo}
-\noindent De esta manera, la ventaja de estos métodos de máxima verosimilitud sale a la luz, que es poder trabajar con variables estandarizadas o no obteniendo los mismos resultados. Lo que facilita a la hora de preprocesar los datos 
+\noindent De esta manera, la ventaja de estos métodos de máxima verosimilitud sale a la luz, que es poder trabajar con variables estandarizadas o no obteniendo los mismos resultados. Lo que facilita el trabajo a la hora de preprocesar los datos y evita fallos a la hora de la interpretación. 
+
+\noindent Aún así se han buscado métodos alternativos para calcular la matriz de cargas, por ejemplo, el método de Mínimos Cuadrados Generalizados que aplica regresiones múltiples para estimar la matriz de cargas   \emph{Veasé la sección 12.4.2 de Peña D.}\cite{Peña 2002}
 
 \subsection*{Otras consideraciones}
 \noindent Sobre este modelo se puede realizar contrastes de hipótesis para poder analizar la conveniencia del propio modelo obtenido. Además se pueden aplicar transformaciones ortogonales que nos permitan tener las máximas variaciones entre los factores, el llamado método \emph{Varimax}. Incluso existen maneras de dar modelos factoriales los cuales estén correlados, algo que aquí ha sido obviado de manera deliberada por falta de tiempo. 
+
 
 
 

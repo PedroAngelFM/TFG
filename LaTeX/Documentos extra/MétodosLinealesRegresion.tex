@@ -122,7 +122,14 @@ Premultiplicando por $\mathbf{X}$:
 \end{proof}
 \end{propo}
 
+\noindent Supongamos además que los vectores columna de la matriz $\mathbf{X}$ $\mathbf{x}_0, \mathbf{x}_1 \ldots \mathbf{x}_p$ y sea $\mathbf{y}$ el vector de tamaño $N\times 1$ sean ortogonales entre si. Por tanto $\mathbf{X}$ es ortogonal y  se cumple en ese caso lo siguiente \cite{Hastie 2001}: 
+\begin{equation}
+\hat{\beta}_j=\dfrac{\mathbf{x}_j^T\mathbf{y}}{\mathbf{x}_j^T \mathbf{x}_j}
+\end{equation}
 
+\noindent Si $\mathbf{X}$ además es 
+
+\noindent Este caso no es realista ya que normalmente las columnas no suelen ser ortogonales. Es por ello, que hay que crear una nueva base ortonormal con los residuos
 \subsection{Inferencias Estadísticas sobre $\hat{\beta}$}
 
 \noindent En esta parte se estudian las propiedades de los estimadores obtenidos mediante el método de los mínimos cuadrados. 
