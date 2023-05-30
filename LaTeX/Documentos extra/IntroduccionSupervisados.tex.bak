@@ -1,5 +1,5 @@
 
-\noindent Sea un conjunto de datos obtenidos de observar ciertas variables aleatorias de manera simultánea. De ese conjunto de variables se dividirán en:
+\noindent Sea un conjunto de variables aleatorias observables de manera simultánea en una población. Estas variables se pueden dividir en dos tipos \cite{Hastie 2001}:
 \begin{itemize}
 \item \textbf{\textit{Variables de entrada o predictoras}}: Son las variables independientes que determinarán de manera aleatoria al segundo conjunto de variables. Al conjunto de variables aleatorias de entrada se la denotará como el vector aleatorio $\textbf{x}=[X_1,\ldots X_p]$. \\
 \begin{defi}
@@ -8,12 +8,15 @@ Tomando $N$ observaciones de estas variables  de manera simultánea se obtiene l
 \item \textbf{\textit{Variables de salida }}: Son las variables dependientes de las anteriores. A este conjunto de variables se les denota con el vector aleatorio $\textbf{y}=[Y_1,\ldots Y_K]$, en el caso de que se tenga una única variable respuesta se denotará como $Y$. \\
 Como en el caso de las variables de entrada, se tomarán $N$ observaciones de las $K$ variables, dando como resultado la matriz de respuestas $\textbf{Y}$ de tamaño $N \times K$, donde cada observación es una fila y se denota como $\mathbf{y}_i, i=1\ldots K$, en el caso de que $K>1$ y como $y_i$ cuando $K=1$. Siguiendo el ejemplo anterior, se podrían tener variables respuesta como el tipo de etiqueta medioambiental siendo esta una variable discreta o el precio del vehículo que tiene naturaleza continua. 
 \end{itemize}
-\noindent Por ende, se recogen observaciones simultáneas de las variables de entrada y de salida formando parejas $(\mathbf{y}_i,\textbf{x}_i), i=1\ldots N$, de manera que se obtiene un vector fila de tamaño $p+1$. Estas observaciones de las variables forman una muestra aleatoria de la población .
+\noindent Por ende, se recogen observaciones simultáneas de las variables de entrada y de salida formando parejas $(\mathbf{y}_i,\textbf{x}_i), i=1\ldots N$, de manera que se obtiene un vector fila de tamaño $p+K$. Estas observaciones de las variables forman una muestra aleatoria de la población .
 \begin{defi}
 Se llama \emph{muestra aleatoria} de una variable aleatoria con una cierta distribución de probabilidad $F$, a un conjunto de $N$ variables aleatorias con la misma distribución. 
 \end{defi} 
 
-\noindent Durante la memoria, se establecerán los fundamentos a nivel poblacional, solo teniendo en cuenta las propiedades de las variables aleatorias y luego en caso de que sea necesario se tomarán $N$ observaciones o realizaciones del experimento para formar las matrices de datos correspondientes. 
+\begin{defi}
+Se llaman métodos supervisados \cite{Mahesh 2020} a aquellos métodos que buscan inferir una relación estocástica entre dos grupos de variables, predictoras y respuesta en un conjunto de datos contiene observaciones simultaneas de ambos conjuntos de datos. 
+\end{defi}
 
-\noindent El objetivo de estos métodos supervisados es encontrar una relación estocástica que llamaremos predictor de tal manera que para una nueva observación de las variables de entrada, que denotaremos con $\textbf{x}_0$ se pueda hacer una predicción $\hat{\textbf{y}}_0$ del valor real $\textbf{y}_0$ de la variable respuesta siempre con un cierto error que será una variable  aleatoria. 
+
+\noindent Por tanto, el objetivo de estos métodos supervisados es encontrar una relación estocástica que llamaremos predictor de tal manera que para una nueva observación de las variables de entrada, que denotaremos con $\textbf{x}_0$ se pueda hacer una predicción $\hat{\textbf{y}}_0$ del valor real $\textbf{y}_0$ de la variable respuesta siempre con un cierto error que será una variable  aleatoria. 
  

@@ -4,19 +4,19 @@
 	
 	\addcontentsline{toc}{chapter}{Bibliografía}
 
-\bibitem{Abdi 2010} \textbf{Abdi, H., and Williams, L. J. (2010).} \textit{Principal component analysis. Wiley Interdisciplinary Reviews: Computational Statistics}  2(4), 433–459. 
+\bibitem{Abdi 2010} \textbf{Abdi, H., and Williams, L. J. (2010).} Principal component analysis. Wiley \emph{Interdisciplinary Reviews: Computational Statistics}  2(4), 433–459. 
 
 \bibitem{Abdi 2007}\textbf{Abdi, H. (2007).} The method of least squares. \emph{Encyclopedia of measurement and statistics}, 1, 530-532.
 
 \bibitem{Biau 2016}\textbf{Biau, G., and Scornet, E. (2016)}. \textit{A random forest guided tour}. Test, 25, 197-227.
 
-\bibitem{Breiman 2004}\textbf{Breiman, L. (2004).}\textit{ Consistency for a simple model of random forests.} University of California at Berkeley. Technical Report, 670.
+\bibitem{Breiman 2004}\textbf{Breiman, L. (2004).} Consistency for a simple model of random forests. \emph{University of California at Berkeley. Technical Report,} 670.
 
-\bibitem{Brown 2004} \textbf{Myles, A. J., Feudale, R. N., Liu, Y., Woody, N. A., and Brown, S. D. (2004).} \textit{An introduction to decision tree modeling.} Journal of Chemometrics: A Journal of the Chemometrics Society, 18(6), 275-285.
+\bibitem{Brown 2004} \textbf{Myles, A. J., Feudale, R. N., Liu, Y., Woody, N. A., and Brown, S. D. (2004).} An introduction to decision tree modeling. \emph{Journal of Chemometrics: A Journal of the Chemometrics Society}, 18(6), 275-285.
 
 \bibitem{Chatfield 1989} \textbf{Chatfield,C and Collins A.J (1989)}. {\em Introduction to multivariate analysis}, Chapman and Hall.
 
-\bibitem{Diaz 2006}\textbf{Díaz-Uriarte, R., and Alvarez de Andrés, S. (2006).} \textit{Gene selection and classification of microarray data using random forest.} BMC bioinformatics, 7, 1-13.
+\bibitem{Diaz 2006}\textbf{Díaz-Uriarte, R., and Alvarez de Andrés, S. (2006).} Gene selection and classification of microarray data using random forest. \emph{BMC bioinformatics,} 7, 1-13.
 
 \bibitem{Cuadras 2014} \textbf{Cuadras, C.M. (2014)}, \textit{Nuevos métodos de Análisis Multivariante}, CMC Editions, Barcelona. 
 
@@ -66,9 +66,8 @@
 
 \bibitem{Diez 2002}\textbf{Hernandis, S. P., Diez, J. P., y Rouma, A. C. (2002).} \textit{El consumo de inhalables y cannabis en la preadolescencia: Análisis multivariado de factores predisponentes.} Anales de Psicología/Annals of Psychology, 18(1), 77-93.
 
-\bibitem{Echeverri 2015} \textbf{Machado-Duque, M. E., Echeverri Chabur, J. E., y Machado-Alba, J. E. (2015).}\textit{ Somnolencia diurna excesiva, mala calidad del sueño y bajo rendimiento académico en estudiantes de Medicina.} Revista colombiana de Psiquiatría, 44(3), 137-142.
+\bibitem{Echeverri 2015} \textbf{Machado-Duque, M. E., Echeverri Chabur, J. E., y Machado-Alba, J. E. (2015).} Somnolencia diurna excesiva, mala calidad del sueño y bajo rendimiento académico en estudiantes de Medicina. \emph{Revista colombiana de Psiquiatría,} 44(3), 137-142.
 
-\bibitem{Johnson 2002} \textbf{Johnson, R. A., and Wichern, D. W. } \emph{Applied multivariate statistical analysis.} New Jersey, Prentice Hall; 2002.
 
 %\bibitem{González 2015} \textbf{González García, N., y Taborda Londoño, A.} \emph{Análisis de componentes principales Sparse: formulación, algoritmos e implicaciones en el análisis de datos.} Salamanca,  2015
 
@@ -103,5 +102,13 @@
 \bibitem{Johnson 1963} \textbf{Johnson, R. M. (1963).} On a theorem stated by Eckart and Young. \emph{Psychometrika}, 28(3), 259-263.
 
 \bibitem{Golub 1987}\textbf{Golub, G. H., Hoffman, A., \& Stewart, G. W. (1987)}. A generalization of the Eckart-Young-Mirsky matrix approximation theorem. \emph{Linear Algebra and its applications}, 88, 317-327.
+
+\bibitem{Mahesh 2020}\textbf{Mahesh, B. (2020).} Machine learning algorithms-a review. \emph{International Journal of Science and Research (IJSR)}, 9, 381-386.
+
+\bibitem{Pearson 1901} \textbf{Pearson, K. (1901)}. LIII. On lines and planes of closest fit to systems of points in space. \emph{The London, Edinburgh, and Dublin philosophical magazine and journal of science,} 2(11), 559-572.
+
+\bibitem{Hotelling 1933}\textbf{Hotelling H. (1933)} Analysis of a complex of statistical variables
+into principal components. \emph{J Educ Psychol }
+25:417–441.
 \end{thebibliography}
  

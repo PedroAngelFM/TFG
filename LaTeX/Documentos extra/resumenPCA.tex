@@ -1,10 +1,10 @@
 \newpage
 \section{Análisis de Componentes Principales}
-\noindent El Análisis de componentes principales, es una de las técnicas multivariantes más antiguas. En primera instancia, esta técnica fue desarrollada en paralelo por Pearson (1901) y Hotelling (1933) \cite{Jollife 1986} con distintos enfoques. 
+\noindent El Análisis de componentes principales, es una de las técnicas multivariantes más antiguas. En primera instancia, esta técnica fue desarrollada en paralelo por \emph{Pearson, K.} \cite{Pearson 1901} y \emph{Hotelling} \cite{Hotelling 1933} con distintos enfoques. 
 
-\noindent Pearson en su aproximación, buscó la forma de ajustar de mejor manera puntos de un espacio de dimensión $p$ a una recta o plano. Es decir, Pearson buscó un enfoque de optimización geométrica que llevó a las componentes principales.
+\noindent \emph{Pearson, K.}\cite{Pearson 1901} en su aproximación, buscó la forma de ajustar de mejor manera puntos de un espacio de dimensión $p$ a una recta o plano. Es decir, Pearson buscó un enfoque de optimización geométrica que llevó a las componentes principales.
 
-\noindent Por el otro lado, Hotelling buscaba un conjunto de variables menor que pudiera determinar de igual manera o parecida los datos. Hotelling maximizó la contribución que aportaba cada componente a la varianza. Al utilizar para este fin el método de los multiplicadores de Lagrange, obtuvo el problema de valores propios que se desarrolla en esta sección. Aún así, el trabajo de Hotelling tenia ciertas diferencias con el enfoque que actualmente se le da actualmente a las componentes principales, por ejemplo, consideraba que las variables originales  debían ser combinaciones de las componentes y no al revés. Tampoco usaba la notación matricial ni la matriz de covarianzas, en su lugar utilizaba la de correlaciones. Añadir que aunque en esta memoria se trabajará con la matriz de covarianza, \emph{Chatfield, C. y Collins A.J.}\cite{Chatfield 1989} desarrollan ambos enfoques. 
+\noindent Por el otro lado, \emph{Hotelling, H.} \cite{Hotelling 1933} buscaba un conjunto de variables menor que pudiera determinar de igual manera o parecida los datos. Hotelling maximizó la contribución que aportaba cada componente a la varianza. Al utilizar para este fin el método de los multiplicadores de Lagrange, obtuvo el problema de valores propios que se desarrolla en esta sección. Aún así, el trabajo de Hotelling tenia ciertas diferencias con el enfoque que actualmente se le da actualmente a las componentes principales \cite{Jollife 1986}, por ejemplo, consideraba que las variables originales  debían ser combinaciones de las componentes y no al revés. Tampoco usaba la notación matricial ni la matriz de covarianzas, en su lugar utilizaba la de correlaciones. Añadir que aunque en esta memoria se trabajará con la matriz de covarianza, \emph{Chatfield, C. y Collins A.J.}\cite{Chatfield 1989} desarrollan ambos enfoques. 
 
 \noindent Según \emph{Abdi, H} \cite{Abdi 2010} esta técnica tiene varios objetivos, entre los cuales están el extraer la información más importante de los datos, reduciendo la dimensionalidad y simplificando la descripción en el proceso de los mismos. Y por último, analizar la estructura de los datos. 
 
@@ -13,7 +13,9 @@
 
 \noindent En esta sección se detallará en principio cómo se calculan las componentes principales solo teniendo en cuenta las propiedades del vector aleatorio $\mathbf{x}$ de longitud $p$. Tras esto, tomaremos $N$ observaciones con las que poder construir estimadores de las componentes y se analizará como esta reducción de la dimensionalidad es la que permite una mejor reconstrucción de los datos mediante el Teorema de Eckart-Young \cite{Eckart 1936}. 
 
-\noindent Para desarrollar esta última parte en la que se habla de la reconstrucción de los datos se da una idea de una medida sobre las matrices, en particular, la norma de Frobenius que detallan \emph{Eckart C. y Young, G }\cite{Eckart 1936} sin llamarla de esa manera y demuestran que es invariante ante transformaciones ortogonales. 
+\noindent Para desarrollar esta última parte en la que se habla de la reconstrucción de los datos se da una idea de una medida sobre las matrices, en particular, la norma de Frobenius que detallan \emph{Eckart C. y Young, G }\cite{Eckart 1936} sin llamarla de esa manera y demuestran que es invariante ante transformaciones ortogonales.
+
+\noindent Y por último, se detallan varios ejemplos para ilustrar la interpretación de los resultados obtenidos tras aplicar las técnicas detalladas y hallar ciertos parámetros de bondad de ajuste, además de mostrar  aplicaciones reales de este método. 
 
 \newpage
 \subsection{Definición y cálculo de las Componentes}

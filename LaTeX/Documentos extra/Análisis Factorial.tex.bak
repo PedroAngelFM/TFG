@@ -246,7 +246,7 @@ Sea $\textbf{D}$ una matriz diagonal cualquiera, de esta manera, se tiene la tra
 \end{propo}
 \noindent De esta manera, la ventaja de estos métodos de máxima verosimilitud sale a la luz, que es poder trabajar con variables estandarizadas o no obteniendo los mismos resultados. Lo que facilita el trabajo a la hora de preprocesar los datos y evita fallos a la hora de la interpretación. 
 
-\noindent Aún así se han buscado métodos alternativos para calcular la matriz de cargas, por ejemplo, el método de Mínimos Cuadrados Generalizados que aplica regresiones múltiples para estimar la matriz de cargas   \emph{Veasé la sección 12.4.2 de Peña D.}\cite{Peña 2002}
+\noindent Aún así se han buscado métodos alternativos para calcular la matriz de cargas, por ejemplo, el método de Mínimos Cuadrados Generalizados que aplica regresiones múltiples para estimar la matriz de cargas   \emph{(Veasé la sección 12.4.2 de Peña D. \cite{Peña 2002})}
 
 \subsection*{Otras consideraciones}
 \noindent Sobre este modelo se puede realizar contrastes de hipótesis para poder analizar la conveniencia del propio modelo obtenido. Además se pueden aplicar transformaciones ortogonales que nos permitan tener las máximas variaciones entre los factores, el llamado método \emph{Varimax}. Incluso existen maneras de dar modelos factoriales los cuales estén correlados, algo que aquí ha sido obviado de manera deliberada por falta de tiempo. 

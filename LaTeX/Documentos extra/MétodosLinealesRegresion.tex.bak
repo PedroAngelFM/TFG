@@ -1,15 +1,15 @@
 \section{Métodos Lineales para regresión}
 
-\noindent El objetivo de la regresión es encontrar como un conjunto de variables respuesta se ven afectadas por otro conjunto de variables predictoras. En este caso, se estudia como una combinación lineal de las variables puede afectar a las variables respuesta. Esto se puede hallar con fines predictivos o con el fin de analizar cómo cada una de las variables predictivas afectan a las variables respuesta. 
+\noindent El objetivo de la regresión es encontrar como un conjunto de variables respuesta se ven afectadas por otro conjunto de variables predictoras. En este caso, se estudia como una combinación lineal de las variables puede afectar a las variables respuesta, que en el caso de la regresión es una variable aleatoria continua. Esto se puede hallar con fines predictivos o con el fin de analizar cómo cada una de las variables predictivas afectan a las variables respuesta \cite{Johnson 2007}. 
 
-\noindent Para ello, se tendrá en cuenta que las observaciones de la variable respuesta siguen la siguiente relación:
+\noindent Para ello, se tendrá en cuenta que las observaciones de la variable respuesta siguen la siguiente relación estocástica \cite{Hastie 2001, Johnson 2007}:
 \begin{equation}
 Y=f(\textbf{x})+\varepsilon
 \end{equation}
-\noindent Donde $\varepsilon$ es una variable aleatoria con $\mathbb{E}(\varepsilon)=0$ y $Var(\varepsilon)=\sigma^2$, habitualmente $\varepsilon \sim N(0,\sigma^2)$. Además supóngase que el vector de datos de entrada sigue una distribución normal multivariante $N_p(\mathbf{\mu},\mathbf{\Sigma})$ donde $\mathbf{\Sigma }$ es una matriz semidefinido positiva y simétrica \cite{Chatfield 1989}.
+\noindent Donde $\varepsilon$ es una variable aleatoria con $\mathbb{E}(\varepsilon)=0$ y $Var(\varepsilon)=\sigma^2$, habitualmente $\varepsilon \sim N(0,\sigma^2)$. Además supóngase que el vector de variables de entrada sigue una distribución normal multivariante $N_p(\mathbf{\mu},\mathbf{\Sigma})$ donde $\mathbf{\Sigma }$ es una matriz semidefinido positiva y simétrica,  \cite{Chatfield 1989}. A esta última suposición se le podría añadir que sea diagonal, de manera que las variables aleatorias predictoras no estén correladas,pero no es necesario. 
 
 
-\noindent En este tipo de métodos se supone que $f$ es una función lineal de las variables de entrada del vector aleatorio $\textbf{x}=[X_1\ldots X_p]$. De esta manera, se tiene que:  
+\noindent En el caso que nos atañe actualmente, se supondrá que $f$ es una función lineal de las variables de entrada del vector aleatorio $\textbf{x}=[X_1\ldots X_p]$. De esta manera, se tiene que:  
 \begin{equation}
 f(\textbf{x})=\beta_0+\sum_{j=1}^p X_j\beta_j
 \end{equation}
@@ -36,19 +36,19 @@ f(\mathbf{x})= \mathbf{x}\beta
 
 \noindent Sea una matriz de datos $\textbf{X}$ de tamaño $N\times (p+1)$ resultado de hacer $N$ observaciones de $p$ variables aleatorias y añadir a la primera componente de cada observación un 1. Sea también un vector de respuestas $\textbf{y}=[y_1,\ldots y_N]^T$ de tamaño $N$, resultado de observar la variable respuesta $Y$. 
 
-\noindent Ahora podemos sea el vector de parámetros de regresión $\beta$ de tamaño $p+1$ definido como antes, entonces podemos definir el concepto de función de pérdida
+\noindent Sea el vector de parámetros de regresión $\beta$ de tamaño $p+1$ definido como antes, entonces podemos definir el concepto de función de pérdida. 
 
 \begin{defi}
 Se llama \emph{función de pérdida} \cite{Hastie 2001} a una función $L(\textbf{y},\mathbf{\hat{y}})$ monótona creciente de la diferencia entre la predicción y el valor real de una variable
 \end{defi}
 
-\noindent Aunque el término sea más utilizado en el marco del aprendizaje automático \cite{James 2013}, el concepto de error cuadrático o la función de pérdida cuadrática es el que se suele usar en el ajuste de los parámetros de regresión. En particular la pérdida cuadrática se define de la siguiente manera \cite{Abdi 2007}:
+\noindent Aunque el término sea más utilizado en el marco del aprendizaje automático \cite{James 2013}, el concepto de error cuadrático o la función de pérdida cuadrática es el que se suele usar en el ajuste de los parámetros de regresión, Ya que esta pérdida al minimizarse, es equivalente al método de los mínimos cuadrados, muy utilizado en distintos campos. En particular, la pérdida cuadrática se define de la siguiente manera \cite{Abdi 2007}:
 
 \begin{defi}
-Se llama \emph{error de predicción cuadrático} entre una variable observada, $y$ y la predicción obtenida por un cierto modelo $\hat{y}$ a la expresión $(y-\hat{y})^2$
+Se llama \emph{error de predicción cuadrático} entre una variable observada, $y$, y la predicción obtenida por un cierto modelo $\hat{y}$ a la expresión $(y-\hat{y})^2$
 \end{defi}
 
-\noindent Tomando la suma de los errores cuadrados y minimizando se puede obtener una estimación  del vector de parámetros $\beta$. Utilizando las expresiones anteriores:
+\noindent Tomando la suma de los errores cuadrados cometidos en todas las observaciones y minimizando se puede obtener una estimación del vector de parámetros $\beta$. En particular, si se utilizan las expresiones matriciales  anteriores:
 \begin{equation}
 RSS(\beta)=\sum_{i=1}^N(y_i-\hat{y}_i)^2 = \sum_{i=1}^N(y_i-\textbf{x}_i\beta)^2=(\textbf{y}-\textbf{X}\beta)(\textbf{y}-\textbf{X}\beta)^T\\
 \end{equation}
@@ -61,12 +61,12 @@ RSS(\beta)=\sum_{i=1}^N(y_i-\hat{y}_i)^2 = \sum_{i=1}^N(y_i-\textbf{x}_i\beta)^2
 
 \noindent La segunda derivada respecto del vector de parámetros es $2\mathbf{X}^T\mathbf{X}$, entonces es  semidefinido positiva, ya que todos los valores propios son positivos o nulos. Entonces los $\beta$ en los que $-2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta)^T=0$ son mínimos.  
 
-\noindent Asumiendo que $\textbf{X}$ es una matriz de rango máximo $p+1$, de lo contrario, habría dos columnas o más que son combinación lineal la una de la otra, la matriz $\textbf{X}^T\textbf{X}$ es definida positiva, por tanto la solución de la siguiente ecuación:
+\noindent Asumiendo que $\textbf{X}$ es una matriz de rango máximo $p+1$, entonces la matriz $\mathbf{X}^T \mathbf{X}$ es invertible, por tanto la  siguiente expresión tiene solución única: 
 \begin{equation}
 \textbf{X}^T(\textbf{y}-\textbf{X}\beta)=0
 \end{equation}
 
-\noindent Si además, $\textbf{X}^T\textbf{X}$ es una matriz invertible, entonces tiene solución única y es :
+\noindent Esa solución es :
 \begin{equation}
 \hat{\beta}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
 \end{equation}
@@ -92,20 +92,20 @@ L(\theta)=\sum_{i=1}^n log( \mathbb{P}_{\theta}(y_i))
 \begin{equation}
 L(\theta)=-\dfrac{n}{2}log(2\pi)-n log(\sigma)-\dfrac{1}{2\sigma^2}\sum_{i=1}^n (y_i-f_\theta (x_i))^2
 \end{equation}
-Por tanto, teniendo en cuenta que el último término es $RSS(\theta)$, entonces maximizar $L(\theta)$ es equivalente a minimizar $RSS(\theta)$
+Por tanto, teniendo en cuenta que el último término es $RSS(\theta)$, entonces maximizar $L(\theta)$ es equivalente a minimizar $RSS(\theta)$.
 \end{proof}
 \end{propo}
 \begin{coro}
 Las estimaciones para cualquier $f_{\theta}$ obtenidas por el método de los mínimos cuadrados son equivalentes a las del método de máxima verosimilitud.  
 \end{coro}
-\noindent Por tanto, los valores predichos observados $\hat{\textbf{y}}$ se calculan de la siguiente manera:
+\noindent Por tanto, los valores predichos obtenidos de las observaciones recogidas en la matriz de datos $\hat{\textbf{y}}$ se calculan de la siguiente manera:
 \begin{equation}
 \hat{\textbf{y}}=\textbf{X}\hat{\beta}=\textbf{X}(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
 \end{equation}
 
 \noindent De esta manera, se está calculando la predicción de la respuesta $\hat{y}_i$ para cada una de las observaciones $\mathbf{x}_i, i =1, \ldots N$. 
 
-\noindent Se podría afrontar el problema del ajuste del modelo lineal de manera que los residuos se 
+\noindent Otra forma de considerar el problema del ajuste sería desde el punto de vista geométrico para el que hay que desarrollar las siguientes definiciones y proposiciones.
 
 \noindent En lo sucesivo se considera a no ser que se diga lo contrario que $N>p+1$ y que la matriz de datos $\mathbf{X}$ es de rango máximo, $p+1$. 
 
@@ -124,11 +124,11 @@ Premultiplicando por $\mathbf{X}^T$:
 \end{proof}
 \end{propo}
 
-\noindent \emph{Abdi, H} \cite{Abdi 2007} desarrolla este tipo de ajuste de manera superficial, mientras que  \emph{Hastie et.al.} \cite{Hastie 2001} detallan este marco geométrico utilizando el proceso de ortonormalización de Graham-Schmidt. Este proceso se basa como se puede ver, en el hecho de que el vector de residuo generado debe ser ortogonal al espacio $C_{p+1}(X)$. Aunque no se desarrolle el ajuste en su totalidad, la proposición anterior será utilizada para demostrar una propiedad de las distribuciones de los estimadores hallados. 
+\noindent \emph{Abdi, H} \cite{Abdi 2007} desarrolla este tipo de ajuste de manera superficial, mientras que  \emph{Hastie et.al.} \cite{Hastie 2001} detallan este marco geométrico utilizando el proceso de ortonormalización de Graham-Schmidt, para encontrar combinaciones ortonormales de las variables originales. Este proceso se basa como se puede ver, en el hecho de que el vector de residuo generado debe ser ortogonal al espacio $C_{p+1}(X)$. Aunque no se desarrolle el ajuste en su totalidad, la proposición anterior será utilizada para demostrar una propiedad de las distribuciones de los estimadores hallados. 
 
 \subsection{Inferencias Estadísticas sobre $\hat{\beta}$}
 
-\noindent En esta parte se estudian las propiedades de los estimadores obtenidos mediante el método de los mínimos cuadrados. 
+\noindent En esta parte se estudian las propiedades de los estimadores obtenidos mediante el método de los mínimos cuadrados. Tras ello, se formarán estadigrafos para realizar los contrastes de hipótesis necesarios.
 
 \noindent Hay que tener en cuenta los siguientes supuestos el vector $\mathbf{x}\sim N_p(\mu, \mathbf{\Sigma})$ una distribución multivariante de dimensión $p$, del cual tomamos $N$ observaciones independientes obteniendo la matriz de datos $\mathbf{X}$, que a no ser que se diga lo contrario, se supondrá conocida. Además, supóngase el vector de $N$ observaciones de la variable respuesta sigue el siguiente modelo $\mathbf{y}= \mathbf{X \beta}+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2\mathbf{I}_N)$,es un vector de longitud $N$ en el que cada componente es una normal $N(0,\sigma^2)$  independientes entre sí. Esto nos permite dar la siguiente proposición \cite{Cuadras 2014}
 \begin{propo}
@@ -154,7 +154,7 @@ Var(\mathbf{y})=\mathbf{X\beta}\mathbf{\beta}^T \mathbf{X}^T+ Var(\varepsilon
 
 \noindent Añadamos a las suposiciones  que la matriz $\mathbf{X}$ es de rango máximo y por tanto, $\mathbf{X}^T\mathbf{X}$ es semidefinido positiva.
 A continuación se detallarán las cualidades inferenciales del vector $\hat{\beta}$, como que es insesgado, su varianza y su distribución. 
-\newpage
+
 \begin{propo}
 El estimador $\hat{\beta}$ es un estimador insesgado \cite{Greene 2008}
 \begin{proof}
@@ -200,10 +200,10 @@ El estimador $\hat{\sigma}^2$ cumple lo siguiente :
 \begin{proof}
 El término $\sum_{i=1}^N (y_i-\hat{y}_i)^2=RSS(\hat{\beta})$, se puede expresar como un producto escalar, tomando el vector residuo $\hat{\mathbf{\varepsilon}}= \mathbf{y}-\mathbf{X \hat{\beta}}=\mathbf{y}-\mathbf{\hat{y}}$, se puede ver que el $RSS(\hat{\beta})=\hat{\mathbf{\varepsilon}}^T\hat{\mathbf{\varepsilon}}$. 
 
-\noindent Sabiendo que $\mathbf{\hat{e}}\in \mathbb{R}^N$, consideremos una nueva base, del espacio, $t_1,\ldots t_{p+1},t_{p+2},\ldots, t_N$, de tal manera que los $p+1$ primeros son una base de $C_{p+1}(\mathbf{X})$ y que sean ortonormales entre si, entonces, se puede tomar la matriz de cambio de base $\mathbf{T}$, es una matriz ortogonal, de manera que 
+\noindent Sabiendo que $\mathbf{\hat{\varepsilon}}\in \mathbb{R}^N$, consideremos una nueva base del espacio, $\lbrace t_1,\ldots t_{p+1},t_{p+2},\ldots, t_N \rbrace$, de tal manera que los $p+1$ primeros son una base de $C_{p+1}(\mathbf{X})$ y que sean ortonormales entre si, entonces, se puede tomar la matriz de cambio de base $\mathbf{T}$, es una matriz ortogonal, de manera que 
 $\mathbf{T}^T\mathbf{T}=\mathbf{TT}^T=\mathbf{I}$. 
 
-\noindent Entonces el vector $\mathbf{T\hat{\varepsilon}}=(\overbrace{0\ldots 0}^{p+1},e'_{p+2},\ldots e'_{N})^T$ por la proposición \ref{prop ort}, y se cumple que $\mathbb{E}(\mathbf{\hat{\varepsilon}})=\mathbb{E}(\mathbf{T\hat{\varepsilon}})=0$, por la distribución que tiene el vector $\varepsilon$ además $\mathbf{E}((e'_i)^2)=\sigma^2, i=p+2\ldots N $ ya que para los anteriores es 0 y por último, $\mathbb{E}(\mathbf{\hat{\varepsilon}}^T\mathbf{\hat{\varepsilon}})=\mathbb{E}(\mathbf{\hat{\varepsilon}}^T\mathbf{T}^T\mathbf{T}\mathbf{\hat{\varepsilon}})=\sum_{p+2}^N \mathbf{(e'_i)^2}=(N-p-1) \sigma^2$
+\noindent Entonces, el vector $\mathbf{T\hat{\varepsilon}}=(\overbrace{0\ldots 0}^{p+1},e'_{p+2},\ldots e'_{N})^T$ por la proposición \ref{prop ort}, y se cumple que $\mathbb{E}(\mathbf{\hat{\varepsilon}})=\mathbb{E}(\mathbf{T\hat{\varepsilon}})=0$, por la distribución que tiene el vector $\varepsilon$ además $\mathbf{E}((e'_i)^2)=\sigma^2, i=p+2\ldots N $ ya que para los anteriores es 0 y por último, $\mathbb{E}(\mathbf{\hat{\varepsilon}}^T\mathbf{\hat{\varepsilon}})=\mathbb{E}(\mathbf{\hat{\varepsilon}}^T\mathbf{T}^T\mathbf{T}\mathbf{\hat{\varepsilon}})=\sum_{p+2}^N \mathbf{(e'_i)^2}=(N-p-1) \sigma^2$
 
 \noindent Por tanto:
 \begin{equation}
@@ -212,7 +212,7 @@ $\mathbf{T}^T\mathbf{T}=\mathbf{TT}^T=\mathbf{I}$.
 
 \noindent Se concluye entonces que el estimador $\hat{\sigma}^2$, es insesgado. 
 
-\noindent Y para terminar se puede ver que el estimador es suma de $N-p-1$ normales estándar multiplicadas por $\sigma^2$ y dividas entre $N-p-1$, por tanto, tenemos que además $\hat{\sigma}^2\sim \dfrac{\sigma^2}{N-p-1}\chi_{N-p-1}$
+\noindent Y para terminar, se puede ver que el estimador es suma de $N-p-1$ normales estándar multiplicadas por $\sigma^2$ y dividas entre $N-p-1$, por tanto, tenemos que además $\hat{\sigma}^2\sim \dfrac{\sigma^2}{N-p-1}\chi^2_{N-p-1}$.
 \end{proof}
 \end{propo}
 
@@ -257,7 +257,7 @@ F\sim \dfrac{\chi^2_{p_1-p_0}}{\chi^2_{N-p_1-1}}=F_{(p_1-p_0),(N-p_1-1)}\qedhere
 \noindent Este estadígrafo se referencia en secciones sucesivas con el objetivo de reducir las variables involucradas en la regresión.
 
 \subsection{Regresión multivariante}
-\noindent Hasta ahora, se ha considerado una única variable aleatoria respuesta, sea \textbf{y} el vector aleatorio de variables respuesta $\textbf{y}=[Y_1,\ldots, Y_K]$ y un vector aleatorio de variables de entrada $\textbf{x}^T=[X_0, X_1,\ldots, X_p]$. Se puede establecer el siguiente modelo análogo, donde :
+\noindent Hasta ahora, se ha considerado una única variable aleatoria respuesta, sea \textbf{y} el vector aleatorio de variables respuesta $\textbf{y}=[Y_1,\ldots, Y_K]$ y un vector aleatorio de variables de entrada $\textbf{x}=[X_0, X_1,\ldots, X_p]$. Se puede establecer el siguiente modelo análogo, donde :
 \begin{align}
 Y_k=\beta_{0k}+\sum_{j=1}^p X_j\beta_{jk}+\varepsilon_k =& f_k(\textbf{x})+\varepsilon_k, \quad k=1,\ldots K \\
 \intertext{Donde el término $\varepsilon_k \sim N(0, \sigma_k^2)$ es el error inevitable para la variable $Y_k, k=1\ldots K$.
@@ -275,7 +275,7 @@ De esta manera, si se toman $N$ observaciones se puede crear las matrices de dat
 
 \noindent El proceso de ajuste, en el caso de que los errores $\varepsilon^T=[\varepsilon_1,\ldots \varepsilon_K]$ no estén correlados, de la matriz de parámetros es análogo al de una sola variable respuesta de tal manera que minimizando el error cuadrático acumulado se obtiene $\hat{\textbf{B}}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{Y}$. En caso de que los errores tengan una matriz de covarianzas conocida, $\mathbf{\Sigma}$, entonces es necesario hacer la siguiente modificación en el $RSS$:
 \begin{equation}
-RSS(\textbf{B},\Sigma)=\sum_{i=1}^n(y_i-f(\textbf{x}_i))^T \Sigma^{-1} (y_i-f(\textbf{x}_i))
+RSS(\textbf{B},\mathbf{\Sigma})=\sum_{i=1}^n(y_i-f(\textbf{x}_i))^T \mathbf{\Sigma}^{-1} (y_i-f(\textbf{x}_i))
 \end{equation}
 
 \noindent En la última expresión se usa la \textit{distancia de Mahalanobis}.
