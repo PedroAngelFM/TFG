@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  30 MAY 2023 07:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  30 MAY 2023 07:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1084,10 +1084,10 @@ Package rerunfilecheck Info: File `master.out' has not changed.
 (rerunfilecheck)             Checksum: C9564D921693D9A5A18BCC7F0EBBD4DD;7521.
  ) 
 Here is how much of TeX's memory you used:
- 18598 strings out of 476334
- 292499 string characters out of 5787971
+ 18604 strings out of 476334
+ 292595 string characters out of 5787971
  1868382 words of memory out of 5000000
- 38358 multiletter control sequences out of 15000+600000
+ 38361 multiletter control sequences out of 15000+600000
  527200 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,19n,79p,3251b,813s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1116,9 +1116,9 @@ fb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmtt12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmtt8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (56 pages, 830590 bytes).
+Output written on master.pdf (56 pages, 833351 bytes).
 PDF statistics:
- 928 PDF objects out of 1000 (max. 8388607)
- 314 named destinations out of 1000 (max. 500000)
+ 939 PDF objects out of 1000 (max. 8388607)
+ 317 named destinations out of 1000 (max. 500000)
  298 words of extra memory for PDF output out of 10000 (max. 10000000)
 

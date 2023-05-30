@@ -97,5 +97,11 @@
 \bibitem{Ringnér 2008}\textbf{Ringnér, M. (2008).}What is principal component analysis?.\emph{Nature biotechnology, 26(3), 303-304.}
 
 \bibitem{Asari 2004} \textbf{Gottumukkal, R., \& Asari, V. K. (2004).} An improved face recognition technique based on modular PCA approach.\emph{ Pattern Recognition Letters,} 25(4), 429-436.
+
+\bibitem{Eckart 1936}\textbf{Eckart, C., \& Young, G. (1936).} The approximation of one matrix by another of lower rank. \emph{Psychometrika}, 1(3), 211-218.
+
+\bibitem{Johnson 1963} \textbf{Johnson, R. M. (1963).} On a theorem stated by Eckart and Young. \emph{Psychometrika}, 28(3), 259-263.
+
+\bibitem{Golub 1987}\textbf{Golub, G. H., Hoffman, A., \& Stewart, G. W. (1987)}. A generalization of the Eckart-Young-Mirsky matrix approximation theorem. \emph{Linear Algebra and its applications}, 88, 317-327.
 \end{thebibliography}
  

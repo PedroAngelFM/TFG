@@ -11,9 +11,9 @@
 
 \noindent De esta manera, variables bastante correladas, se simplificarán en una que tenga toda la variabilidad de ambas \cite{Chatfield 1989}, \cite{Everitt 2011} ya que a fin de cuentas la información que expresan estaría repetida. 
 
-\noindent En esta sección se detallará en principio cómo se calculan las componentes principales solo teniendo en cuenta las propiedades del vector aleatorio $\mathbf{x}$ de longitud $p$. Tras esto, tomaremos $N$ observaciones con las que poder construir estimadores de las componentes y se analizará como esta reducción de la dimensionalidad es la que permite una mejor reconstrucción de los datos mediante el Teorema de Eckart-Young. 
+\noindent En esta sección se detallará en principio cómo se calculan las componentes principales solo teniendo en cuenta las propiedades del vector aleatorio $\mathbf{x}$ de longitud $p$. Tras esto, tomaremos $N$ observaciones con las que poder construir estimadores de las componentes y se analizará como esta reducción de la dimensionalidad es la que permite una mejor reconstrucción de los datos mediante el Teorema de Eckart-Young \cite{Eckart 1936}. 
 
-\noindent Para desarrollar esta última parte en la que se habla de la reconstrucción de los datos se da una idea de una medida sobre las matrices, en particular, la norma de Frobenius que es invariante ante transformaciones ortogonales. 
+\noindent Para desarrollar esta última parte en la que se habla de la reconstrucción de los datos se da una idea de una medida sobre las matrices, en particular, la norma de Frobenius que detallan \emph{Eckart C. y Young, G }\cite{Eckart 1936} sin llamarla de esa manera y demuestran que es invariante ante transformaciones ortogonales. 
 
 \newpage
 \subsection{Definición y cálculo de las Componentes}
@@ -139,7 +139,7 @@ Donde $\overline{x}_j$ es la media muestral de la $j$-ésima variable. Esto hace
 \noindent Otra visión del problema es que se quiere buscar una proyección sobre una subvariedad de dimensión $m<p$ que contenga la máxima variabilidad posible de los datos y que brinde una mayor capacidad de interpretación de los datos, ya que en el caso de que $m=2$ o $m=3$ se podrán hacer representaciones gráficas de manera sencilla. En virtud de conseguir esto se deben definir los siguientes conceptos:
 
 \begin{defi}
-Dada una matriz $\textbf{X}\in  \mathbb{M}_{N\times p}(\mathbb{R})$ existe la descomposición en valores singulares \textit{(SVD en inglés)}:
+Dada una matriz $\textbf{X}\in  \mathbb{M}_{N\times p}(\mathbb{R})$ existe la descomposición en valores singulares \textit{(SVD en inglés)}\cite{Abdi 2010}:
 \begin{equation}
 \textbf{X}=\textbf{U}\mathbf{D}\textbf{V}^T
 \end{equation}
@@ -147,7 +147,7 @@ Donde:
 \begin{itemize}
 \item \textbf{U} matriz ortogonal y de tamaño $N \times N$
 \item $\mathbf{D}$ matriz de tamaño $N \times p $ diagonal, cuyos elementos no nulos son los valores singulares $\sigma_1\geq\ldots\geq \sigma_r\geq 0$ que son los valores propios de la matriz $\textbf{X}^T\textbf{X}$ y $r=rg(\textbf{X})$
-\item \textbf{V} matriz ortogonal y de tamaño $p \times p$
+\item \textbf{V} matriz ortogonal y de tamaño $p \times p$. 
 \end{itemize}
 \end{defi}
 
@@ -155,7 +155,7 @@ Donde:
 
 \noindent 
 \begin{propo}
-La matriz $\mathbf{V}$ de tamaño $(p\times p)$ es la matriz que contiene los vectores para hacer la combinación lineal que definen las componentes principales. Es decir es la matriz con la base de diagonalización de $\mathbf{X}^T\mathbf{X}$
+La matriz $\mathbf{V}$ de tamaño $(p\times p)$ es la matriz que contiene los vectores para hacer la combinación lineal que definen las componentes principales. Es decir es la matriz con la base de diagonalización de $\mathbf{X}^T\mathbf{X}$ \cite{Johnson 1963}.
 \begin{proof}
 La matriz $\textbf{X}^T \textbf{X}$ es la matriz de covarianzas $(p \times p)$  por la descomposición en valores singulares tenemos que:
 \begin{align*}
@@ -165,12 +165,12 @@ La matriz $\textbf{X}^T \textbf{X}$ es la matriz de covarianzas $(p \times p)$  
 \end{align*}
 Donde la matriz $\mathbf{D} ^T \mathbf{D} $ es una matriz diagonal de tamaño $p \times p $ cuyos elementos son los cuadrados de los valores singulares de \textbf{X}, que son a su vez los valores propios de $\textbf{X}^T \textbf{X}$. 
 
-\noindent Añadiendo la condición de ortogonalidad de $\textbf{V}\Rightarrow \textbf{V}^{-1}=\mathbf{V}^T$ es fácil ver que la matriz \textbf{V} es la matriz cuyas columnas son los vectores propios de $\textbf{X}^T\textbf{X}$
+\noindent Añadiendo la condición de ortogonalidad de $\textbf{V}\Rightarrow \textbf{V}^{-1}=\mathbf{V}^T$ es fácil ver que la matriz \textbf{V} es la matriz cuyas columnas son los vectores propios de $\textbf{X}^T\textbf{X}$.
 \end{proof}
 \end{propo}
 
 \begin{propo}
-La matriz $\mathbf{U}^T$ es la matriz que contiene la base de diagonalización de la matriz $\mathbf{XX}^T$.  
+La matriz $\mathbf{U}^T$ es la matriz que contiene la base de diagonalización de la matriz $\mathbf{XX}^T$ \cite{Johnson 1963}.  
 \begin{proof}
 Se sigue un razonamiento análogo pero con la matriz $\mathbf{XX}^T$
 \begin{align*}
@@ -188,7 +188,7 @@ El cálculo de las componentes principales mediante los valores propios de la ma
 \noindent El problema de la reconstrucción es demostrar que la matriz reducida, que se definirá más tarde, es la mejor aproximación de rango menor a la matriz de datos, para ello, tenemos que definir la siguiente norma sobre las matrices adecuada a la situación. 
 
 \begin{defi}
-Sea $\textbf{A}\in \mathbb{M}_{N\times p}(\mathbb{R})$ definimos la \textit{norma de Frobenius} de la matriz \textbf{A} como :
+Sea $\textbf{A}\in \mathbb{M}_{N\times p}(\mathbb{R})$ definimos la \textit{norma de Frobenius} de la matriz \textbf{A} como \cite{Golub 1987}:
 \begin{equation}
 ||\textbf{A}||_F=(tr(\textbf{A}^T\cdot \textbf{A}))^{\frac{1}{2}}=\left(\sum_{i=1}^{N}\sum _{j=1}^{p}a_{ij}^2\right)^{\frac{1}{2}}
 \end{equation}
@@ -240,7 +240,7 @@ Donde:
 \end{defi}
 
 \begin{teorema}[De Eckart-Young]
-Sea \textbf{A} una matriz de coeficientes reales de tamaño $N\times p$ y rango $r$  entonces se cumple que:
+Sea \textbf{A} una matriz de coeficientes reales de tamaño $N\times p$ y rango $r$  entonces se cumple que \cite{Eckart 1936, Golub 1987}:
 \begin{equation}
 ||\textbf{A}-\textbf{B}||_F\leq ||\textbf{A}-\textbf{A}_m||_F \quad \forall \textbf{B}/ rg(\textbf{B})=m \leq r
 \end{equation} 
@@ -266,5 +266,5 @@ t_m=\dfrac{\sum_{i=1}^{m}\lambda_i}{\sum_{i=1}^{p}\lambda_j}
 
 \noindent Otro ejemplo destacable lo desarrolla \emph{Ringnér, W.}\cite{Ringnér 2008} en el que se reduce un conjunto de datos con más de 8000 variables y 105 observaciones a uno de solo 63 variables para retener el $90\%$ y 105 para retener casi el $100\%$. Es decir, no siempre se se busca la reducción para representar los datos, en este ejemplo únicamente se busca eliminar datos redundantes en el conjunto total. 
 
-\noindent Otro ejemplo de aplicación seía el que desarrollan y \cite {Asari 2004} que mediante una pequeña modificación del algoritmo habitual de 
+\noindent Otro ejemplo de aplicación seía el que desarrollan \emph{Gottumukkal, R., y Asari, V.} \cite {Asari 2004} que mediante una pequeña modificación del algoritmo habitual de las componentes principales en el campo del reconocimiento facial con el objetivo de adaptarse mejor a ciertas condiciones, en las que se tienen grandes variaciones de posición y expresiones. Esto lo consiguen dividiendo cada foto y aplicando de manera independiente a cada parte la técnica. 
 
