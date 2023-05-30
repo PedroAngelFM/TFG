@@ -151,7 +151,7 @@ Donde:
 \end{itemize}
 \end{defi}
 
-\noindent \emph{Observación: } En lo siguiente se considerará que $N>p$ y que el rango es máximo, es decir, que el rango es $p$. En el caso contrario se puede reducir las matrices $\mathbf{D}$ a una matriz de tamaño $r\times p$, con las columnas no nulas y por otro lado la matriz $\mathbf{U}$ de tamaño $N\times r$ a la que se le pueden quitar las columnas correspondientes a los vectores propios de valor propio nulo. 
+\noindent \emph{Observación: }En lo restante, se considerará que $N>p$ y que el rango de la matriz de datos es máximo, es decir, que el rango es $p$. En el caso contrario se puede reducir las matriz $\mathbf{D}$ a una matriz de tamaño $r\times p$, con las columnas no nulas y por otro lado la matriz $\mathbf{U}$ de tamaño $N\times r$ a la que se le pueden quitar las columnas correspondientes a los vectores propios de valor propio nulo. 
 
 \noindent 
 \begin{propo}
@@ -165,7 +165,7 @@ La matriz $\textbf{X}^T \textbf{X}$ es la matriz de covarianzas $(p \times p)$  
 \end{align*}
 Donde la matriz $\mathbf{D} ^T \mathbf{D} $ es una matriz diagonal de tamaño $p \times p $ cuyos elementos son los cuadrados de los valores singulares de \textbf{X}, que son a su vez los valores propios de $\textbf{X}^T \textbf{X}$. 
 
-\noindent Añadiendo la condición de ortogonalidad de $\textbf{V}\Rightarrow \textbf{V}^{-1}=V^T$ es fácil ver que la matriz \textbf{V} es la matriz cuyas columnas son los vectores propios de $\textbf{X}^T\textbf{X}$
+\noindent Añadiendo la condición de ortogonalidad de $\textbf{V}\Rightarrow \textbf{V}^{-1}=\mathbf{V}^T$ es fácil ver que la matriz \textbf{V} es la matriz cuyas columnas son los vectores propios de $\textbf{X}^T\textbf{X}$
 \end{proof}
 \end{propo}
 
@@ -262,4 +262,9 @@ t_m=\dfrac{\sum_{i=1}^{m}\lambda_i}{\sum_{i=1}^{p}\lambda_j}
 
 \noindent\emph{Johnson, R. A., y Wichern, D. W} \cite{Johnson 2007} desarrollan un ejemplo sencillo en el cual se estudian 5 variables socioeconómicas de ciertas zonas de Estados Unidos, como puede ser la población en miles, el porcentage de graduados universitarios, el porcentaje de empleo de mayores de 16 años, el porcentaje de funcionariado y la valor medio de la vivienda.
 
-\noindent En este ejemplo, las dos primeras componentes explican el $93\%$ de la variabilidad y la primera es una diferencia ponderada de el empleo y el empleo público, mientras que la segunda una suma ponderada de las mismas. Por tanto, se puede entender que las variables que mayor importancia tienen en este caso son el porcentaje de funcionarios y de empleados en general. 
+\noindent En este ejemplo, las dos primeras componentes explican el $93\%$ de la variabilidad y la primera es una diferencia ponderada de el empleo y el empleo público, mientras que la segunda una suma ponderada de las mismas. Por tanto, se puede entender que las variables que mayor importancia tienen en este caso son el porcentaje de funcionarios y de empleados en general.
+
+\noindent Otro ejemplo destacable lo desarrolla \emph{Ringnér, W.}\cite{Ringnér 2008} en el que se reduce un conjunto de datos con más de 8000 variables y 105 observaciones a uno de solo 63 variables para retener el $90\%$ y 105 para retener casi el $100\%$. Es decir, no siempre se se busca la reducción para representar los datos, en este ejemplo únicamente se busca eliminar datos redundantes en el conjunto total. 
+
+\noindent Otro ejemplo de aplicación seía el que desarrollan \emph{Gottumukkal, R., y Asari, V.} \cite {Asari 2004} que mediante una pequeña modificación del algoritmo habitual de las componentes principales en el campo del reconocimiento facial con el objetivo de adaptarse mejor a ciertas condiciones, en las que se tienen grandes variaciones de posición y expresiones. Esto lo consiguen dividiendo cada foto y aplicando de manera independiente a cada parte la técnica. 
+
