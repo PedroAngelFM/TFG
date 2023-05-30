@@ -153,7 +153,7 @@ Donde:
 \end{itemize}
 \end{defi}
 
-\noindent \emph{Observación: }En lo restante, se considerará que $N>p$ y que el rango de la matriz de datos es máximo, es decir, que el rango es $p$. En el caso contrario se puede reducir las matriz $\mathbf{D}$ a una matriz de tamaño $r\times p$, con las columnas no nulas y por otro lado la matriz $\mathbf{U}$ de tamaño $N\times r$ a la que se le pueden quitar las columnas correspondientes a los vectores propios de valor propio nulo. 
+\noindent \emph{Observación: }En lo restante, se considerará que $N>p$ y que el rango de la matriz de datos es máximo, es decir, que el rango es $p$. En el caso contrario, se puede reducir las matriz $\mathbf{D}$ a una matriz de tamaño $r\times p$, con las columnas no nulas y por otro lado la matriz $\mathbf{U}$ de tamaño $N\times r$ a la que se le pueden quitar las columnas correspondientes a los vectores propios de valor propio nulo. 
 
 \noindent 
 \begin{propo}
@@ -229,7 +229,7 @@ Debido a la centralidad impuesta a la matriz \textbf{X}, sabemos que la matriz d
 \noindent Por tanto, la norma de Frobenius da una imagen del tamaño de la matriz de datos en función de la varianza total de los datos, lo que concuerda con la idea de buscar una matriz que aproxime la matriz de datos con la mínima pérdida de variación de los datos.  
 
 \begin{defi}
-Se llama matriz reducida de orden $m\leq p$ de $\textbf{X}$ y se denota como $\textbf{X}_m$, a la matriz $N\times p$ resultado de:
+Se llama matriz reducida de orden $m\leq p$ de $\textbf{X}$ y se denota como $\textbf{X}_m$, a la matriz $N\times m $ resultado de:
 \begin{equation}
 \textbf{X}_m=\textbf{U}_m\mathbf{D}_m\textbf{V}^T_m
 \end{equation}
@@ -239,8 +239,8 @@ Donde:
 \item $\mathbf{D}_m$  matriz cuadrada de tamaño $m$ diagonal con los $m$ primeros valores singulares. 
 \item $\textbf{V}_m$ matriz ortogonal de tamaño $p \times m$ obtenida al tomar las $m$ primeras columnas de \textbf{V}.
 \end{itemize}
+Es decir, es la matriz de rango $m$ tras tomar las  $m$ primeras columnas y el resto hacerlas nulas o combinaciones lineales, en este caso.
 \end{defi}
-
 \begin{teorema}[De Eckart-Young]
 Sea \textbf{A} una matriz de coeficientes reales de tamaño $N\times p$ y rango $r$  entonces se cumple que \cite{Eckart 1936, Golub 1987}:
 \begin{equation}
@@ -248,13 +248,15 @@ Sea \textbf{A} una matriz de coeficientes reales de tamaño $N\times p$ y rango 
 \end{equation} 
 \end{teorema}
 
+\noindent \emph{Johnson R.M.} \cite{Johnson 1963} desarrolla la demostración del teorema. 
+
 \noindent Por tanto, la matriz reducida brinda la mejor aproximación de la matriz de datos teniendo un criterio de aproximación basado en la variación de los datos. En consecuencia se puede 
 
 \noindent Como conclusión, se puede definir un criterio para elegir el orden de la matriz reducida $m$. Se puede entonces definir la variación acumulada de la siguiente manera \cite{Chatfield 1989}:
 \begin{equation}
 t_m=\dfrac{\sum_{i=1}^{m}\lambda_i}{\sum_{i=1}^{p}\lambda_j}
 \end{equation}
-\noindent Donde los $\lambda_i$ son los valores propios de la matriz $\textbf{S}=\frac{1}{n-1}\textbf{X}^T\textbf{X}$.
+\noindent Donde los $\lambda_i$ son los valores propios de la matriz $\textbf{S}=\frac{1}{N-1}\textbf{X}^T\textbf{X}$.
 
 \noindent Ahora la selección del número de componentes $m$ que se van a seleccionar se puede hacer de varias maneras \cite{Peña 2002}, \cite{Jollife 1986}, ya sea representando en un gráfico el número de componentes frente a la proporción de variabilidad explicada $t_j, j=1,\ldots p$. Tomar hasta la primera componente con la cual se supere una cota de variabilidad explicada como el $0,8$ o $0,9$ \cite {Jollife 1986} o desechar las componentes que no expliquen más de una cierta cota inferior. Sin embargo, estas reglas o condiciones suelen ser arbitrarias.
 
@@ -266,7 +268,7 @@ t_m=\dfrac{\sum_{i=1}^{m}\lambda_i}{\sum_{i=1}^{p}\lambda_j}
 
 \noindent En este ejemplo, las dos primeras componentes explican el $93\%$ de la variabilidad y la primera es una diferencia ponderada de el empleo y el empleo público, mientras que la segunda una suma ponderada de las mismas. Por tanto, se puede entender que las variables que mayor importancia tienen en este caso son el porcentaje de funcionarios y de empleados en general.
 
-\noindent Otro ejemplo destacable lo desarrolla \emph{Ringnér, W.}\cite{Ringnér 2008} en el que se reduce un conjunto de datos con más de 8000 variables y 105 observaciones a uno de solo 63 variables para retener el $90\%$ y 105 para retener casi el $100\%$. Es decir, no siempre se se busca la reducción para representar los datos, en este ejemplo únicamente se busca eliminar datos redundantes en el conjunto total. 
+\noindent Otro ejemplo destacable lo desarrolla \emph{Ringnér, W.}\cite{Ringnér 2008} en el que se reduce un conjunto de datos con más de 8000 variables y 105 observaciones a uno de solo 63 variables para retener el $90\%$ y 105 para retener casi el $100\%$ de la variabilidad total de los datos. Es decir, no siempre se se busca la reducción para representar los datos, en este ejemplo únicamente se busca eliminar datos redundantes en el conjunto total. 
 
-\noindent Otro ejemplo de aplicación seía el que desarrollan \emph{Gottumukkal, R., y Asari, V.} \cite {Asari 2004} que mediante una pequeña modificación del algoritmo habitual de las componentes principales en el campo del reconocimiento facial con el objetivo de adaptarse mejor a ciertas condiciones, en las que se tienen grandes variaciones de posición y expresiones. Esto lo consiguen dividiendo cada foto y aplicando de manera independiente a cada parte la técnica. 
+\noindent Otro ejemplo de aplicación sería el que desarrollan \emph{Gottumukkal, R., y Asari, V.} \cite {Asari 2004} que mediante una pequeña modificación del algoritmo habitual de las componentes principales en el campo del reconocimiento facial con el objetivo de adaptarse mejor a ciertas condiciones, en las que se tienen grandes variaciones de posición y expresiones. Esto lo consiguen dividiendo cada foto y aplicando de manera independiente a cada parte la técnica. 
 
