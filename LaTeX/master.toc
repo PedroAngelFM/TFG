@@ -22,15 +22,15 @@
 \contentsline {subsection}{\numberline {2.1.3}Reconstrucción de los datos}{33}{subsection.2.1.3}%
 \contentsline {section}{\numberline {2.2}Análisis Factorial}{38}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Formalización}{38}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Unicidad del modelo }{39}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Método del Factor Principal}{41}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Método Máximo Verosímil}{43}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}Análisis de Clusters}{45}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Algoritmos Jerárquicos}{45}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Algoritmos Particionales}{47}{subsection.2.3.2}%
-\contentsline {chapter}{\numberline {3}Aplicación sobre datos}{49}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Clasificación de Iris}{49}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Alubias secas}{50}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Comparación regresión lineal, árboles de regresión y redes neuronales.}{50}{section.3.3}%
-\contentsline {chapter}{Bibliografía}{51}{chapter*.11}%
+\contentsline {subsection}{\numberline {2.2.2}Estimación de la matriz de cargas}{40}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Unicidad del modelo}{40}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Interpretación del modelo factorial}{40}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Análisis de Clusters}{41}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Algoritmos Jerárquicos}{41}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Algoritmos Particionales}{43}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Aplicación sobre datos}{45}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Clasificación de Iris}{45}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Alubias secas}{46}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Comparación regresión lineal, árboles de regresión y redes neuronales.}{46}{section.3.3}%
+\contentsline {chapter}{Bibliografía}{47}{chapter*.10}%
 \contentsfinish 

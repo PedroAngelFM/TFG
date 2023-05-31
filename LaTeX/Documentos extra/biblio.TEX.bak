@@ -22,10 +22,8 @@
 
 \bibitem{Hastie 2001} \textbf{Hastie, T., Tibshirani, R. and Friedman J. (2001)}, \textit{The Elements of Statistical Learning, Data Mining, Inference and Prediction} Springer 
 
-\bibitem{Joseph Hair 1995}\textbf{Hair, J. F., Black, W. C., Tatham, R. L., and Anderson, R. E. (1995).}
-\textit{ Multivariate data analysis with readings.} Prentice-Hall International, Englewood Cliffs, New Yersey. 
 
-\bibitem{Jollife 1986} \textbf{Jollife I.T.(1986)}. {\em Principal Component Analysis}, Springer-Verlag.
+\bibitem{Jollife 1986} \textbf{Jollife I.T.(1986)}. \emph{Principal Component Analysis}, Springer-Verlag.
 
 \bibitem{Koppen 2000} \textbf{Köppen, M. (2000)} The curse of dimensionality. \textit{5th online world conference on soft computing in industrial applications (WSC5)}  (Vol. 1, pp. 4-8).
 
@@ -37,7 +35,7 @@
 
 \bibitem{Neural Designer} Neural Designer Blog \url{https://www.neuraldesigner.com/}
           
-\bibitem{Roberto 2008} \textbf{Lopez, R., Balsa-Canto, E. and Oñate, E. (2008)} \textit{ Neural networks for variational problems in engineering} Int. J. Numer. Meth. Engng., 75\\ \url{https://doi.org/10.1002/nme.2304} 1341-1360. 
+\bibitem{Roberto 2008} \textbf{Lopez, R., Balsa-Canto, E. and Oñate, E. (2008)}  Neural networks for variational problems in engineering \emph{Int. J. Numer. Meth. Engng.}, 75\\ \url{https://doi.org/10.1002/nme.2304} 1341-1360. 
 
 
 \bibitem{Lebart 1984}\textbf{Lebart, L., Morineau, A.,  Warwick, K. M. (1984)}.\textit{ Multivariate Descriptive Analysis: Correspondence analysis and related techniques for large matrices}. Wiley.
@@ -47,7 +45,7 @@
 \bibitem{Batista, 1989}
 \textbf{Batista Foguet, J.M. y Martínez Arias, R. (1989)}\textit{Análisis Multivariante: Análisis en Componentes Principales. } Editorial Hispano Europea.
 
-\bibitem{Divakaran 2022}\textbf{Divakaran, S. (2022). }\textit{Data Science: Principles and Concepts in Modeling Decision Trees.} Data Science in Agriculture and Natural Resource Management, 55-74.
+\bibitem{Divakaran 2022}\textbf{Divakaran, S. (2022). }Data Science: Principles and Concepts in Modeling Decision Trees.\emph{ Data Science in Agriculture and Natural Resource Management}, 55-74.
 
 \bibitem{James 2013}
 \textbf{James G, Witten D, Hastie T, Tibshirani R.} \emph{An Introduction to Statistical Learning: With Applications in R.} New York, NY: Springer; 2021. 
@@ -62,25 +60,25 @@
 \bibitem{Peña 2002} 
 \textbf{Peña D.} \emph{Análisis de datos multivariantes.} Madrid: McGraw-Hill; 2002.
 
-\bibitem{Galindo 2015}\textbf{Andrade-Sánchez, A. I., Galindo-Villardón, M. P., y Cuevas Romo, J. (2015).} \textit{Análisis multivariante del perfil psicológico de los deportistas universitarios: Aplicación del CPRD en México.} Educación Física y Ciencia, 17(2), 00-00.
+\bibitem{Galindo 2015}\textbf{Andrade-Sánchez, A. I., Galindo-Villardón, M. P., y Cuevas Romo, J. (2015).} Análisis multivariante del perfil psicológico de los deportistas universitarios: Aplicación del CPRD en México. \emph{Educación Física y Ciencia}, 17(2), 00-00.
 
-\bibitem{Diez 2002}\textbf{Hernandis, S. P., Diez, J. P., y Rouma, A. C. (2002).} \textit{El consumo de inhalables y cannabis en la preadolescencia: Análisis multivariado de factores predisponentes.} Anales de Psicología/Annals of Psychology, 18(1), 77-93.
+\bibitem{Diez 2002}\textbf{Hernandis, S. P., Diez, J. P., y Rouma, A. C. (2002).} El consumo de inhalables y cannabis en la preadolescencia: Análisis multivariado de factores predisponentes. \emph{Anales de Psicología/Annals of Psychology}, 18(1), 77-93.
 
 \bibitem{Echeverri 2015} \textbf{Machado-Duque, M. E., Echeverri Chabur, J. E., y Machado-Alba, J. E. (2015).} Somnolencia diurna excesiva, mala calidad del sueño y bajo rendimiento académico en estudiantes de Medicina. \emph{Revista colombiana de Psiquiatría,} 44(3), 137-142.
 
 
 %\bibitem{González 2015} \textbf{González García, N., y Taborda Londoño, A.} \emph{Análisis de componentes principales Sparse: formulación, algoritmos e implicaciones en el análisis de datos.} Salamanca,  2015
 
-\bibitem{Hornik 1989} \textbf{Hornik, K., Stinchcombe, M., and White, H. } \emph{Multilayer feedforward networks are universal approximators.} Neural networks, 2(5), 359-366, 1989.
+\bibitem{Hornik 1989} \textbf{Hornik, K., Stinchcombe, M., and White, H. } Multilayer feedforward networks are universal approximators. \emph{Neural networks}, 2(5), 359-366, 1989.
 \url{https://doi.org/10.1016/0893-6080(89)90020-8}
 
 %\bibitem{Iris Fisher} \textbf{Fisher,R. A.. (1988).} Iris. \emph{UCI Machine Learning Repository. }\url{https://doi.org/10.24432/C56C76}. 
-\bibitem{Alubias} \textbf{Dry Bean Dataset. (2020)}.\emph{ UCI Machine Learning Repository.} \url{https://doi.org/10.24432/C50S4B.}
+\bibitem{Alubias} \textbf{Dry Bean Dataset. (2020)}.\emph{ UCI Machine Learning Repository. } \url{https://doi.org/10.24432/C50S4B.}
 
-\bibitem{Pages 2005}\textbf{Pagès, J. (2005).} Collection and analysis of perceived product inter-distances using multiple factor analysis: Application to the study of 10 white wines from the Loire Valley. \emph{Food quality and preference}, 16(7), 642-649.\url{https://doi.org/10.1016/j.foodqual.2005.01.006
+\bibitem{Pages 2005}\textbf{Pagès, J. (2005).} Collection and analysis of perceived product inter-distances using multiple factor analysis: Application to the study of 10 white wines from the Loire Valley. \emph{Food quality and preference}, 16(7), 642-649.  \url{https://doi.org/10.1016/j.foodqual.2005.01.006
 }
 
-\bibitem{Okazaki 2006}\textbf{Okazaki, S. (2006).} What do we know about mobile Internet adopters? A cluster analysis. Information \& Management, 43(2), 127-141. 
+\bibitem{Okazaki 2006}\textbf{Okazaki, S. (2006).} What do we know about mobile Internet adopters? A cluster analysis. \emph{Information \& Management,} 43(2), 127-141. 
 
 \bibitem{Mamidi 2021}\textbf{Mamidi, R. R. (2021)}. Application of Neural Networks for Prediction of Double Fed Induction Generator’s Equivalent Circuit Parameters used in Wind Generators. \emph{IRJCS:: International Research Journal of Computer Science}, Volume VIII, 23-31.
 
@@ -110,5 +108,7 @@
 \bibitem{Hotelling 1933}\textbf{Hotelling H. (1933)} Analysis of a complex of statistical variables
 into principal components. \emph{J Educ Psychol }
 25:417–441.
+
+\bibitem{Vincent 1953}\textbf{Vincent, D. F. (1953).} The origin and development of factor analysis. \emph{Journal of the Royal Statistical Society: Series C (Applied Statistics),} 2(2), 107-117.
 \end{thebibliography}
  

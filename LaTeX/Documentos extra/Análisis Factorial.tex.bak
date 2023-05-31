@@ -1,263 +1,113 @@
 \newpage
 \section{Análisis Factorial}
 
-\noindent El Ánalisis de componentes principales no era más que una descomposición de la varianza de las variables observadas, y luego una transformación de las variables mediante transformaciones ortogonales. 
+\noindent En primera instancia, \emph{Galton}, intentó ver como una causa común podía afectar a dos variables aleatorias o medidas \cite{Vincent 1953}. 
 
-\noindent De esta manera, no se explora más allá de la varianza. En el caso del Ánalisis Factorial, se explora la correlación que se da entre las distintas variables, por ejemplo, un conjunto de éstas están muy correladas entre sí y no con el resto, estas pueden ser resumidas por un único factor sin mucha pérdida de información. 
+\noindent Fue el psicólogo inglés Charles Spearman el que tomó la idea de estudiar como una causa común podía afectar a un conjunto de variables. Es por ello que en 1904 se publica el primer artículo en el que aparece la palabra factor como la conoceremos en esta sección. Pero no se da ningún método específico para calcularlos. 
 
-\noindent De esta manera, tanto el Análisis de Componentes Principales y el Análisis Factorial buscan lo mismo una aproximación de la matriz de covarianzas, aunque este último da un acercamiento más elaborado 
-
-\noindent El caso que inició este tipo de análisis fue la comprensión de la inteligencia humana donde Pearson y Spearman intentaron dimensionarla con un único factor \emph{``g"}. También otros casos clásicos son la estructura de la personalidad medida con tests y escalas, pero resumida a dos factores. 
-
-\noindent Como se ha podido observar, el Análisis Factorial tiene su mayor predicación en la psicología y sociología donde los factores ayudan a los investigadores a resumir la información de manera sencilla y concisa. Este Análisis Factorial puede ser confirmatorio o descriptivo como se detallará más adelante. 
-
-\noindent A lo largo de esta sección se seguirán \emph{Peña, D.;}\cite{Peña 2002} y \emph{Cuadras C.M}\cite{Cuadras 2014}, y  se tomarán ciertas definiciones de \emph{Chatfield, C. y A.J.;} \cite{Chatfield 1989}. 
+\noindent El análisis factorial es una técnica de analisis multivariante no supervisado que analiza la covarianza con el objetivo de otorgar un conjunto de nuevas variables que expliquen la mayoría de la variabilidad común de los datos llamados factores, además de calcular la variabilidad que es específica de cada una de las variables estudiadas. 
 
 \subsection{Formalización}
-\noindent Según \emph{Peña, D.} \cite{Peña 2002}, la relación que establece el modelo factorial dado un conjunto de $n$ observaciones sobre $p$ variables aleatorias representadas por la matriz \textbf{X} es la siguiente:
-\begin{equation}\label{Eq. Factorial}
-\textbf{X}=\textbf{1}\mathbf{\mu}^T+\textbf{F}\mathbf{\Lambda}^T+\textbf{U}
+\noindent Supóngase un vector aleatorio $\mathbf{x}$ de longitud $p$ con una distribución $N_p(0,\Sigma)$, centrada sin pérdida de generalidad, donde la matriz de covarianzas $\mathbf{\Sigma}$ es simétrica y definido positiva. El modelo factorial afirma lo siguiente \cite{Chatfield 1989}:  
+\begin{equation}\label{eq Fact}
+X_j= \lambda_{1j}F_1+\ldots+\lambda_{mj}F_m+\psi_j U_j\quad j=1\ldots p 
 \end{equation}
-
 \noindent Donde:
 \begin{itemize}
-
-\item La matriz $\textbf{F}$ de tamaño $(n\times m)$ obtenida de realizar $n$ observaciones del vector aleatorio $\textbf{f}$ formado por $m$ variables aleatorias que siguen una distribución normal multivariante $\mathcal{N}_m(\mathbf{0},\textbf{I})$, a este vector aleatorio se le llama \emph{vector de factores} que son las llamadas variables latentes.  
-\item $\mathbf{\Lambda}$ es la \emph{matriz de carga} de tamaño $(p\times m)$ que contiene la información de como $\textbf{f}$ se relaciona con $\textbf{x}$.
-\item La matriz $\textbf{U}$ es la matriz de perturbaciones de tamaño $(n\times p )$ que contiene las $n$ observaciones del vector aleatorio $\textbf{u}$ cuya información no está recopilada por el vector de factores. 
+\item $\lambda_{jk}$ son las \emph{cargas del factor común} $k$-ésimo de la $j$-ésima variable.
+\item $F_k$ es el $k$-ésimo factor común
+\item $\psi_j$ es la \emph{carga específica} de la variable $X_j$
+\item $U_j$ es el \emph{factor específico} para la variable $X_j$
 \end{itemize}
 
-\noindent \emph{Observación: }De esta manera, se establecen los factores como ortogonales o incorrelados, esta condición no es precisamente necesaria pero no se detallará el caso contrario. A los modelos que no cumplen dicha condición se les llama factores oblicuos y presentan ciertas particularidades a la hora de la estimación. 
+\noindent En este caso haremos las siguientes suposiciones\cite{Cuadras C.M. }:
+\begin{itemize}
+\item Los factores comunes $F_k$ son variables aleatorias que siguen una distribución marginal $N(0,1)$. Además se supondrá que $Cov(F_k,F_{k'})=0, k\neq k'$, de manera que el vector aleatorio $\mathbf{f}$ de longitud $m$ con distribución $N_m(0,\mathbf{I})$. Y son completamente independientes de los factores específicos. 
 
-\noindent Por tanto, se puede expresar cada observación $\textbf{x}_0$, como la suma de $m+2$ términos de la siguiente manera :
-\begin{equation}
-x_{0j}=\mu_j+\mathbf{\Lambda}_{j1}f_{10}+\ldots\mathbf{\Lambda}_{jm}f_{m0}+u_{0j}\quad j=1\ldots p
-\end{equation}
+\item Los factores específicos $U_j$ son variables aleatorias con una distribución normal $N(0,1)$ no correladas, entre ellas  que forman el vector aleatorio $\mathbf{u}\sim N_p(0,\mathbf{I})$ de longitud $p$. Son completamente independientes de los factores comunes. 
+\end{itemize}
 
-\noindent Para calcular la varianza teniendo en cuenta las distribuciones que se han supuesto. Entonces, se tiene que:
-\begin{equation}
-E((\textbf{x}-\mu)\textbf{f}^T)=\mathbf{\Lambda} E(\textbf{f }\textbf{f}^T)+E(\textbf{u f}^T)=\mathbf{\Lambda}
-\end{equation}
-\noindent Ya que se ha establecido que los factores son variables incorreladas y con matriz de covarianzas \textbf{I} y además, los factores son independientes de las perturbaciones. En esta linea, tomando $\psi$, la matriz de covarianzas del vector aleatorio de perturbaciones, se puede dar la siguiente expresión de la matriz de covarianzas de los datos:
-\begin{equation}
-\mathbf{\Sigma}=E[(\textbf{x}-\mu)(\textbf{x}-\mu)^T]=\mathbf{\Lambda} E[\textbf{f f}^T]\mathbf{\Lambda}^T+E[\textbf{u u}^T] =\mathbf{\Lambda}\mathbf{\Lambda}^T+\psi
-\end{equation}
+\noindent De esta manera se pueden definir las siguientes matrices: 
 
-\noindent Se detallan en \emph{Chatfield, C y Collins, A.J. }\cite{Chatfield 1989} algunos conceptos que ayudan a simplificar la discusión 
 \begin{defi}
-Llamaremos \emph{comunalidad} a los efectos de los factores en cada una de las variables 
+Llamaremos \emph{matriz de cargas de los factores o matriz de cargas}, $\mathbf{\Lambda}$ de tamaño $p \times m$ que la matriz es:
 \begin{equation}
-h_i^2=\sum_{j=1}^m \lambda_{ij}^2
+\Lambda=\begin{pmatrix}
+\lambda_{11} & \cdots & \lambda_{1 m}\\
+\vdots & \ddots & \vdots\\
+\lambda_{p1} & \cdots & \lambda_{pm}
+\end{pmatrix}
 \end{equation}
 \end{defi}
-\noindent Donde $\mathbf{\Lambda}=\lbrace\lambda_{ij}\rbrace$. De esta manera, se puede dar una expresión simplificada de la varianza de cada variable: $\sigma^2_i =h_i^2+\psi_i^2$. Es decir, la varianza se divide en lo que explican los factores y lo que no. 
 
-\noindent Ahora, se plantean varios problemas, entre ellos, ¿Es único este modelo?, ¿ Cuántos factores se deben elegir?, ¿ Cuáles son los efectos de los factores y cómo se calculan ? ¿ Cómo se calculan los factores ? 
-
-\subsection{Unicidad del modelo }
-
-\noindent Sea el modelo con los vectores aleatorios, $\textbf{x}=\mu+\mathbf{\Lambda} \textbf{f}+\textbf{u}$ , entonces tomando una matriz $\textbf{A}$ no singular el modelo anterior es equivalente a $\textbf{x}=\mu+\mathbf{\Lambda} \textbf{A}\textbf{A}^{-1} \textbf{f}+\textbf{u}$, entonces la matriz $\mathbf{\Lambda}'=\mathbf{\Lambda} \textbf{A}$ y $\textbf{f}'=\textbf{A}^{-1}\textbf{f}$ en este caso tenemos un modelo equivalente con factores que pueden ser correlados y con la misma precisión. 
-
-\noindent Además si se toma una matriz de transformación ortogonal, \textbf{H} se obtiene un modelo equivalente en el que los factores son incorrelados, por tanto los modelos son invariantes por rotaciones. 
-
-\noindent Para resolver este problema de indeterminación  se pueden dar dos restricciones:
-\begin{equation}\label{Condicion FP}
-\mathbf{\Lambda}^T\mathbf{\Lambda}=\textbf{D} 
-\end{equation} 
-\noindent Donde $D$ es una matriz diagonal. 
-
-\noindent En el caso de que la matriz $\mathbf{\Lambda}^T\mathbf{\Lambda}$ no fuese diagonal, se puede tomar la transformación ortogonal $\textbf{H}\Rightarrow \textbf{H}^T=\textbf{H}^{-1}$ donde las columnas aparte de ser ortogonales, son vectores propios de $\mathbf{\Lambda}^T\mathbf{\Lambda}$ entonces, la matriz $\mathbf{\Lambda}\textbf{H}$ si cumple la condición, ya que :
+\begin{defi}
+Llamaremos matriz específica a la matriz diagonal $\mathbf{\Psi}$ de tamaño $p\times p$ a aquella que tiene los términos $\psi_j$ donde $j=1,\ldots , p$:
 \begin{equation}
-(\mathbf{\Lambda}\textbf{H})^T\mathbf{\Lambda}\textbf{H}=\textbf{H}^T\mathbf{\Lambda}^T \mathbf{\Lambda}\textbf{H}=\textbf{H}^{-1}\mathbf{\Lambda}^T \mathbf{\Lambda}\textbf{H}=\textbf{D}
+\mathbf{\Psi}=\begin{pmatrix}
+    \psi_1 & 0 & \dots & 0 \\
+    0 & \psi_2 & \dots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \dots & \psi_p
+\end{pmatrix}
 \end{equation}
+\end{defi}
 
+\noindent De esta manera, se puede dar una versión matricial de la expresión \ref{eq Fact}:
+\begin{equation}
+\mathbf{x}^T=\Lambda \mathbf{f}^T+ \mathbf{\Psi}\mathbf{u}^T
+\end{equation}
+Ya que se consideran los vectores aleatorios $\mathbf{x}, \mathbf{f}, \mathbf{u}$ vectores ordenados como filas. 
+
+\begin{propo}
+La varianza de la variable aleatoria $X_j$, $\sigma_j^2$ se puede descomponer de la siguiente manera:
+\begin{equation}
+\sigma_j^2 = \sum_{k=1}^{m}\lambda_{kj}^2+\psi_j^2
+\end{equation}
+\begin{proof}
+\begin{align*}
+\mathbb{E}(X_j^2)&=\sigma_j^2 = \sum_{k=1}^{m}\lambda_{kj}^2\mathbb{E}(F_k
+^2)+\sum_{k=1}^{m}\sum_{n=1,n\neq k}^{m} \lambda_{kj}\lambda_{nj}\mathbb{E}(F_k\cdot F_n)\\
+&+\sum_{k=1}^{m}\lambda_{kj}\psi_j \mathbb{E}(F_k\cdot U_j)+\psi_j^2\mathbb{E}(U_j^2)
+\intertext{Utilizando las hipótesis del modelo:}
+&\ \sigma_j^2=\sum_{k=1}^{m}\lambda_{kj}^2+\psi_j^2
+\end{align*}
+\end{proof}
+\end{propo}
+\noindent Teniendo en cuenta esta descomposición se forma el siguiente concepto.
+\begin{defi}
+Se llama \emph{comunalidad} de la variable $X_j$, $h_j^2=\sum_{k=1}^m \lambda_{kj}^2 $ \cite{Peña 2002}
+\end{defi} 
+\noindent Esto permite interpretar la varianza de la variable como la varianza explicada por los factores comunes por un lado y la variabilidad específica de la propia variable. 
+\begin{propo}
+La covarianza de dos variables $Cov(X_j, X_j')$, $\sigma_{jj'}$ cumple que \cite{Morrison 1976, Chatfield 1989}: 
+\begin{equation}
+\sigma_{jj'}=\sigma_{j'j}=\sum_{k=1}^{m}\lambda_{kj}\lambda_{kj'}
+\end{equation}
+\begin{proof}
+\begin{align}
+\sigma_{jj'} &= \sum_{k=1}^{m}\lambda_{kj}\lambda_{kj'}\mathbb{E}(F_k
+^2)+\sum_{k=1}^{m}\sum_{n=1,n\neq k}^{m} \lambda_{kj}\lambda_{nj'}\mathbb{E}(F_k\cdot F_n)\\
+&+ \sum_{k=1}^{m}\lambda_{kj}\psi_{j'} \mathbb{E}(F_k\cdot U_{j'})+\sum_{k=1}^{m}\lambda_{kj'}\psi_j\mathbb{E}(F_k\cdot U_j)+\psi_j\psi_{j'}\mathbb{E}(U_j\cdot U_{j'})
+\intertext{De nuevo, teniendo en cuenta las hipótesis}
+\sigma_{jj'}=\sigma_{j'j}&=\sum_{k=1}^{m}\lambda_{kj}\lambda_{kj'}
+\end{align}
+\end{proof}
+\end{propo}
+
+\noindent Y tomando estas dos proposiciones se puede tener que la matriz $\mathbf{\Sigma}$, cumple lo siguiente:
 \begin{coro}
-La matriz $\textbf{H}$ es la única que hace que $\mathbf{\Lambda}$ cumpla la condición 
+La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}$
 \end{coro}
 
-\begin{propo}
-Si la matriz $\mathbf{\Lambda}$ cumple lo anterior, $\mathbf{\Lambda}^T \mathbf{\Lambda}=\textbf{D}$, o en su defecto tomamos su transformada, entonces $\mathbf{\Lambda}$ es la matriz formada por los vectores propios de $\textbf{V}-\psi$
-\begin{proof}
-Es decir, en la ecuación de la varianza podemos tener que 
-\begin{equation}
-\begin{split}
-\textbf{V}=\mathbf{\Lambda}^T\mathbf{\Lambda}+\psi\\
-(\mathbf{\Sigma}-\psi)=\mathbf{\Lambda}^T\mathbf{\Lambda}\\
-(\mathbf{\Sigma}-\psi)\mathbf{\Lambda}=\mathbf{\Lambda}\textbf{D}\qedhere
-\end{split}
-\end{equation}
-\end{proof}
-\end{propo}
+\noindent Bajo esta idea en la qu
+\subsection{Estimación de la matriz de cargas}
 
-\noindent De esta manera, se restringen, las posibles transformaciones de la matriz, quedando una única transformación a realizar.
+\noindent Supóngase el vector aleatorio $x$ como antes del cual se recogen $N$ observaciones para obtener la matriz de datos $\mathbf{X}$ que se supondrá centrada sin pérdida de generalidad.
 
-\noindent Otra forma de restringir el modelo sería estableciendo la siguiente restricción:
-\begin{equation}
-\mathbf{\Lambda}^T \psi^{-1}\mathbf{\Lambda}=\textbf{D}
-\end{equation}
+\noindent El objetivo de esta sección es estimar la matriz de cargas $\mathbf{\Lambda}$ a partir de la matriz de covarianzas. 
+\noindent Para empezar, supóngase conocido el número de factores $m$ que se desea establecer en el modelo. 
 
-\begin{propo}
-La restricción anterior es válida y hace que el modelo sea único. 
-\begin{proof}
-En el caso que $\mathbf{\Lambda}^T \psi^{-1}\mathbf{\Lambda}$ no sea diagonal, tomando la matriz ortogonal $\textbf{H}$ que tenga por columnas los vectores propios de la matriz $\mathbf{\Lambda}^T \psi^{-1}\mathbf{\Lambda}$ y transformando de forma que $\mathbf{\Lambda}'=\mathbf{\Lambda}\textbf{H}$  se obtiene un modelo equivalente y que además cumple la restricción anterior y de manera análoga a la otra restricción, $\mathbf{\Lambda}^T\mathbf{\Lambda}=\textbf{D}$, se puede demostrar que es la única ya que ninguna otra resultaría en una matriz diagonal. 
-\end{proof}
-\end{propo}
+\noindent 
 
-\begin{propo}
-La matriz $\psi^{-\frac{1}{2}}\mathbf{\Sigma}\psi^{-\frac{1}{2}}$ tiene como vectores propios $\psi^{-\frac{1}{2}}\mathbf{\Lambda}$ y los valores propios $\textbf{D}+\textbf{I}$
-\begin{proof}
-Basta con a la ecuación $\mathbf{\Sigma}=\mathbf{\Lambda}^T \mathbf{\Lambda}+\psi $ multiplicarla de la siguiente manera por $\psi^{-1}\mathbf{\Lambda}$:
-\begin{align}
-\mathbf{\Sigma}\psi^{-1}\mathbf{\Lambda}+\mathbf{\Lambda}&=\mathbf{\Lambda}\textbf{D}
-\intertext{multiplicando por la izquierda por $\psi^{-\frac{1}{2}}$:}
-\psi^{-\frac{1}{2}}\mathbf{\Sigma}\psi^{-\frac{1}{2}}\psi^{-\frac{1}{2}}\mathbf{\Lambda}&=\psi^{-\frac{1}{2}}\mathbf{\Lambda}\textbf{(D+I)}
-\end{align}
-\noindent Por tanto, $\psi^{-\frac{1}{2}}\mathbf{\Sigma}\psi^{-\frac{1}{2}}$ es la matriz cuyos valores propios son los elementos de $\textbf{D+I}$ y los vectores propios son las columnas de la matriz $\psi^{-\frac{1}{2}}\mathbf{\Lambda}$. 
-\end{proof}
-\end{propo}
-
-\noindent Esta restricción se utiliza en el método máximo verosímil de estimación de los factores.
-
-\noindent En estos casos lo que se quiere hallar son los términos de la matriz $\mathbf{\Lambda}$ que es un total de $pm$ y los $p$ términos de la matriz $\mathbf{\psi}$, suponiendo que se da la restricción de que $\mathbf{\Lambda}^T \psi^{-1}\mathbf{\Lambda}$, entonces hay $\frac{m(m-1)}{2}$ restricciones. Además usando la matriz de covarianzas muestrales $\textbf{S}$, obtenemos $\frac{p(p+1)}{2}$ ecuaciones de manera que si se desea que el sistema quede  determinado la condición necesaria es que se de la siguiente condición:
-\begin{equation}
-\begin{split}
-p+pm-\dfrac{m(m-1)}{2}&\leq\dfrac{p(p+1)}{2}\\
-(p-m)^2&\geq p+m
-\end{split} 
-\end{equation} 
-
-\noindent Teniendo en cuenta estos conceptos, hay que desarrollar métodos para estimar los parámetros desconocidos, los más comunes son el método del Factor Principal y el método de Máxima Verosimilitud.
-
-
-\subsection{Método del Factor Principal}
-
-\noindent En el Análisis Factorial hay un principio que se debe seguir:
-\begin{defi}
-El \emph{Principio de Parsimonia} es aquel por el cual se toma la solución con menos factores comunes con el fin de obtener el modelo menos complejo. 
-\end{defi}
-
-\noindent En el caso del método del Factor Principal se busca lo mismo que en el caso de una Componente Principal, que este tenga una varianza máxima y que esté incorrelada. En \emph{Cuadras C.M.}\cite{Cuadras 2014} se detalla el proceso de obtención de la descomposición que detallaremos a continuación, esta es similar a la realizada en la sección de las Componentes Principales. 
-
-\noindent Sea $\mathbf{S}$ la matriz de covarianzas muestrales, de manera que si tenemos en cuenta estimaciones de la matriz de covarianzas de las perturbaciones $\mathbf{\hat{\psi}}$, entonces: 
-\begin{equation}
-\mathbf{S}-\mathbf{\hat{\psi}}=\mathbf{\Lambda}^T\mathbf{\Lambda}
-\end{equation}
-
-\noindent Entonces la matriz $\textbf{S}-\psi$, es simétrica ya que la propia $\textbf{S}$ lo es y la matriz $\hat{\psi}$ es diagonal por hipótesis del modelo, \emph{Cuadras C.M.} \cite{Cuadras 2014}. Teniendo en cuenta estas consideraciones se obtiene la descomposición:
-\begin{equation}
-\textbf{S}-\psi=(\textbf{HG}^{\frac{1}{2}})(\textbf{HG}^{\frac{1}{2}})^T
-\end{equation}
-
-\noindent Donde $\textbf{H}$ es una matriz de tamaño $p\times p$ cuadrada y ortogonal y $\textbf{G}$ es una matriz con la siguiente distribución:
-\begin{equation}
-\textbf{G}=\left(
-\begin{matrix}
-\textbf{G}_{1 m\times m} & \mathbf{0}_{m\times(p-m)}\\
-\mathbf{0}_{(p-m)\times m} & \mathbf{0}_{(p-m)\times(p-m)}
-\end{matrix}
-\right)
-\end{equation}
-
-\noindent Donde $m$ es el rango de la matriz $\textbf{S}-\psi$. De manera análoga al caso de las Componentes Principales podemos tener una reducción de la matriz de rango $m$ con la mínima pérdida de variabilidad \emph{(Teorema de Eckart-Young)}. Tomando $\textbf{H}_1$ la matriz ortogonal de tamaño $p \times m$ con los vectores propios con valores propios no nulos de $\textbf{S}-\psi$ y $\textbf{G}_1$ es la matriz diagonal cuadrada de orden $m$ cuyos elementos de la diagonal son los valores propios no nulos. Entonces, tomando $\mathbf{\hat{\mathbf{\Lambda}}}=\textbf{H}_1\textbf{G}_1^{\frac{1}{2}}$ 
-
-\begin{propo}
-La matriz $\mathbf{\hat{\mathbf{\Lambda}}}$ cumple la condición \eqref{Condicion FP}
-\begin{proof}
-Tomando la definición dada de la matriz $\mathbf{\hat{\mathbf{\Lambda}}}=\textbf{H}_1\textbf{G}_1^{\frac{1}{2}}$. Se tiene:
-\begin{equation}
-\mathbf{\hat{\mathbf{\Lambda}}}^T \mathbf{\hat{\mathbf{\Lambda}}}=(\textbf{H}_1\textbf{G}_1^{\frac{1}{2}})^T(\textbf{H}_1\textbf{G}_1^{\frac{1}{2}})= \textbf{G}_1^{\frac{1}{2}}\textbf{H}_1^T\textbf{H}_1\textbf{G}_1^{\frac{1}{2}}=\textbf{G}_1
-\end{equation}
-
-\noindent Donde al ser $\textbf{H}_1$ ortogonal, $\textbf{H}_1^T\textbf{H}_1=\textbf{I}$. Y como $\textbf{G}_1$ es una matriz diagonal, se cumple \eqref{Condicion FP}\qedhere
-\end{proof}
-\end{propo}
-
-\noindent Ahora hay que ser capaz de ofrecer una estimación de las comunalidades.
-
-\noindent Las comunalidades son  la suma de la variación de los datos que explicaban los factores comunes para cada una de las variables, es decir, se sabe que $s^2_i=h_i^2+\hat{\psi}_i^2$
-
-\noindent A la hora de tomar una estimación, se pueden asumir de manera inicial como $\hat{\psi}_i^2=0$, es decir, se asume que $s^2_i=\hat{h}_i^2$ de manera que toda la variabilidad de los datos está explicada por la factores, lo cual no siempre es adecuado por que se puede obtener una estimación sesgada.  
-
-\noindent Otra opción sería tomar $\hat{\psi}_j^2=\dfrac{1}{s^{*}_{jj}}$ donde $s^{*}_{jj}$ es el j-ésimo elemento de la diagonal de la matriz $\textbf{S}^{-1}$. De esta manera lo que se busca es que la comunalidad $\hat{h}_j^2$ sea la variabilidad que no es común al resto de variables, es decir:
-\begin{equation}
-\hat{h}_j^2=s_j^2-s_j^2(1-R_j^2)=s_j^2R_j^2
-\end{equation}
- 
-\noindent De esta manera se tienen dos maneras de estimar de manera inicial las comunalidades para poder realizar el siguiente método:
-
-\begin{enumerate}
-\item Se toma una estimación inicial de las comunalidades como se ha visto anteriormente, en el caso de que sea la primera iteración, $\hat{\psi}_0$ se toma cualquiera de las alternativas, en caso contrario $\hat{\psi}_i=diag(\textbf{S}-\hat{\mathbf{\Lambda}}_{i})$
-\item Se calcula la matriz simétrica $\textbf{Q}_i=\textbf{S}-\hat{\psi}_i$
-\item Se obtiene la descomposición espectral de $\textbf{Q}_i=\textbf{H}_{1i}\textbf{G}_{1i}\textbf{H}_{1i}^T+\textbf{H}_{2i}\textbf{G}_{2i}\textbf{H}_{2i}^T$. Donde la matriz $\textbf{H}_{1i}$ son los $m$ vectores propios con los mayores valores propios y $\textbf{G}_{1i}$ es la matriz que contiene en la diagonal estos $m$ mayores valores propios. Puede ocurrir que $\textbf{Q}_i$ sea no definida positiva y por tanto, haya valores propios negativos. 
-\item Tomar $\hat{\mathbf{\Lambda}}_{i+1}\textbf{H}_{1i}\textbf{G}_{1i}^{\frac{1}{2}}$ e iterar hasta que se de el criterio de parada o de convergencia $||\hat{\mathbf{\Lambda}}_{i+1}-\hat{\mathbf{\Lambda}}_{i}||\leq \varepsilon$.
-\end{enumerate}
-\noindent En \emph{Peña, D}\cite{Peña 2002} se muestran ejemplos de aplicación simples en el que se utiliza el método del factor principal para realizar la estimación de la matriz de cargas de un solo factor.
-
-\noindent En  esencia lo que se realiza con este algoritmo es minimizar la siguiente función:
-\begin{equation}
-F=tr(\textbf{S}-\mathbf{\mathbf{\Lambda}^T\mathbf{\Lambda}}-\psi)^2
-\end{equation}
-A su vez es equivalente a minimizar lo siguiente: 
-\begin{equation}
-F=\sum_{i=1}^p\sum_{j=1}^p(s_{ij}-v_{ij})^2
-\end{equation}
-
-\noindent Donde $\mathbf{V}=\mathbf{\mathbf{\Lambda}\mathbf{\Lambda}^T}+\psi$, de manera que la mejor aproximación a la matriz de covarianzas de rango $m$ es como en el caso análisis de Componentes Principales, $\textbf{A}=\textbf{H}\textbf{D}^{\frac{1}{2}}$, donde como en el método anterior, donde $\textbf{H}$ contiene los $m$ vectores  propios con mayores valores propios de $\textbf{A}^T\textbf{A}$ y $\textbf{D}^\frac{1}{2}$ la matriz diagonal con las raíces de los $m$ valores propios más altos. 
-
-\subsection{Método Máximo Verosímil}
-
-\noindent Otra forma de estimar los parámetros es utilizando ecuaciones de Máxima Verosimilitud, en este caso lo que se busca estimar es la matriz de covarianzas de una distribución de datos que en principio es $\mathcal{N}_p(\mathbf{\mu},\mathbf{\Sigma})$ que tomando el estimador de la media por la media muestral obtenemos que la función logarítmica es: 
-\begin{equation}
-log(\mathbf{\Sigma}|\textbf{X})=-\dfrac{n}{2}log|\mathbf{\Sigma}|-\dfrac{n}{2}tr(\mathbf{S\Sigma}^{-1})
-\end{equation}
-\noindent Sustituyendo $\mathbf{\Sigma}$ por el modelo en el que $\mathbf{\Sigma}=\mathbf{\mathbf{\Lambda}^T\mathbf{\Lambda}}+\psi$
-\begin{equation}
-L(\mathbf{\Lambda},\psi)=-\dfrac{n}{2}(log|\mathbf{\mathbf{\Lambda}^T\mathbf{\Lambda}}+\psi| +tr(\textbf{S}(\mathbf{\mathbf{\Lambda}^T\mathbf{\Lambda}}+\psi)^{-1}))
-\end{equation}
-
-\noindent Ahora el objetivo es maximizar esta función respecto de $\mathbf{\Lambda}$  y de $\psi$ como en el método univariante de Máxima Verosimilitud. \emph{Peña D.}\cite{Peña 2002} obtiene las siguientes expresiones una vez se ha derivado respecto a las matrices $\mathbf{\Lambda}, \psi$
-\begin{align}
-\hat{\psi}&=diag(\textbf{S}-\mathbf{\hat{\Lambda}}\mathbf{\hat{\Lambda}}^T)\\
-(\hat{\psi}^{\frac{-1}{2}}(\textbf{S}-\textbf{I})\hat{\psi}^{\frac{-1}{2}})&(\hat{\psi}^{\frac{-1}{2}}\mathbf{\hat{\Lambda}})=(\hat{\psi}^{\frac{-1}{2}}\mathbf{\hat{\Lambda}})\textbf{D}
-\end{align}
-\noindent De esta manera la matriz $(\hat{\psi}^{\frac{-1}{2}}\mathbf{\hat{\Lambda}})$ es la matriz que tiene como columnas los vectores propios de la matriz $(\hat{\psi}^{\frac{-1}{2}}(\textbf{S}-\textbf{I})\hat{\psi}^{\frac{-1}{2}})$ y plantea ecuaciones que pueden resolverse de manera iterativa, para ello, \emph{Peña, D}\cite{Peña 2002} propone el siguiente algoritmo iterativo:
-
-\newpage
-\noindent Se calcula una estimación inicial de la matriz de cargas $\mathbf{\hat{\Lambda}}_0$ que puede ser calculada mediante el método del factor principal
-\begin{enumerate}
-\item Una vez se tiene $\mathbf{\hat{\Lambda}}_i$ se calcula $\hat{\psi}_i$ mediante la ecuación $\mathbf{\hat{\psi}}_i=diag(\textbf{S}_i-\hat{\Lambda}_i\hat{\Lambda}_i^T )$
-\item Se calcula la matriz $\textbf{A}_i=(\hat{\psi}^{\frac{-1}{2}}(\textbf{S}-\hat{\psi}_i)\hat{\psi}^{\frac{-1}{2}})=\hat{\psi}^{\frac{-1}{2}}\textbf{S}\hat{\psi}^{\frac{-1}{2}}-\textbf{I}$ de manera que se ponderan las covarianzas en función de su componente específica. 
-\item Se calcula la descomposición espectral de $\textbf{A}_i=\textbf{H}_{1i}\textbf{G}_{1i}\textbf{H}_{1i}^T+\textbf{H}_{2i}\textbf{G}_{2i}\textbf{H}_{2i}^T$ de manera análoga al método del factor principal. Y por tanto, la matriz $\textbf{G}_{1i}$ contiene los $m$ valores propios mayores, de la matriz.  
-\item Se toma $\mathbf{\hat{\Lambda}}_{i+1}=\hat{\psi}^{\frac{1}{2}}\textbf{H}_{1i}\textbf{G}_{1i}^{\frac{1}{2}}$ se sustituye en la función de verosimilitud y se maximiza respecto a $\psi$, después se vuelve al segundo paso hasta llegar al criterio de parada. 
-\end{enumerate}
-
-\noindent Como se puede observar, el método de máxima verosimilitud se desarrolla de manera bastante similar al del factor principal, pero tiene una complejidad mucho más alta, aunque tiene varias propiedades interesantes que se detallan en la siguiente proposición. 
-
-\begin{propo}
-La estimación Máximo Verosímil es invariante por transformaciones lineales. 
-\begin{proof}
-Sea $\textbf{D}$ una matriz diagonal cualquiera, de esta manera, se tiene la transformación lineal $\textbf{y}=\textbf{D}\textbf{X}$ de los datos, entonces la matriz de covarianzas muestrales $\textbf{S}_y=\textbf{D}\textbf{S}_x\textbf{D}$, por ejemplo, podría ser la matriz que contiene las desviaciones estándar, por lo que se transformaría $\textbf{S}$ en la matriz de correlaciones. De manera análoga la parte específica de la varianza se transforma $\psi_y=\textbf{D}\psi_x \textbf{D}$
-
-\noindent De esta manera, la matriz de la cual se calcula la descomposición espectral
-\begin{equation}
- \hat{\psi}_y^{\frac{-1}{2}}\textbf{S}_y\hat{\psi}_y^{\frac{-1}{2}}=(\textbf{D}\psi_x \textbf{D})^{\frac{-1}{2}}\textbf{D}\textbf{S}_y\textbf{D}(\textbf{D}\psi_x \textbf{D})^{\frac{-1}{2}}= \hat{\psi}_x^{\frac{-1}{2}}\textbf{S}_x\hat{\psi}_x^{\frac{-1}{2}}
-\end{equation}\qedhere
-\end{proof}
-\end{propo}
-\noindent De esta manera, la ventaja de estos métodos de máxima verosimilitud sale a la luz, que es poder trabajar con variables estandarizadas o no obteniendo los mismos resultados. Lo que facilita el trabajo a la hora de preprocesar los datos y evita fallos a la hora de la interpretación. 
-
-\noindent Aún así se han buscado métodos alternativos para calcular la matriz de cargas, por ejemplo, el método de Mínimos Cuadrados Generalizados que aplica regresiones múltiples para estimar la matriz de cargas   \emph{(Veasé la sección 12.4.2 de Peña D. \cite{Peña 2002})}
-
-\subsection*{Otras consideraciones}
-\noindent Sobre este modelo se puede realizar contrastes de hipótesis para poder analizar la conveniencia del propio modelo obtenido. Además se pueden aplicar transformaciones ortogonales que nos permitan tener las máximas variaciones entre los factores, el llamado método \emph{Varimax}. Incluso existen maneras de dar modelos factoriales los cuales estén correlados, algo que aquí ha sido obviado de manera deliberada por falta de tiempo. 
-
-
-
-
-
-
-
-
-
-
-
+\subsection{Unicidad del modelo}
+\subsection{Interpretación del modelo factorial}
