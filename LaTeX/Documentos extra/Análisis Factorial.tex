@@ -1,12 +1,21 @@
 \newpage
 \section{Análisis Factorial}
+\noindent El análisis factorial es un conjunto de técnicas que en primera instancia fue desarrollado en el campo de la psicología ya que estos buscaban encontrar las causas que provocaban la variabilidad de los datos que recogían \cite{Vincent 1953}. 
 
-\noindent En primera instancia, \emph{Galton}, intentó ver como una causa común podía afectar a dos variables aleatorias o medidas \cite{Vincent 1953}. 
+\noindent En 1888 \emph{Galton, F} escuchó la exposición de un articulo que relacionaba las sociedades que habían abandonado un modelo matriarcal con una estructura más compleja sociológicamente hablando. Ante esto, \emph{Galton} no estuvo de acuerdo, ya que detectó un fallo en el razonamiento de su compañero y es por ello, que escribió el artículo \cite{Galton 1889} dando pie a los trabajos sobre el estudio de las correlaciones.   
 
-\noindent Fue el psicólogo inglés Charles Spearman el que tomó la idea de estudiar como una causa común podía afectar a un conjunto de variables. Es por ello que en 1904 se publica el primer artículo en el que aparece la palabra factor como la conoceremos en esta sección. Pero no se da ningún método específico para calcularlos. 
+\noindent Es en 1904 cuando \emph{Spearman, C.} \cite{Spearman 1904} viendo el trabajo de \emph{Galton, F.} aplicó esas ideas al estudio de la inteligencia, buscando una medida objetiva de la misma. En este desarrollo, dio las primeras nociones de qué era un factor y calculó una aproximación para un modelo factorial con 6 factores comunes. A pesar de que no especifica el modelo usado, se ha comprobado a posteriori  que eran bastante precisos. A partir de este momento, fue cuando el análisis factorial empezó a ser importante y varios psicólogos comenzaron a usarlo de forma habitual. 
+Desde hace años el Análisis factorial, al igual que otras técnicas multivariantes, ha experimentado un nuevo impulso en el desarrollo teórico y práctico debido al auge de la computación. 
 
-\noindent El análisis factorial es una técnica de analisis multivariante no supervisado que analiza la covarianza con el objetivo de otorgar un conjunto de nuevas variables que expliquen la mayoría de la variabilidad común de los datos llamados factores, además de calcular la variabilidad que es específica de cada una de las variables estudiadas. 
+\noindent El Análisis factorial nació con un caracter confirmatorio, en el que se tenían unas ciertas ideas preconcebidas y se buscaba aceptar o rechazar dichas ideas. Actualmente, la mayoría de los investigadores lo utilizan de manera exploratoria para extraer información de los datos.\cite{Hair 1995}
 
+\noindent El objetivo específico del Análisis factorial es, dado un conjunto de variables aleatorias, construir un modelo en el cual con un conjunto de nuevas variables llamadas \emph{factores comunes}, que expliquen la mayor variabilidad posible de las variables iniciales. De esta manera, se descompondrá la varianza de cada una de las variables en una parte común llamada \emph{comunalidad}  y otra específica denominada \emph{especificidad}. 
+
+\noindent La mayor diferencia con el análisis de componentes principales en el que se busca nuevas direcciones que maximicen la varianza explicada, es que en este caso, son de interés tanto las comunalidades como las especifidades ya que nos permiten analizar si una variable da información de manera o común o tiene algo diferencial. 
+
+\noindent Para empezar, empezaremos formalizando el modelo factorial, en particular el modelo multifactorial ortogonal \cite{Johnson 2007} sin pérdida de generalidad. Tras la modelización, se desarrolla el método de estimación de las matrices de carga mediante el método del factor principal \cite{Peña 2002} y se mencionarán los fundamentos de otros métodos como el de máxima verosimilitud. Seguidamente, se darán algunos detalles sobre el problema de la no unicidad del modelo y soluciones ante ello. Y por último, se dará una introducción a la interpretación de los datos que arroja el modelo factorial. 
+
+\newpage
 \subsection{Formalización}
 \noindent Supóngase un vector aleatorio $\mathbf{x}$ de longitud $p$ con una distribución $N_p(0,\Sigma)$, centrada sin pérdida de generalidad, donde la matriz de covarianzas $\mathbf{\Sigma}$ es simétrica y definido positiva. El modelo factorial afirma lo siguiente \cite{Chatfield 1989}:  
 \begin{equation}\label{eq Fact}
@@ -20,7 +29,7 @@ X_j= \lambda_{1j}F_1+\ldots+\lambda_{mj}F_m+\psi_j U_j\quad j=1\ldots p
 \item $U_j$ es el \emph{factor específico} para la variable $X_j$
 \end{itemize}
 
-\noindent En este caso haremos las siguientes suposiciones\cite{Cuadras C.M. }:
+\noindent En este caso haremos las siguientes suposiciones\cite{Cuadras 2014}:
 \begin{itemize}
 \item Los factores comunes $F_k$ son variables aleatorias que siguen una distribución marginal $N(0,1)$. Además se supondrá que $Cov(F_k,F_{k'})=0, k\neq k'$, de manera que el vector aleatorio $\mathbf{f}$ de longitud $m$ con distribución $N_m(0,\mathbf{I})$. Y son completamente independientes de los factores específicos. 
 
@@ -32,7 +41,7 @@ X_j= \lambda_{1j}F_1+\ldots+\lambda_{mj}F_m+\psi_j U_j\quad j=1\ldots p
 \begin{defi}
 Llamaremos \emph{matriz de cargas de los factores o matriz de cargas}, $\mathbf{\Lambda}$ de tamaño $p \times m$ que la matriz es:
 \begin{equation}
-\Lambda=\begin{pmatrix}
+\mathbf{\Lambda}=\begin{pmatrix}
 \lambda_{11} & \cdots & \lambda_{1 m}\\
 \vdots & \ddots & \vdots\\
 \lambda_{p1} & \cdots & \lambda_{pm}
@@ -99,15 +108,55 @@ La covarianza de dos variables $Cov(X_j, X_j')$, $\sigma_{jj'}$ cumple que \cite
 La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}$
 \end{coro}
 
-\noindent Bajo esta idea en la qu
+\noindent Bajo esta idea en la que la varianza se puede descomponer en una parte específica y una común a todas las variables. 
+
 \subsection{Estimación de la matriz de cargas}
+\noindent Supóngase el vector aleatorio $x$ como antes del cual se recogen $N$ observaciones para obtener la matriz de datos $\mathbf{X}$ de tamaño $N\times p $que se supondrá centrada sin pérdida de generalidad. Esto provoca que la matriz $\mathbf{S}=\mathbf{\hat{\Lambda}}\mathbf{\hat{\Lambda}}^T+\mathbf{\hat{\Psi}}$ \cite{Peña 2002}. 
 
-\noindent Supóngase el vector aleatorio $x$ como antes del cual se recogen $N$ observaciones para obtener la matriz de datos $\mathbf{X}$ que se supondrá centrada sin pérdida de generalidad.
+\noindent Entonces el objetivo es estimar la matriz de cargas $\mathbf{\Lambda}$, para ello se puede tomar la matriz $\mathbf{S}-\mathbf{\hat{\Psi}}$, si de esta matriz se obtiene la descomposición espectral:
+\begin{equation}
+\mathbf{S}-\mathbf{\hat{\Psi}}=\mathbf{U}\mathbf{D}\mathbf{U}^T
+\end{equation}
 
-\noindent El objetivo de esta sección es estimar la matriz de cargas $\mathbf{\Lambda}$ a partir de la matriz de covarianzas. 
-\noindent Para empezar, supóngase conocido el número de factores $m$ que se desea establecer en el modelo. 
+\noindent Donde la matriz $\mathbf{D}$ es una matriz diagonal de tamaño $r\times r$ con los $r=rg(\mathbf{X})$ valores propios no nulos, y la matriz $\mathbf{U}$ de tamaño $p\times r$ de manera las columnas son los vectores propios asociados a los valores propios no nulos. 
 
-\noindent 
+\noindent De esta manera, \emph{Cuadras C.M;} \cite{Cuadras 2014} toma como estimador de $\mathbf{\hat{\Lambda}}=\mathbf{UD}^{\frac{1}{2}}$, ya que $\mathbf{\hat{\Lambda}}\mathbf{\hat{\Lambda}}^T=\mathbf{U}\mathbf{D}\mathbf{U}^T= \mathbf{S-\hat{\Psi}}$. El problema que surge aquí es que la estimación $\mathbf{\hat{\Psi}}$ no es conocido, pero se desarrollará en lo siguiente. 
+
+\noindent De esta manera, supóngase que es conocido el número de factores, $m$. Por tanto, como el objetivo es que los factores comunes es maximizar su varianza común explicada, entonces siguiendo el mismo razonamiento que en las componentes principales, se puede tomar como estimación de las matrices factoriales la matriz siguiente:
+
+\begin{equation}
+\mathbf{\hat{\Lambda}}=(\sqrt{\mu_1}e_1,\ldots,\sqrt{\mu_m}e_m)=\mathbf{U}_m\mathbf{D}_m^{\frac{1}{2}}
+\end{equation}
+
+\noindent Donde la pareja $(\mu_i, e_i)$ es el vector propio $e_i$ en formato columna y $\mu_i$ su valor propio asociado. Además la matriz $\mathbf{U}_m$ es la matriz que tiene como columnas los $m$ vectores propios de la matriz $\mathbf{S}-\mathbf{\Psi}$ que tienen asociados los $m$ valores propios más grandes. 
+
+\noindent El problema de que no se conoce $\mathbf{\hat{\Psi}}$, se puede resolver planteando el siguiente método iterativo, para ello se introduce la notación:
+\begin{itemize}
+\item $\mathbf{S}_i^*=\mathbf{S}-\hat{\mathbf{\Psi}}_i$ es la matriz reducida en la $i$-ésima iteración del método
+\item $\mathbf{\hat{\Lambda}}_i$ es la matriz de cargas obtenida en la $i$-ésima iteración del método. 
+\end{itemize}
+\noindent El método se inicializa con $\mathbf{\hat{\Psi}}_0=0$ de tal manera que $\mathbf{S}_0^*=\mathbf{S}$ y consiste en cada iteración hacer las siguientes operaciones \cite{Johnson 2007, Peña 2002, Cuadras 2014}: 
+\begin{enumerate}
+\item Se calcula $\mathbf{S}_i^*=\mathbf{S-\hat{\Psi}}_i$
+\item Se calcula la descomposición $\mathbf{\hat{\Lambda}}_i$ como se ha detallado antes obteniendo $\mathbf{U}_i$ y $\mathbf{D}_i$ de tamaños $p\times m $ y $m\times m$. 
+\item Se obtiene la nueva estimación de la $\mathbf{\hat{\Psi}}_{i+1}=\mathbf{S}-\mathbf{\hat{\Lambda}}_i\mathbf{\hat{\Lambda}}_i^T$
+\end{enumerate}
+
+\noindent El proceso se para cuando no haya cambios en las matrices $\mathbf{\hat{\Psi}}_i,\mathbf{\hat{\Psi}}_{i+1}$ o cuando $\mathbf{\hat{\Lambda}}\mathbf{\hat{\Lambda}}^T+\mathbf{\Psi}$ sea lo más parecido posible a la matriz de covarianzas $\mathbf{S}$.
+
+\noindent \emph{Peña D} \cite{Peña 2002} lo generaliza utilizando la función $F=tr(\mathbf{S}-\mathbf{\Lambda}\mathbf{\Lambda}^T-\Psi)^2$. Que en esencia es minimizar la distancia de Frobenius, implicando un razonamiento similar a los métodos supervisados, ya que se busca encontrar una minimización de una función de pérdida, esta distancia entre ambas matrices. 
+
 
 \subsection{Unicidad del modelo}
+
+\noindent Una vez estudiado esto se puede ver que el modelo no es único \cite{Chatfield 1989}
+\begin{propo}
+La matriz $\mathbf{\Lambda}$ y $\mathbf{\Lambda T}$ donde $\mathbf{T}$ es ortogonal, son ambas matrices válidas para el modelo. 
+\begin{proof}
+En el 
+\end{proof}
+\end{propo}
+\noindent Es por ello, que se utilizan ciertas restricciones dependiendo del método utilizado para realizar las estimaciones y que el modelo sea único. 
+
+\noindent 
 \subsection{Interpretación del modelo factorial}
