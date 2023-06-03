@@ -157,5 +157,16 @@ La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}$
 \end{equation}
 \noindent Es equivalente al modelo \ref{eq Fact}, ya que se cumplen las mismas suposiciones. 
 
-\noindent Para evitar estas indeterminaciones se suelen tomar dos restricciones 
+\noindent Para evitar estas indeterminaciones se suelen tomar dos restricciones \cite{Mardia 1979}:
+\begin{equation}
+\mathbf{\Lambda}^T \mathbf{\Psi}^{-1}\mathbf{\Lambda} \text{ ó } \mathbf{\Lambda}^T \mathbf{\Lambda} \text{ son diagonales }
+\end{equation}
+\noindent En particular, la segunda restricción es la que se toma en el método del factor principal, ya que $\mathbf{\hat{\Lambda}}=\mathbf{UD}^{\frac{1}{2}}$, donde $\mathbf{U}$, es una matriz ortogonal, por tanto, $\mathbf{\hat{\Lambda}^T \hat{\Lambda}}=\mathbf{D}^{\frac{1}{2}}\mathbf{U}^T\mathbf{U}\mathbf{D}^{\frac{1}{2}}=\mathbf{D}$. 
+
+\begin{propo}
+La segunda restricción hace que el modelo sea único. 
+\begin{proof}
+Sea una matriz $\mathbf{\Lambda}$ tal que $\Lambda^T$
+\end{proof}
+\end{propo}
 \subsection{Interpretación del modelo factorial}

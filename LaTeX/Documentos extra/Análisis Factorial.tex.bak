@@ -61,6 +61,8 @@ Llamaremos matriz específica a la matriz diagonal $\mathbf{\Psi}$ de tamaño $p
 \end{equation}
 \end{defi}
 
+\noindent \emph{Observación:} En distintas fuentes no aparece la matriz $\mathbf{\Psi}$ ya que los factores específicos $U_j, j=1\ldots p$ en esos casos no se consideran variables estandarizadas no correladas, como sería el caso descrito. Por ejemplo,  \emph{Mardia, K.V.} \cite{Mardia 1979} denotan como $\mathbf{\Psi}$ a la matriz de covarianzas del vector $\mathbf{u}$.
+
 \noindent De esta manera, se puede dar una versión matricial de la expresión \ref{eq Fact}:
 \begin{equation}
 \mathbf{x}^T=\Lambda \mathbf{f}^T+ \mathbf{\Psi}\mathbf{u}^T
@@ -149,14 +151,22 @@ La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}$
 
 \subsection{Unicidad del modelo}
 
-\noindent Una vez estudiado esto se puede ver que el modelo no es único \cite{Chatfield 1989}
+\noindent Un detalle en el que no se ha profundizado, es que el modelo factorial, no es único, es decir, teniendo en cuenta las suposiciones hechas anteriormente, todas las rotaciones de los factores $\mathbf{Tf}^T$, donde $\mathbf{T}$ es una matriz ortogonal de tamaño $m\times m$, entonces al transformar la matriz $\mathbf{\Lambda}$ a la matriz $\mathbf{\Lambda T}^T$ se cumple que \cite{Mardia 1979}:
+\begin{equation}
+\mathbf{x}^T=(\mathbf{\Lambda T}^T)(\mathbf{Tf}^T)+\Psi\mathbf{u}^T
+\end{equation}
+\noindent Es equivalente al modelo \ref{eq Fact}, ya que se cumplen las mismas suposiciones. 
+
+\noindent Para evitar estas indeterminaciones se suelen tomar dos restricciones \cite{Mardia 1979}:
+\begin{equation}
+\mathbf{\Lambda}^T \mathbf{\Psi}^{-1}\mathbf{\Lambda} \text{ ó } \mathbf{\Lambda}^T \mathbf{\Lambda} \text{ son diagonales }
+\end{equation}
+\noindent En particular, la segunda restricción es la que se toma en el método del factor principal, ya que $\mathbf{\hat{\Lambda}}=\mathbf{UD}^{\frac{1}{2}}$, donde $\mathbf{U}$, es una matriz ortogonal, por tanto, $\mathbf{\hat{\Lambda}^T \hat{\Lambda}}=\mathbf{D}^{\frac{1}{2}}\mathbf{U}^T\mathbf{U}\mathbf{D}^{\frac{1}{2}}=\mathbf{D}$. 
+
 \begin{propo}
-La matriz $\mathbf{\Lambda}$ y $\mathbf{\Lambda T}$ donde $\mathbf{T}$ es ortogonal, son ambas matrices válidas para el modelo. 
+La segunda restricción hace que el modelo sea único. 
 \begin{proof}
-En el 
+Sea una matriz $\mathbf{\Lambda}$ tal que $\Lambda^T$
 \end{proof}
 \end{propo}
-\noindent Es por ello, que se utilizan ciertas restricciones dependiendo del método utilizado para realizar las estimaciones y que el modelo sea único. 
-
-\noindent 
 \subsection{Interpretación del modelo factorial}
