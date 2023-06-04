@@ -1,25 +1,63 @@
 \newpage
 \section{ Árboles de Decisión y Bosques Aleatorios}
-\noindent Sea un vector aleatorio $\textbf{x}$ con $p$ los datos de entrada, e $Y$ la variable respuesta. Supóngase también que se toman $n$ observaciones obteniéndose parejas $(\textbf{x}_i,y_i)$. De esta manera, tenemos que las $\textbf{x}_i\in \mathbb{R}^p$.\\
-Los métodos de árboles son un método divisivo, ya que tras aplicarlos, se obtiene una partición del espacio de observaciones $\mathbb{R}^p$ y luego en cada región del espacio se ajusta un modelo más simple, incluso una constante.\\
-La ventaja de este tipo de métodos es que son fácilmente interpretables, ya que pueden ser representados mediante un diagrama de tipo árbol. De esta manera, pueden ser utilizados según \textit{Brown et.al}.\cite{Brown 2004} tanto para análisis exploratorio, detectando características de grandes cantidades de datos, como para tareas de regresión y clasificación. \\ 
-Las  siguientes imágenes procedentes de \textit{Hastie et. al.}\cite{Hastie 2001} muestran el diagrama resultante tras dividir el espacio de observaciones mediante un árbol.
+\noindent Sea un vector aleatorio $\textbf{x}$ con $p$ los datos de entrada, e $Y$ la variable respuesta. Supóngase también que se toman $n$ observaciones obteniéndose parejas $(\textbf{x}_i,y_i)$. De esta manera, tenemos que las $\textbf{x}_i\in \mathbb{R}^p$.
 
-\begin{figure}[h]
- \centering
-  \subfloat[División de $\mathbb{R}^p$]{
-   \label{f:división}
-    \includegraphics[width=0.4\textwidth]{Documentos Extra/Imagenes/Regiones árboles.png}}
-  \subfloat[Diagrama resultante]{
-   \label{f:diagrama arbol}
-    \includegraphics[width=0.4\textwidth]{Documentos Extra/Imagenes/Diagrama de arbol.png}}
- \caption{Representación de la división de $\mathbb{R}^p$ y el diagrama de árbol resultante}
- \label{f:MARC1}
-\end{figure}
+\noindent Los métodos de árbol son algoritmos divisivos, en los que se define una función de idoneidad, es decir, se establece un criterio con el cual una división es más idónea o no. Una vez conocida la división a realizar, se obtienen dos o más regiones (\emph{De ahora en adelante, serán separaciones binarias para la sencillez de los desarrollos.}). Este proceso de división se repite de manera iterativa sobre cada una de las regiones del espacio de observaciones en 
 
-\noindent Otra ventaja de este tipo de métodos es que permite trabajar con conjuntos de datos en los que se estudian más variables en comparación de las observaciones, es decir, $p > n$. Por ejemplo, el ejemplo que desarrollan \textit{Díaz-Uriarte y De Andrés} \cite{Diaz 2006}, en el que trabajan con un microarray genético. 
+\noindent De esta manera, si se toma un método de árbol con separaciones o divisiones binarias, se obtiene un diagrama de árbol, en el que cada nodo es cada una de las regiones obtenidas en cada una de las separaciones, de esta manera, se obtiene una visión intuitiva del proceso del árbol y como ha ido avanzando.
 
-\noindent Otro de los problemas que surgen del propio planteamiento del modelo en sí es que el algoritmo para obtener las divisiones están diseñados para sobreajustarse a los datos por tanto, surgen métodos como la ``poda''. Se desarrollará más adelante, pero el idea es poder modelizar toda la variación del conjunto de entrenamiento. 
+
+\subsection*{Notación}
+\begin{defi}
+Se llama \emph{separación, partición o división} de índice $(j,s)$ \cite{Hastie 2001} a la separación que particiona el espacio inicial dado en las siguientes regiones $R_1,R_2$:
+\begin{equation}
+R_1=\lbrace \mathbf{x}_i \in \mathbb{R}^p/ x_{ij}>s\rbrace \quad R_2=\lbrace \mathbf{x}_i \in \mathbb{R}^p/ x_{ij}\leq s\rbrace
+\end{equation}
+
+\noindent Hay que tener en cuenta que esto sería el caso en el que la variable a separar $X_j$ sea continua, en caso, contrario, se puede definir la partición $(j,s)$ de la siguiente manera: 
+
+\end{defi}
+
+\begin{defi}
+Se llama nodo de un árbol de decisión a cada una de las regiones resultantes tras aplicar una separación.
+\end{defi}
+
+\begin{defi}
+Se llama nodo terminal de un árbol de decisión a las regiones finales en las que se ha particionado el espacio de observaciones. 
+\end{defi}
+
+\noindent En particular, los nodos terminales son las regiones en las que se ha particionado el espacio de observaciones. 
+
+
+
+
+
+
+
+
+
+
+%Los métodos de árboles son un método divisivo, ya que tras aplicarlos, se obtiene una partición del espacio de observaciones $\mathbb{R}^p$ y luego en cada región del espacio se ajusta un modelo más simple, incluso una constante.\\
+
+
+%La ventaja de este tipo de métodos es que son fácilmente interpretables, ya que pueden ser representados mediante un diagrama de tipo árbol. De esta manera, pueden ser utilizados según \textit{Brown et.al}.\cite{Brown 2004} tanto para análisis exploratorio, detectando características de grandes cantidades de datos, como para tareas de regresión y clasificación. \\ 
+%Las  siguientes imágenes procedentes de \textit{Hastie et. al.}\cite{Hastie 2001} muestran el diagrama resultante tras dividir el espacio de observaciones mediante un árbol.
+%
+%\begin{figure}[h]
+% \centering
+%  \subfloat[División de $\mathbb{R}^p$]{
+%   \label{f:división}
+%    \includegraphics[width=0.4\textwidth]{Documentos Extra/Imagenes/Regiones árboles.png}}
+%  \subfloat[Diagrama resultante]{
+%   \label{f:diagrama arbol}
+%    \includegraphics[width=0.4\textwidth]{Documentos Extra/Imagenes/Diagrama de arbol.png}}
+% \caption{Representación de la división de $\mathbb{R}^p$ y el diagrama de árbol resultante}
+% \label{f:MARC1}
+%\end{figure}
+%
+%\noindent Otra ventaja de este tipo de métodos es que permite trabajar con conjuntos de datos en los que se estudian más variables en comparación de las observaciones, es decir, $p > n$. Por ejemplo, el ejemplo que desarrollan \textit{Díaz-Uriarte y De Andrés} \cite{Diaz 2006}, en el que trabajan con un microarray genético. 
+%
+%\noindent Otro de los problemas que surgen del propio planteamiento del modelo en sí es que el algoritmo para obtener las divisiones están diseñados para sobreajustarse a los datos por tanto, surgen métodos como la ``poda''. Se desarrollará más adelante, pero el idea es poder modelizar toda la variación del conjunto de entrenamiento. 
 
 \newpage
 \subsection{Árboles de Regresión}
