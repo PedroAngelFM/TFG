@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  4 JUN 2023 08:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  6 JUN 2023 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -916,24 +916,42 @@ icación.tex' to `Documentos Extra/ArbolesRegresionClasificación.tex' on input
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [21]
-LaTeX Info: Redefining \. on input line 62.
-LaTeX Info: Redefining \% on input line 62.
- [22]
-LaTeX Info: Redefining \. on input line 111.
-LaTeX Info: Redefining \% on input line 111.
- [23]
-LaTeX Info: Redefining \. on input line 142.
-LaTeX Info: Redefining \% on input line 142.
- [24]
-LaTeX Info: Redefining \. on input line 187.
-LaTeX Info: Redefining \% on input line 187.
+<Documentos Extra/Imagenes/Regiones árboles.png, id=457, 338.01282pt x 302.630
+63pt>
+File: Documentos Extra/Imagenes/Regiones árboles.png Graphic file (type png)
+<use Documentos Extra/Imagenes/Regiones árboles.png>
+Package pdftex.def Info: Documentos Extra/Imagenes/Regiones árboles.png  used 
+on input line 47.
+(pdftex.def)             Requested size: 168.4376pt x 150.80698pt.
+<Documentos Extra/Imagenes/Diagrama de arbol.png, id=458, 287.57437pt x 279.293
+44pt>
+File: Documentos Extra/Imagenes/Diagrama de arbol.png Graphic file (type png)
+<use Documentos Extra/Imagenes/Diagrama de arbol.png>
+Package pdftex.def Info: Documentos Extra/Imagenes/Diagrama de arbol.png  used 
+on input line 50.
+(pdftex.def)             Requested size: 168.4376pt x 163.59268pt.
 
-[25]
-LaTeX Info: Redefining \. on input line 214.
-LaTeX Info: Redefining \% on input line 214.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 57.
+LaTeX Info: Redefining \% on input line 57.
+[22]
+LaTeX Info: Redefining \. on input line 74.
+LaTeX Info: Redefining \% on input line 74.
+ [23 <./Documentos Extra/Imagenes/Regiones árboles.png> <./Documentos Extra/Im
+agenes/Diagrama de arbol.png>]
+LaTeX Info: Redefining \. on input line 103.
+LaTeX Info: Redefining \% on input line 103.
+ [24]
+LaTeX Info: Redefining \. on input line 145.
+LaTeX Info: Redefining \% on input line 145.
+ [25]
+LaTeX Info: Redefining \. on input line 192.
+LaTeX Info: Redefining \% on input line 192.
  [26]
-LaTeX Info: Redefining \. on input line 244.
-LaTeX Info: Redefining \% on input line 244.
+LaTeX Info: Redefining \. on input line 223.
+LaTeX Info: Redefining \% on input line 223.
  [27])
 :<-
 )
@@ -1062,14 +1080,14 @@ LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 1C9E3E807AA05656486063CA8DD103B2;7605.
+(rerunfilecheck)             Checksum: 9420FC8F7CACB8047095B60A25DF709A;7606.
  ) 
 Here is how much of TeX's memory you used:
- 18573 strings out of 476334
- 291703 string characters out of 5787971
+ 18614 strings out of 476334
+ 292757 string characters out of 5787971
  1867382 words of memory out of 5000000
- 38343 multiletter control sequences out of 15000+600000
- 526246 words of font info for 88 fonts, out of 8000000 for 9000
+ 38370 multiletter control sequences out of 15000+600000
+ 527200 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,19n,79p,3251b,813s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Pedro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
@@ -1081,23 +1099,25 @@ eX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Pedro/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Pedro/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Pedro
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Use
-rs/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+rs/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 ><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mr12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmr6.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmr8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Pedro/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Pedro/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Pedro/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Ped
-ro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/
-Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.
-pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/s
-ymbols/msbm10.pfb>
-Output written on master.pdf (56 pages, 794095 bytes).
+mmi8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Pedro/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/Pedro/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Pedro/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Pedr
+o/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Us
+ers/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.p
+fb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmtt12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmtt8.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/symbols/msbm10.pfb>
+Output written on master.pdf (56 pages, 839181 bytes).
 PDF statistics:
- 936 PDF objects out of 1000 (max. 8388607)
- 309 named destinations out of 1000 (max. 500000)
- 288 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 977 PDF objects out of 1000 (max. 8388607)
+ 318 named destinations out of 1000 (max. 500000)
+ 298 words of extra memory for PDF output out of 10000 (max. 10000000)
 
