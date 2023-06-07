@@ -1,14 +1,16 @@
 \newpage
 \section{ Árboles de Decisión y Bosques Aleatorios}
-\noindent Sea un vector aleatorio $\textbf{x}$ con $p$ los datos de entrada, e $Y$ la variable respuesta. Supóngase también que se toman $N$ observaciones obteniéndose parejas $(\textbf{x}_i,y_i)$. De esta manera, tenemos que las $\textbf{x}_i\in \mathbb{R}^p$.
+\noindent Sea un vector aleatorio $\textbf{x}$ de longitud $p$ con las variables predictoras e $Y$ la variable respuesta. Se toman $N$ observaciones obteniéndose parejas $(\textbf{x}_i,y_i)$. De esta manera, tenemos que se puede interpretar que $\mathbf{x}_i\in\mathbb{R}^p$.
 
-\noindent Los métodos de árboles son un método divisivo, ya que tras aplicarlos, se obtiene una partición del espacio de observaciones $\mathbb{R}^p$ y luego en cada región del espacio se ajusta un modelo más simple, incluso una constante.
+\noindent "Los árboles de decisión son métodos divisivos que dividen el espacio de observaciones $\mathbb{R}^p$ en varias regiones. En cada región, se ajusta un modelo más simple, como una constante."
 
 \noindent La ventaja de este tipo de métodos es que son fácilmente interpretables, ya que pueden ser representados mediante un diagrama de tipo árbol. De esta manera, pueden ser utilizados según \textit{Brown et.al}.\cite{Brown 2004} y \emph{Song Y.Y y Ying, L} \cite{Song 2015} describen los principales objetivos de los árboles de decisión, entre los que se encuentran la selección y evaluación de la importancia de las variables, además de que puede tener fines predictivos o incluso de manejo de los datos, valores perdidos etc...
 
 \noindent Otra ventaja de este tipo de métodos es que permite trabajar con conjuntos de datos en los que se estudian más variables en comparación de las observaciones, es decir, $p > N$. Por ejemplo, el ejemplo que desarrollan \textit{Díaz-Uriarte y De Andrés} \cite{Diaz 2006}, en el que trabajan con un microarray genético. 
 
 \noindent Otro de los problemas que surgen del propio planteamiento del modelo en sí es que el algoritmo para obtener las divisiones están diseñados para sobreajustarse a los datos por tanto, surgen métodos como la ``poda''. Se desarrollará más adelante, pero el idea es poder modelizar toda la variación del conjunto de entrenamiento. 
+
+\noindent Para comprender mejor cómo se realizan las divisiones en los árboles de decisión es importante familiarizarse con la notación utilizada.
 
 \subsection*{Notación}
 
@@ -18,26 +20,20 @@ Se llama \emph{separación, partición o división} de índice $(j,s)$ \cite{Has
 R_1=\lbrace \mathbf{x}_i \in \mathbb{R}^p/ x_{ij}>s\rbrace \quad R_2=\lbrace \mathbf{x}_i \in \mathbb{R}^p/ x_{ij}\leq s\rbrace
 \end{equation}
 
-\noindent Hay que tener en cuenta que esto sería el caso en el que la variable a separar $X_j$ sea continua, en caso, contrario, se puede definir la partición $(j,s)$ de la siguiente manera: 
-
+\noindent Hay que tener en cuenta que esto sería el caso en el que la variable a separar $X_j$ sea continua. Sí $X_j$ es discreta, se pueden tomar dos opciones, hacerlo de la misma manera es decir con semihiperplanos o tomando la división $X_j=s, X_j\neq s$. Depende de como se desee particionar en el caso de variables discretas. 
 \end{defi}
-
 \begin{defi}
-Se llama nodo de un árbol de decisión a cada una de las regiones resultantes tras aplicar una separación.
+Se define un \emph{nodo} en un árbol de decisión como cada una de las regiones resultantes después de aplicar una separación.
 \end{defi}
-
 \begin{defi}
-Se llama nodo terminal de un árbol de decisión a las regiones finales en las que se ha particionado el espacio de observaciones. 
+Se define un \emph{nodo terminal o nodo hoja}    \cite{Brown 2004} en un árbol de decisión como cada una de las regiones finales resultante de la partición del espacio de observaciones.
 \end{defi}
-
 \begin{defi}
 Llamaremos tamaño del árbol $T$, $|T|$ al número de nodos terminales. 
 \end{defi}
-
 \begin{defi}
-Se llama profundidad del árbol al número máximo que de divisiones que hay que hacer para llegar a un nodo terminal. \emph{En el caso del diagrama que se incluye después se dan 3 divisiones del espacio tanto para llegar a $R_4, R_5$}
+Se llama profundidad del árbol al número máximo que de divisiones necesarias para llegar a un nodo terminal \cite{Hastie 2001}. \emph{En el caso del diagrama que se incluye después se dan 3 divisiones del espacio tanto para llegar a $R_4, R_5$}
 \end{defi}
-
 \noindent Las  anteriores imágenes procedentes de \textit{Hastie et. al.}\cite{Hastie 2001} muestran el diagrama resultante tras dividir el espacio de observaciones mediante un árbol. 
 
 \begin{figure}[h]
@@ -54,7 +50,7 @@ Se llama profundidad del árbol al número máximo que de divisiones que hay que
 
 \noindent Como se puede ver, cada uno de los nodos terminales representan cada una de las regiones en las que se ha separado el espacio de observaciones. 
 
-\noindent Dependiendo del tipo de variable respuesta, tendremos un tipo de árbol u otro, por ejemplo, cuando la variable sea continua se denominará \emph{Árbol de regresión} y en el caso de variables discretas \emph{Árbol de clasificación}. En nuestro caso, todos los tipos de algoritmos que se detallarán las variables de entrada pueden ser tanto discretas como continuas.  Habitualmente, se detallará el caso en el que las variables de entrada son continuas.
+\noindent Dependiendo del tipo de variable respuesta, se utiliza un \emph{Árbol de regresión} cuando se busca predecir una variable continua, y un \emph{Árbol de clasificación} cuando se busca clasificar variables discretas. En nuestro caso, los algoritmos que se describirán pueden manejar tanto variables de entrada discretas como continuas. Se detallará el caso en el que las variables de entrada son continuas.
 
 \subsection*{Sesgo y varianza de un modelo}
 
@@ -103,25 +99,24 @@ EPE(\mathbf{x}_0)=\sigma_{\varepsilon}^2+Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat
 \newpage
 \subsection{Árboles de Regresión}
 
-\noindent Veamos ahora el proceso por el cual se hace ``crecer'' un árbol, en particular un árbol de regresión en el que se dispone de un vector aleatorio $\mathbf{x}$ de $p$ variables aleatorias  predictoras, y una variable respuesta continua $Y$. 
+\noindent A continuación, examinemos el proceso de crecimiento de un árbol, centrándonos en particular en un árbol de regresión. En este caso, se considera un vector aleatorio $\mathbf{x}$ con $p$ variables predictoras y una variable respuesta continua $Y$.
 
-\noindent Supongamos prefijado el número máximo de particiones $M$, por tanto el objetivo del árbol de decisión es particionar el espacio de observaciones en las regiones $R_m, m=1,\ldots, M$ , teniendo en cuenta esto, $R_m$ tiene asociada su \emph{función característica} que denotaremos por $\mathbf{1}_m$. 
+\noindent Supongamos que hemos establecido un número máximo de particiones $M=|T|$. En consecuencia, el objetivo del árbol de decisión es dividir el espacio de observaciones en regiones $R_m$ para $m=1,\ldots, M$. Cada región $R_m$ está asociada a su \emph{función característica}, que denotaremos como $\mathbf{1}_m$.
 
-\noindent \emph{Observación: } El número de regiones obtenidas al final es el tamaño del árbol, $|T|=R_m$ 
-
-\noindent En el caso de que se tomen $N$ observaciones como se ha hecho en anteriores secciones, podemos definir el estimador $\hat{f}(\mathbf{x})$ de la siguiente manera: 
+\noindent En el caso de que se tomen $N$ observaciones, podemos definir el estimador resultante $\hat{f}(\mathbf{x})$ de la siguiente manera:
 
 \begin{equation}
 \hat{f}(\mathbf{x})=\sum_{m=1}^M \hat{f}_m(\mathbf{x})\cdot \mathbf{1}_m(\mathbf{x})
 \end{equation}
 
-\noindent Es decir, en cada región $R_m$, se hace una regresión con los datos que se den en esa región. Lo más común es que en cada región se intente tomar la aproximación lo más sencilla posible, es decir, una constante \cite{Hastie 2001,Biau 2016}.
+\noindent Esto significa que en cada región $R_m$, se realiza una regresión utilizando los datos correspondientes a esa región. Generalmente, se busca una aproximación lo más sencilla posible en cada $R_m$, por ejemplo, utilizando una constante. \cite{Hastie 2001,Biau 2016}.
 
-\noindent  Si se aplica el método de los mínimos cuadrados, con la restricción requerida, se pueden definir las constantes $\hat{c}_m$ de la siguiente manera:
+\noindent Si se aplica el método de los mínimos cuadrados, con la restricción requerida, se pueden definir las constantes $\hat{c}_m$ de la siguiente manera:
 \begin{equation}
 \hat{c}_m=\dfrac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} y_i
 \end{equation}
-\noindent Es decir, es la media de las respuestas de las observaciones que entran en la región y esto provoca que $\hat{f}(\mathbf{x})=\sum_{m=1}^M \hat{c}_m \cdot \mathbf{1}_m(\mathbf{x})$. 
+
+\noindent Donde $N_m$ es el número de observaciones del total que hay en $R_m$. Es decir, $\hat{c}_m$ es la media de las respuestas de las observaciones que entran en la región y esto provoca que $\hat{f}(\mathbf{x})=\sum_{m=1}^M \hat{c}_m \cdot \mathbf{1}_m(\mathbf{x})$. Es decir, se predice $\mathbf{x}\in R_m$ como la constante $\hat{c}_m$. \cite{Hastie 2001}
 
 \noindent Una vez se conoce como se va a dar la estimación final hay que saber cómo llegar a la mejor partición. A este proceso de elegir las particiones y elegir dichas particiones $(j,s)$. 
 
@@ -141,7 +136,7 @@ Se llama error cuadrático medio de una región $R_m$ a $Q_m(T)=\frac{1}{N_m}\su
 Q(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}_m)^2
 \end{equation}
 
-\noindent \emph{Divakaran, S. }\cite{Divakaran 2022},  detalla que el encontrar las mejores particiones que minimicen esta función de coste de un árbol de regresión es un problema altamente complejo a nivel computacional. Es por ello, que \emph{Breiman L.}\cite{Breiman 1984} especifica un algoritmo el cual utilizando mecanismos de validación cruzada, compara distintos modelos para crear un algoritmo voraz heurístico para afrontar el problema descrito. 
+\noindent \emph{HAY QUE AÑADIR AQUÍ LA PODA} 
 
 \noindent Para empezar hay que definir lo que significa la poda de un árbol. 
 \begin{defi}
@@ -152,6 +147,22 @@ Se llama \emph{poda} al proceso en el que dado un árbol inicial de tamaño $T_0
 \begin{equation}
 Q_{\alpha}(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}_m)^2+\alpha|T |
 \end{equation}
+
+\noindent El algoritmo que sugiere \emph{Divakaran S.}\cite{Divakaran 2022}, basado en el que da \emph{Breiman L.}\cite{Breiman 1984} viene dado por los siguientes pasos:
+\begin{itemize}
+\item Primero prepara el conjunto de datos para poder realizar validación cruzada \emph{(Véase el capítulo 7 de \cite{Hastie 2001}, en particular el método de K-folds)}
+\item Se hace una partición binaria hasta tener un árbol de gran tamaño $T_0$,parando con cualquiera de los criterios habituales como pueden ser un máximo de nodos terminales o un minimo de observaciones por nodo. 
+
+\item Se aplica la poda al árbol utilizando el coste que penaliza el tamaño del propio árbol, teniendo en cuenta el parámetro $\alpha$. 
+
+\item \emph{Divakaran S.}\cite{Divakaran 2022} aplica el método de K-folds para elegir el parámetro $\alpha$
+\end{itemize}
+
+\noindent Este algoritmo nos devuelve un subárbol $T_{\alpha}$ con el $Q_{\alpha}(T)$ menor posible. En caso de que $\alpha=0$, $T_{\alpha}=T_0$.
+
+\noindent En este caso, se está teniendo un intercambio entre varianza y sesgo, de manera que un árbol tiene menor sesgo, ya que se ajusta de mejor manera a los datos de ajuste pero a la hora de hacer predicciones no son las mejores. De esta manera, se da a cambio de un poco más de sesgo, se reduce la varianza. (\emph{Véase el capitulo 7 de \cite{Hastie 2001} ó el capitulo 5 de \cite{James 2013} })
+
+\noindent 
 
 
 
@@ -178,68 +189,24 @@ Se define la \emph{impureza de un nodo}, correspondiente a la región $R_m$ como
 \end{defi}
 \noindent Otra forma de medir la impureza son el índice Gini y la entropía. \emph{Hastie et. al.} y \emph{Divakaran, S.} \cite{Hastie 2001, Divakaran 2022}, definen el índice Gini de la siguiente manera:
 \begin{defi}
-Se llama \emph{índice Gini} a la siguiente expresión \cite{Hastie 2001, James 2013}:
+Se llama \emph{índice Gini} de una región $R_m$ a la siguiente expresión \cite{Hastie 2001, James 2013}:
 \begin{equation}
-G=\sum_{}
+G=\sum_{l=1}^L\hat{p}_{lm}(1-\hat{p}_{lm})
 \end{equation}
 \end{defi}
 
+\noindent Para hacer crecer un árbol de clasificación es similar pero cambiando el criterio por el cual una partición es mejor que otra ya que el criterio de los mínimos cuadrados no es el más apropiado en casos de clasificación. Dependiendo de la medida de impureza que usemos obtendremos unas particiones u otras pero no se verá afectada. 
+
+\noindent En este caso, se puede utilizar el algoritmo \emph{CHAID}, que elige la variable por la que se va a separar utilizando un test Chi-cuadrado. 
 \subsection{Bosques Aleatorios}
+\noindent Sea un conjunto de datos $(y_i,\mathbf{x}_i),i=1\ldots N$, como habitualmente, extraidos de observar una variable aleatoria 
 
-\noindent Los bosques aleatorios y otros métodos de juntar árboles de decisión son maneras de solventar ciertos problemas que tienen los árboles de decisión individuales como puede ser la precisión o la dependencia del conjunto de datos, ya que una pequeña variación en estos puede provocar grandes cambios. 
-
-
-\noindent Durante esta sección no se detallarán los métodos de construcción de cada árbol individual ya que se han descrito anteriormente y se hará referencia a ellos como árboles simplemente. 
-
-\noindent Estos métodos se basan en el  Bagging y el Bootstrap, ambos métodos se pueden utilizar cuando la cantidad de datos es pequeña o cuando el modelo sufre de \textit{sobreajuste}. 
-
-\noindent El proceso de Bagging tiene como base el hecho de que si se tienen $n$ observaciones independientes de una población con varianza $\sigma^2$ entonces la media de dichas observaciones tendrá varianza $\frac{\sigma^2}{n}$, es decir, tomar la media de distintas observaciones provoca una disminución en la varianza. 
-
-
-\noindent De esta manera, partiendo de un conjunto inicial de datos, se toman muestras aleatorias de los mismos y se entrenan distintos modelos para luego hacer la media entre todos los modelos. Es decir, se hace un muestreo aleatorio entre las $n$ observaciones obteniendo $B$ conjuntos de entrenamiento distintos y se estiman los predictores $\hat{f}_1(\textbf{x}),\ldots, \hat{f}_B(\textbf{x})$ y el modelo final es:
-\begin{equation}
-\hat{f}_{bag}(\textbf{x})=\dfrac{1}{B}\sum_{b=1}^B \hat{f}_b(\textbf{x})
-\end{equation}
-
-\noindent Esto se puede aplicar perfectamente al caso de la modelización mediante árboles de decisión aunque esta técnica puede ser útil para cualquier tipo de modelos. 
-
-\noindent En este caso, estamos utilizando en cada división de los árboles todos los predictores, sin embargo, cuando una variable tiene demasiada importancia a la hora de predecir la variable de respuesta, la mayoría de divisiones en casi todos los árboles van a utilizar ese predictor, ya que va a provocar mejoras sustanciales en el $RSS$ o en el \textit{índice Gini} dependiendo del tipo de árbol. 
-
-\noindent Para evitar dicho problema, en el algoritmo del bosque aleatorio se toma en cada división no el total de predictores, si no una muestra aleatoria de tamaño $m$ que habitualmente es $m=\sqrt{p}$ de esta manera, se puede tener modelos con mayor variedad. 
-
-\noindent En \textit{Biau G. y Scornet E.}\cite{Biau 2016} se detalla el algoritmo para la creación de un bosque aleatorio. 
-En este algoritmo se deben definir los siguientes parámetros:
+\noindent \emph{Breiman, L.}\cite{Breiman 2004}, define los bosques aleatorios como un conjunto de árboles de decisión que cumplen lo siguiente:
 \begin{itemize}
-\item $\mathcal{M}$: Número de árboles que se incluirán en el bosque aleatorio. 
-\item $\mathtt{m}_{\mathtt{try}}$, es el número de predictores que entre los cuales se pueden usar en cada división del espacio. 
-\item $a_n$: Número de observaciones del conjunto de entrenamiento que se utilizarán para entrenar cada árbol. 
-\end{itemize}
-
-\noindent El algoritmo en sí es el siguiente: 
-\hrule
-\textbf{for } $j=1\ldots \mathcal{M} $ \textbf{do:}
-\begin{itemize}
-\item Se extrae de manera uniforme un subconjunto de tamaño $a_n$ del conjunto de observaciones de entrenamiento. 
-\item Se extrae aleatoriamente un conjunto de predictores posibles $\mathcal{M}_{try}$ de tamaño $\mathtt{m}_{\mathtt{try}}$ y se construye el árbol, utilizando como posibles  predictores únicamente los que están en el conjunto $\mathcal{M}_{try}$
-\end{itemize}
-\hrule
-
-\noindent Para hacer la predicción para una nueva observación $\textbf{x}_0$, hay que calcular la predicción para cada uno de los $\mathcal{M}$ árboles. Una vez calculadas en el caso de que la variable respuesta sea numérica se hace la media de todas las predicciones. Si por el contrario, $Y$ es una variable categórica, se toma como predicción aquella que haya salido con mayor frecuencia, lo que se llama predicción por \textit{voto de mayoría}.
-
-\noindent En el artículo de \textit{Biau, G y Scornet, E.} \cite{Biau 2016} se detallan más en profudidad las distintas características de estos modelos. En particular, se detalla la necesidad de utilizar modelos simplificados para poder analizar las características de los bosques aleatorios. Estos pueden ser los bosques puramente aleatorios que hace particiones totalmente aleatorias sin tener un criterio de acuerdo a los datos y otras modificaciones.
-
-\noindent En particular, \textit{Breiman L.} \cite{Breiman 2004}, utiliza los siguientes resultados empíricos para poder analizar la consistencia y el ratio de convergencia de los bosques aleatorios utilizando un modelo más simplificado de los mismos. 
-\begin{itemize}
-\item El muestreo aleatorio que se hace del conjunto de entrenamiento no tiene efecto en el ratio de error.
-\item Si para conseguir una partición en la que únicamente en cada nodo haya una sola observación se utiliza la mediana de las variables aleatorias esto no tiene efecto en el ratio de error. 
-\item Hacer divisiones sin tener en cuenta las clases que conocemos, sí aumenta el error.
-\end{itemize}
-
-\noindent De esta manera, establece un modelo simplificado en el las variables predictoras se pueden dividir en dos grupos, las variables fuertes $\mathcal{S}$ y las variables débiles $\mathcal{W}$. Las variables fuertes son las que tienen una influencia directa sobre las predicciones y las débiles se pueden interpretar como ruido.
-
-\noindent Teniendo en cuenta lo anterior, las variables aleatorias fuertes se dividen en la mediana, mientras que si es débil se toma un valor aleatorio para la división.  
-
-\noindent Como resultado de dichas modificaciones \textit{Breiman, L.} \cite{Breiman 2004} concluye que el ratio de convergencia es $\mathcal{O}\left(n^{\left(\frac{-0.75}{|\mathcal{S}|log 2+0.75}\right)}\right)$.\\
-Por tanto, el ratio de error depende del número de variables fuertes. 
-
+\item En cada árbol se utiliza una muestra aleatoria sin reemplazamiento dedel conjunto de datos iniciales. La razón es buscar una muestra \emph{bootstrap} de los datos iniciales \emph{(Véase \cite{Hesterberg 2011} para más detalles de la técnica.)}
+\item Se establece un número $j_{try}$ por el usuario. Para cada partición a realizar se escogen de manera aleatoria $j_{try}$ variables y se elige la que más se ajusta al criterio dado. Y se hace crecer el árbol todo lo necesario o hasta un criterio dado por el usuario. 
  
+\item Una vez se tienen crecidos los árboles, se toma como predicción de una nueva observación la media de las predicciones de los datos en el caso de que la variable respuesta sea continua. En el caso de que sea una variable discreta, se toma el voto por mayoría, es decir se toma el valor que más veces haya salido en todos los árboles. 
+\end{itemize}
+
+\noindent Este tipo de algoritmos se basan en el bagging \cite{Breiman 1996}
