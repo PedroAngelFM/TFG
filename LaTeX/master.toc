@@ -13,24 +13,22 @@
 \contentsline {subsection}{\numberline {1.3.3}Ajuste y uso de una Red Neuronal}{21}{subsection.1.3.3}%
 \contentsline {section}{\numberline {1.4} Árboles de Decisión y Bosques Aleatorios}{22}{section.1.4}%
 \contentsline {subsection}{\numberline {1.4.1}Árboles de Regresión}{25}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Árboles de Clasificación}{26}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3}Bosques Aleatorios}{27}{subsection.1.4.3}%
-\contentsline {chapter}{\numberline {2}Métodos no supervisados}{28}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Análisis de Componentes Principales}{29}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Definición y cálculo de las Componentes}{30}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}PCA muestral}{32}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Reconstrucción de los datos}{32}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Análisis Factorial}{37}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Formalización}{38}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Estimación de la matriz de cargas}{40}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Unicidad del modelo}{41}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Interpretación del modelo factorial}{41}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}Análisis de Clusters}{42}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Algoritmos Jerárquicos}{42}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Algoritmos Particionales}{44}{subsection.2.3.2}%
-\contentsline {chapter}{\numberline {3}Aplicación sobre datos}{46}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Clasificación de Iris}{46}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Alubias secas}{47}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Comparación regresión lineal, árboles de regresión y redes neuronales.}{47}{section.3.3}%
-\contentsline {chapter}{Bibliografía}{48}{chapter*.10}%
+\contentsline {subsection}{\numberline {1.4.2}Árboles de Clasificación}{27}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Algoritmo Random Forest}{27}{subsection.1.4.3}%
+\contentsline {chapter}{\numberline {2}Métodos no supervisados}{29}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Análisis de Componentes Principales}{30}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Definición y cálculo de las Componentes}{31}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}PCA muestral}{33}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Reconstrucción de los datos}{33}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Análisis Factorial}{38}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Formalización}{39}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Estimación de la matriz de cargas}{41}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Unicidad del modelo}{42}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Interpretación del modelo factorial}{43}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Análisis de Clusters}{44}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Algoritmos Jerárquicos}{44}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Algoritmos Particionales}{46}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Aplicación sobre datos}{48}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Tipo de alubias}{48}{section.3.1}%
+\contentsline {chapter}{Bibliografía}{50}{chapter*.10}%
 \contentsfinish 

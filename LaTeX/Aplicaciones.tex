@@ -4,22 +4,16 @@
 
 \noindent La principal herramienta usada ha sido el lenguaje de programación Python, utilizando librerías como Pandas para el manejo de las bases de datos, Scikit-Learn para la implementación de los modelos  y otras librerias de visualización como Matplotlib para la inclusión de gráficos sencillos. 
 
-\section{Clasificación de Iris}
+\section{Tipo de alubias}
+\subsection*{Descripción del DataSet}
+\noindent Este conjunto de datos,  \cite{Alubias} está formado por 12 variables predictoras que detallan \emph{Koklu, M. y Ozkan, I.A.}\cite{Koklu 2020}
+\subsection*{Objetivos}
+\noindent Los objetivos son estudiar la estructura de la matriz de covarianzas, es decir se quiere estudiar cuales son las direcciones de mayor variabilidad y si las variables observadas guardan un factor latente. Es decir, se está utilizando una óptica exploratoria, ya que no queremos confirmar ninguna suposición previa. 
 
-\noindent Uno de los ejemplos básicos del análisis discriminante es el conjunto de datos de distintas clases de flores Iris, en particular \emph{Iris Setosa,Iris virginica, e Iris versicolor}. Nuestro objetivo con este conjunto de datos es encontrar variables latentes o factores que pueden darse debido a la alta correlación que se observan en un estudio inicial y luego realizar un análisis discriminante para obtener un modelo predictivo, usando las variables transformadas por los factores y las originales para comprobar como esta transformación puede afectar a las predicciones. 
+\noindent Además, se busca definir un modelo predictor para poder crear una clasificador de las propias alubias. 
 
-\noindent El \emph{dataset} que se va a utilizar recoge datos de 150 muestras y toma las siguientes 5 medidas, ancho y largo del pétalo y ancho y largo del sépalo, además de su clasificación dentro de  1  las 3 especies antes detalladas. 
+\subsection*{Métodos a utilizar}
+\noindent Para estudiar la estructura de los datos, se utilizará el análisis de componentes principales. Por otro lado, para comprobar la existencia de factores latentes se aplicará el análisis de factores principales. Tras aplicar ambas técnicas,
+\subsection*{Desarrollo y resultados}
+\subsection*{Conclusiones}
 
-\noindent El primer paso es intentar encontrar los factores latentes que puedan explicar la mayor parte de la variabilidad de forma común. En caso de encontrar esa variable común, que pudiera interpretarse en este caso como un \emph{factor tamaño de la flor}, se podría simplificar el conjunto de datos. 
-
-\noindent Tras aplicar el análisis factorial con la funcionalidad  implementada en la biblioteca \emph{Scikit-Learn}, se ha podido obtener un modelo de un sólo factor común que acumula casi el $92\%$ de la variabilidad de las variables, siendo el resto repartido como variabilidad especifica de cada variable.
-
-\noindent Por otro lado, tras ajustar las funciones discriminantes con los datos sin transformar, se consigue un \texttt{acuracy\_score} del $100\%$, sin embargo, utilizando los datos proyectados sobre el factor común, se puede observar que el modelo entrenado tiene una precisión del $95.5\%$ lo cual no es una pérdida significativa de precisión. Por tanto, en este caso, se podría utilizar tanto el conjunto de datos original como el transformado para realizar las predicciones. 
-
-\section{Alubias secas}
-
-\section{Comparación regresión lineal, árboles de regresión y redes neuronales.}
-
-\noindent El objetivo de esta aplicación es comparar el rendimiento de los distintos algoritmos para la obtención de modelos predictivos que se han visto durante la memoria para ello, se utilizarán varias aproximaciones. Entre las aproximaciones usadas están el modelo lineal, que es la más sencilla de todas, los árboles de decisión para regresión que son los que un mayor \emph{sobreajuste} pueden tener y las redes neuronales que son las que mayor adaptabilidad tienen a la hora de crear un modelo predictivo debido a la gran cantidad de parámetros que se manejan. 
-
-\noindent Los resultados son los siguientes, 

@@ -130,5 +130,7 @@ into principal components. \emph{J Educ Psychol }
 
 \bibitem{Hesterberg 2011}\textbf{Hesterberg, T. (2011).} Bootstrap. \emph{Wiley Interdisciplinary Reviews: Computational Statistics,} 3(6), 497-526.
 \bibitem{Breiman 1996}\textbf{Breiman, L. (1996).} Bagging predictors. \emph{Machine learning}, 24, 123-140.
+\bibitem{Breiman 2001}\textbf{Breiman, L. (2001).} Random forests. \emph{Machine learning}, 45, 5-32.
+\bibitem{Koklu 2020}\textbf{Koklu, M., \& Ozkan, I. A. (2020).} Multiclass classification of dry beans using computer vision and machine learning techniques. \emph{Computers and Electronics in Agriculture,} 174, 105507.
 \end{thebibliography}
  

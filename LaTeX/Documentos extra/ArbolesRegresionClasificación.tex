@@ -125,7 +125,7 @@ EPE(\mathbf{x}_0)=\sigma_{\varepsilon}^2+Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat
 \sum_{i/\mathbf{x}_i\in R_{m_1} } (y_i-\hat{c}_{m_1})^2+\sum_{i/\mathbf{x}_i\in R_{m_2} } (y_i-\hat{c}_{m_2})^2
 \end{equation}
 
-\noindent Es decir, el objetivo es encontrar las separaciones que minimicen la suma de los errores cuadráticos. Podemos definir el error cuadrático medio de cada región de la siguiente manera \cite{Hastie 2001}.
+\noindent Es decir, el objetivo es encontrar las separaciones que minimicen la suma de los errores cuadráticos. A este criterio se le llama \emph{CART}, aunque \emph{Biau, G. y Scornet, E.}\cite{Biau 2016} lo plantea de manera distinta. Podemos definir el error cuadrático medio de cada región de la siguiente manera \cite{Hastie 2001}.
 
 \begin{defi}
 Se llama error cuadrático medio de una región $R_m$ a $Q_m(T)=\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m}(y_i-\hat{c}_m)^2$.
@@ -135,8 +135,6 @@ Se llama error cuadrático medio de una región $R_m$ a $Q_m(T)=\frac{1}{N_m}\su
 \begin{equation}
 Q(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}_m)^2
 \end{equation}
-
-\noindent \emph{HAY QUE AÑADIR AQUÍ LA PODA} 
 
 \noindent Para empezar hay que definir lo que significa la poda de un árbol. 
 \begin{defi}
@@ -148,10 +146,12 @@ Se llama \emph{poda} al proceso en el que dado un árbol inicial de tamaño $T_0
 Q_{\alpha}(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}_m)^2+\alpha|T |
 \end{equation}
 
-\noindent El algoritmo que sugiere \emph{Divakaran S.}\cite{Divakaran 2022}, basado en el que da \emph{Breiman L.}\cite{Breiman 1984} viene dado por los siguientes pasos:
+\noindent Donde $\alpha$ es un término para controlar la complejidad del árbol, es decir, $\alpha=0$ es el criterio habitual, mientras que cuanto mayor sea, más pequeños serán los árboles, ya que penaliza más el tamaño.  
+
+\noindent El proceso que sugiere \emph{Divakaran S.}\cite{Divakaran 2022}, basado en el que da \emph{Breiman L.}\cite{Breiman 1984} viene dado por los siguientes pasos:
 \begin{itemize}
 \item Primero prepara el conjunto de datos para poder realizar validación cruzada \emph{(Véase el capítulo 7 de \cite{Hastie 2001}, en particular el método de K-folds)}
-\item Se hace una partición binaria hasta tener un árbol de gran tamaño $T_0$,parando con cualquiera de los criterios habituales como pueden ser un máximo de nodos terminales o un minimo de observaciones por nodo. 
+\item Se hace una partición binaria hasta tener un árbol de gran tamaño $T_0$,parando con cualquiera de los criterios habituales como pueden ser un máximo de nodos terminales o un mínimo de observaciones por nodo. 
 
 \item Se aplica la poda al árbol utilizando el coste que penaliza el tamaño del propio árbol, teniendo en cuenta el parámetro $\alpha$. 
 
@@ -198,15 +198,18 @@ G=\sum_{l=1}^L\hat{p}_{lm}(1-\hat{p}_{lm})
 \noindent Para hacer crecer un árbol de clasificación es similar pero cambiando el criterio por el cual una partición es mejor que otra ya que el criterio de los mínimos cuadrados no es el más apropiado en casos de clasificación. Dependiendo de la medida de impureza que usemos obtendremos unas particiones u otras pero no se verá afectada. 
 
 \noindent En este caso, se puede utilizar el algoritmo \emph{CHAID}, que elige la variable por la que se va a separar utilizando un test Chi-cuadrado. 
-\subsection{Bosques Aleatorios}
-\noindent Sea un conjunto de datos $(y_i,\mathbf{x}_i),i=1\ldots N$, como habitualmente, extraidos de observar una variable aleatoria 
+\subsection{Algoritmo Random Forest}
 
-\noindent \emph{Breiman, L.}\cite{Breiman 2004}, define los bosques aleatorios como un conjunto de árboles de decisión que cumplen lo siguiente:
+\noindent El término bosque aleatorio se puede referir a dos conceptos distintos, uno el hecho de utilizar varios árboles sin importar como se obtienen y luego utilizar la media de los resultados o el voto por mayoría dependiendo del tipo de variable respuesta sea discreta o continua. 
+
+\noindent El término \emph{random forest} se refiere al algoritmo de \emph{Breiman, L.} \cite{Breiman 2001}. Este tipo de algoritmo si hace hincapié en el  método con el se construyen los árboles. 
+
+\noindent El proceso de construcción y de utilización de los \emph{random forest} viene detallado en \emph{Breiman, L.}\cite{Breiman 2004}:
 \begin{itemize}
-\item En cada árbol se utiliza una muestra aleatoria sin reemplazamiento dedel conjunto de datos iniciales. La razón es buscar una muestra \emph{bootstrap} de los datos iniciales \emph{(Véase \cite{Hesterberg 2011} para más detalles de la técnica.)}
+\item En cada árbol se utiliza una muestra aleatoria sin reemplazamiento del conjunto de datos iniciales. La razón es buscar una muestra \emph{bootstrap} de los datos iniciales \emph{(Véase \cite{Hesterberg 2011} para más detalles de la técnica.)}
 \item Se establece un número $j_{try}$ por el usuario. Para cada partición a realizar se escogen de manera aleatoria $j_{try}$ variables y se elige la que más se ajusta al criterio dado. Y se hace crecer el árbol todo lo necesario o hasta un criterio dado por el usuario. 
  
 \item Una vez se tienen crecidos los árboles, se toma como predicción de una nueva observación la media de las predicciones de los datos en el caso de que la variable respuesta sea continua. En el caso de que sea una variable discreta, se toma el voto por mayoría, es decir se toma el valor que más veces haya salido en todos los árboles. 
 \end{itemize}
 
-\noindent Este tipo de algoritmos se basan en el bagging \cite{Breiman 1996}
+\noindent \emph{Breiman, L.} \cite {Breiman 2004} detalla las propiedades básicas de un random forest. Entre estas propiedades se encuentran el sesgo, la varianza y sus acotaciones.

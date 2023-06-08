@@ -39,7 +39,7 @@ X_j= \lambda_{1j}F_1+\ldots+\lambda_{mj}F_m+\psi_j U_j\quad j=1\ldots p
 \noindent De esta manera se pueden definir las siguientes matrices: 
 
 \begin{defi}
-Llamaremos \emph{matriz de cargas de los factores o matriz de cargas}, $\mathbf{\Lambda}$ de tamaño $p \times m$ que la matriz es:
+Llamaremos \emph{matriz de cargas de los factores o matriz de cargas}, $\mathbf{\Lambda}$ de tamaño $p \times m$ a la matriz :
 \begin{equation}
 \mathbf{\Lambda}=\begin{pmatrix}
 \lambda_{11} & \cdots & \lambda_{1 m}\\
@@ -106,7 +106,7 @@ La covarianza de dos variables $Cov(X_j, X_j')$, $\sigma_{jj'}$ cumple que \cite
 \end{propo}
 
 \noindent Y tomando estas dos proposiciones se puede tener que la matriz $\mathbf{\Sigma}$, cumple lo siguiente:
-\begin{coro}
+\begin{coro}\label{Descomposición Varianza}
 La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}$
 \end{coro}
 
@@ -146,8 +146,9 @@ La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}$
 
 \noindent El proceso se para cuando no haya cambios en las matrices $\mathbf{\hat{\Psi}}_i,\mathbf{\hat{\Psi}}_{i+1}$ o cuando $\mathbf{\hat{\Lambda}}\mathbf{\hat{\Lambda}}^T+\mathbf{\Psi}$ sea lo más parecido posible a la matriz de covarianzas $\mathbf{S}$.
 
-\noindent \emph{Peña D} \cite{Peña 2002} lo generaliza utilizando la función $F=tr(\mathbf{S}-\mathbf{\Lambda}\mathbf{\Lambda}^T-\Psi)^2$. Que en esencia es minimizar la distancia de Frobenius, implicando un razonamiento similar a los métodos supervisados, ya que se busca encontrar una minimización de una función de pérdida, esta distancia entre ambas matrices. 
+\noindent \emph{Peña D} \cite{Peña 2002} lo generaliza utilizando la función $F=tr(\mathbf{S}-\mathbf{\Lambda}\mathbf{\Lambda}^T-\Psi)^2$. Que en esencia es minimizar la distancia de Frobenius, implicando un razonamiento desde la optimización, ya que se busca minimizar  una función de pérdida, la distancia entre ambas matrices en este caso. 
 
+\noindent Una vez estimadas las cargas de los factores, se pueden estimar las \emph{puntuaciones de los factores}, que son los valores que toman los factores pero no se detallarán en esta memoria.  \emph{(Para más detalles de esta parte véase  la sección 9.5 de \cite{Johnson 2007} o la 12.7 de \cite{Peña 2002})}
 
 \subsection{Unicidad del modelo}
 
@@ -164,9 +165,33 @@ La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}$
 \noindent En particular, la segunda restricción es la que se toma en el método del factor principal, ya que $\mathbf{\hat{\Lambda}}=\mathbf{UD}^{\frac{1}{2}}$, donde $\mathbf{U}$, es una matriz ortogonal, por tanto, $\mathbf{\hat{\Lambda}^T \hat{\Lambda}}=\mathbf{D}^{\frac{1}{2}}\mathbf{U}^T\mathbf{U}\mathbf{D}^{\frac{1}{2}}=\mathbf{D}$. 
 
 \begin{propo}
-La segunda restricción hace que el modelo sea único. 
+La segunda restricción hace que el modelo sea único \cite{Peña 2002}. 
 \begin{proof}
-Sea una matriz $\mathbf{\Lambda}$ tal que $\Lambda^T$
+Sea la descomposición de la varianza \emph{(Corolario \ref{Descomposición Varianza})}: \begin{align*}
+\mathbf{\Sigma}&=\mathbf{\Lambda\Lambda}^T+\mathbf{\Psi}\\
+\mathbf{\Sigma}-\mathbf{\Psi}&=\mathbf{\Lambda\Lambda}^T\\
+\intertext{Si postmultiplicamos por $\mathbf{\Lambda}$ a ambos lados:}
+(\mathbf{\Sigma}-\mathbf{\Psi})\mathbf{\Lambda}&=\mathbf{\Lambda\Lambda}^T \mathbf{\Lambda}\\
+\intertext{ Como se supone que $\mathbf{\Lambda}^T \mathbf{\Lambda}=\mathbf{D}$ se tiene que:}
+(\mathbf{\Sigma}-\mathbf{\Psi})\mathbf{\Lambda}&=\mathbf{\Lambda D}
+\end{align*}
+Por tanto, la matriz $\mathbf{\Lambda}$ tiene por columnas los $m$ vectores propios de la matriz $\mathbf{\Sigma-\Psi}$, como se ha señalado anteriormente, esta propiedad ha sido usada anteriormente en el método del factor principal, es decir, la estimación por este método es única. 
 \end{proof}
 \end{propo}
 \subsection{Interpretación del modelo factorial}
+
+\noindent Para interpretar el modelo factorial hay que tener en cuenta los siguientes aspectos:
+\begin{itemize}
+\item \emph{Proporción de varianza común explicada} Es decir, analizar que parte de la varianza se puede explicar por los factores comunes. A mayor sea, más relación entre las variables explican los factores, 
+\item \emph{Especificidad de cada una de las variables}: De esta manera, se puede analizar si una variable está alejada de las demás y no tiene tanto que ver con el resto. 
+\item \emph{Cargas de cada uno de los factores en cada variable} Esto también nos puede dar datos, por ejemplo si un grupo de variables tiene cargas mayores en uno de los factores $F_i$ y en otro grupo es más prevalente otro factor, eso también es significativo. 
+\end{itemize}
+
+\noindent \emph{Johnson y Wichern } analizan en el capitulo 9 de \cite{Johnson 2007} un ejemplo con un conjunto de datos de varias medidas de aves. 
+
+\noindent Como medidas observables tienen las medidas de 6 huesos y aplican el modelo factorial con 3 factores. Si nos centramos en los datos obtenidos aplicando el método del factor principal \cite{Peña 2002, Johnson 2007}, lo primero a destacar es que 3 factores consiguen acumular un 95\% de la varianza, por lo tanto, es posible afirmar que hay 3 variables latentes, a las que luego daremos interpretación. Por otro lado, la varianza específica es poca o nula en todas las variables, por lo tanto, nos reafirma en nuestra sospecha de que hay 3 variables latentes. 
+
+\noindent Por último, podemos ver que las cargas que tiene en todas el primer factor son cercanas a 1 por tanto tiene gran importancia en todas. Sin embargo el 3er factor en las ultimas 4 variables no tiene esa misma importancia. Por tanto el 3er factor casi no influye en las últimas medidas. 
+
+\noindent \emph{Johnson, R.A. y Wichern, D.W.}\cite{Johnson 2007} además utilizan el método de máxima verosimilitud y utilizan rotaciones para mejorar la interpretación. 
+
