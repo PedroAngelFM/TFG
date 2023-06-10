@@ -2,13 +2,13 @@
 \section{ Árboles de Decisión y Bosques Aleatorios}
 \noindent Sea un vector aleatorio $\textbf{x}$ de longitud $p$ con las variables predictoras e $Y$ la variable respuesta. Se toman $N$ observaciones obteniéndose parejas $(\textbf{x}_i,y_i)$. De esta manera, tenemos que se puede interpretar que $\mathbf{x}_i\in\mathbb{R}^p$.
 
-\noindent "Los árboles de decisión son métodos divisivos que dividen el espacio de observaciones $\mathbb{R}^p$ en varias regiones. En cada región, se ajusta un modelo más simple, como una constante."
+\noindent Los árboles de decisión son métodos divisivos que dividen el espacio de observaciones $\mathbb{R}^p$ en varias regiones. En cada región, se ajusta un modelo más simple, como una constante.
 
 \noindent La ventaja de este tipo de métodos es que son fácilmente interpretables, ya que pueden ser representados mediante un diagrama de tipo árbol. De esta manera, pueden ser utilizados según \textit{Brown et.al}.\cite{Brown 2004} y \emph{Song Y.Y y Ying, L} \cite{Song 2015} describen los principales objetivos de los árboles de decisión, entre los que se encuentran la selección y evaluación de la importancia de las variables, además de que puede tener fines predictivos o incluso de manejo de los datos, valores perdidos etc...
 
 \noindent Otra ventaja de este tipo de métodos es que permite trabajar con conjuntos de datos en los que se estudian más variables en comparación de las observaciones, es decir, $p > N$. Por ejemplo, el ejemplo que desarrollan \textit{Díaz-Uriarte y De Andrés} \cite{Diaz 2006}, en el que trabajan con un microarray genético. 
 
-\noindent Otro de los problemas que surgen del propio planteamiento del modelo en sí es que el algoritmo para obtener las divisiones están diseñados para sobreajustarse a los datos por tanto, surgen métodos como la ``poda''. Se desarrollará más adelante, pero el idea es poder modelizar toda la variación del conjunto de entrenamiento. 
+\noindent El problema que más se da en los árboles de decisión es su tendencia al sobre ajuste, ya que de la forma que están conceptualizados, provoca que el sesgo sea pequeño, pero con una gran varianza. Esto en ciertos algoritmos se soluciona con lo que se llama "poda´´ 
 
 \noindent Para comprender mejor cómo se realizan las divisiones en los árboles de decisión es importante familiarizarse con la notación utilizada.
 
@@ -78,7 +78,7 @@ EPE(\mathbf{x}_0)=\sigma_{\varepsilon}^2+Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat
 \begin{proof}
 \begin{align*}
 \mathbb{E}((Y-\hat{f}(\mathbf{x}_0))^2)&=\mathbb{E}((Y-f(\mathbf{x}_0)+f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0))^2)=\\
-&=\mathbb{E}(\varepsilon^2)-2\mathbb{E}(\varepsilon\cdot(f(\mathbf{x}_0)-\hat{f}(\mathbf{x})_0))+\mathbb{E}((f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0))^2)\\
+&=\mathbb{E}(\varepsilon^2)-2\mathbb{E}(\varepsilon\cdot(f(\mathbf{x}_0)-\hat{f}(\mathbf{x})_0))+\mathbb{E}((f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0)^2)\\
 &=\sigma^2+\mathbb{E}((f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0))^2)
 \intertext{El segundo término es el error cuadrático medio de un estimador, luego se obtiene que:}
 \mathbb{E}((Y&-\hat{f}(\mathbf{x}_0))^2)=\sigma^2+Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat{f}(\mathbf{x}_0))
@@ -90,16 +90,94 @@ EPE(\mathbf{x}_0)=\sigma_{\varepsilon}^2+Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat
 
 \noindent Para el caso en el que tengamos un modelo lineal que \emph{Hastie et. al.} \cite {Hastie 2001} desarrolla, se ve que la varianza del error esperado medio en observaciones del conjunto de entrenamiento depende de $\frac{p}{N}$, y el sesgo de $\frac{1}{N}$. Por tanto, a mayor numero de observaciones y menor de variables predictoras mejor. Esto se puede observar en el siguiente gráfico que incluyen \emph{Hastie et.al.} \cite{Hastie 2001} de manera que se puede ver a mismo número de observaciones que pasa si aumentamos las variables observadas. La línea roja representa lo que ocurre con el error de predicción en observaciones fuera del conjunto de ajuste y la azul representa dentro del conjunto de ajuste. 
 
-\noindent Esta parte se va utilizar, tanto en los árboles como en los random forests, ya que son métodos que buscan con un conjunto relativamente pequeño de observaciones en relación con el numero de variables observadas obtener un modelo que no tenga un sobre ajuste excesivo. De hecho, para hacer crecer un árbol, se busca hacerlo crecer hasta un punto de sobre ajuste y luego se irá ``podando" de la manera que se definirá más tarde para evitar dicho sobre ajuste introduciendo algo de sesgo. 
-%\begin{figure}[h]
-%\centering
-%\includegraphics[scale=0.3]{Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png}
-%\end{figure}
- 
-\newpage
-\subsection{Árboles de Regresión}
+\noindent Esta parte se va utilizar, tanto en los árboles como en los random forests, ya que son métodos que al hacer crecer el árbol de decisión el objetivo es el sobreajuste. Es decir, el objetivo en estos casos es bajar el sesgo del predictor, en particular, si se llega al punto en el que todas las observaciones en una región tengan la misma respuesta, entonces el sesgo del predictor es 0. En cambio la varianza de este caso, aumenta por que siguen siendo modelos lineales, y por tanto al reducir el número de observaciones, la varianza en cada región aumenta, lo que hace aumentar la varianza en general del modelo. 
 
-\noindent A continuación, examinemos el proceso de crecimiento de un árbol, centrándonos en particular en un árbol de regresión. En este caso, se considera un vector aleatorio $\mathbf{x}$ con $p$ variables predictoras y una variable respuesta continua $Y$.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png}
+\end{figure}
+ 
+\noindent En la figura se puede bservar lo qué ocurre en el caso de que un modelo esté en una situación de infraajuste en la parte izquierda, no se ajusta el modelo ni para muestras dentro de los datos ni en el caso que cojamos una que no esté en los datos. En el caso contrario tenemos la parte derecha donde el modelo se ajusta demasiado a los datos recogidos y no tiene capacidad predictiva. Esto puede ocurrir por lo siguiente; que la complejidad del modelo en relación con la cantidad de muestras sea demasiada alta. 
+
+\noindent Como hemos dicho antes el crecimiento de los árboles tanto de regresión como de clasificación busca sobreajustarse. En la siguiente parte veremos como hay distintos algoritmos que buscan evitar dicho sobreajuste. 
+
+ 
+%\noindent Esta parte se va utilizar, tanto en los árboles como en los random forests, ya que son métodos que buscan con un conjunto relativamente pequeño de observaciones en relación con el numero de variables observadas obtener un modelo que no tenga un sobre ajuste excesivo. De hecho, para hacer crecer un árbol, se busca hacerlo crecer hasta un punto de sobre ajuste y luego se irá ``podando" de la manera que se definirá más tarde para evitar dicho sobre ajuste introduciendo algo de sesgo. 
+\subsection{Árboles de Clasificación}
+
+\noindent Sea ahora el caso en el que las variables predictoras son como antes, dadas por un vector aleatorio $\mathbf{x}$ de longitud $p$ , discretas o continuas de manera indiscretas, pero en el que la variable respuesta es una variable aleatoria con $L$ posibles valores.
+
+\noindent Tómense ahora $N$ observaciones simultáneas del vector $\mathbf{x}$ y la variable respuesta $Y$ para el cual se ha hecho crecer un árbol $T$ de tamaño $M$, entonces, podemos denotar de la siguiente manera \cite{Divakaran 2022, Brown 2004}
+\begin{equation}
+\hat{p}_{lm}=\text{Proporción de observaciones en las que $y_i=l$, en la región $R_m$.}
+\end{equation}
+
+\noindent Teniendo en cuenta esto, se pueden definir los siguientes conceptos.
+\begin{defi}
+Se dice que un nodo correspondiente a la región $R_m$ es puro, si $\exists l_0/ p_{l_0 m}=1$ y $\hat{p}_{lm}=0 \quad \forall l\neq l_0$ \cite{Divakaran 2022, Hastie 2001, James 2013, Brown 2004}. 
+\end{defi}
+
+\begin{defi}
+Se define la \emph{impureza de un nodo}, correspondiente a la región $R_m$ como \cite{Brown 2004}:
+\begin{equation}
+1-\max_{l\in L} \hat{p}_{lm}
+\end{equation}
+\noindent Es decir, si se hablara de coste, estamos asumiendo que en esa región $R_m$, la $l$ tal que $\hat{p}_{lm}$ es máxima es la correcta. Entonces, la impureza se puede interpretar como la ``probabilidad" de error. 
+\end{defi}
+\noindent Otra forma de medir la impureza son el índice Gini y la entropía. \emph{Hastie et. al.} y \emph{Divakaran, S.} \cite{Hastie 2001, Divakaran 2022}, definen el índice Gini de la siguiente manera:
+\begin{defi}
+Se llama \emph{índice Gini} de una región $R_m$ a la siguiente expresión \cite{Hastie 2001, James 2013}:
+\begin{equation}
+G=\sum_{l=1}^L\hat{p}_{lm}(1-\hat{p}_{lm})
+\end{equation}
+Esta medida es la varianza que tiene un nodo, por tanto, nos da una idea
+\end{defi}
+
+Con esta medida se desarrolla el 
+
+\begin{defi}
+Se llama \emph{entropía} a la siguiente medida \cite{Brown 2004}:
+\begin{equation}
+H(\hat{p}_{lm})=-\hat{p}_{lm}log_2(\hat{p}_{lm})-(1-\hat{p}_{lm})log_2(1-\hat{p}_{lm})
+\end{equation}
+
+\noindent Esta medida toma valores en el intervalo $[0,1]$ siendo $H(\frac{1}{2})=1$ el máximo cuando hay tantas clasificaciones posibles correctas como incorrectas. Y tiene el mínimo en el 0 y el 1 donde toma el valor 0 ya que en ambos casos hay solo erróneas o correctas.
+
+\noindent Entonces se puede definir la entropía total del nodo $m$ como la siguiente expresión:
+\begin{equation}
+H(R_m)=-\sum_{l=1}^L(\hat{p}_{lm})log(\hat{p}_{lm})
+\end{equation}
+\end{defi}
+
+\noindent El algoritmo \emph{C4.5} de \emph{Quinlan J.R.}\cite{Quinlan 2014} hace uso de un criterio para hacer crecer el árbol de clasificación. Pero para ello hay que definir el concepto de ganancia de información y de ratio de ganancia.
+\begin{defi}
+Supóngase que se tiene un nodo padre que se divide en $m$ nodos hijos, entonces la \emph{ganancia de información } se define de la siguiente manera: 
+\begin{equation}
+Ganancia=H(padre)-\sum_{i=1}^M \dfrac{N_m}{N_{padre}}H_i
+\end{equation}
+\noindent Es decir, es la entropía del nodo padre menos la media ponderada de las entropías de cada uno de los nodos. 
+\end{defi}
+
+\begin{defi}
+Llamamos ratio de ganancia a la siguiente cantidad que está entre 0 y 1:
+\begin{equation}
+\dfrac{Ganancia}{H_{padre}}
+\end{equation}
+Por tanto, un valor cercano a 1  aporta un gran cambio y un valor cercano a 0 es que casi la ganancia es nula.   
+\end{defi}
+
+\noindent Teniendo esta medida se puede plantear el método de construcción de árboles \emph{C4.5} \cite{Loh 2014} de la siguiente manera.
+
+\noindent Para cada tipo de variable se da un tipo sistemático de particiones del espacio, en el caso de que $X_j, j=1\ldots p$ sea una variable aleatoria discreta sin orden, que toma $l$ valores distintos en el nodo que se va a particionar, entonces se hacen $l$ particiones y en cada partición tomará cada uno de los valores. 
+
+\noindent En el caso de que la variable $X_j$ sea continua se hace una partición binaria a partir de la media en el nodo padre. Es decir, tomamos la regla discriminante $X_j>c$, $X_j\geq c$, donde $c$ es la media de la variable $X_j$ en el nodo padre. 
+
+\noindent Una vez calculada las particiones para cada una de las variables, se calcula la ganancia de cada una de las particiones, y se toma la que mayor ratio de ganancia tenga. 
+
+\noindent De esta manera, se obtiene otro algoritmo voraz para el crecimiento del árbol. Al igual que en el resto, se puede hacer un proceso de poda para evitar el sobre ajuste. 
+
+\subsection{Árboles de regresión }
+\noindent A continuación, examinemos el  proceso de crecimiento de un árbol de regresión. En este caso, se considera un vector aleatorio $\mathbf{x}$ con $p$ variables predictoras y una variable respuesta continua $Y$. En particular, se desarrollan los conceptos y proceso llevado a cabo en el algoritmo \emph{CART} de \emph{Breiman, L.} \cite{Breiman 1984}. 
 
 \noindent Supongamos que hemos establecido un número máximo de particiones $M=|T|$. En consecuencia, el objetivo del árbol de decisión es dividir el espacio de observaciones en regiones $R_m$ para $m=1,\ldots, M$. Cada región $R_m$ está asociada a su \emph{función característica}, que denotaremos como $\mathbf{1}_m$.
 
@@ -162,42 +240,11 @@ Q_{\alpha}(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}
 
 \noindent En este caso, se está teniendo un intercambio entre varianza y sesgo, de manera que un árbol tiene menor sesgo, ya que se ajusta de mejor manera a los datos de ajuste pero a la hora de hacer predicciones no son las mejores. De esta manera, se da a cambio de un poco más de sesgo, se reduce la varianza. (\emph{Véase el capitulo 7 de \cite{Hastie 2001} ó el capitulo 5 de \cite{James 2013} })
 
-\noindent 
+\noindent Otro algoritmo de selección de las particiones es el algoritmo C 4.5 de \emph{•}
 
 
 
-\subsection{Árboles de Clasificación}
 
-\noindent Sea ahora el caso en el que las variables predictoras son como antes, dadas por un vector aleatorio $\mathbf{x}$ de longitud $p$ , discretas o continuas de manera indiscretas, pero en el que la variable respuesta es una variable aleatoria con $L$ posibles valores.
-
-\noindent Tómense ahora $N$ observaciones simultáneas del vector $\mathbf{x}$ y la variable respuesta $Y$ para el cual se ha hecho crecer un árbol $T$ de tamaño $M$, entonces, podemos denotar de la siguiente manera \cite{Divakaran 2022, Brown 2004}
-\begin{equation}
-\hat{p}_{lm}=\text{Proporción de observaciones en las que $y_i=l$, en la región $R_m$.}
-\end{equation}
-
-\noindent Teniendo en cuenta esto, se pueden definir los siguientes conceptos.
-\begin{defi}
-Se dice que un nodo correspondiente a la región $R_m$ es puro, si $\exists l_0/ p_{l_0 m}=1$ y $\hat{p}_{lm}=0 \quad \forall l\neq l_0$ \cite{Divakaran 2022, Hastie 2001, James 2013, Brown 2004}. 
-\end{defi}
-
-\begin{defi}
-Se define la \emph{impureza de un nodo}, correspondiente a la región $R_m$ como \cite{Brown 2004}:
-\begin{equation}
-1-\max_{l\in L} \hat{p}_{lm}
-\end{equation}
-\noindent Es decir, si se hablara de coste, estamos asumiendo que en esa región $R_m$, la $l$ tal que $\hat{p}_{lm}$ es máxima es la correcta. Entonces, la impureza se puede interpretar como la ``probabilidad" de error. 
-\end{defi}
-\noindent Otra forma de medir la impureza son el índice Gini y la entropía. \emph{Hastie et. al.} y \emph{Divakaran, S.} \cite{Hastie 2001, Divakaran 2022}, definen el índice Gini de la siguiente manera:
-\begin{defi}
-Se llama \emph{índice Gini} de una región $R_m$ a la siguiente expresión \cite{Hastie 2001, James 2013}:
-\begin{equation}
-G=\sum_{l=1}^L\hat{p}_{lm}(1-\hat{p}_{lm})
-\end{equation}
-\end{defi}
-
-\noindent Para hacer crecer un árbol de clasificación es similar pero cambiando el criterio por el cual una partición es mejor que otra ya que el criterio de los mínimos cuadrados no es el más apropiado en casos de clasificación. Dependiendo de la medida de impureza que usemos obtendremos unas particiones u otras pero no se verá afectada. 
-
-\noindent En este caso, se puede utilizar el algoritmo \emph{CHAID}, que elige la variable por la que se va a separar utilizando un test Chi-cuadrado. 
 \subsection{Algoritmo Random Forest}
 
 \noindent El término bosque aleatorio se puede referir a dos conceptos distintos, uno el hecho de utilizar varios árboles sin importar como se obtienen y luego utilizar la media de los resultados o el voto por mayoría dependiendo del tipo de variable respuesta sea discreta o continua. 
