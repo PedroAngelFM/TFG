@@ -216,8 +216,11 @@ Q(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}_m)^2
 
 \noindent Para empezar hay que definir lo que significa la poda de un árbol. 
 \begin{defi}
-Se llama \emph{poda} al proceso en el que dado un árbol inicial de tamaño $T_0$ se revierten ciertas particiones terminales que no aportan en la relación coste-complejidad, es decir, aumentan demasiado la complejidad (\emph{Aumentando la varianza}), sin reducir el coste (\emph{Sesgo}).
+Se llama \emph{poda} al proceso en el que dado un árbol inicial de tamaño $T_0$ se revierten ciertas particiones terminales que no aportan en la relación coste-complejidad, es decir, aumentan demasiado la complejidad (\emph{Aumentando la varianza}), sin reducir el coste en exceso el (\emph{Sesgo}).
 \end{defi}
+
+\noindent En particular, calculemos como el cambio del número de observaciones influyen en la varianza en estos casos.
+Utilizando la descomposición del error de predicción, se obtiene lo siguiente, supongamos que el vector $\mathbf{x}\sim N_p(0, \Sigma)$ de manera que la media muestral de una población de tamaño $N$ tiene distribución $\overline{\mathbf{x}}\sim N_p(0,\frac{1}{N}\Sigma)$ \cite{Mardia 1979 }. En este  
 
 \noindent \emph{Divakaran, S. }\cite{Divakaran 2022}, propone añadir un término al coste del árbol. 
 \begin{equation}
