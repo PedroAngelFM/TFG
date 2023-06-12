@@ -1,23 +1,24 @@
 \chapter*{Introducción}
 \pagenumbering{arabic}
 \noindent El Análisis Multivariante es, según \textit{Martínez Arias, R.}\cite{Rosario 1999}, el conjunto de técnicas y métodos que busca describir y extraer información de las relaciones entre variables medidas en una o varias muestras u observaciones. Dentro de esta definición, entran todos los procedimientos que analizan de manera simultánea más de una variable. 
-Los métodos multivariantes se pueden clasificar según el objetivo a perseguir:
+
+\noindent La clasificación que se dará en esta memoria de los métodos multivariantes será la siguiente 
 \begin{itemize}
-\item \textbf{\textit{Reducción de datos}}: En estos procedimientos se busca analizar la estructura de los datos para buscar una simplificación de la misma. Dentro de este tipo de técnicas están el \textit{Análisis Factorial}, \textit{Análisis de Componentes Principales,} \textit{Análisis Discriminante} etc. 
-\item \textit{\textbf{Clasificación y Agrupación:}} Es decir, buscar modos de clasificar las observaciones en grupos homogéneos ya sea de acuerdo a una variable categórica conocida o buscando esa homogeneidad dentro de los datos. Podemos incluir aquí el \emph{Análisis de Conglomerados}
-\item \textit{\textbf{Análisis de Relaciones y Dependencias: }} Con fines predictivos o descriptivos, este tipo de estudios pueden ser usados en aplicaciones médicas, como pueden ser los diagnósticos precoces, aunque también pueden ser utilizados en campos como la sociología, la psicología  etc... 
-\item \textbf{\textit{Construcción de Modelos y pruebas de hipótesis}}: Ya sean modelos predictivos, como lo son en su mayoría las \emph{Redes Neuronales.} También permite a los investigadores contrastar hipótesis de manera simple, dando mecanismos inferenciales. 
+\item \textbf{\textit{Métodos supervisados:}} Son aquellos que explora la relación estocástica entre varias variables, divididas en variables respuesta y variables predictoras, estas técnicas a su vez se pueden dividir según la naturaleza de las variables respuesta \cite{James 2013}:
+\begin{itemize}
+\item \textit{Regresión: } Cuando las variables de respuesta son continuas, dentro de esta tipología, entran métodos como las  \emph{Redes Neuronales\cite{Mamidi 2021}, los Árboles  de Regresión \cite{Nerini 2007} }etc...
+\item \textit{Clasificación: }Cuando las variables de respuesta son discretas, como por ejemplo, el \emph{Análisis discriminante \cite{Diez 2002}, Regresión logística \cite{Ensum 2005}, }
+\end{itemize}
+\item \textbf{\textit{Métodos no supervisados: }} Los métodos no supervisados son aquellos que buscan analizar la estructura y las relaciones entre las distintas variables \cite{Hastie 2001}. Las distintas técnicas se distinguen según la medida en la que se centren, por ejemplo la variabilidad común \cite{Pages 2005}, la homogeneidad de grupos \cite{Okazaki 2006} etc...
 \end{itemize}
 
-\noindent También se pueden clasificar  según el conocimiento de los datos o de la variable a analizar como métodos supervisados o no supervisados. 
+\noindent Estas técnicas han visto un auge en los últimos años, debido a su utilidad en el análisis de grandes bases de datos y la creciente capacidad de recogida de datos que se tiene en la actualidad. Basta con ver que la mayoría de artículos recopilados en los que se aplican estas técnicas se han publicado en las dos primeras décadas de siglo \cite{Diaz 2006, Galindo 2015,Diez 2002, Echeverri 2015}. Además, el llevar a buen término el estudio anteriormente era complejo debido a la gran cantidad de cálculos que se necesitaban realizar. Actualmente esos cálculos son automatizados, en algunos casos, con una única línea de código es posible llevar a cabo ciertas técnicas de las descritas.
 
-\noindent En esta memoria se revisarán métodos de todas las tipologías, tanto supervisados como no supervisados. Primero con un acercamiento teórico, otorgando una idea de la base sobre los que se construyen y luego se aplicarán sobre distintos ejemplos desarrollados en Python con distintas librerías especializadas en Análisis Multivariante como TensorFlow o Scikit-Learn. 
+\noindent Muchas veces, el uso de estas técnicas se combinan con el aprendizaje automático como proponen \textit{Hastie T., Tibshirani R. y Friedman J.} \cite{Hastie 2001} o  \emph{James G, Witten D, Hastie T, y  Tibshirani R.} \cite{James 2013}. De esta manera, los parámetros se estiman extrayendo la información de los propios datos, comparando distintos modelos etc... Utilizando esta aproximación se pueden crear modelos predictivos bastante precisos. Este aspecto no se desarrollará en profundidad aunque si se mencionará en ciertos métodos en los que sea importante. 
 
-\noindent Estas técnicas han visto un auge en los últimos años, debido a su utilidad en el análisis de grandes bases de datos y la creciente capacidad de recogida de datos que se tiene en la actualidad. Además, el llevar a buen término el estudio anteriormente era complejo debido a la gran cantidad de cálculos que se necesitan realizar. Actualmente esos cálculos son automatizados, en algunos casos, con una única línea de código es posible llevar a cabo ciertas técnicas de las descritas.
+\noindent La estructura de esta memoria se divide en tres partes, una dedicada a los métodos supervisados en la que se detallan los más importantes, como la regresión lineal, el análisis discriminante, los árboles de decisión  y las redes neuronales. En la segunda parte se desarrollan los métodos no supervisados con técnicas como el análisis de componentes principales, el análisis factorial y el análisis de conglomerados. Por último, se realizarán aplicaciones en las que se desarrollarán las interpretaciones de las tecnicas descritas durante la memoria. 
 
-\noindent Además, ciertos autores como \textit{Hastie T., Tibshirani R. y Friedman J.} \cite{Hastie 2001} o  \emph{James G, Witten D, Hastie T, y  Tibshirani R.} \cite{James 2013} enfocan también estos problemas desde el punto del aprendizaje automático, ya sea también supervisado o no. \noindent El crecimiento de la disciplina llamada \emph{Ciencia de Datos} ha conseguido que unidos al aprendizaje automático, estos modelos consigan grandes aplicaciones, por ejemplo, las redes neuronales se han conseguido aplicar exitosamente en varios campos. 
+\noindent En resumen, el principal objetivo de este trabajo es describir las principales técnicas de análisis de multivariante y fundamentar su aplicación e interpretación sobre cualquier tipo de datos. Además se busca dar ejemplos de aplicación sobre datos, sacando conclusiones provechosas.
 
-\noindent De manera regular, estos métodos se han usado en campos en los que hay que estudiar fenómenos de gran complejidad como la psicología y sociología en los que se busca tener mejor entendimiento de un suceso y tomar medidas efectivas y todo lo óptimas posibles, \textit{(Véanse \cite{Diez 2002}, \cite{Galindo 2015} y \cite{Echeverri 2015})}, o también para detectar factores de riesgo de conductas dañinas como el consumo de drogas etc...
 
-\noindent El Análisis Multivariante permite a distintos tipos de investigadores sacar conclusiones de manera sistemática y simple. Además ahora con la cantidad de librerías y paquetes que están disponibles en los distintos lenguajes, es más accesible que nunca el poder hacer un análisis multivariante. 
- 
+

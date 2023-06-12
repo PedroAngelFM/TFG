@@ -11,9 +11,9 @@ Desde hace años el Análisis factorial, al igual que otras técnicas multivaria
 
 \noindent El objetivo específico del Análisis factorial es, dado un conjunto de variables aleatorias, construir un modelo en el cual con un conjunto de nuevas variables llamadas \emph{factores comunes}, que expliquen la mayor variabilidad posible de las variables iniciales. De esta manera, se descompondrá la varianza de cada una de las variables en una parte común llamada \emph{comunalidad}  y otra específica denominada \emph{especificidad}. 
 
-\noindent La mayor diferencia con el análisis de componentes principales en el que se busca nuevas direcciones que maximicen la varianza explicada, es que en este caso, son de interés tanto las comunalidades como las especifidades ya que nos permiten analizar si una variable da información de manera o común o tiene algo diferencial. 
+\noindent La mayor diferencia con el análisis de componentes principales en el que se busca nuevas direcciones que maximicen la varianza explicada, es que en este caso, son de interés tanto las comunalidades como las especifidades ya que nos permiten analizar si una variable da información de manera común al resto o tiene algo diferencial. 
 
-\noindent Para empezar, empezaremos formalizando el modelo factorial, en particular el modelo multifactorial ortogonal \cite{Johnson 2007} sin pérdida de generalidad. Tras la modelización, se desarrolla el método de estimación de las matrices de carga mediante el método del factor principal \cite{Peña 2002} y se mencionarán los fundamentos de otros métodos como el de máxima verosimilitud. Seguidamente, se darán algunos detalles sobre el problema de la no unicidad del modelo y soluciones ante ello. Y por último, se dará una introducción a la interpretación de los datos que arroja el modelo factorial. 
+\noindent Para empezar, empezaremos formalizando el modelo factorial, en particular el modelo multifactorial ortogonal \cite{Johnson 2007} sin pérdida de generalidad. Tras la modelización, se desarrolla el método de estimación de las matrices de carga mediante el método del factor principal \cite{Peña 2002} y se mencionarán los fundamentos de otros métodos como el de  máxima verosimilitud. Seguidamente, se darán algunos detalles sobre el problema de la no unicidad del modelo y soluciones ante ello. Y por último, se dará una introducción a la interpretación de los datos que arroja el modelo factorial. 
 
 \newpage
 \subsection{Formalización}
@@ -33,7 +33,7 @@ X_j= \lambda_{1j}F_1+\ldots+\lambda_{mj}F_m+\psi_j U_j\quad j=1\ldots p
 \begin{itemize}
 \item Los factores comunes $F_k$ son variables aleatorias que siguen una distribución marginal $N(0,1)$. Además se supondrá que $Cov(F_k,F_{k'})=0, k\neq k'$, de manera que el vector aleatorio $\mathbf{f}$ de longitud $m$ con distribución $N_m(0,\mathbf{I})$. Y son completamente independientes de los factores específicos. 
 
-\item Los factores específicos $U_j$ son variables aleatorias con una distribución normal $N(0,1)$ no correladas, entre ellas  que forman el vector aleatorio $\mathbf{u}\sim N_p(0,\mathbf{I})$ de longitud $p$. Son completamente independientes de los factores comunes. 
+\item Los factores específicos $U_j$ son variables aleatorias con una distribución normal $N(0,1)$ no correladas, que conjuntamente forman el vector aleatorio $\mathbf{u}\sim N_p(0,\mathbf{I})$ de longitud $p$. Son completamente independientes de los factores comunes. 
 \end{itemize}
 
 \noindent De esta manera se pueden definir las siguientes matrices: 

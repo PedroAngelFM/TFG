@@ -11,9 +11,9 @@ Desde hace años el Análisis factorial, al igual que otras técnicas multivaria
 
 \noindent El objetivo específico del Análisis factorial es, dado un conjunto de variables aleatorias, construir un modelo en el cual con un conjunto de nuevas variables llamadas \emph{factores comunes}, que expliquen la mayor variabilidad posible de las variables iniciales. De esta manera, se descompondrá la varianza de cada una de las variables en una parte común llamada \emph{comunalidad}  y otra específica denominada \emph{especificidad}. 
 
-\noindent La mayor diferencia con el análisis de componentes principales en el que se busca nuevas direcciones que maximicen la varianza explicada, es que en este caso, son de interés tanto las comunalidades como las especifidades ya que nos permiten analizar si una variable da información de manera o común o tiene algo diferencial. 
+\noindent La mayor diferencia con el análisis de componentes principales en el que se busca nuevas direcciones que maximicen la varianza explicada, es que en este caso, son de interés tanto las comunalidades como las especifidades ya que nos permiten analizar si una variable da información de manera común al resto o tiene algo diferencial. 
 
-\noindent Para empezar, empezaremos formalizando el modelo factorial, en particular el modelo multifactorial ortogonal \cite{Johnson 2007} sin pérdida de generalidad. Tras la modelización, se desarrolla el método de estimación de las matrices de carga mediante el método del factor principal \cite{Peña 2002} y se mencionarán los fundamentos de otros métodos como el de máxima verosimilitud. Seguidamente, se darán algunos detalles sobre el problema de la no unicidad del modelo y soluciones ante ello. Y por último, se dará una introducción a la interpretación de los datos que arroja el modelo factorial. 
+\noindent Para empezar, empezaremos formalizando el modelo factorial, en particular el modelo multifactorial ortogonal \cite{Johnson 2007} sin pérdida de generalidad. Tras la modelización, se desarrolla el método de estimación de las matrices de carga mediante el método del factor principal \cite{Peña 2002} y se mencionarán los fundamentos de otros métodos como el de  máxima verosimilitud. Seguidamente, se darán algunos detalles sobre el problema de la no unicidad del modelo y soluciones ante ello. Y por último, se dará una introducción a la interpretación de los datos que arroja el modelo factorial. 
 
 \newpage
 \subsection{Formalización}
@@ -33,10 +33,10 @@ X_j= \lambda_{1j}F_1+\ldots+\lambda_{mj}F_m+\psi_j U_j\quad j=1\ldots p
 \begin{itemize}
 \item Los factores comunes $F_k$ son variables aleatorias que siguen una distribución marginal $N(0,1)$. Además se supondrá que $Cov(F_k,F_{k'})=0, k\neq k'$, de manera que el vector aleatorio $\mathbf{f}$ de longitud $m$ con distribución $N_m(0,\mathbf{I})$. Y son completamente independientes de los factores específicos. 
 
-\item Los factores específicos $U_j$ son variables aleatorias con una distribución normal $N(0,1)$ no correladas, entre ellas  que forman el vector aleatorio $\mathbf{u}\sim N_p(0,\mathbf{I})$ de longitud $p$. Son completamente independientes de los factores comunes. 
+\item Los factores específicos $U_j$ son variables aleatorias con una distribución normal $N(0,1)$ no correladas, que conjuntamente forman el vector aleatorio $\mathbf{u}\sim N_p(0,\mathbf{I})$ de longitud $p$. Son completamente independientes de los factores comunes. 
 \end{itemize}
 
-\noindent De esta manera se pueden definir las siguientes matrices: 
+\noindent En consecuencia, se pueden definir las siguientes matrices: 
 
 \begin{defi}
 Llamaremos \emph{matriz de cargas de los factores o matriz de cargas}, $\mathbf{\Lambda}$ de tamaño $p \times m$ a la matriz :
@@ -84,7 +84,7 @@ La varianza de la variable aleatoria $X_j$, $\sigma_j^2$ se puede descomponer de
 \end{align*}
 \end{proof}
 \end{propo}
-\noindent Teniendo en cuenta esta descomposición se forma el siguiente concepto.
+\noindent Teniendo en cuenta esta descomposición se puede definir el siguiente concepto.
 \begin{defi}
 Se llama \emph{comunalidad} de la variable $X_j$, $h_j^2=\sum_{k=1}^m \lambda_{kj}^2 $ \cite{Peña 2002}
 \end{defi} 
@@ -96,9 +96,9 @@ La covarianza de dos variables $Cov(X_j, X_j')$, $\sigma_{jj'}$ cumple que \cite
 \end{equation}
 \begin{proof}
 \begin{align}
-\sigma_{jj'} &= \sum_{k=1}^{m}\lambda_{kj}\lambda_{kj'}\mathbb{E}(F_k
-^2)+\sum_{k=1}^{m}\sum_{n=1,n\neq k}^{m} \lambda_{kj}\lambda_{nj'}\mathbb{E}(F_k\cdot F_n)\\
-&+ \sum_{k=1}^{m}\lambda_{kj}\psi_{j'} \mathbb{E}(F_k\cdot U_{j'})+\sum_{k=1}^{m}\lambda_{kj'}\psi_j\mathbb{E}(F_k\cdot U_j)+\psi_j\psi_{j'}\mathbb{E}(U_j\cdot U_{j'})
+\sigma_{jj'} = \sum_{k=1}^{m}\lambda_{kj}\lambda_{kj'}\mathbb{E}(F_k
+^2)&+\sum_{k=1}^{m}\sum_{n=1,n\neq k}^{m} \lambda_{kj}\lambda_{nj'}\mathbb{E}(F_k\cdot F_n)\\
++ \sum_{k=1}^{m}\lambda_{kj}\psi_{j'} \mathbb{E}(F_k\cdot U_{j'})&+\sum_{k=1}^{m}\lambda_{kj'}\psi_j\mathbb{E}(F_k\cdot U_j)+\psi_j\psi_{j'}\mathbb{E}(U_j\cdot U_{j'})
 \intertext{De nuevo, teniendo en cuenta las hipótesis}
 \sigma_{jj'}=\sigma_{j'j}&=\sum_{k=1}^{m}\lambda_{kj}\lambda_{kj'}
 \end{align}
