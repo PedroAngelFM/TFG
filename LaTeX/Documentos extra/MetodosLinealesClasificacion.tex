@@ -1,93 +1,103 @@
 \newpage
-\section{Clasificación supervisada}
+\section{Clasificación}
 
-\noindent Supóngase un conjunto de observaciones de un vector aleatorio $\textbf{x}$ de tamaño $p$ las cuales pertenecen a dos o más poblaciones conocidas a priori. El objetivo es dada una nueva observación $\textbf{x}_0$ poder asignarla a una de las poblaciones. Otro objetivo que se puede buscar con estas técnicas es determinar que variables son determinantes y tienen mayor importancia a la hora de discriminar entre varias categorías. 
+\noindent Hasta ahora se ha considerado el caso en el que la variable respuesta, es una variable continua en la cual se puede definir una métrica usual \cite{Hair 1995}, por ejemplo en el caso de valores respuesta continuos y reales se puede definir fácilmente métricas tomando el error cuadrático. 
 
-\noindent Este problema se le conoce como \emph{Clasificación Supervisada}, ya que  se conoce un conjunto de observaciones de las cuales se sabe a que población pertenece. También se le conoce como \emph{Análisis Discriminante}, ya que se pueden establecer funciones que permitan discriminar observaciones unas de otras. 
+\noindent En el caso de la clasificación o discriminación, casos que se discutirán a continuación sus diferencias \cite{Johnson 2007}, se tienen variables respuestas que no tienen un orden en específico. Por tanto el modo de tratar los datos cambia de manera significativa.  
 
-\noindent Alguna de las aplicaciones que utilizan las técnicas que se describen en esta sección son el reconocimiento de patrones, la concesión de créditos, o asignación de textos a autores. 
+\noindent El problema de estudiar la dependencia entre variables continuas como sería el vector aleatorio $\mathbf{x}$ y una variable que no es continua, tiene varias aproximaciones posibles dependendiendo de los objetivos a perseguir y el conocimiento previo que se tenga de los datos en sí \cite{Villardón 2006}.
+\begin{itemize}
+\item En el caso en el que no se conozca la distribución de las distintas poblaciones o categorías, se puede analizar con fines exploratorios el \emph{Análisis canónico de poblaciones} \cite{Villardón 2006}, en el que se estudian las direcciones de mayor distancia entre las dos poblaciones, en particular, también se le llama \emph{Análisis discriminante lineal de Fisher}\cite{Lebart 1984}. En este caso, se quiere explorar las características independientes son importantes a la hora de separar las distintos valores de la variable 
 
-\noindent Las primeras aproximaciones que se dieron de estas técnicas fueron dadas por \emph{Fisher R.} en 1936 introduciendo el conjunto de datos  \emph{Iris de Fisher} para la clasificación. 
+\item En el caso de que se conozcan los parámetros de las distribuciones se pueden crear funciones discriminantes que permitan clasificar nuevas observaciones $\mathbf{x}_0$ en una de las poblaciones. A esto se le llama \emph{clasificación}, uno de los métodos más habituales es la creación de funciones discriminantes por máxima verosimilitud o siguiendo un criterio geométrico\cite{Peña 2002}.
+\end{itemize}
 
-\noindent Durante esta sección se seguirán \emph{Hastie T. et.al.}\cite{Hastie 2001}, \emph{Cuadras C.M.}\cite{Cuadras 2014} y \emph{Peña D.} \cite{Peña 2002}
+\noindent Para simplificar los cálculos y los desarrollos en el caso de la primera parte en la que se desarrollan las funciones discriminante, se consideran dos poblaciones en las que en un inicio unicamente conocemos la distribución de probabilidad\cite{Johnson 2007} y luego se asumirá que son normales para construir el discriminante lineal habitual en la que aparece la distancia de Mahalanobis \cite{Peña 2002} aunque \emph{Morrison, D.F}\cite{Morrison 1976} construye dicha función discriminante buscando una combinación lineal que maximice el estadístico $T^2$ el cual mide la diferencia de las medias de las dos poblaciones. 
 
-\subsection{Formalización}
+\noindent En la segunda parte de la sección se detallará el método del análisis canónico de poblaciones o \emph{análisis discriminante de Fisher}\cite{Villardón 2006} que toma la matriz de covarianzas dentro y fuera de las poblaciones permitiendo tanto hacer predicciones en subespacios de dimensión menor. 
 
-\noindent Supóngase dadas dos poblaciones $P_1,P_2 $ de las cuales son conocidas sus funciones de densidad $f_1, f_2 $. Si además se conocen las probabilidades a priori de pertenencia a cada una de las poblaciones $\pi_1,\pi_2$ Entonces la probabilidad conociendo el valor de $\textbf{x}_0$ de pertencia a $i=1,2$ es :
+
+
+\subsection{Funciones discriminantes}
+\noindent Supongase que se tienen dos valores de la variable respuesta $y$, entonces, se tienen dos poblaciones,$\pi_1, \pi_2$ de las cuales se conocen sus funciones de densidad de cada una de ellas, $f_1,f_2$ respectivamente, entonces si además se conoce la probabilidad de clasificación errónea $P(1|2),P(2|1)$. Se tiene que:
 \begin{equation}
-P(i|\textbf{x}_0)=\dfrac{P(\textbf{x}_0|i)\pi_i}{\pi_1P(\textbf{x}_0|1)+\pi_2P(\textbf{x}_0|2)}=\dfrac{f_i(\textbf{x}_0)\pi_i}{f_1(\textbf{x}_0)\pi_1+f_2(\textbf{x}_0)\pi_2}
+P(i|\textbf{x}_0)=\dfrac{P(\textbf{x}_0|i)P(i)}{P(1)P(\textbf{x}_0|1)+P(2)P(\textbf{x}_0|2)}=\dfrac{f_i(\mathbf{x}_0)P(i)}{P(1)f_1(\mathbf{x}_0)+P(2)f_2(\mathbf{x}_0)}
 \end{equation}
 
-\noindent De esta manera se puede clasificar como una población dependiendo de que $f_i(\textbf{x}_0)\pi_i$ sea mayor \emph{(Esto es generalizable a más poblaciones.)}
+\noindent Donde $P(1), P(2)$ son las probabilidades de pertenecer a cada una de las poblaciones. Por tanto, se puede clasificar como una población u otra ya que se conoce la distribución de cada una de las poblaciones. Primero definamos lo que es una función discriminante\cite{Cuadras 2014}:
 
 \begin{defi}
 Se llama \textit{función discriminante } aquella que:
 \begin{equation}
-f_i:\mathbf{\Omega}\longrightarrow \mathbb{R}
+D_i:\mathbf{\Omega}\longrightarrow \mathbb{R}
 \end{equation}
-Donde $\Omega$ es el espacio de observaciones posibles. Definida de tal manera que si $f_i(\textbf{x}_0)>0\Rightarrow \textbf{x}_0\in P_i$ y en caso contrario $\textbf{x}_0\notin P_i$. 
+Donde $\Omega$ es el espacio de observaciones posibles. Definida de tal manera que si $D_i(\textbf{x}_0)>0\Rightarrow \textbf{x}_0\in \pi_i$ y en caso contrario $\textbf{x}_0\notin P_i$. 
 \end{defi}
-\noindent En el caso anterior de dos poblaciones, $f_1(\textbf{x}_0)\pi_1-f_2(\textbf{x}_0)\pi_2$ sería la función discriminante para discernir si $\textbf{x}_0$ pertenece a $P_1$. Ya que representa la probabilidad de ser de dicha clase conociendo el valor de las variables predictoras.
+\noindent En el caso anterior de dos poblaciones, $f_1(\textbf{x}_0)P(1)-f_2(\textbf{x}_0)P(2)$ sería la función discriminante para discernir si $\textbf{x}_0$ pertenece a $P_1$ o no. Ya que representa la probabilidad de ser de dicha clase conociendo el valor de las variables predictoras.
 
 \begin{defi}
-Se llama \emph{Error de clasificación} al coste de clasificar de manera errónea una observación y se denota como $c(i|j)=$\emph{``Error de clasificar como $P_i$ una observación perteneciente a $P_j$"}
+Se llama \emph{Error de clasificación} al coste de clasificar de manera errónea una observación y se denota como $c(i|j)=$\emph{``Error de clasificar como $\pi_i$ una observación perteneciente a $\pi_j$"}
 \end{defi}
 
-\noindent De esta manera, si el coste de mala clasificación en una y otra población son distintas podemos trasladarlo a la función discriminante de la siguiente manera:
+\noindent Se puede ponderar con respecto del coste de cada error de manera que una clasificación errónea con un coste mayor no se pueda dar, es decir, es penalizar a la que mayor coste tenga 
 \begin{equation}
-\dfrac{f_1(\textbf{x}_0)\pi_1}{c(1|2)}-\dfrac{f_2(\textbf{x}_0)\pi_2}{c(2|1)}
+\dfrac{f_1(\textbf{x}_0)P(1)}{c(1|2)}-\dfrac{f_2(\textbf{x}_0)P(2)}{c(2|1)}
 \end{equation}
 
 \noindent Por consiguiente, a igualdad de los otros términos escogeremos el que menos coste, el que mayor verosimilitud  o el que mayor probabilidad a priori tenga.
 
-\noindent Supóngase ahora que tanto $f_1,f_2$ son densidades normales con medias distintas $\mu_1,\mu_2$ pero con una matriz de covarianzas común $\mathbf{\Sigma}$:
+\noindent \emph{Johnson R.A. y Wichern D.W.}\cite{Johnson 2007} desarrollan otro enfoque, tomando el coste medio esperado \emph{ECM}:
+\begin{equation}
+ECM=c(2|1)P(2|1)P(1)+c(1|2)P(1|2)P(2)
+\end{equation}
+
+\noindent Además afirman que las regiones que minimizan el coste de clasificación son las que vienen dadas por la función discriminante anterior. 
+
+\noindent Supóngase ahora que tanto $f_1,f_2$ son densidades normales con medias distintas $\mu_1,\mu_2$ pero con una matriz de covarianzas común $\mathbf{\Sigma}$, Entonces tenemos la siguiente expresión \cite{Johnson 2007, Cuadras 2014}:
 \begin{equation}
 f_i(\textbf{x})=\dfrac{1}{(2\pi)^{\frac{p}{2}}|\mathbf{\Sigma}|^{\frac{1}{2}}} exp \left\lbrace\dfrac{-1}{2}(\textbf{x}-\mu_i)^T \mathbf{\Sigma}^{-1}(\textbf{x}-\mu_i) \right\rbrace
 \end{equation}
 
-\noindent De esta manera la función discriminante se puede transformar sustituyendo las densidades por la expresión anterior y tomando logaritmos : 
+\noindent De esta manera, la función discriminante se puede transformar sustituyendo las densidades por la expresión anterior y tomando logaritmos : 
 \begin{equation}
 (\textbf{x}-\mu_1)^T \mathbf{\Sigma}^{-1}(\textbf{x}-\mu_1)+log\left(\dfrac{\pi_1}{c(1|2)}\right)-(\textbf{x}-\mu_2)^T \mathbf{\Sigma}^{-1} (\textbf{x}-\mu_2)-log\left(\dfrac{\pi_2}{c(2|1)}\right)
 \end{equation}
 
 \noindent Hay que tener en cuenta que el término $D_i^2=(\textbf{x}-\mu_i)^T \mathbf{\Sigma}^{-1} (\textbf{x}-\mu_i)$ se puede interpretar como la \emph{distancia de Mahalanobis} de la observación \textbf{x} a la $i-$ésima población. Por otro lado, se tiene un término que relaciona probabilidad de pertenencia con el coste de clasificación errónea. En el caso de que tanto las probabilidades como el coste fueran iguales, entonces la función discriminante para la población 1 sería:
 \begin{equation}
-D_2^2 > D_1^2
+D_1^2-D_2^2
 \end{equation}
 
-\begin{defi}
-Llamaremos \emph{frontera de decisión} al hiperplano que divide el espacio de observaciones en tantas regiones como poblaciones haya. En el caso de una función discriminante como las desarrolladas la frontera son las observaciones tales que $f(\textbf{x})=0$
-\end{defi}
-\noindent Para obtener la frontera de decisión se igualan ambos términos y desarrollando ambas distancias podríamos desechar el término $\mathbf{x^T\Sigma^{-1} x}$ ya que es común a ambas, obteniendo la siguiente expresión:
-\begin{equation}
-.
-\end{equation}
+\noindent De esta manera, se obtiene un criterio geométrico \cite{Cuadras 2014} en el que una nueva observación se clasifica según a que media esté más cerca, es decir cuanto más se parezca la nueva observación a la media de la región más opciopnes tiene de ser clasificada de esa manera.  
+
+\noindent \emph{Wichern, D.W. y Johnson, R.A.}\cite{Johnson 2007} desarrollan  el caso cuando no se conoce la matriz de covarianzas muestral y cuando ambas matrices de cada una de las poblaciones $\pi_1,\pi_2$ no son iguales. 
 
 
+\subsection{Análisis canónico de poblaciones}
 
-\subsection{Análisis mediante Variables Canónicas discriminantes}
+\noindent Hasta ahora, se ha asumido que conocemos las distribuciones de las poblaciones que estamos estudiando. Utilizando estas probabilidades y los costos asociados, hemos desarrollado funciones discriminantes de manera simple. Sin embargo, la realidad rara vez se ajusta a estos supuestos. Por esta razón, hay métodos que afrontan el problema de manera exploratoria, por tanto, se busca analizar como y cuanto las variables influyen a la hora de esta discriminación. 
 
-\noindent Hasta ahora, se han supuesto conocidas las distribuciones de las poblaciones estudiadas de manera que utilizando las probabilidades de pertenencia y los costes se desarrollan funciones discriminantes de manera sencilla. Pero la realidad pocas veces se ajusta a estos supuestos, es por ello que surgen las técnicas que descomponen la varianza en dos términos la varianza dentro de los grupos y fuera de ellos de tal manera que se busca minimizar la primera y maximizar la segunda. 
+\noindent Esto se puede realizar teniendo en cuenta como es la variabilidad entre grupos y como es dentro de los grupos, en este caso buscaremos cuales son las direcciones en la cual se maximiza la variabilidad entre grupos y se minimiza la varianza dentro de las poblaciones.
 
-\noindent Es por ello, que a continuación se detallará el método por el cual se va a calcular una nueva base del espacio de observaciones que cumpla lo anterior, minimizar la variación entre poblaciones y maximizar la variabilidad entre grupos siguiendo el desarrollo dado por \textit{Lebart L., Morineau, A. y Warwick K.M.} \cite{Lebart 1984} 
+\noindent A continuación, se describirá el método para calcular una nueva base de observaciones que cumpla con el objetivo antes descrito. Este método se basa en el trabajo de \emph{Lebart L., Morineau A. y Warwick K.M.}\cite{Lebart 1984}, aunque también se puede seguir el desarrollo de \emph{Johnson R.A. y Wichern, D. W. }\cite{Johnson 2007} en el que utilizan la matriz de varianzas entre grupos en vez de la matriz de covarianzas totales.
 
-\noindent Sea \textbf{X} la matriz de datos de tamaño $n \times p$
-donde las filas $\textbf{x}_i$ son cada una de las observaciones de las $p$ variables. Dichas observaciones están particionadas en general por $q$ grupos, sea $I_k$ el conjunto de observaciones pertenecientes al $k$-ésimo grupo, sea también $n_k$ el número de observaciones que pertenecen al $k$-ésimo grupo.
+\noindent Sea $\mathbf{X}$ la matriz de datos de tamaño $N \times p$
+donde las filas $\textbf{x}_i$ son cada una de las observaciones de las $p$ variables. Dichas observaciones están particionadas en general por $L$ grupos, sea $I_l$ el conjunto de observaciones pertenecientes al $l$-ésimo grupo, sea también $N_l$ el número de observaciones que pertenecen al $l$-ésimo grupo.
 
-\noindent Se definen las medias muestrales $\overline{x}_j=\frac{1}{n}\sum_{i=1}^n x_{ij}$ de la $j$-ésima variable en la población en total. También se define la media muestral dentro de cada grupo que es $\overline{x}_{jk}=\frac{1}{n_k}\sum 
-_{i\in I_k} x_{ij}$ 
+\noindent Se definen las medias muestrales $\overline{x}_j=\frac{1}{N}\sum_{i=1}^N x_{ij}, j=1\ldots p$ de la $j$-ésima variable en la población en total. También se define la media muestral dentro de cada grupo que es $\overline{x}_{jl}=\frac{1}{N_l}\sum 
+_{i\in I_l} x_{ij}$ 
 
-\noindent Por ende podemos dar la distancia entre dos variables como:
+\noindent Por ende, podemos dar la distancia entre dos variables como:
 \begin{align}
-Cov(X_j,X_{j'})&=\dfrac{1}{n}\sum_{i=1}^n(x_{ij}-\overline{x}_j)(x_{ij'}-\overline{x}_j')
+Cov(X_j,X_{j'})&=\dfrac{1}{N}\sum_{i=1}^N(x_{ij}-\overline{x}_j)(x_{ij'}-\overline{x}_j')
 \intertext{Esto se puede particionar por grupos de la siguiente manera: }
-Cov(X_j,X_{j'})&=\dfrac{1}{n}\sum_{k=1}^q\sum_{i\in I_k}(x_{ij}-\overline{x}_j)(x_{ij'}-\overline{x}_j')
+Cov(X_j,X_{j'})&=\dfrac{1}{N}\sum_{l=1}^L\sum_{i\in I_l}(x_{ij}-\overline{x}_j)(x_{ij'}-\overline{x}_j')
 \intertext{y a su vez cada uno de los $(x_{ij}-\overline{x}_j)$ se pueden dividir en la parte intergrupos e intragrupos: }
-(x_{ij}-\overline{x}_j)&=(x_{ij}-\overline{x}_{jk})+(\overline{x}_{jk}-\overline{x}_{j})
+(x_{ij}-\overline{x}_j)&=(x_{ij}-\overline{x}_{jl})+(\overline{x}_{jl}-\overline{x}_{j})
 \end{align}
 Sustituyendo y simplificando lo necesario: 
 \begin{equation}
-Cov(X_j,X_{j'})=\dfrac{1}{n}\sum_{k=1}^q\sum_{i\in I_k}(x_{ij}-\overline{x}_{jk})(x_{ij'}-\overline{x}_{j'k})+\sum_{k=1}^q\dfrac{n_k}{n}(\overline{x}_{jk}-\overline{x}_{j})(\overline{x}_{j'k}-\overline{x}_{j'})
+Cov(X_j,X_{j'})=\dfrac{1}{N}\sum_{l=1}^L\sum_{i\in I_l}(x_{ij}-\overline{x}_{jl})(x_{ij'}-\overline{x}_{j'l})+\sum_{l=1}^L\dfrac{N_l}{N}(\overline{x}_{jl}-\overline{x}_{j})(\overline{x}_{j'l}-\overline{x}_{j'})
 \end{equation}
 
 \noindent Esto nos permite dar una descomposición de la matriz de covarianzas total de la siguiente forma :
@@ -97,7 +107,7 @@ Cov(X_j,X_{j'})=\dfrac{1}{n}\sum_{k=1}^q\sum_{i\in I_k}(x_{ij}-\overline{x}_{jk}
 
 Donde:
 \begin{itemize}
-\item \textbf{T} es la matriz que expresa la covarianza total y sus coeficientes  $t_{jj'}=Cov(X_j,X_j')$
+\item $\mathbf{T}$ es la matriz de tamaño $p\times p$ que expresa la covarianza total y sus coeficientes  $t_{jj'}=Cov(X_j,X_j')$
 \item \textbf{B} es la matriz que expresa la covarianza entre los grupos y sus coeficientes son $b_{jj'}=\sum_{k=1}^q\dfrac{n_k}{n}(\overline{x}_{jk}-\overline{x}_{j})(\overline{x}_{j'k}-\overline{x}_{j'})$
 \item \textbf{W} es la matriz que expresa la covarianza dentro de los grupos y sus coeficientes son $w_{jj'}=\dfrac{1}{n}\sum_{k=1}^q\sum_{i\in I_k}(x_{ij}-\overline{x}_{jk})(x_{ij'}-\overline{x}_{j'k})$
 \end{itemize}
@@ -135,12 +145,12 @@ Al valor $\lambda$ se le conoce como \textit{potencia discriminante} de la combi
 \end{defi}
 
 \begin{propo}
-El desarrollo antes detallado es análogo para $f(\textbf{a})=\dfrac{\textbf{a}^T \textbf{B}\textbf{a}}{\textbf{a}^T \textbf{W}\textbf{a}}$
+El desarrollo antes detallado es análogo para $f(\textbf{a})=\dfrac{\textbf{a}^T \textbf{B}\textbf{a}}{\textbf{a}^T \textbf{W}\textbf{a}}$ \cite{Johnson 2007}
 \end{propo}
 
-\noindent En el caso de que tomamos el desarrollo para obtener los vectores propios de $\mathbf{W^{-1}B}$ es una matriz con rango $r=\min(p,q-1)$ entonces podemos utilizar la matriz de cambio de base $\mathbf{U_r}$ que tiene como columnas los vectores propios de la matriz $\mathbf{W^{-1}B}$ y $\mathbf{x}$ el vector a transformar, de esta manera, tenemos que $\mathbf{z=U_r^T x}$.
+\noindent En el caso de que tomamos el desarrollo para obtener los vectores propios de $\mathbf{W^{-1}B}$ es una matriz con rango $r=\min(p,q-1)$ entonces podemos utilizar la matriz de cambio de base $\mathbf{U_r}$ que tiene como columnas los $r$ vectores propios con valores propios no nulos de la matriz $\mathbf{W^{-1}B}$. Sea $\mathbf{x}$ el vector a transformar, entonces  tenemos que $\mathbf{z=U_r^T x}$.
 
-\noindent A continuación para determinar si una nueva observación $\mathbf{x}_0$ basta con calcular la distancia con las medias de los grupos transformadas, es decir, $||\mathbf{z_0-U_r\mu_i}||^2$ y comprobar cual es la menor. 
+\noindent Aunque el fin de este método no sea este, si se desea determinar si una nueva observación $\mathbf{x}_0$ basta con calcular la distancia con las medias de los grupos transformadas, es decir, $||\mathbf{z_0-U_r\mu_i}||^2$ donde $\mathbf{z}_0$ es el vector en la nueva base y comprobar cual es la menor. 
 
 \noindent Para determinar cuantas variables canónicas se puede utilizar la varianza entre grupos que explica cada variable canónica. 
 
@@ -154,4 +164,5 @@ VE(\textbf{a}_i)\mathbf{a}_i^T\mathbf{Ba}_i=\lambda_i \mathbf{a}_i^T\mathbf{Wa}_
 \end{proof}
 \end{propo}
 
-\noindent Para elegir un número de variables canónicas a usar se puede fijar un umbral por el cual tomemos las $m$ variables cuya varianza explicada acumulada sea superior. De esta manera, se puede llevar a cabo una reducción de la dimensionalidad de los datos de manera parecida a la que se desarrollará en el \emph{Análisis de Componentes Principales.} La principal diferencia con este último es que mientras uno busca representar de una manera simple la variabilidad de los datos, esta busca las direcciones en las cuales los grupos o clases se distinguen de manera más significativa
+\noindent Para simplificar los datos, podemos seleccionar un número de variables canónicas estableciendo un umbral. Elegiremos las $m$ variables cuya varianza explicada acumulada sea mayor. Esto nos permite reducir la dimensionalidad de los datos de manera similar al Análisis de Componentes Principales. Sin embargo, hay una diferencia clave: mientras el Análisis de Componentes Principales busca representar la variabilidad de los datos de manera simple, las variables canónicas buscan identificar las direcciones en las cuales las poblaciones se distinguen de manera más significativa.
+
