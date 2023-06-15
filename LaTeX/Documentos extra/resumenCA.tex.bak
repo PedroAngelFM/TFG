@@ -1,34 +1,6 @@
 \section{Análisis de Clusters}
 
-\noindent Según \emph{Jain,A.K. y Richard, C.D; }\cite{Jain 1988} el análisis de clusters tiene como objetivo conseguir una clasificación de las observaciones en subconjuntos que tengan sentido de acuerdo al contexto de la investigación. El clustering es un tipo de clasificación de los datos que tiene las siguientes características:
-\begin{itemize}
-\item \textit{Exclusividad: }Una observación no puede pertenecer a más de un cluster a la vez. 
-\item \textit{Es intrínseco: }No hay ninguna etiqueta que permita clasificar las observaciones, son las características de las propias muestras las que servirán como diferenciadores. Lo que hace que sea un método \textit{no supervisado}.
-\end{itemize}
-
-\noindent Una vez clarificado las características esenciales del clustering, este se puede dar de manera \emph{jerárquica} o \emph{particional}.
-
-\begin{defi}
-Se dice que un método de clustering es \emph{jerárquico} si genera una secuencia de particiones del espacio de observaciones las cuales están anidadas 
-\end{defi}
-
-\begin{defi}
-Un método de clustering \emph{particional} genera una única partición del espacio. 
-\end{defi}
-
-\noindent Por otro lado, los algoritmos se pueden clasificar según  sean \textit{aglomerativos}, en los que se empieza teniendo cada una de las observaciones y se van formando los clusters hasta tener un solo cluster con todas las muestras. Por el contrario, los \textit{algoritmos   divisivos}, se empieza con un solo cluster y se van haciendo subconjuntos del mismo.  
-
-\noindent Otra clasificación puede venir dada por el modo en el que se consideran las  variables, si es \textit{Monotético}, en cada paso se centra en una variable, mientras que si es \textit{Politético} se utilizan todas las variables a la vez.
-
-\noindent También hay que distinguir métodos que usan como fundamento el álgebra matricial, centrándose en los datos que nos puede dar la matriz de distancias entre observaciones o en la Teoría de Grafos. 
-
-\noindent En primer lugar, es necesario definir los conceptos principales de esta sección que es un clustering y un cluster:
-
-\begin{defi}
-Se llama \textit{clustering} a la partición que provoca la relación $\mathcal{R}$ y se definen los \textit{clusters} como las clases de equivalencia de dicha relación, $\lbrace c_i\rbrace$. 
-\end{defi}
-
-\noindent Por tanto, el análisis de clusters es equivalente a establecer una relación de equivalencia entre las observaciones.  
+\noindent Según \emph{Jain,A.K. y Richard, C.D; }\cite{Jain 1988} el análisis de cluster es un conjunto de técnicas exploratorias las cuales toman un conjunto de datos provenientes de hacer observaciones simultaneas  sobre un vector aleatorio $\mathbf{x}$ de tamaño $p$. Estas técnicas lo que buscan es realizar agrupaciones de los dat 
 
 \subsection{Algoritmos Jerárquicos}
 \noindent Los algoritmos jerárquicos son aquellos que utilizan como entrada no la matriz de los datos per sé, en su lugar, estas utilizan como entrada la matriz de distancias o similaridad.

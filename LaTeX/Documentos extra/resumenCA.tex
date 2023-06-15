@@ -1,36 +1,34 @@
 \section{Análisis de Clusters}
 
-\noindent Según \emph{Jain,A.K. y Richard, C.D; }\cite{Jain 1988} el análisis de clusters tiene como objetivo conseguir una clasificación de las observaciones en subconjuntos que tengan sentido de acuerdo al contexto de la investigación. El clustering es un tipo de clasificación de los datos que tiene las siguientes características:
+\noindent Según \emph{Jain,A.K. y Richard, C.D; }\cite{Jain 1988} el análisis de cluster es un conjunto de técnicas exploratorias las cuales toman un conjunto de datos provenientes de hacer observaciones simultaneas  sobre un vector aleatorio $\mathbf{x}$ de tamaño $p$. Estas técnicas lo que buscan es realizar agrupaciones de los datos. Lo bueno de estos métodos es que no requieren las suposiciones habituales de otros métodos.
+
+\noindent Para empezar, debemos definir que es un \emph{cluster}
+\begin{defi}
+Diremos que un cluster o conglomerado es un subconjunto de las observaciones que son similares entre sí \cite{Everitt 2011}. Esta definición la damos ya que nos centraremos en agrupar observaciones y no variables. 
+\end{defi}
+
+\noindent Es fácil observar que los clusters definen la siguiente relación de equivalencia $\mathcal{R}$ en la que dos observaciones, $\mathbf{x}_i,\mathbf{x}_{i'}, i,i'=1 \ldots N$ están relacionadas si pertenecen al mismo clúster \cite{Cuadras 2014}. Por tanto, cada cluster genera una clase de equivalencia $[c_c], c=1\ldots C$ donde $C$ es el número de clusters
+
+\noindent El conjunto de clusters generan un clustering o partición es decir
+\begin{defi}
+Se llama \textit{clustering} a la partición que provoca la relación $\mathcal{R}$ del espacio de observaciones. 
+\end{defi}
+
+\noindent Para llegar a dichas particiones podemos usar distintos tipos de algoritmos según el número de particiones que se generen a lo largo del proceso \cite{Jain 1988}
 \begin{itemize}
-\item \textit{Exclusividad: }Una observación no puede pertenecer a más de un cluster a la vez. 
-\item \textit{Es intrínseco: }No hay ninguna etiqueta que permita clasificar las observaciones, son las características de las propias muestras las que servirán como diferenciadores. Lo que hace que sea un método \textit{no supervisado}.
+\item \emph{Particional}, si el proceso únicamente genera una partición del espacio 
+\item \emph{Jerárquico}, si el proceso genera una secuencia anidada de particiones que dependiendo de cómo se desarrolle puede ser de los siguientes tipos:
+\begin{itemize}
+\item \emph{Aglomerativo} si empieza con una partición con tantos clusters como y en cada paso se unen los que cumplan algún criterio 
+\item \emph{Divisivo} si se empieza con un único cluster el cual se van separando según alguna condición
+\end{itemize}
 \end{itemize}
 
-\noindent Una vez clarificado las características esenciales del clustering, este se puede dar de manera \emph{jerárquica} o \emph{particional}.
+\noindent En resumen, el análisis de cluster es un conjunto de técnicas que permiten la simplificación estructural de las observaciones recogidas de un vector aleatorio mediante la agrupación de las mismas en conjuntos llamados clusters \cite{Everitt 2011}. 
 
-\begin{defi}
-Se dice que un método de clustering es \emph{jerárquico} si genera una secuencia de particiones del espacio de observaciones las cuales están anidadas 
-\end{defi}
-
-\begin{defi}
-Un método de clustering \emph{particional} genera una única partición del espacio. 
-\end{defi}
-
-\noindent Por otro lado, los algoritmos se pueden clasificar según  sean \textit{aglomerativos}, en los que se empieza teniendo cada una de las observaciones y se van formando los clusters hasta tener un solo cluster con todas las muestras. Por el contrario, los \textit{algoritmos   divisivos}, se empieza con un solo cluster y se van haciendo subconjuntos del mismo.  
-
-\noindent Otra clasificación puede venir dada por el modo en el que se consideran las  variables, si es \textit{Monotético}, en cada paso se centra en una variable, mientras que si es \textit{Politético} se utilizan todas las variables a la vez.
-
-\noindent También hay que distinguir métodos que usan como fundamento el álgebra matricial, centrándose en los datos que nos puede dar la matriz de distancias entre observaciones o en la Teoría de Grafos. 
-
-\noindent En primer lugar, es necesario definir los conceptos principales de esta sección que es un clustering y un cluster:
-
-\begin{defi}
-Se llama \textit{clustering} a la partición que provoca la relación $\mathcal{R}$ y se definen los \textit{clusters} como las clases de equivalencia de dicha relación, $\lbrace c_i\rbrace$. 
-\end{defi}
-
-\noindent Por tanto, el análisis de clusters es equivalente a establecer una relación de equivalencia entre las observaciones.  
-
+\noindent El análisis de clusters ha sido aplicado en infinidad de áreas como el marketing con el objetivo de segmentar los anuncios \cite{Okazaki 2006}, la psicología para detectar si se da un sólo trastorno en una población \cite{Everitt 2002} o en el caso de la medicina para intentar estudiar la supervivencia de pacientes con carcinoma renal \cite{Witten 2010}. Estos son ejemplos de unos pocas aplicaciones, pero también nos pueden ayudar en la predicción del riesgo crediticio, segmentación electoral etc... 
 \subsection{Algoritmos Jerárquicos}
+
 \noindent Los algoritmos jerárquicos son aquellos que utilizan como entrada no la matriz de los datos per sé, en su lugar, estas utilizan como entrada la matriz de distancias o similaridad.
 
 \noindent Uno de los inconvenientes mayores de este tipo de algoritmos es como calcular la matriz de similaridades o distancias. En el caso de que las variables sean numéricas y continuas entonces se puede utilizar la distancia euclídea entre elementos de $\mathbb{R}^p$. Además hay que tener en cuenta si se va a estandarizar ya que en el caso de que si se estandarice se dará el mismo peso a todas las variables, dando igual su escala, en cambio si no se estandariza, la escala provoca que las características con mayores valores tengan mayor peso en las distancias. Por otro lado, si se tienen variables binarias o categóricas hay que tener en cuenta cómo medir sus distancias, todo esto se soluciona con las siguiente definición y consideraciones:
