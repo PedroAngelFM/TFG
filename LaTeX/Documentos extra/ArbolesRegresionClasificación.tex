@@ -6,13 +6,15 @@
 
 \noindent La ventaja de este tipo de métodos es que son fácilmente interpretables, ya que pueden ser representados mediante un diagrama de tipo árbol. De esta manera, pueden ser utilizados según \textit{Brown et.al}.\cite{Brown 2004} y \emph{Song Y.Y y Ying, L} \cite{Song 2015} describen los principales objetivos de los árboles de decisión, entre los que se encuentran la selección y evaluación de la importancia de las variables, además de que puede tener fines predictivos o incluso de manejo de los datos, valores perdidos etc...
 
-\noindent Otra ventaja de este tipo de métodos es que permite trabajar con conjuntos de datos en los que se estudian más variables en comparación de las observaciones, es decir, $p > N$. Por ejemplo, el ejemplo que desarrollan \textit{Díaz-Uriarte y De Andrés} \cite{Diaz 2006}, en el que trabajan con un microarray genético. 
+\noindent Otra ventaja de este tipo de métodos es que permite trabajar con conjuntos de datos en los que se estudian más variables en comparación de las observaciones, es decir, $p > N$. Por ejemplo, el ejemplo que desarrollan \textit{Díaz-Uriarte y De Andrés} \cite{Diaz 2006}, trabajan con un microarray genético. 
 
-\noindent El problema que más se da en los árboles de decisión es su tendencia al sobre ajuste, ya que de la forma que están conceptualizados, provoca que el sesgo sea pequeño, pero con una gran varianza. Esto en ciertos algoritmos se soluciona con lo que se llama "poda´´ 
+\noindent El problema que más se da en los árboles de decisión es su tendencia al sobre ajuste, ya que de la forma que están conceptualizados, provoca que el sesgo sea pequeño, pero con una gran varianza. Esto se considera en los algoritmos desarrollados durante la sección, normalmente se eliminan particiones que no aporten demasiado. A este proceso se le llama ``poda". 
 
-\noindent Para comprender mejor cómo se realizan las divisiones en los árboles de decisión es importante familiarizarse con la notación utilizada.
+\noindent Es por esta problemática que se desarrolla el análisis de modelos mediante la descomposición en sesgo y varianza de los mismos. 
 
-\subsection*{Notación}
+\noindent Al haber una cantidad de notación y conceptos notable, se detallan los principales a continuación. 
+
+\subsection*{Conceptos básicos}
 
 \begin{defi}
 Se llama \emph{separación, partición o división} de índice $(j,s)$ \cite{Hastie 2001} a la separación que particiona el espacio inicial dado en las siguientes regiones $R_1,R_2$:
@@ -20,7 +22,12 @@ Se llama \emph{separación, partición o división} de índice $(j,s)$ \cite{Has
 R_1=\lbrace \mathbf{x}_i \in \mathbb{R}^p/ x_{ij}>s\rbrace \quad R_2=\lbrace \mathbf{x}_i \in \mathbb{R}^p/ x_{ij}\leq s\rbrace
 \end{equation}
 
-\noindent Hay que tener en cuenta que esto sería el caso en el que la variable a separar $X_j$ sea continua. Sí $X_j$ es discreta, se pueden tomar dos opciones, hacerlo de la misma manera es decir con semihiperplanos o tomando la división $X_j=s, X_j\neq s$. Depende de como se desee particionar en el caso de variables discretas. 
+\noindent Hay que tener en cuenta que esto sería el caso en el que la variable a separar $X_j$ sea continua.
+
+\noindent En el caso de que la variable a particionar sea discreta y no ordinal \emph{Breiman, L.}\cite{Breiman 1984} propone la siguiente solución. Supongamos que $X_j$ toma $L$ valores distintos en un nodo en específico, podemos tomar un conjunto de valores $L_1\subset L$ de tal manera que las regiones que se obtienen son:
+\begin{equation}
+R_1=\lbrace \mathbf{x}_i \in \mathbb{R}^p/ x_{ij}=l/ l\in L_1\rbrace \quad R_2=\lbrace \mathbf{x}_i \in \mathbb{R}^p/ x_{ij}=l/ l\notin L_1\rbrace
+\end{equation}
 \end{defi}
 \begin{defi}
 Se define un \emph{nodo} en un árbol de decisión como cada una de las regiones resultantes después de aplicar una separación.
@@ -29,12 +36,12 @@ Se define un \emph{nodo} en un árbol de decisión como cada una de las regiones
 Se define un \emph{nodo terminal o nodo hoja}    \cite{Brown 2004} en un árbol de decisión como cada una de las regiones finales resultante de la partición del espacio de observaciones.
 \end{defi}
 \begin{defi}
-Llamaremos tamaño del árbol $T$, $|T|$ al número de nodos terminales. 
+Llamaremos tamaño del árbol $T$, $|T|$ al número de nodos terminales. \cite{Hastie 2001}
 \end{defi}
 \begin{defi}
 Se llama profundidad del árbol al número máximo que de divisiones necesarias para llegar a un nodo terminal \cite{Hastie 2001}. \emph{En el caso del diagrama que se incluye después se dan 3 divisiones del espacio tanto para llegar a $R_4, R_5$}
 \end{defi}
-\noindent Las  anteriores imágenes procedentes de \textit{Hastie et. al.}\cite{Hastie 2001} muestran el diagrama resultante tras dividir el espacio de observaciones mediante un árbol. 
+\noindent Las  siguientes imágenes procedentes de \textit{Hastie et. al.}\cite{Hastie 2001} muestran el diagrama resultante tras dividir el espacio de observaciones mediante un árbol. 
 
 \begin{figure}[h]
  \centering
@@ -52,13 +59,15 @@ Se llama profundidad del árbol al número máximo que de divisiones necesarias 
 
 \noindent Dependiendo del tipo de variable respuesta, se utiliza un \emph{Árbol de regresión} cuando se busca predecir una variable continua, y un \emph{Árbol de clasificación} cuando se busca clasificar variables discretas. En nuestro caso, los algoritmos que se describirán pueden manejar tanto variables de entrada discretas como continuas. Se detallará el caso en el que las variables de entrada son continuas.
 
+\noindent \emph{Observación:} La razón de usar particiones binarias es que son fáciles de entender y manejar. Esto hace que los árboles de decisión sean más fáciles de usar y nos ayuda a comprender las áreas o regiones que hemos creado al particionar. 
+
 \subsection*{Sesgo y varianza de un modelo}
 
-\noindent Un aspecto en el que no se ha indagado en el trabajo por ahora es en la capacidad predictiva de los modelos. Es decir, a la capacidad de obtener dadas nuevas observaciones $\mathbf{x}_0$ de las variables predictoras, hallar el valor que tendría la variable respuesta $Y$. La razón de que se detalle ahora es que los árboles son modelos los cuales tienden al sobreajuste y algunos autores como \emph{Breiman, L.}\cite{Breiman 1984} o \emph{Divakaran, S.}\cite{Divakaran 2022} proponen mecanismos para evitar dicha situación e incluso proponen u tilizar técnicas de \emph{Bagging} para los \emph{Random Forest}\cite{Breiman 2001}.
+\noindent Un aspecto en el que no se ha indagado en el trabajo por ahora es en la capacidad predictiva de los modelos. Es decir, la capacidad de obtener, dadas nuevas observaciones $\mathbf{x}_0$ de las variables predictoras, el valor que tendría la variable respuesta $Y$. La razón de que se detalle ahora es que los árboles son modelos los cuales tienden al sobreajuste y algunos autores como \emph{Breiman, L.}\cite{Breiman 1984} o \emph{Divakaran, S.}\cite{Divakaran 2022} proponen mecanismos para evitar dicha situación e incluso proponen utilizar técnicas alternativas basadas en los árboles de decisión como los  \emph{Bosques aleatorios}\cite{Breiman 2001}. 
 
-\noindent Supóngase variable respuesta sigue un modelo del tipo $Y=f(\mathbf{x})+\varepsilon$, en el que la variable aleatoria $\varepsilon\sim N(0,\sigma^2)$ y la variable respuesta $Y\sim N(f(\mathbf{x}),\sigma^2)$ conociendo el vector de variables predictoras. Si la $f(\mathbf{x})$ fuera una función lineal y la variable respuesta $Y$ fuera continua, se estaría ante un modelo de regresión lineal por ejemplo. 
+\noindent Supóngase variable respuesta sigue un modelo del tipo $Y=f(\mathbf{x})+\varepsilon$, en el que la variable aleatoria $\varepsilon\sim N(0,\sigma^2)$ y la variable respuesta $Y\sim N(f(\mathbf{x}),\sigma^2)$ conociendo el vector de variables predictoras. Por ejemplo, la $f(\mathbf{x})$ es una función lineal y la variable respuesta $Y$ es continua, se estaría ante un modelo de regresión lineal. 
 
-\noindent Consideremos que se toma una muestra con  $N$ observaciones, obteniéndose una matriz de datos $\mathbf{X}$, la matriz de respuesta $\mathbf{Y}$ y que se ajusta el modelo y sus parámetros conocidas conociendo estas $N$ observaciones. Entonces, para una nueva observación de las variables predictoras $\mathbf{x}_0$, se puede definir el siguiente concepto \cite{Hastie 2001, Lawless 2010}:
+\noindent Consideremos que se toma una muestra con  $N$ observaciones, obteniéndose una matriz de datos $\mathbf{X}$, la matriz de respuesta $\mathbf{Y}$ y que se ajusta el modelo y sus parámetros conocidas conociendo estas $N$ observaciones. Entonces, para una nueva observación de las variables predictoras $\mathbf{x}_0$, se puede definir el siguiente concepto \cite{Hastie 2001, Lawless 2010}.
 
 \begin{defi}
 Se llama \emph{error de predicción esperado} de la observación $\mathbf{x}_0$ a la siguiente expresión:
@@ -66,9 +75,9 @@ Se llama \emph{error de predicción esperado} de la observación $\mathbf{x}_0$ 
 EPE(\mathbf{x}_0)=\mathbb{E}((Y-\hat{Y})^2|\mathbf{x}=\mathbf{x}_0)=\mathbb{E}((Y-\hat{f}(\mathbf{x}_0))^2)
 \end{equation}
 \end{defi}
-\noindent De esta manera, se tiene una forma de medir el rendimiento predictivo de un modelo. Es por ello, también que en aplicaciones de aprendizaje automático en las que se busca hacer predicciones lo más precisas posibles, se divide el conjunto de datos en el conjunto de entrenamiento y de validación ya que una vez ajustado el modelo, se evalúa su capacidad predictiva mediante un estimador del error de predicción esperado con una muestra aparte de los datos de entrenamiento o ajuste.
+\noindent De esta manera, se tiene una forma de medir el rendimiento predictivo de un modelo. En aplicaciones de aprendizaje automático, donde el principal el objetivo es la predicción, dividimos los datos en conjuntos de entrenamiento y validación. Después de ajustar el modelo, evaluamos qué tan bien puede predecir utilizando una muestra separada de los datos de entrenamiento. Esto nos ayuda a estimar el error esperado en las predicciones.
 
-\noindent Este error de predicción se puede descomponer de manera sencilla 
+\noindent Además, este error de predicción se puede descomponer de manera sencilla 
 \begin{propo}
 El error de predicción esperado se puede dividir en un termino irreducible, el sesgo del modelo y la varianza \cite{Hastie 2001}:
 \begin{equation}
@@ -88,16 +97,14 @@ EPE(\mathbf{x}_0)=\sigma_{\varepsilon}^2+Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat
 
 \noindent Estos dos parámetros están íntimamente relacionados con la complejidad del modelo, ya que cuanto más complejo sea el modelo, el sesgo se reduce de manera importante. Esto es debido a que los puntos del conjunto de entrenamiento están bastante cerca de las funciones aproximadas, en cambio la varianza se dispara, lo que implica que a la hora de hacer predicciones estas no sean lo mejor posible \cite{Neural Designer}. 
 
-\noindent Para el caso en el que tengamos un modelo lineal que \emph{Hastie et. al.} \cite {Hastie 2001} desarrolla, se ve que la varianza del error esperado medio en observaciones del conjunto de entrenamiento depende de $\frac{p}{N}$, y el sesgo de $\frac{1}{N}$. Por tanto, a mayor numero de observaciones y menor de variables predictoras mejor. Esto se puede observar en el siguiente gráfico que incluyen \emph{Hastie et.al.} \cite{Hastie 2001} de manera que se puede ver a mismo número de observaciones que pasa si aumentamos las variables observadas. La línea roja representa lo que ocurre con el error de predicción en observaciones fuera del conjunto de ajuste y la azul representa dentro del conjunto de ajuste. 
-
-\noindent Esta parte se va utilizar, tanto en los árboles como en los random forests, ya que son métodos que al hacer crecer el árbol de decisión el objetivo es el sobreajuste. Es decir, el objetivo en estos casos es bajar el sesgo del predictor, en particular, si se llega al punto en el que todas las observaciones en una región tengan la misma respuesta, entonces el sesgo del predictor es 0. En cambio la varianza de este caso, aumenta por que siguen siendo modelos lineales, y por tanto al reducir el número de observaciones, la varianza en cada región aumenta, lo que hace aumentar la varianza en general del modelo. 
+\noindent Para el caso en el que tengamos un modelo de regresión lineal que \emph{Hastie et. al.} \cite {Hastie 2001} desarrolla, se ve que la varianza del error esperado medio en observaciones del conjunto de entrenamiento depende de $\frac{p}{N}$, y el sesgo de $\frac{1}{N}$. Por tanto, a mayor numero de observaciones y menor de variables predictoras mejor. Esto se puede observar en el siguiente gráfico que incluyen \emph{Hastie et.al.} \cite{Hastie 2001} de manera que se puede ver a mismo número de observaciones que pasa si aumentamos las variables observadas. La línea roja representa lo que ocurre con el error de predicción en observaciones fuera del conjunto de ajuste y la azul representa dentro del conjunto de ajuste. 
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.4]{Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png}
+\includegraphics[scale=0.5]{Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png}
 \end{figure}
  
-\noindent En la figura se puede bservar lo qué ocurre en el caso de que un modelo esté en una situación de infraajuste en la parte izquierda, no se ajusta el modelo ni para muestras dentro de los datos ni en el caso que cojamos una que no esté en los datos. En el caso contrario tenemos la parte derecha donde el modelo se ajusta demasiado a los datos recogidos y no tiene capacidad predictiva. Esto puede ocurrir por lo siguiente; que la complejidad del modelo en relación con la cantidad de muestras sea demasiada alta. 
+\noindent En la figura se puede observar lo qué ocurre en el caso de que un modelo esté en una situación de infraajuste en la parte izquierda, no se ajusta el modelo ni para muestras dentro de los datos ni en el caso que cojamos una que no esté en los datos. En el caso contrario tenemos la parte derecha donde el modelo se ajusta demasiado a los datos recogidos y no tiene capacidad predictiva. Esto puede ocurrir por lo siguiente; que la complejidad del modelo en relación con la cantidad de muestras sea demasiada alta. 
 
 \noindent Como hemos dicho antes el crecimiento de los árboles tanto de regresión como de clasificación busca sobreajustarse. En la siguiente parte veremos como hay distintos algoritmos que buscan evitar dicho sobreajuste. 
 
@@ -117,24 +124,24 @@ EPE(\mathbf{x}_0)=\sigma_{\varepsilon}^2+Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat
 
 \noindent Esto significa que en cada región $R_m$, se realiza una regresión utilizando los datos correspondientes a esa región. Generalmente, se busca una aproximación lo más sencilla posible en cada $R_m$, por ejemplo, utilizando una constante. \cite{Hastie 2001,Biau 2016}.
 
-\noindent Si se aplica el método de los mínimos cuadrados, con la restricción requerida, se pueden definir las constantes $\hat{c}_m$ de la siguiente manera:
+\noindent Si se aplica el método de los mínimos cuadrados, con la restricción requerida, se pueden definir las constantes $\hat{c}_m$ de la siguiente manera \emph{(Para ver demostración completa véase la sección de 9.1 \cite{Breiman 1984})} :
 \begin{equation}
 \hat{c}_m=\dfrac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} y_i
 \end{equation}
 
-\noindent Donde $N_m$ es el número de observaciones del total que hay en $R_m$. Es decir, $\hat{c}_m$ es la media muestral de las respuestas de las observaciones que entran en la región y esto provoca que $\hat{f}(\mathbf{x})=\sum_{m=1}^M \hat{c}_m \cdot \mathbf{1}_m(\mathbf{x})$. Es decir, se predice $\mathbf{x}\in R_m$ como la constante $\hat{c}_m$. \cite{Hastie 2001}
+\noindent Donde $N_m$ es el número de observaciones del total que hay en $R_m$. Es decir, $\hat{c}_m$ es la media muestral de las respuestas de las observaciones pertenecen a la región y esto provoca que $\hat{f}(\mathbf{x})=\sum_{m=1}^M \hat{c}_m \cdot \mathbf{1}_m(\mathbf{x})$. Es decir, la predicción $\hat{y}$ para un $\mathbf{x}\in R_m$ otorgada por el modelo es $\hat{c}_m$. \cite{Hastie 2001, Breiman 1984}
 
-\noindent Una vez se conoce como se va a dar la estimación final hay que saber cómo llegar a la mejor partición. A este proceso de elegir las particiones y elegir dichas particiones $(j,s)$. 
+\noindent Una vez se conoce como se va a dar la estimación final, hay que saber cómo llegar a la mejor partición. A este proceso de elegir las particiones y elegir dichas particiones $(j,s)$. 
 
-\noindent En regresión, hay que elegir $j$ y $s$ de tal manera que las regiones resultantes $R_{m_1},R_{m_2}$ son aquellas en las que se minimiza la siguiente expresión:
+\noindent En regresión, hay que elegir $j$ y $s$ de tal manera que las regiones resultantes $R_{m_1},R_{m_2}$ son aquellas en las que se minimiza la siguiente expresión \cite{Breiman 1984}:
 \begin{equation}
 \sum_{i/\mathbf{x}_i\in R_{m_1} } (y_i-\hat{c}_{m_1})^2+\sum_{i/\mathbf{x}_i\in R_{m_2} } (y_i-\hat{c}_{m_2})^2
 \end{equation}
 
-\noindent Es decir, el objetivo es encontrar las separaciones que minimicen la suma de los errores cuadráticos. A este criterio se le llama \emph{CART}, aunque \emph{Biau, G. y Scornet, E.}\cite{Biau 2016} lo plantea de manera distinta. Podemos definir el error cuadrático medio de cada región de la siguiente manera \cite{Hastie 2001}.
+\noindent Es decir, el objetivo es encontrar las separaciones que minimicen la suma de los errores cuadráticos. A este criterio se le llama \emph{CART}\cite{Breiman 1984}, aunque \emph{Biau, G. y Scornet, E.}\cite{Biau 2016} lo plantea de manera distinta. Podemos definir el error cuadrático medio de cada región de la siguiente manera \cite{Hastie 2001}.
 
 \begin{defi}
-Se llama error cuadrático medio de una región $R_m$ a $Q_m(T)=\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m}(y_i-\hat{c}_m)^2$.
+Se llama error cuadrático medio de una región $R_m$ a $Q_m(T)=\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m}(y_i-\hat{c}_m)^2$ \cite{Hastie 2001}.
 \end{defi}
 
 \noindent Por tanto, podemos definir una función de coste general 
@@ -142,7 +149,9 @@ Se llama error cuadrático medio de una región $R_m$ a $Q_m(T)=\frac{1}{N_m}\su
 Q(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}_m)^2
 \end{equation}
 
-\noindent Ahora veamos como hacer crecer demasiado el árbol y por tanto, tener demasiadas 
+
+\noindent Ya que el error cometido medio en el espacio de observaciones es la media de todos los errores cometidos en cada una de las regiones en las que se particiona el espacio \cite{Breiman 1984}. 
+
 
 \noindent En el caso de que $\mathbf{x}_0\in R_m$ y las mismas suposiciones que en la sección anterior, una observación que no está entre las recogidas en la matriz de datos, el error de predicción esperado cumple lo siguiente:
 \begin{align}
@@ -153,15 +162,15 @@ EPE(\mathbf{x}_0)&=\sigma^2+(Sesgo(\hat{f}_m(\mathbf{x}_0)))^2+Var(\hat{f}_m(\ma
 EPE(\mathbf{x}_0)&=\sigma^2+\dfrac{\sigma^2}{N_m}
 \end{align}
 
-\noindent Por tanto, hacer crecer un árbol, es decir hacer que tenga más nodos términales, va a provocar que $N_m$ sea menor, por lo tanto, hacer crecer un árbol demasiado hace que estemos en un caso de sobre ajuste. Es por ello, que se crean métodos como la \emph{poda}.
+\noindent Por tanto, hacer crecer un árbol, es decir, hacer que tenga más nodos términales, va a provocar que $N_m$ sea menor, por lo tanto, hacer crecer un árbol demasiado hace que estemos en un caso de sobre ajuste. Es por ello, que se crean métodos como la \emph{poda}.
 
-\noindent Para empezar hay que definir lo que significa la poda de un árbol. 
+\noindent Para empezar, hay que definir lo que significa la poda de un árbol. 
 \begin{defi}
 Se llama \emph{poda} al proceso en el que dado un árbol inicial de tamaño $T_0$ se revierten ciertas particiones terminales que no aportan en la relación coste-complejidad, es decir, aumentan demasiado la complejidad (\emph{Aumentando la varianza}), sin reducir el coste en exceso. 
 \end{defi}
 
 
-\noindent \emph{Divakaran, S. }\cite{Divakaran 2022}, propone añadir un término al coste del árbol. 
+\noindent \emph{Divakaran, S. }\cite{Divakaran 2022} y \emph{Breiman, L.}\cite{Breiman 1984}, proponen añadir un término al coste del árbol. 
 \begin{equation}
 Q_{\alpha}(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}_m)^2+\alpha|T |
 \end{equation}
@@ -222,25 +231,27 @@ Se llama \emph{entropía} a la siguiente medida \cite{Brown 2004}:
 H(\hat{p}_{lm})=-\hat{p}_{lm}log_2(\hat{p}_{lm})-(1-\hat{p}_{lm})log_2(1-\hat{p}_{lm})
 \end{equation}
 
-\noindent Esta medida toma valores en el intervalo $[0,1]$ siendo $H(\frac{1}{2})=1$ el máximo cuando hay tantas clasificaciones posibles correctas como incorrectas. Y tiene el mínimo en el 0 y el 1 donde toma el valor 0 ya que en ambos casos hay solo erróneas o correctas.
+\noindent Esta medida toma valores en el intervalo $[0,1]$ siendo $H(\frac{1}{2})=1$ el máximo cuando hay tantas clasificaciones posibles correctas como incorrectas. Y tiene el mínimo en el 0 y el 1 donde toma el valor 0 ya que en ambos casos hay sólo clasificaciones erróneas o correctas.
 
-\noindent Entonces se puede definir la entropía total del nodo $m$ como la siguiente expresión:
+\noindent Entonces, se puede definir la entropía total del nodo $m$ como la siguiente expresión:
 \begin{equation}
 H(R_m)=-\sum_{l=1}^L(\hat{p}_{lm})log(\hat{p}_{lm})
 \end{equation}
+
+\noindent Esta medida nos da una idea de la \emph{impureza} del nodo, es decir de la cantidad de clasificaciones distintas que podrían hacerse en ese nodo. 
 \end{defi}
 
-\noindent El algoritmo \emph{C4.5} de \emph{Quinlan J.R.}\cite{Quinlan 2014} hace uso de un criterio para hacer crecer el árbol de clasificación. Pero para ello hay que definir el concepto de ganancia de información y de ratio de ganancia.
+\noindent El algoritmo \emph{C4.5} de \emph{Quinlan J.R.} \cite{Quinlan 2014} hace uso de un criterio para hacer crecer el árbol de clasificación. Pero para ello, hay que definir el concepto de ganancia de información y de ratio de ganancia.
 \begin{defi}
 Supóngase que se tiene un nodo padre que se divide en $m$ nodos hijos, entonces la \emph{ganancia de información } se define de la siguiente manera: 
 \begin{equation}
 Ganancia=H(padre)-\sum_{i=1}^M \dfrac{N_m}{N_{padre}}H_i
 \end{equation}
-\noindent Es decir, es la entropía del nodo padre menos la media ponderada de las entropías de cada uno de los nodos. 
+\noindent Es decir, es la entropía del nodo padre menos la media ponderada de las entropías de cada uno de los nodos \cite{Brown 2004}. 
 \end{defi}
 
 \begin{defi}
-Llamamos ratio de ganancia a la siguiente cantidad que está entre 0 y 1:
+Llamamos ratio de ganancia a la siguiente cantidad que está entre 0 y 1 \cite{Brown 2004}:
 \begin{equation}
 \dfrac{Ganancia}{H_{padre}}
 \end{equation}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  15 JUN 2023 11:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  16 JUN 2023 12:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -923,52 +923,52 @@ icación.tex' to `Documentos Extra/ArbolesRegresionClasificación.tex' on input
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [21]
-<Documentos Extra/Imagenes/Regiones árboles.png, id=477, 338.01282pt x 302.630
+LaTeX Info: Redefining \. on input line 37.
+LaTeX Info: Redefining \% on input line 37.
+ [22]
+<Documentos Extra/Imagenes/Regiones árboles.png, id=490, 338.01282pt x 302.630
 63pt>
 File: Documentos Extra/Imagenes/Regiones árboles.png Graphic file (type png)
 <use Documentos Extra/Imagenes/Regiones árboles.png>
 Package pdftex.def Info: Documentos Extra/Imagenes/Regiones árboles.png  used 
-on input line 43.
+on input line 50.
 (pdftex.def)             Requested size: 168.4376pt x 150.80698pt.
-<Documentos Extra/Imagenes/Diagrama de arbol.png, id=478, 287.57437pt x 279.293
+<Documentos Extra/Imagenes/Diagrama de arbol.png, id=491, 287.57437pt x 279.293
 44pt>
 File: Documentos Extra/Imagenes/Diagrama de arbol.png Graphic file (type png)
 <use Documentos Extra/Imagenes/Diagrama de arbol.png>
 Package pdftex.def Info: Documentos Extra/Imagenes/Diagrama de arbol.png  used 
-on input line 46.
+on input line 53.
 (pdftex.def)             Requested size: 168.4376pt x 163.59268pt.
-LaTeX Info: Redefining \. on input line 49.
-LaTeX Info: Redefining \% on input line 49.
- [22]
-LaTeX Info: Redefining \. on input line 64.
-LaTeX Info: Redefining \% on input line 64.
+LaTeX Info: Redefining \. on input line 69.
+LaTeX Info: Redefining \% on input line 69.
  [23 <./Documentos Extra/Imagenes/Regiones árboles.png> <./Documentos Extra/Im
 agenes/Diagrama de arbol.png>]
-LaTeX Info: Redefining \. on input line 94.
-LaTeX Info: Redefining \% on input line 94.
+LaTeX Info: Redefining \. on input line 101.
+LaTeX Info: Redefining \% on input line 101.
  [24]
-<Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png, id=523, 559.33969pt x 34
+<Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png, id=526, 559.33969pt x 34
 4.03531pt>
 File: Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png Graphic file (type p
 ng)
 <use Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png>
 Package pdftex.def Info: Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png  
-used on input line 97.
-(pdftex.def)             Requested size: 223.7319pt x 137.61168pt.
-LaTeX Info: Redefining \. on input line 116.
-LaTeX Info: Redefining \% on input line 116.
+used on input line 104.
+(pdftex.def)             Requested size: 279.66916pt x 172.01723pt.
+LaTeX Info: Redefining \. on input line 121.
+LaTeX Info: Redefining \% on input line 121.
  [25 <./Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png>]
-LaTeX Info: Redefining \. on input line 154.
-LaTeX Info: Redefining \% on input line 154.
+LaTeX Info: Redefining \. on input line 163.
+LaTeX Info: Redefining \% on input line 163.
  [26]
-LaTeX Info: Redefining \. on input line 186.
-LaTeX Info: Redefining \% on input line 186.
+LaTeX Info: Redefining \. on input line 193.
+LaTeX Info: Redefining \% on input line 193.
  [27]
-LaTeX Info: Redefining \. on input line 227.
-LaTeX Info: Redefining \% on input line 227.
+LaTeX Info: Redefining \. on input line 232.
+LaTeX Info: Redefining \% on input line 232.
  [28]
-LaTeX Info: Redefining \. on input line 264.
-LaTeX Info: Redefining \% on input line 264.
+LaTeX Info: Redefining \. on input line 272.
+LaTeX Info: Redefining \% on input line 272.
  [29])
 :<-
 )
@@ -1115,8 +1115,8 @@ Package rerunfilecheck Info: File `master.out' has not changed.
 (rerunfilecheck)             Checksum: 8C06CAB8DE08346FCC6F704AEF76B325;6139.
  ) 
 Here is how much of TeX's memory you used:
- 18652 strings out of 476334
- 293613 string characters out of 5787971
+ 18653 strings out of 476334
+ 293620 string characters out of 5787971
  1868382 words of memory out of 5000000
  38383 multiletter control sequences out of 15000+600000
  526864 words of font info for 90 fonts, out of 8000000 for 9000
@@ -1146,9 +1146,9 @@ ers/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.p
 fb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmtt12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb>
-Output written on master.pdf (60 pages, 876029 bytes).
+Output written on master.pdf (60 pages, 878505 bytes).
 PDF statistics:
- 1066 PDF objects out of 1200 (max. 8388607)
- 343 named destinations out of 1000 (max. 500000)
+ 1077 PDF objects out of 1200 (max. 8388607)
+ 344 named destinations out of 1000 (max. 500000)
  263 words of extra memory for PDF output out of 10000 (max. 10000000)
 
