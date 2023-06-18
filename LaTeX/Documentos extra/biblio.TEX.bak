@@ -75,7 +75,7 @@
 \bibitem{Hornik 1989} \textbf{Hornik, K., Stinchcombe, M., and White, H. } Multilayer feedforward networks are universal approximators. \emph{Neural networks}, 2(5), 359-366, 1989.
 \url{https://doi.org/10.1016/0893-6080(89)90020-8}
 
-%\bibitem{Iris Fisher} \textbf{Fisher,R. A.. (1988).} Iris. \emph{UCI Machine Learning Repository. }\url{https://doi.org/10.24432/C56C76}. 
+\bibitem{Iris Fisher} \textbf{Fisher,R. A.. (1988).} Iris. \emph{UCI Machine Learning Repository. }\url{https://doi.org/10.24432/C56C76}. 
 \bibitem{Alubias} \textbf{Dry Bean Dataset. (2020)}.\emph{ UCI Machine Learning Repository. } \url{https://doi.org/10.24432/C50S4B.}
 
 \bibitem{Pages 2005}\textbf{Pagès, J. (2005).} Collection and analysis of perceived product inter-distances using multiple factor analysis: Application to the study of 10 white wines from the Loire Valley. \emph{Food quality and preference}, 16(7), 642-649.  \url{https://doi.org/10.1016/j.foodqual.2005.01.006
@@ -148,5 +148,8 @@ into principal components. \emph{J Educ Psychol }
 
 \bibitem{Everitt 2002} \textbf{Everitt, B., Ismail, K., David, A. S., \& Wessely, S. (2002)}. Searching for a Gulf War syndrome using cluster analysis. \emph{Psychological medicine} 32(8), 1371-1378.
 \bibitem{Witten 2010}\textbf{Witten, D. M., \& Tibshirani, R. (2010).} Survival analysis with high-dimensional covariates. \emph{Statistical methods in medical research,} 19(1), 29-51.
+
+\bibitem{Scitovski 2021}\textbf{Scitovski, R., Sabo, K., Martínez-Álvarez, F., \& Ungar, Š. (2021).} \emph{Cluster analysis and Applications} Springer.
+
 \end{thebibliography}
  

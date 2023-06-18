@@ -231,25 +231,27 @@ Se llama \emph{entropía} a la siguiente medida \cite{Brown 2004}:
 H(\hat{p}_{lm})=-\hat{p}_{lm}log_2(\hat{p}_{lm})-(1-\hat{p}_{lm})log_2(1-\hat{p}_{lm})
 \end{equation}
 
-\noindent Esta medida toma valores en el intervalo $[0,1]$ siendo $H(\frac{1}{2})=1$ el máximo cuando hay tantas clasificaciones posibles correctas como incorrectas. Y tiene el mínimo en el 0 y el 1 donde toma el valor 0 ya que en ambos casos hay de una .
+\noindent Esta medida toma valores en el intervalo $[0,1]$ siendo $H(\frac{1}{2})=1$ el máximo cuando hay tantas clasificaciones posibles correctas como incorrectas. Y tiene el mínimo en el 0 y el 1 donde toma el valor 0 ya que en ambos casos hay sólo clasificaciones erróneas o correctas.
 
-\noindent Entonces se puede definir la entropía total del nodo $m$ como la siguiente expresión:
+\noindent Entonces, se puede definir la entropía total del nodo $m$ como la siguiente expresión:
 \begin{equation}
 H(R_m)=-\sum_{l=1}^L(\hat{p}_{lm})log(\hat{p}_{lm})
 \end{equation}
+
+\noindent Esta medida nos da una idea de la \emph{impureza} del nodo, es decir de la cantidad de clasificaciones distintas que podrían hacerse en ese nodo. 
 \end{defi}
 
-\noindent El algoritmo \emph{C4.5} de \emph{Quinlan J.R.}\cite{Quinlan 2014} hace uso de un criterio para hacer crecer el árbol de clasificación. Pero para ello hay que definir el concepto de ganancia de información y de ratio de ganancia.
+\noindent El algoritmo \emph{C4.5} de \emph{Quinlan J.R.} \cite{Quinlan 2014} hace uso de un criterio para hacer crecer el árbol de clasificación. Pero para ello, hay que definir el concepto de ganancia de información y de ratio de ganancia.
 \begin{defi}
 Supóngase que se tiene un nodo padre que se divide en $m$ nodos hijos, entonces la \emph{ganancia de información } se define de la siguiente manera: 
 \begin{equation}
 Ganancia=H(padre)-\sum_{i=1}^M \dfrac{N_m}{N_{padre}}H_i
 \end{equation}
-\noindent Es decir, es la entropía del nodo padre menos la media ponderada de las entropías de cada uno de los nodos. 
+\noindent Es decir, es la entropía del nodo padre menos la media ponderada de las entropías de cada uno de los nodos \cite{Brown 2004}. 
 \end{defi}
 
 \begin{defi}
-Llamamos ratio de ganancia a la siguiente cantidad que está entre 0 y 1:
+Llamamos ratio de ganancia a la siguiente cantidad que está entre 0 y 1 \cite{Brown 2004}:
 \begin{equation}
 \dfrac{Ganancia}{H_{padre}}
 \end{equation}
