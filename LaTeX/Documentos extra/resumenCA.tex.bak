@@ -47,10 +47,10 @@ En el caso de un algoritmo divisivo tenemos que $r<k$ y $k<r$ en el caso de que 
 
 \noindent Lo más habitual es tomar distancias como la de \emph{Mahalanobis} para variables continuas, aunque sea utilizando la matriz de covarianzas muestral. 
 
-\noindent Aunque hemos hablado con distancias, también podemos hablar de similitudes que son medidas que se definen de la siguiente manera \cite{Peña 2002}.
+\noindent Aunque hemos hablado con distancias, también podemos hablar de similitudes que son medidas que se definen de la siguiente manera .
 
 \begin{defi}
-Llamaremos similaridad entre dos muestras $i,h$ según la variable $j$ a una función $s_{jih}$ la cual cumpla que:
+Llamaremos similaridad entre dos muestras $i,h$ según la variable $j$ a una función $s_{jih}$ la cual cumpla que \cite{Mardia 1979, Peña 2002}:
 \begin{itemize}
 \item La similaridad de una muestra consigo misma es igual a la unidad $s_{jii}=1 \forall j,i$
 \item $0\leq s_{jih} \leq 1\quad \forall j,i,h $
@@ -98,23 +98,22 @@ s=\dfrac{1}{1-d}\quad d=\sqrt{2(1-s)}
 
 
 \noindent Los métodos jerárquicos aportan una secuencia de particiones anidadas que son fácilmente representadas mediante un dendograma o diagrama de árbol. 
-Cada nodo representa un cluster y a medida que se va subiendo, es decir aumenta la distancia intra cluster se van juntando nodos. Las siguientes imágenes representan los dendogramas del conjunto de datos de \emph{IRIS} \cite{Iris Fisher} con el criterio de maximización y minimización. 
+Cada nodo representa un cluster y a medida que se va subiendo, es decir aumenta la distancia intra cluster se van juntando nodos. Las siguientes imágenes representan los dendogramas del conjunto de datos de \emph{IRIS} \cite{Iris Fisher} con el criterio de maximización y minimización. \emph{(Diagramas obtenidos utilizando la biblioteca de Python Scipy)}
 
 \begin{figure}[ht]
   \centering
-
-  \begin{minipage}{0.4\textwidth}
+  \begin{minipage}{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{Documentos Extra/Imagenes/complete_linkage.png}
     \caption{Enlace Completo}
-    \label{fig:imagen1}
+    \label{fig:complete_linkage}
   \end{minipage}
   \hfill
-  \begin{minipage}{0.4\textwidth}
+  \begin{minipage}{0.45\textwidth}
     \centering
     \includegraphics[width=\textwidth]{Documentos Extra/Imagenes/single_linkage.png}
     \caption{Enlace simple}
-    \label{fig:imagen2}
+    \label{fig:single_linkage}
   \end{minipage}
  \end{figure}
 
@@ -153,25 +152,26 @@ Se llama variabilidad o variación intra-cluster del cluster $C_k\quad k=1\ldots
 El algoritmo de $K$-means sólo puede mejorar el criterio de la variación dentro de clusters.\cite{Scitovski 2021}. 
 \end{propo}
 
-\noindent Esto provoca que el algoritmo no para hasta que no se da una mejora en el criterio. Sin embargo, este minimo que alcanza la función no tiene por qué ser global, ya que esta no es convexa y por tanto la consecución de este mínimo puede estar condicionada por la asignación inicial. Para solucionar estos problemas, se deben hacer varias ejecuciones del algoritmo para poder compararlas entre sí, por ejemplo \emph{Scikit-Learn} implementa el método \emph{k-means++} que no es más que realizar multiples ejecuciones con asignaciones iniciales distintas y luego las compara y otorga la mejor. 
-Para poder compararlas se puede utilizar el parámetro inercia\cite{Peña 2002}. 
-
-\begin{defi}
-Se llama \emph{inercia} de un clustering a la suma de las variaciones intra-clusters:
+\noindent Estos métodos parten de una partición inicial de los datos, es decir, crean una asignación podríamos hablar de una variable discreta $y$ de tal manera que $y_i=k\Leftrightarrow \mathbf{x}_i\in C_k, i=1,\ldots, N$. Por tanto, se pueden definir las matrices $\mathbf{T},\mathbf{B},\mathbf{W}$ de manera análoga a como se construían cuando se detallaban para clasificación y también se obtenía la siguiente descomposición:
 \begin{equation}
-inercia=\sum_{k=1}^K \textbf{W}(C_k)
+\mathbf{T}=\mathbf{B}+\mathbf{W}
 \end{equation}
-La inercia representa como de compacta es nuestra partición a menor inercia más compacta es y por tanto más homogéneos son. 
-\end{defi}
 
-\noindent Otro de los problemas de este tipo de algoritmos es que se deben conocer a priori el número de clusters en los que se quieren dividir las observaciones. Para ello \emph{Peña D.}\cite{Peña 2002} propone un contraste de hipótesis  utilizando la inercia haciéndola depender del número de clusters
-\begin{equation}
-F=\dfrac{inercia(K)-inercia(K+1)}{\frac{inercia(K+1)}{n-K-1}}
-\end{equation}
-Este cociente compara la disminución de la variación entre una partición con $K$ y $K+1$ clústers, de esta manera, puede compararse con una F con $p,p(n-K-1)$ grados de libertad, pero que en la práctica no se puede asumir las hipótesis, por tanto,  si se da un valor mayor que 10 se asume que es conveniente añadir un clúster más. 
+\noindent A estos métodos \emph{Everitt, B.S} \cite{Everitt 2011} los llama métodos de optimización, ya que buscan minimizar o maximizar distintas medidas, en el caso del algoritmo de $K$-medias se busca la minimización de la medida $tr(\mathbf{W})$.
 
-\noindent En cambio, \emph{Johnson R.A. y Wichern D.W.}\cite{Johnson 2007} proponen otra forma de contrastar la separación que no es más que 
-\begin{equation}
-F=\dfrac{}{inercia} 
-\end{equation}
+\noindent En el caso del algoritmo de $K$-medias, se puede ver que este es un proceso que puede conducir a una minimización que no sea global de manera que tengamos que repetir de manera repetida el proceso con distintas inicializaciones para obtener el mejor resultado, en particular, \emph{Peña, D.}\cite{Peña 2002} destaca un contraste de hipótesis para elegir el número de clusters a conseguir. Todo ello basándose en los resultados de \emph{Hartigan J.A.} \cite{Hartigan 1975} el cual desarrolla en la sección 4.8 las propiedades aleatorias de cada una de las medidas seleccionadas. 
+
+
+
+%
+%\noindent Otro de los problemas de este tipo de algoritmos es que se deben conocer a priori el número de clusters en los que se quieren dividir las observaciones. Para ello \emph{Peña D.}\cite{Peña 2002} propone un contraste de hipótesis  utilizando la inercia haciéndola depender del número de clusters
+%\begin{equation}
+%F=\dfrac{inercia(K)-inercia(K+1)}{\frac{inercia(K+1)}{n-K-1}}
+%\end{equation}
+%Este cociente compara la disminución de la variación entre una partición con $K$ y $K+1$ clústers, de esta manera, puede compararse con una F con $p,p(n-K-1)$ grados de libertad, pero que en la práctica no se puede asumir las hipótesis, por tanto,  si se da un valor mayor que 10 se asume que es conveniente añadir un clúster más. 
+%
+%\noindent En cambio, \emph{Johnson R.A. y Wichern D.W.}\cite{Johnson 2007} proponen otra forma de contrastar la separación que no es más que 
+%\begin{equation}
+%F=\dfrac{}{inercia} 
+%\end{equation}
 

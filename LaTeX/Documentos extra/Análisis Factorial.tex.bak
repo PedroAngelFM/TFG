@@ -36,7 +36,7 @@ X_j= \lambda_{1j}F_1+\ldots+\lambda_{mj}F_m+\psi_j U_j\quad j=1\ldots p
 \item Los factores específicos $U_j$ son variables aleatorias con una distribución normal $N(0,1)$ no correladas, que conjuntamente forman el vector aleatorio $\mathbf{u}\sim N_p(0,\mathbf{I})$ de longitud $p$. Son completamente independientes de los factores comunes. 
 \end{itemize}
 
-\noindent De esta manera se pueden definir las siguientes matrices: 
+\noindent En consecuencia, se pueden definir las siguientes matrices: 
 
 \begin{defi}
 Llamaremos \emph{matriz de cargas de los factores o matriz de cargas}, $\mathbf{\Lambda}$ de tamaño $p \times m$ a la matriz :
@@ -84,7 +84,7 @@ La varianza de la variable aleatoria $X_j$, $\sigma_j^2$ se puede descomponer de
 \end{align*}
 \end{proof}
 \end{propo}
-\noindent Teniendo en cuenta esta descomposición se forma el siguiente concepto.
+\noindent Teniendo en cuenta esta descomposición se puede definir el siguiente concepto.
 \begin{defi}
 Se llama \emph{comunalidad} de la variable $X_j$, $h_j^2=\sum_{k=1}^m \lambda_{kj}^2 $ \cite{Peña 2002}
 \end{defi} 
@@ -96,9 +96,9 @@ La covarianza de dos variables $Cov(X_j, X_j')$, $\sigma_{jj'}$ cumple que \cite
 \end{equation}
 \begin{proof}
 \begin{align}
-\sigma_{jj'} &= \sum_{k=1}^{m}\lambda_{kj}\lambda_{kj'}\mathbb{E}(F_k
-^2)+\sum_{k=1}^{m}\sum_{n=1,n\neq k}^{m} \lambda_{kj}\lambda_{nj'}\mathbb{E}(F_k\cdot F_n)\\
-&+ \sum_{k=1}^{m}\lambda_{kj}\psi_{j'} \mathbb{E}(F_k\cdot U_{j'})+\sum_{k=1}^{m}\lambda_{kj'}\psi_j\mathbb{E}(F_k\cdot U_j)+\psi_j\psi_{j'}\mathbb{E}(U_j\cdot U_{j'})
+\sigma_{jj'} = \sum_{k=1}^{m}\lambda_{kj}\lambda_{kj'}\mathbb{E}(F_k
+^2)&+\sum_{k=1}^{m}\sum_{n=1,n\neq k}^{m} \lambda_{kj}\lambda_{nj'}\mathbb{E}(F_k\cdot F_n)\\
++ \sum_{k=1}^{m}\lambda_{kj}\psi_{j'} \mathbb{E}(F_k\cdot U_{j'})&+\sum_{k=1}^{m}\lambda_{kj'}\psi_j\mathbb{E}(F_k\cdot U_j)+\psi_j\psi_{j'}\mathbb{E}(U_j\cdot U_{j'})
 \intertext{De nuevo, teniendo en cuenta las hipótesis}
 \sigma_{jj'}=\sigma_{j'j}&=\sum_{k=1}^{m}\lambda_{kj}\lambda_{kj'}
 \end{align}
@@ -193,5 +193,7 @@ Por tanto, la matriz $\mathbf{\Lambda}$ tiene por columnas los $m$ vectores prop
 
 \noindent Por último, podemos ver que las cargas que tiene en todas el primer factor son cercanas a 1 por tanto tiene gran importancia en todas. Sin embargo el 3er factor en las ultimas 4 variables no tiene esa misma importancia. Por tanto el 3er factor casi no influye en las últimas medidas. 
 
-\noindent \emph{Johnson, R.A. y Wichern, D.W.}\cite{Johnson 2007} además utilizan el método de máxima verosimilitud y utilizan rotaciones para mejorar la interpretación. 
+\noindent \emph{Johnson, R.A. y Wichern, D.W.}\cite{Johnson 2007} además utilizan el método de máxima verosimilitud y utilizan rotaciones para mejorar la interpretación.
+
+\noindent Si se quieren observar un estudio completo aplicando el análisis factorial léase \cite{Galindo 2015}, estudio en el que se estudia los factores de riesgo psicológico en deportistas universitarios.  También es interesante leer \cite{Diez 2002} en el que se estudia los factores que pueden llevar al consumo de drogas en la preadolescencia. Otro ejemplo sería \cite{Pages 2005}, en este caso para analizar las características de ciertas denominaciones  enológicas en el Valle del Loira, en particular, se utiliza el analísis factorial con el fin de reducir la dimensionalidad. 
 
