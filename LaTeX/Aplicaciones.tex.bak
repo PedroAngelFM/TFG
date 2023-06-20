@@ -6,16 +6,65 @@
 
 \section{Tipo de alubias}
 \subsection*{Descripción del DataSet}
-\noindent Este conjunto de datos,  \cite{Alubias} está formado por 12 variables predictoras que detallan \emph{Koklu, M. y Ozkan, I.A.}\cite{Koklu 2020}
+\noindent Este conjunto de datos,  \cite{Alubias} está formado por 12 variables predictoras que detallan \emph{Koklu, M. y Ozkan, I.A.}\cite{Koklu 2020}. En concreto las medidas son obtenidas mediante imagenes tomadas de distintas variedades de alubias ya clasificadas, en particular, las características medidas son las siguientes:
+\begin{enumerate}
+\item Área de la alubia medida en pixeles con sus límites incluidos.  
+\item Perímetro 
+\item Longitud del eje máximo
+\item Longitud del eje mínimo
+\item Ratio de aspecto, es decir, el cociente entre las dos medidas anteriores. 
+\item Excentricidad 
+\item Área convexa; número de pixeles en el menor polígono convexo. 
+\item Diámetro equivalente
+\item 
+\item
+\item Redondez
+\item Compacidad
+\end{enumerate}
 \subsection*{Objetivos}
-\noindent Los objetivos son estudiar la estructura de la matriz de covarianzas, es decir se quiere estudiar cuales son las direcciones de mayor variabilidad y si las variables observadas guardan un factor latente. Es decir, se está utilizando una óptica exploratoria, ya que no queremos confirmar ninguna suposición previa. 
 
-\noindent Además, se busca definir un modelo predictor para poder crear una clasificador de las propias alubias. 
-
+\noindent  \emph{Koklu, M. y Ozkan, I.A.}\cite{Koklu 2020} buscan crear distintos predictores que permitan clasificar de manera exitosa los distintos tipos de alubias ya que es complicado certificar la clase de alubia que se tiene. Es por ello que no nos centraremos en ese aspecto predictivo. Para empezar se hará una proyección mediante las variables canónicas 
 
 \subsection*{Métodos a utilizar}
-
-\noindent Para estudiar la estructura de los datos, s
+\noindent Para estudiar la estructura de los datos, se utilizará el análisis de componentes principales. Por otro lado, para comprobar la existencia de factores latentes se aplicará el análisis de factores principales. Tras aplicar ambas técnicas,
 \subsection*{Desarrollo y resultados}
 \subsection*{Conclusiones}
 
+\newpage
+\section{Cemento y capacidad predictora}
+
+\subsection*{Descripción del dataset}
+\noindent El dataset  \cite{Yeh 2007} es un conjunto de datos recogidos de distintos tipos de cementos con distintas densidades, en particular tenemos las siguientes variables:
+\begin{table}[h]
+\footnotesize
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Nombre & Tipo de dato & Medida & Descripción \\
+\hline
+Cemento (variable 1) & continuo & kg en una mezcla m3 & Variable predictora \\
+Escoria de alto horno (variable 2) & continuo & kg en una mezcla m3 & Variable predictora \\
+Ceniza volante (variable 3) & continuo & kg en una mezcla $m^3$ & Variable predictora \\
+Agua (variable 4) & continuo & kg en una mezcla $m^3$ & Variable predictora \\
+Superplastificante (variable 5) & continuo & kg en una mezcla $m^3$ & Variable predictora \\
+Agregado grueso (variable 6) & continuo & kg en una mezcla $m^3$ & Variable predictora \\
+Agregado fino (variable 7) & continuo & kg en una mezcla $m^3$ & Variable predictora \\
+Edad & continuo & Día (1-365) & Variable predictora \\
+Resistencia a la compresión & continuo & MPa & Variable respuesta \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent 
+
+\noindent En total se recogen 1030 muestras de las cuales un 70\% se utilizan para el ajuste y un 30\% para construir una estimación del error cuadratico medio de predicción. 
+\subsection*{Objetivos} 
+
+\noindent El objetivo que buscamos es crear un modelo preciso para poder predecir la variable respuesta y en el camino poder comparar sobre este conjunto de datos el poder predictivo de los distintos modelos descritos durante la memoria. Es por ello que tras ajustar los distintos modelos se hará una comparación utilizando el error cuadrático medio de una muestra.
+
+\subsection*{Desarrollo}
+\noindent Se ajustan 3 modelos distintos, un modelo lineal, un árbol de regresión, y una red neuronal. 
+En particular, la red neuronal elegida tiene dos capas, la primera con 13 neuronas con una función de activación
+
+\subsection*{Conclusiones}
+\noindent En 
