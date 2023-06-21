@@ -60,11 +60,14 @@ Resistencia a la compresión & continuo & MPa & Variable respuesta \\
 \noindent En total se recogen 1030 muestras de las cuales un 70\% se utilizan para el ajuste y un 30\% para construir una estimación del error cuadratico medio de predicción. 
 \subsection*{Objetivos} 
 
-\noindent El objetivo que buscamos es crear un modelo preciso para poder predecir la variable respuesta y en el camino poder comparar sobre este conjunto de datos el poder predictivo de los distintos modelos descritos durante la memoria. Es por ello que tras ajustar los distintos modelos se hará una comparación utilizando el error cuadrático medio de una muestra.
-
+\noindent El objetivo es encontrar cual de los modelos utilizados para regresión de los detallados en el trabajo se utiliza para 
 \subsection*{Desarrollo}
 \noindent Se ajustan 3 modelos distintos, un modelo lineal, un árbol de regresión, y una red neuronal. 
-En particular, la red neuronal elegida tiene dos capas, la primera con 13 neuronas con una función de activación
+En particular, la red neuronal elegida tiene dos capas, la primera con 13 neuronas con una función de activación lineal rectificada, además de una capa de salida que tiene una única neurona. 
+
+\noindent El árbol de decisión en cambio es el que se da por defecto en scikit learn, es decir, se divide utilizando un criterio de minimización, se utiliza el criterio de parada de un mínimo de una observación por nodo hoja. Para el resto de parámetros véase \cite{Scikit-Learn}.
+
+\noindent 
 
 \subsection*{Conclusiones}
 \noindent En 

@@ -15,7 +15,7 @@ Llamaremos \emph{pesos sinápticos} $\omega$ de una neurona, al vector de $p$ co
 \begin{defi}
 Se llama \emph{función de activación}, $f$ de una neurona artificial a la función que transforma la suma ponderada de las entradas para obtener la salida. 
 
-\noindent Las funciones de activación más habituales son; la función \emph{identidad} \emph{(En este caso, es como si se hiciera una simple suma ponderada de los datos de entrada)}, la función \emph{sigmoide}, la \emph{tangente hiperbólica} o la función \emph{lineal regularizada} para casos de regresión, es decir, en casos en los que la variable respuesta sea continua. En caso contrario, se pueden utilizar la \emph{función softmax} o la \emph{función de regresión logística} para casos discretos, ya que devuelven valores en el intervalo $[0,1]$ y se puede asociar con la probabilidad de pertenecer a una clase u otra. 
+\noindent Las funciones de activación más habituales son; la función \emph{identidad} \emph{(En este caso, es como si se hiciera una simple suma ponderada de los datos de entrada)}, la función \emph{sigmoide}, la \emph{tangente hiperbólica} o la función \emph{lineal rectificada} para casos de regresión, es decir, en casos en los que la variable respuesta sea continua. En caso contrario, se pueden utilizar la \emph{función softmax} o la \emph{función de regresión logística} para casos discretos, ya que devuelven valores en el intervalo $[0,1]$ y se puede asociar con la probabilidad de pertenecer a una clase u otra. 
 \end{defi}
 \begin{defi}
 Una \emph{neurona artificial} procesa una entrada $\textbf{x}$ de acuerdo con unos \emph{pesos sinápticos} $(b,\omega)$ que luego es transformada por una función de activación $f(\mathbf{x})$.
