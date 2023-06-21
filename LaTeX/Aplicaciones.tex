@@ -60,14 +60,20 @@ Resistencia a la compresión & continuo & MPa & Variable respuesta \\
 \noindent En total se recogen 1030 muestras de las cuales un 70\% se utilizan para el ajuste y un 30\% para construir una estimación del error cuadratico medio de predicción. 
 \subsection*{Objetivos} 
 
-\noindent El objetivo es encontrar cual de los modelos utilizados para regresión de los detallados en el trabajo se utiliza para 
+\noindent El objetivo es encontrar cual de los modelos utilizados para regresión de los detallados en el trabajo obtiene una mejor capacidad predictiva. 
 \subsection*{Desarrollo}
 \noindent Se ajustan 3 modelos distintos, un modelo lineal, un árbol de regresión, y una red neuronal. 
 En particular, la red neuronal elegida tiene dos capas, la primera con 13 neuronas con una función de activación lineal rectificada, además de una capa de salida que tiene una única neurona. 
 
 \noindent El árbol de decisión en cambio es el que se da por defecto en scikit learn, es decir, se divide utilizando un criterio de minimización, se utiliza el criterio de parada de un mínimo de una observación por nodo hoja. Para el resto de parámetros véase \cite{Scikit-Learn}.
 
-\noindent 
+\noindent Por último, el ajuste del regresor lineal es también el que viene dado por defecto, el método de los mínimos cuadrados. 
+
+\noindent Para empezar se toman un 70\% de las muestras de manera aleatoria para realizar el ajuste de cada método. El 30\%  restante se utilizan para calcular un estimador del error cuadrático medio.
+
+Para el modelo lineal se obtienen los 
 
 \subsection*{Conclusiones}
-\noindent En 
+\noindent En resumen, podemos concluir que el modelo lineal no es la mejor opción para realizar predicciones. Aún así este tipo de modelos son útiles para sacar otro tipos de conclusiones como por ejemplo influencias lineales con la variable independiente. 
+
+\noindent En cambio, los modelos de árbol de regresión y la red neuronal proporcionan mejores predicciones de manera altamente significativa con relación a la regresión mediante un modelo lineal. 
