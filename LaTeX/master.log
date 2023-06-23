@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  21 JUN 2023 15:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  23 JUN 2023 18:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1101,9 +1101,34 @@ Overfull \hbox (7.53923pt too wide) in paragraph at lines 41--56
  [][][] 
  []
 
-LaTeX Info: Redefining \. on input line 79.
-LaTeX Info: Redefining \% on input line 79.
-[53])
+LaTeX Info: Redefining \. on input line 75.
+LaTeX Info: Redefining \% on input line 75.
+[53]
+<Documentos Extra/Imagenes/Datos PruebasRegresionLineal.png, id=941, 406.8801pt
+ x 328.1058pt>
+File: Documentos Extra/Imagenes/Datos PruebasRegresionLineal.png Graphic file (
+type png)
+<use Documentos Extra/Imagenes/Datos PruebasRegresionLineal.png>
+Package pdftex.def Info: Documentos Extra/Imagenes/Datos PruebasRegresionLineal
+.png  used on input line 83.
+(pdftex.def)             Requested size: 134.75522pt x 108.66574pt.
+<Documentos Extra/Imagenes/Datos PruebasÁrbolesRegresion.png, id=942, 406.8801
+pt x 328.1058pt>
+File: Documentos Extra/Imagenes/Datos PruebasÁrbolesRegresion.png Graphic file
+ (type png)
+<use Documentos Extra/Imagenes/Datos PruebasÁrbolesRegresion.png>
+Package pdftex.def Info: Documentos Extra/Imagenes/Datos PruebasÁrbolesRegresi
+on.png  used on input line 90.
+(pdftex.def)             Requested size: 134.75522pt x 108.66574pt.
+<Documentos Extra/Imagenes/Datos PruebasRedNeuronal.png, id=943, 406.8801pt x 3
+28.1058pt>
+File: Documentos Extra/Imagenes/Datos PruebasRedNeuronal.png Graphic file (type
+ png)
+<use Documentos Extra/Imagenes/Datos PruebasRedNeuronal.png>
+Package pdftex.def Info: Documentos Extra/Imagenes/Datos PruebasRedNeuronal.png
+  used on input line 95.
+(pdftex.def)             Requested size: 134.75522pt x 108.66574pt.
+)
 :<-
 Package srcltx Info: Expanded filename `Documentos Extra/biblio.tex' to `Docume
 ntos Extra/biblio.tex' on input line 103.
@@ -1111,7 +1136,9 @@ ntos Extra/biblio.tex' on input line 103.
 (Documentos Extra/biblio.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [54] [55
+ [54 <./Documentos Extra/Imagenes/Datos PruebasRegresionLineal.png> <./Document
+os Extra/Imagenes/Datos PruebasÁrbolesRegresion.png> <./Documentos Extra/Image
+nes/Datos PruebasRedNeuronal.png>] [55
 
 ]
 LaTeX Info: Redefining \. on input line 73.
@@ -1141,13 +1168,13 @@ LaTeX Info: Redefining \% on input line 22.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 424C900927704C8569E6B3DBAE8B0B79;6376.
+(rerunfilecheck)             Checksum: 18297935C5CB59AA64987895A3C4F223;6376.
  ) 
 Here is how much of TeX's memory you used:
- 18694 strings out of 476334
- 294557 string characters out of 5787971
+ 18719 strings out of 476334
+ 295860 string characters out of 5787971
  1868382 words of memory out of 5000000
- 38401 multiletter control sequences out of 15000+600000
+ 38422 multiletter control sequences out of 15000+600000
  526864 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,19n,79p,3251b,770s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1178,9 +1205,9 @@ onts/cm/cmti12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmtt12.pfb><C:/Users/Pedro/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/symbols/msam10.pfb><C:/Users/Pedro/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on master.pdf (63 pages, 960404 bytes).
+Output written on master.pdf (63 pages, 1031148 bytes).
 PDF statistics:
- 1161 PDF objects out of 1200 (max. 8388607)
- 365 named destinations out of 1000 (max. 500000)
- 281 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1169 PDF objects out of 1200 (max. 8388607)
+ 366 named destinations out of 1000 (max. 500000)
+ 296 words of extra memory for PDF output out of 10000 (max. 10000000)
 

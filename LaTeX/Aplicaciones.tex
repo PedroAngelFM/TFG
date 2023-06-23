@@ -63,17 +63,47 @@ Resistencia a la compresión & continuo & MPa & Variable respuesta \\
 \noindent El objetivo es encontrar cual de los modelos utilizados para regresión de los detallados en el trabajo obtiene una mejor capacidad predictiva. 
 \subsection*{Desarrollo}
 \noindent Se ajustan 3 modelos distintos, un modelo lineal, un árbol de regresión, y una red neuronal. 
-En particular, la red neuronal elegida tiene dos capas, la primera con 13 neuronas con una función de activación lineal rectificada, además de una capa de salida que tiene una única neurona. 
 
-\noindent El árbol de decisión en cambio es el que se da por defecto en scikit learn, es decir, se divide utilizando un criterio de minimización, se utiliza el criterio de parada de un mínimo de una observación por nodo hoja. Para el resto de parámetros véase \cite{Scikit-Learn}.
+\noindent Las características de los modelos y de los procesos de ajuste son los siguientes:
 
-\noindent Por último, el ajuste del regresor lineal es también el que viene dado por defecto, el método de los mínimos cuadrados. 
+\noindent El modelo lineal es ajustado mediante el método de los minimos cuadrados obteniéndose un mínimo de error cuadrático de $106.14$ en el conjunto de entrenamiento mientras que en el conjunto de testeo se obtiene un error cuadrático medio de $108,215$. Además aunque no se pueda usar en el resto de modelos se obtiene en este caso un coeficiente de determinación $R^2$ de $0,62$ en el conjunto de ajuste. Por tanto, a nivel predictivo el modelo lineal tiene un buen rendimiento. 
 
-\noindent Para empezar se toman un 70\% de las muestras de manera aleatoria para realizar el ajuste de cada método. El 30\%  restante se utilizan para calcular un estimador del error cuadrático medio.
+\noindent El árbol de decisión utiliza el criterio CART de \emph{Breiman, L.}\cite{Breiman 1984}, ya que es el implementado por defecto en la librería \emph{Scikit-Learn} de Python. Este modelo proporciona un error cuadrático medio de  $108.22$ sobre el conjunto de ajuste mientras que sobre el conjunto de testeo proporciona un error cuadrático de $57.55$, lo que implica que tiene una buena capacidad predictiva. 
 
-\noindent En el caso de la regresión por el modelo lineal obtenemos un error cuadrático medio de 10.30 para el conjunto de datos de ajuste. En cambio, el coeficiente de determinación ajustado $R^2$ es de un 0.61, Lo cual al estar buscando que el modelo sea lo mejor posible en el aspecto predictivo, está bien 
+\noindent En la red neuronal se ha elegido un modelo simple con dos capas, la primera con 13 neuronas con una función de activación lineal rectificada, en cambio, la otra capa contiene únicamente una neurona con una función lineal. En este caso el ajuste de la red neuronal obtiene un error cuadrático medio de $MSE=40.19$ en el ajuste y un $MSE=41.72$ en el conjunto de prueba, en principio, tenemos un modelo que comete menos error en el conjunto de prueba. 
+
+\noindent Hay que destacar que ninguno de los modelos ha incurrido en problemas de sobreajuste, es decir, no se ha tenido casos en los que el valor del error medio en el conjunto de ajuste sea mucho menor que en el conjunto de prueba. 
+
+\noindent Una vez ajustados los modelos, se pueden tomar los valores predichos para los datos de prueba y graficarlos frente a los valores reales, en cada caso tendremos los puntos en azul y la recta roja representaría los puntos los cuales su predicción es igual al valor real. 
+
+\begin{figure}[ht]
+  \centering
+  \begin{minipage}{0.32\textwidth}
+   
+    \includegraphics[width=\textwidth]{Documentos Extra/Imagenes/Datos PruebasRegresionLineal.png}
+    \caption{Regresión Lineal}
+    \label{fig:regresion_lineal}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.32\textwidth}
+  
+    \includegraphics[width=\textwidth]{Documentos Extra/Imagenes/Datos PruebasÁrbolesRegresion.png}
+    \caption{Árbol de Regresión}
+    \label{fig:regression_tree}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \includegraphics[width=\textwidth]{Documentos Extra/Imagenes/Datos PruebasRedNeuronal.png}
+    \caption{Red Neuronal}
+    \label{fig:red_neuronal}
+  \end{minipage}
+ \end{figure}
+
+\noindent Se puede ver que en el caso del modelo lineal \ref{fig:regresion_lineal} los puntos son más lejanos de la recta. 
+
+
+
 
 \subsection*{Conclusiones}
 \noindent En resumen, podemos concluir que el modelo lineal no es la mejor opción para realizar predicciones. Aún así este tipo de modelos son útiles para sacar otro tipos de conclusiones como por ejemplo influencias lineales con la variable independiente. 
 
-\noindent En cambio, los modelos de árbol de regresión y la red neuronal proporcionan mejores predicciones de manera altamente significativa con relación a la regresión mediante un modelo lineal. 
+\noindent En cambio, los modelos de árbol de regresión y la red neuronal proporcionan mejores predicciones de manera altamente significativa con relación a la regresión mediante un modelo lineal.
