@@ -17,6 +17,7 @@
 \usepackage{listings}
 \usepackage{titlesec}
 \usepackage{titletoc}
+\usepackage{multirow}
 \usepackage{subfig}
 \renewcommand{\baselinestretch}{1}
 \clubpenalty=10000
