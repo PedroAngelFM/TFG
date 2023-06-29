@@ -1,71 +1,76 @@
 \newpage
-\section{Análisis de Componentes Principales}
-\noindent El Análisis de componentes principales es una de las técnicas multivariantes más antiguas. En primera instancia, esta técnica fue desarrollada en paralelo por \emph{Pearson, K.} \cite{Pearson 1901} y \emph{Hotelling} \cite{Hotelling 1933} con distintos enfoques. 
+\section{Análisis de componentes principales}
+\noindent El Análisis de componentes principales es una de las técnicas multivariantes más antiguas. En primera instancia, esta técnica fue desarrollada en paralelo por Pearson y Hotelling  con distintos enfoques \cite{Pearson 1901, Hotelling 1933}. 
 
-\noindent \emph{Pearson, K.}\cite{Pearson 1901} en su aproximación, buscó la forma de ajustar de mejor manera puntos de un espacio de dimensión $p$ a una recta o plano. Es decir, Pearson buscó un enfoque de optimización geométrica que llevó a las componentes principales.
+\noindent \emph{Pearson}, en su aproximación, buscó la forma de ajustar de mejor manera puntos de un espacio de dimensión $p$ a una recta o plano \cite{Pearson 1901}. Es decir, Pearson buscó un enfoque de optimización geométrica que llevó a las componentes principales.
 
-\noindent Por el otro lado, \emph{Hotelling, H.} \cite{Hotelling 1933}, partiendo de un conjunto de datos provenientes de estudiar un conjunto de variables,  buscaba un subconjunto de variables menor que pudiera determinar de igual manera o parecida los datos. Hotelling maximizó la contribución que aportaba cada componente a la varianza. Al utilizar para este fin el método de los multiplicadores de Lagrange, obtuvo el problema de valores propios que se desarrolla en esta sección. 
+\noindent Por el otro lado, \emph{Hotelling}, partiendo de un conjunto de datos provenientes de estudiar un conjunto de variables,  buscaba un subconjunto de variables menor que pudiera determinar de igual manera o parecida los datos \cite{Hotelling 1933}. Hotelling maximizó la contribución que aportaba cada componente a la varianza. Al utilizar para este fin el método de los multiplicadores de Lagrange, obtuvo el problema de valores y vectores propios que se desarrolla en esta sección. 
 
-\noindent Aún así, el trabajo de Hotelling tenia ciertas diferencias con el enfoque que actualmente se le da actualmente a las componentes principales \cite{Jollife 1986}, por ejemplo, consideraba que las variables originales  debían ser combinaciones de las componentes y no al revés. Tampoco usaba la notación matricial ni la matriz de covarianzas, en su lugar utilizaba la de correlaciones. Añadir que aunque en esta memoria se trabajará con la matriz de covarianzas, \emph{Chatfield, C. y Collins A.J.}\cite{Chatfield 1989} desarrollan ambos enfoques. 
+\noindent Aún así, el trabajo de Hotelling tenia ciertas diferencias con el enfoque que actualmente se le da actualmente a las componentes principales \cite{Jollife 1986}. Por ejemplo, consideraba que las variables originales  debían ser combinaciones de las componentes y no al revés. Tampoco usaba la notación matricial ni la matriz de covarianzas, en su lugar utilizaba la de correlaciones. Añadir que aunque en esta memoria se trabajará con la matriz de covarianzas, Chatfield y Collins desarrollan ambos enfoques \cite{Chatfield 1989}. 
 
-\noindent Según \emph{Abdi, H} \cite{Abdi 2010} esta técnica tiene varios objetivos, entre los cuales están el extraer la información más importante de los datos, reduciendo la dimensionalidad y simplificando la descripción en el proceso de los mismos. Y por último, analizar la estructura de los datos. 
+\noindent Según Abdi \cite{Abdi 2010} esta técnica tiene varios objetivos, entre los cuales están el extraer la información más importante de los datos, reduciendo la dimensionalidad y simplificando la descripción en el proceso de los mismos. Y por último, analizar la estructura de los datos. 
 
 
-\noindent De esta manera, variables bastante correladas, se simplificarán en una que tenga toda la variabilidad de ambas \cite{Chatfield 1989, Everitt 2011} ya que a fin de cuentas la información que expresan estaría repetida. 
+\noindent De esta manera, variables bastante correladas, se simplificarán en una que tenga toda la variabilidad de ambas  ya que a fin de cuentas la información que expresan estaría repetida \cite{Chatfield 1989, Everitt 2011}. 
 
-\noindent Para empezar, se detallan cómo se calculan las componentes principales solo teniendo en cuenta las propiedades del vector aleatorio $\mathbf{x}$ de longitud $p$. Tras esto, se tomarán $N$ observaciones con las que poder construir estimadores de las componentes y se analizará como esta reducción de la dimensionalidad es la que permite una mejor reconstrucción de los datos mediante el Teorema de Eckart-Young \cite{Eckart 1936}. 
+\noindent Para empezar, se detallan cómo se calculan las componentes principales solo teniendo en cuenta las propiedades del vector aleatorio $\mathbf{x}$ de longitud $p$. Tras esto, se tomarán $N$ observaciones con las que poder construir estimadores de las componentes y se analizará como esta reducción de la dimensionalidad es la que permite una mejor reconstrucción de los datos mediante el teorema de Eckart-Young \cite{Eckart 1936}. 
 
-\noindent Para desarrollar esta última parte en la que se habla de la reconstrucción de los datos se da una idea de una medida sobre las matrices, en particular, la norma de Frobenius que detallan \emph{Eckart C. y Young, G }\cite{Eckart 1936} sin llamarla de esa manera y demuestran que es invariante ante transformaciones ortogonales.
+\noindent Para desarrollar esta última parte en la que se habla de la reconstrucción de los datos se da una idea de una medida sobre las matrices, en particular, la norma de Frobenius que detallan Eckart y Young y demuestran que es invariante ante transformaciones ortogonales \cite{Eckart 1936}.
 
-\noindent Y por último, se detalla un ejemplo para ilustrar la interpretación de los resultados obtenidos tras aplicar las técnicas detalladas y hallar ciertos parámetros de bondad de ajuste, además de mostrar  aplicaciones reales de este método. 
+\noindent Como ejemplo de las aplicaciones que puede tener esta técnica Johnson y Wichern  desarrollan un ejemplo sencillo en el cual se estudian 5 variables socioeconómicas de ciertas zonas de Estados Unidos \cite{Johnson 2007}.
 
-\newpage
-\subsection{Definición y cálculo de las Componentes}
+\noindent En este ejemplo, las dos primeras componentes explican el $93\%$ de la variabilidad y la primera es una diferencia ponderada de el empleo privado y el empleo público, mientras que la segunda una suma ponderada de las mismas. Por tanto, se puede entender que las variables que mayor importancia tienen en este caso son el porcentaje de funcionarios y de empleados en general.
 
-\noindent Sea un vector aleatorio de longitud $p$, $\mathbf{x}=[X_1,\ldots X_p]$ con una distribución normal $p$-multivariante $N_p(\mu,\mathbf{\Sigma})$
+\noindent Otro ejemplo destacable lo desarrolla Ringnér \cite{Ringnér 2008}. Estudio en el que se reduce un conjunto de datos con más de 8000 variables y 105 observaciones a uno de solo 63 variables para retener el $90\%$ y 105 para retener casi el $100\%$ de la variabilidad total de los datos. Es decir, no siempre se se busca la reducción para representar los datos, en este ejemplo únicamente se busca eliminar datos redundantes en el conjunto total. 
+
+\noindent Otro ejemplo de aplicación sería el que desarrollan Gottumukkal y Asari que mediante una pequeña modificación del algoritmo habitual de las componentes principales en el campo del reconocimiento facial con el objetivo de adaptarse mejor a ciertas condiciones, en las que se tienen grandes variaciones de posición y expresiones \cite {Asari 2004}.
+\subsection{Definición y cálculo de las componentes}
+
+\noindent Sea un vector aleatorio de longitud $p$, $\mathbf{x}=[X_1,\ldots X_p]$, con matriz de covarianzas $\mathbf{\Sigma}$ con $r=rg(\mathbf{\Sigma})$, se pueden definir las componentes principales \cite{Cuadras 2014}.
 \begin{defi}
-\emph{Cuadras C.M.},\cite{Cuadras 2014} define las componentes principales 
+Se definen las componentes principales 
 \begin{equation}
-Z_j=v_{1j}X_1+\ldots v_{pj}X_p=\mathbf{v}_j^T\mathbf{x}^T \quad j=1\ldots p
+Z_j=v_{1j}X_1+\ldots v_{pj}X_p=\mathbf{v}_j^T\mathbf{x}^T \quad j=1\ldots r
 \end{equation}
 
 \noindent Donde $\textbf{v}_j$ es un vector columna con $p$ escalares y la nueva variable aleatoria $Z_j$ cumple lo siguiente:
 \begin{itemize}
-\item Si $j=1$ $Var(\mathbf{z}_1)$ es máxima restringido a $\mathbf{v}_1^T \mathbf{v}_1=1$
+\item Si $j=1$ $Var(Z_1)$ es máxima restringido a $\mathbf{v}_1^T \mathbf{v}_1=1$
 \item Si $j>1$ debe cumplir:
 \begin{itemize}
-\item $Cov(\textbf{z}_j,\textbf{z}_i)=0\quad \forall i\neq j $
+\item $Cov(Z_j,Z_i)=0\quad \forall i\neq j $
 \item $\textbf{v}_j^T \textbf{v}_j=1$
 \item $Var(Z_j)$ es máxima. 
 \end{itemize}
 \end{itemize}
 \noindent En resumen, lo que se busca es una nueva base que reúna las direcciones de máxima variación y que sean ortogonales respecto a la matriz de covarianzas, es decir, que sean no correladas.
+
 \end{defi}
 
-\noindent \emph{Chatfield C. y Collins A.J} \cite{Chatfield 1989}, utilizan el método de los multiplicadores de Lagrange para resolver el problema de maximizar  $Var(Z_1)$ sujeto a la restricción $\textbf{v}_1^T\textbf{v}_1=1$. Todo esto con el objetivo de calcular el vector $\mathbf{v}_1$, el cálculo de sucesivas componentes cambia en ciertos aspectos. 
+\noindent \emph{Chatfield} y \emph{Collins}  utilizan el método de los multiplicadores de Lagrange para resolver el problema de maximizar  la varianza de la primera componente sujeto a la restricción $\textbf{v}_1^T\textbf{v}_1=1$ \cite{Chatfield 1989}. Todo esto con el objetivo de calcular el vector $\mathbf{v}_1$. El cálculo de sucesivas componentes cambiará en ciertos aspectos. 
 
-\noindent Aplicando el método de los multiplicadores, la función objetivo es la varianza de la combinación lineal, es decir, $f(\mathbf{x})=\mathbf{x}^T \mathbf{\Sigma} \mathbf{x}$ y la restricción aplicada es $g(\textbf{x})=\textbf{x}^T\textbf{x}=1$. 
+\noindent Aplicando el método de los multiplicadores, la función objetivo se define como la varianza de la combinación lineal, es decir, $f(\mathbf{v})=\mathbf{v}^T \mathbf{\Sigma} \mathbf{v}$ y la restricción aplicada es $g(\textbf{v})=\textbf{v}^T\textbf{v}=1$. 
 
 \noindent Tomando $\textbf{x}=\textbf{v}_1$ se puede establecer $L(\textbf{v}_1)=\textbf{v}_1^T \mathbf{\Sigma} \textbf{v}_1 - \lambda[\textbf{v}_1^T \textbf{v}_1-1]$. Que al derivarla se obtiene:
 
 \begin{align*}
 \dfrac{\partial L}{\partial \textbf{v}_1} &= 2\mathbf{\Sigma} \textbf{v}_1 - 2\lambda\textbf{v}_1\\
-& = 2(\mathbf{\Sigma}-\lambda)\textbf{v}_1 
+& = 2(\mathbf{\Sigma}-\lambda\mathbf{I})\textbf{v}_1 
 \end{align*}
 
 \noindent Igualando a 0 tenemos la siguiente ecuación: 
 \begin{equation}
-(\mathbf{\Sigma}-\lambda I)\textbf{v}_1=0
+\mathbf{\Sigma}\textbf{v}_1=\lambda \textbf{v}_1
 \end{equation}
 
 \noindent Para que $\textbf{v}_1$ sea un vector no trivial, se elige $\lambda$ de tal manera que $|\mathbf{\Sigma}-\lambda \mathbf{I}| = 0$, es decir, $\lambda$ es un vector propio de la matriz de covarianzas, $\mathbf{\Sigma}$. Al ser ésta una matriz semidefinido positiva y simétrica, los valores propios son reales y positivos. Por tanto, $\textbf{v}_1$ es un vector propio de la matriz de covarianza.
 
-\noindent La función a maximizar es $Var(Z_1)=Var(\textbf{v}_1^T\textbf{x}^T)=\textbf{v}_1^T\mathbf{\Sigma} \textbf{v}_1=\textbf{v}_1^T\lambda \textbf{v}_1=\lambda$, y para maximizarla basta tomar $\lambda=\max{\lbrace\lambda_1\ldots \lambda_p\rbrace}$. Reordenando si es necesario, se tiene que $\lambda=\lambda_1$, por tanto la primera componente es el vector propio $Z_1$ y además la varianza de la nueva variable cumple $Var(Z_1)=\lambda_1$ 
+\noindent La función a maximizar es $Var(Z_1)=Var(\textbf{v}_1^T\textbf{x}^T)=\textbf{v}_1^T\mathbf{\Sigma} \textbf{v}_1=\textbf{v}_1^T\lambda \textbf{v}_1=\lambda$, y para maximizarla basta tomar $\lambda=\max{\lbrace\lambda_1\ldots \lambda_r\rbrace}$. Reordenando si es necesario, se tiene que $\lambda=\lambda_1$. Por tanto, la primera componente viene dada por el vector propio $\mathbf{v}_1$ de valor propio $\lambda_1$ de la matriz de covarianzas $\mathbf{\Sigma}$.
 
 \noindent Una vez calculada la primera componente principal $Z_1$, la segunda componente se calcula de manera análoga, maximizando $Var(Z_2)=Var(\textbf{v}_2^T\textbf{x}^T)$ condicionada por $\textbf{v}_2^T\textbf{v}_2=1$. A esta restricción tenemos que añadir la restricción $Cov(Z_1,Z_2)=0 $
 
 \begin{propo}
-La condición $Cov(Z_1,Z_2)=0 $ equivale a la condición $\textbf{v}_2^T\textbf{v}_1 = 0$.
+La condición $Cov(Z_1,Z_2)=0 $ equivale a la condición \\$\textbf{v}_2^T\textbf{v}_1 = 0$.
 \begin{proof}
 Utilizando que $Z_j=\textbf{v}_j^T \textbf{x}^T \quad \forall j=1,\ldots p$ , se tiene entonces que :
 \begin{align*}
@@ -75,7 +80,9 @@ Cov(Z_2,Z_1)&= Cov (\textbf{v}_2^T\mathbf{x}^T,\mathbf{v}_1^T\mathbf{x})\\
 &= \textbf{v}_2^T \mathbf{\Sigma} \textbf{v}_1 \\
 &= \textbf{v}_2^T \lambda_1 \textbf{v}_1
 \end{align*}
-\noindent De manera que, si $\mathbf{v}_2^T \lambda_1 \mathbf{v}_1 = 0 \Rightarrow \mathbf{v}_2^T \mathbf{v}_1=0 $, luego son vectores ortogonales entre sí.
+\noindent Donde $\mu$ es el vector de medias del vector aleatorio $\mathbf{x}$. 
+
+\noindent De manera que, si $\mathbf{v}_2^T \lambda_1 \mathbf{v}_1 = 0 \Rightarrow \mathbf{v}_2^T \mathbf{v}_1=0 $, luego son vectores ortogonales entre sí. 
 \end{proof}
 \end{propo}
 
@@ -86,7 +93,7 @@ Cov(Z_2,Z_1)&= Cov (\textbf{v}_2^T\mathbf{x}^T,\mathbf{v}_1^T\mathbf{x})\\
 Las componentes principales son todas ortogonales entre sí. 
 \end{coro}
 
-\noindent Para $k=2$, se dan dos restricciones, $\textbf{v}_2^T\textbf{v}_2=1$ y además $\textbf{v}_1^T \textbf{v}_2=0$. Para este caso existen $\lambda, \phi$ de manera que la función a maximizar es:
+\noindent Para $k=2$, se dan dos restricciones, $\textbf{v}_2^T\textbf{v}_2=1$ y además $\textbf{v}_2^T \textbf{v}_1=\textbf{v}_1^T \textbf{v}_2=0$. Para este caso existen $\lambda, \phi$ de manera que la función a maximizar es:
 \begin{equation}
  L(\textbf{v}_2)=\textbf{v}_2^T \mathbf{\Sigma} \textbf{v}_2 - \lambda[\textbf{v}_2^T \textbf{v}_2-1]-\phi(\textbf{v}_1^T \textbf{v}_2)
 \end{equation}
@@ -94,17 +101,21 @@ Que al ser derivado respecto $\textbf{v}_2$ obtenemos:
 \begin{equation}
 2\mathbf{\Sigma} \textbf{v}_2 - 2\lambda\textbf{v}_2-\phi \textbf{v}_1=0
 \end{equation}
-Que al multiplicar todo por $\mathbf{v}_1^T$ resulta que $\phi=0$. De esta manera, se obtiene en la ecuación lo mismo que en el cálculo de la primera. 
+Al multiplicar todo por $\mathbf{v}_1^T$, se obtiene que:
+\begin{equation}
+2\mathbf{v}_1^T\mathbf{\Sigma}\mathbf{v}_2-2\lambda \mathbf{v}_1^T \mathbf{v}_2-\phi \mathbf{v}_1^T\mathbf{v}_1=0
+\end{equation}
+\noindent Por tanto, teniendo en cuenta las condiciones impuestas al problema, $\phi=0$. De esta manera, se obtiene en la ecuación lo mismo que en el cálculo de la primera. 
 
-\noindent Por tanto, $\lambda=\lambda_2$ que es el segundo valor propio más grande, y $\mathbf{v}_2$ es el vector propio de valor propio $\lambda_2$.
+\noindent Y de manera análoga al caso de la primera componente, $\lambda=\lambda_2$, el segundo valor propio más grande, y $\mathbf{v}_2$ es el vector propio de valor propio $\lambda_2$ de la matriz de covarianzas $\mathbf{\Sigma}$.
 
-\noindent El proceso para calcular el resto de componentes principales es análogo únicamente hay que tener en cuenta que se debe dar la ortogonalidad entre las distintas componentes respecto de la varianza. 
+\noindent El proceso para calcular el resto de componentes principales es análogo, únicamente hay que tener en cuenta que se debe dar la ortogonalidad entre las distintas componentes. 
 
-\noindent Por ende, se obtiene que las componentes principales vienen dadas por los vectores propios de la matriz de covarianzas $\mathbf{\Sigma} $. Además sabemos que $Var(\mathbf{v}_j^T \mathbf{x}^T)=\lambda_j,$ $ j=1,\ldots p$, donde $\lambda_j$ es el $j$-ésimo valor propio más grande. 
+\noindent Por ende, se obtiene que las componentes principales vienen dadas por los vectores propios de la matriz de covarianzas $\mathbf{\Sigma} $. Además sabemos que $Var(\mathbf{v}_j^T \mathbf{x}^T)=\lambda_j,$ $ j=1,\ldots r$ , siendo donde $\lambda_j$ es el $j$-ésimo valor propio más grande. 
 
 \noindent En esencia, calcular las componentes principales es calcular una base ortonormal que cumple una ciertas condiciones. Por lo tanto, podemos definir lo siguiente: 
 \begin{defi}
-Se llama matriz de cargas $\mathbf{V}$ a la matriz ortogonal que tiene por columnas a los $\mathbf{v}_j$. Dichas columnas forman una base ortonormal del espacio $\mathbb{R}^p$.
+Se llama matriz de cargas $\mathbf{V}$ a la matriz ortogonal que tiene por columnas a los $\mathbf{v}_j\quad \forall j=1,\ldots, r$. Dichas columnas forman una base ortonormal en el espacio $\mathbb{R}^p$.
 \end{defi}
 
 \noindent \emph{Observación: }Se utilizará la condición de que al ser $\mathbf{V}$ una matriz ortogonal $\mathbf{VV}^T=\mathbf{V}^T\mathbf{V}=\mathbf{I}$ y por tanto $\mathbf{V}^{-1}=\mathbf{V}^T$
@@ -113,68 +124,75 @@ Se llama matriz de cargas $\mathbf{V}$ a la matriz ortogonal que tiene por colum
 \begin{equation}
 \mathbf{z}=\mathbf{x} \mathbf{V}
 \end{equation} 
-\noindent Donde el vector $\mathbf{z}=Z_1,\ldots, Z_p$, y donde cada $Z_j=\mathbf{v}_j^T\mathbf{x}$
-\subsection{PCA muestral}
-\noindent Ahora, veamos como esto se puede aplicar a una matriz de datos con la matriz de cuasivarianzas muestral o con la matriz de covarianzas. 
+\noindent Donde el vector $\mathbf{z}=Z_1,\ldots, Z_r$, y donde cada $Z_j=\mathbf{v}_j^T\mathbf{x}, \forall j=1,\ldots r$
 
-\noindent Sea $\mathbf{x}$ el vector aleatorio de longitud $p$ definida de la misma manera. A continuación se toman $N$ observaciones independientes de este vector y se obtiene la matriz de datos $\mathbf{X}$ de tamaño $N\times p$, en estos casos las componentes principales se definen de la misma manera. 
+\noindent Ahora, veamos como esto se puede aplicar a una matriz de datos observados con la matriz de varianzas muestral.
 
-
+\noindent Sea $\mathbf{x}$ el vector aleatorio de longitud $p$ definida de la misma manera. A continuación se toman $N$ observaciones independientes de este vector y se obtiene la matriz de datos $\mathbf{X}$ de tamaño $N\times p$. 
 
 \begin{defi}
-Dado el vector aleatorio de longitud $p$ del cual se han realizado $N$ observaciones entonces se puede definir la j-ésima componente de la i-ésima  observación $\mathbf{z}_{ij}=\mathbf{x}_i\mathbf{v}_j, i=1\ldots N,j=1,\ldots p$. 
+Dados los datos de $N$ observaciones recogidos sobre $p$ variables $X_1,\ldots, X_p$, entonces $\mathbf{z}_{ij}=\mathbf{x}_i\mathbf{v}_j, ,\forall i=1,\ldots, N,\forall j=1,\ldots p$ es el valor de la $j$-ésima componente para la observación $\mathbf{x}_i$. 
 
 \noindent Donde el vector $\mathbf{v}_j$ cumple las mismas condiciones que para las variables aleatorias. 
 \end{defi}
 
-\noindent Por tanto, el proceso que se detalla para un vector aleatorio $\mathbf{x}$ con matriz de covarianzas $\mathbf{\Sigma}$ se puede extender a este caso en el conocemos la matriz de covarianzas muestrales \textbf{S}.
+\noindent Por tanto, el proceso que se detalla para un vector aleatorio $\mathbf{x}$ con matriz de covarianzas $\mathbf{\Sigma}$ se puede extender al caso en el conocemos la matriz de covarianzas muestrales \textbf{S}.
 
 \noindent Con el objetivo de hacer las demostraciones más sencillas y compactas tomaremos la matriz $\textbf{X}$ como la matriz centrada $\overline{\textbf{X}}$, es decir: 
 \begin{equation}
-\overline{x}_{ij}=x_{ij}-\overline{x}_j
+\overline{x}_{ij}=x_{ij}-\overline{x}_j \quad \forall i=1,\ldots,N,\forall j=1,\ldots,p
 \end{equation}
-Donde $\overline{x}_j$ es la media muestral de la $j$-ésima variable. Esto hace que $\textbf{S}=\frac{1}{n-1}\textbf{X}^T\textbf{X}$. Esto permite hablar de los valores y vectores propios de \textbf{S} y de $\textbf{X}^T \textbf{X}$ indistintamente, ya que los vectores propios son los mismos y los valores propios son proporcionales. 
+donde $\overline{x}_j$ es la media muestral de la $j$-ésima variable. Esto hace que $\textbf{S}=\frac{1}{n-1}\textbf{X}^T\textbf{X}$. Esto permite hablar de los valores y vectores propios de \textbf{S} y de $\textbf{X}^T \textbf{X}$ indistintamente, ya que los vectores propios son los mismos y los valores propios son proporcionales. 
 
 
-\subsection{Reconstrucción de los datos}
+\subsection{ACP mediante SVD}
+\noindent El problema de la reconstrucción es demostrar que la matriz reducida, que se definirá más tarde, es la mejor aproximación de rango menor a la matriz de datos. Es decir, que los datos pueden representarse con una dimensionalidad menor con la mínima pérdida.
 
-\noindent Lo más importante de esta técnica es que si la varianza se puede explicar por las $m$ primeras componentes, entonces se puede afirmar que la dimensionalidad efectiva de los datos es $m<p$ \cite{Chatfield 1989}. 
+\noindent Otra visión del problema es que se quiere buscar una proyección sobre un subespacio de dimensión $m<p$ que contenga la máxima variabilidad posible de los datos y que brinde una mayor capacidad de interpretación de los datos, ya que en el caso de que $m=2$ o $m=3$ se podrán hacer representaciones gráficas de manera sencilla. 
+Antes de desarrollar los cálculos debemos revisar las siguientes conceptos.
 
-\noindent Otra visión del problema es que se quiere buscar una proyección sobre una subvariedad de dimensión $m<p$ que contenga la máxima variabilidad posible de los datos y que brinde una mayor capacidad de interpretación de los datos, ya que en el caso de que $m=2$ o $m=3$ se podrán hacer representaciones gráficas de manera sencilla. En virtud de conseguir esto se deben definir los siguientes conceptos:
+\noindent Hay que recordar que toda matriz de tamaño arbitrario se puede descomponer en tres matrices en lo que se llama la descomposición en valores singulares \cite{Abdi 2010}.
 
 \begin{defi}
-Dada una matriz $\textbf{X}\in  \mathbb{M}_{N\times p}(\mathbb{R})$ existe la descomposición en valores singulares \textit{(SVD en inglés)}\cite{Abdi 2010}:
+Dada una matriz $\textbf{X}\in  \mathbb{M}_{N\times p}(\mathbb{R})$ existe la descomposición en valores singulares \textit{(SVD)}:
 \begin{equation}
 \textbf{X}=\textbf{U}\mathbf{D}\textbf{V}^T
 \end{equation}
 Donde:
 \begin{itemize}
 \item \textbf{U} matriz ortogonal y de tamaño $N \times N$
-\item $\mathbf{D}$ matriz de tamaño $N \times p $ diagonal, cuyos elementos no nulos son los valores singulares $\sigma_1\geq\ldots\geq \sigma_r\geq 0$ que son los valores propios de la matriz $\textbf{X}^T\textbf{X}$ y $r=rg(\textbf{X})$
-\item \textbf{V} matriz ortogonal y de tamaño $p \times p$. 
+\item $\mathbf{D}$ matriz de tamaño $N \times r$ diagonal, cuyos elementos no nulos son los valores singulares $\sigma_1\geq\ldots\geq \sigma_r\geq 0$, es decir
+\begin{equation}
+\mathbf{D}=\begin{pmatrix}
+\sigma_1 & 0 & \cdots  & \cdots \\
+0 & \sigma_2 & 0 & \cdots\\
+\vdots & \vdots & \vdots & \vdots\\
+\cdots & \cdots & 0 & \sigma_r
+\end{pmatrix}
+\end{equation}
+\item \textbf{V} matriz ortogonal y de tamaño $p \times r$. 
 \end{itemize}
 \end{defi}
 
-\noindent \emph{Observación: }En lo restante, se considerará que $N>p$ y que el rango de la matriz de datos es máximo, es decir, que el rango es $p$. En el caso contrario, se puede reducir las matriz $\mathbf{D}$ a una matriz de tamaño $r\times p$, con las columnas no nulas y por otro lado la matriz $\mathbf{U}$ de tamaño $N\times r$ a la que se le pueden quitar las columnas correspondientes a los vectores propios de valor propio nulo. 
+\noindent Cada una de las matrices tiene un origen distinto que hay que detallar \cite{Johnson 1963}.
 
-\noindent 
 \begin{propo}
-La matriz $\mathbf{V}$ de tamaño $(p\times p)$ es la matriz que contiene los vectores para hacer la combinación lineal que definen las componentes principales. Es decir es la matriz con la base de diagonalización de $\mathbf{X}^T\mathbf{X}$ \cite{Johnson 1963}.
+La matriz $\mathbf{V}$ de tamaño $p\times r$ es la matriz que contiene los $r$ vectores para hacer la combinación lineal que definen las componentes principales. Es decir es la matriz con la base de diagonalización de $\mathbf{X}^T\mathbf{X}$.
 \begin{proof}
-La matriz $\textbf{X}^T \textbf{X}$ es la matriz de covarianzas $(p \times p)$  por la descomposición en valores singulares tenemos que:
+Por la descomposición en valores singulares tenemos que:
 \begin{align*}
 \textbf{X}^T \textbf{X} &= (\textbf{U}\mathbf{D} \textbf{V}^T)^T (\textbf{U}\mathbf{D} \textbf{V}^T)\\
 &= \textbf{V}\mathbf{D} ^T \textbf{U}^T \textbf{U}\mathbf{D} \textbf{V}^T\\
 &= \textbf{V}\mathbf{D} ^T \mathbf{D} \textbf{V}^T
 \end{align*}
-Donde la matriz $\mathbf{D} ^T \mathbf{D} $ es una matriz diagonal de tamaño $p \times p $ cuyos elementos son los cuadrados de los valores singulares de \textbf{X}, que son a su vez los valores propios de $\textbf{X}^T \textbf{X}$. 
+donde la matriz $\mathbf{D} ^T \mathbf{D} $ es una matriz diagonal de tamaño $r \times r$ cuyos elementos son los cuadrados de los valores singulares de \textbf{X}, que son a su vez los valores propios de $\textbf{X}^T \textbf{X}$. 
 
-\noindent Añadiendo la condición de ortogonalidad de $\textbf{V}\Rightarrow \textbf{V}^{-1}=\mathbf{V}^T$ es fácil ver que la matriz \textbf{V} es la matriz cuyas columnas son los vectores propios de $\textbf{X}^T\textbf{X}$.
+\noindent Añadiendo la condición de ortogonalidad de $\textbf{V}\Rightarrow \textbf{V}^{-1}=\mathbf{V}^T$ es fácil ver que la matriz \textbf{V} es la matriz cuyas columnas son los $r$ vectores propios de $\textbf{X}^T\textbf{X}$ con los valores propios $\sigma_1,\ldots, \sigma_r$.
 \end{proof}
 \end{propo}
 
 \begin{propo}
-La matriz $\mathbf{U}^T$ es la matriz que contiene la base de diagonalización de la matriz $\mathbf{XX}^T$ \cite{Johnson 1963}.  
+La matriz $\mathbf{U}^T$ es la matriz que contiene la base de diagonalización de la matriz $\mathbf{XX}^T$.  
 \begin{proof}
 Se sigue un razonamiento análogo pero con la matriz $\mathbf{XX}^T$
 \begin{align*}
@@ -187,47 +205,49 @@ Entonces, tenemos que como es ortonormal $\mathbf{U}^T=\mathbf{U}^{-1}$ de esta 
 \end{propo}
 
 \begin{coro}
-El cálculo de las componentes principales mediante los valores propios de la matriz de datos $\mathbf{X}^T\mathbf{X}$ es equivalente a calcular la descomposición en valores singulares de la misma. 
+El cálculo de las componentes principales mediante la descomposición mediante valores y vectores propios de la matriz de covarianzas, $\mathbf{X}^T\mathbf{X}$ es equivalente a calcular la descomposición en valores singulares de la misma. 
 \end{coro}
-\noindent El problema de la reconstrucción es demostrar que la matriz reducida, que se definirá más tarde, es la mejor aproximación de rango menor a la matriz de datos, para ello, tenemos que definir la siguiente norma sobre las matrices adecuada a la situación. 
+
+\noindent En el problema de reconstrucción de datos hay que dar una métrica en el espacio de las matrices, en particular se da la norma de Frobenius ya que cumple ciertas propiedades interesantes \cite{Golub 1987}.
 
 \begin{defi}
-Sea $\textbf{A}\in \mathbb{M}_{N\times p}(\mathbb{R})$ definimos la \textit{norma de Frobenius} de la matriz \textbf{A} como \cite{Golub 1987}:
+Sea $\textbf{A}\in \mathbb{M}_{N\times p}(\mathbb{R})$ definimos la norma de Frobenius de la matriz \textbf{A} como :
 \begin{equation}
-||\textbf{A}||_F=(tr(\textbf{A}^T\cdot \textbf{A}))^{\frac{1}{2}}=\left(\sum_{i=1}^{N}\sum _{j=1}^{p}a_{ij}^2\right)^{\frac{1}{2}}
+||\textbf{A}||_F=(tr(\textbf{A}^T \textbf{A}))^{\frac{1}{2}}=\left(\sum_{i=1}^{N}\sum _{j=1}^{p}a_{ij}^2\right)^{\frac{1}{2}}
 \end{equation}
 \end{defi}
 
 \begin{propo}
 La norma de Frobenius es invariante a transformaciones ortogonales
 \begin{proof}
-Sea $\mathbf{U}$ una matriz ortogonal, que cumple $\mathbf{U}^T\cdot \mathbf{U}=\mathbf{U}\cdot \mathbf{U}^T=\textbf{I}$, sea una matriz cualquiera $\mathbf{A}$, entonces:
+Sea $\mathbf{U}$ una matriz ortogonal, que cumple $\mathbf{U}^T \mathbf{U}=\mathbf{U} \mathbf{U}^T=\textbf{I}$ y  sea una matriz cualquiera $\mathbf{A}$, entonces:
 \begin{align*}
-||\mathbf{U} \cdot \mathbf{A}||_F^2&=tr((\mathbf{U} \mathbf{A})^T\cdot(\mathbf{U} \mathbf{A}))\\
-&=tr((\mathbf{A}^T \mathbf{U}^T)\cdot \mathbf{U} \mathbf{A}))\\
+||\mathbf{U}  \mathbf{A}||_F^2&=tr((\mathbf{U} \mathbf{A})^T(\mathbf{U} \mathbf{A}))\\
+&=tr(\mathbf{A}^T \mathbf{U}^T \mathbf{U} \mathbf{A}))\\
 &=tr(\mathbf{A}^T \mathbf{A})\\
 &=||\mathbf{A}||_F^2\qedhere
 \end{align*}
 \end{proof}
 \end{propo}
 
-\noindent Se ha elegido la norma de Frobenius en particular por la siguiente propiedad:
+\noindent Además teniendo en cuenta la definición se puede obtener la siguiente propiedad.
 
 \begin{propo}
 Dada una matriz de datos \textbf{X} de tamaño $N\times p$ entonces
 \begin{equation}
 ||\textbf{X}||_F^2=(N-1)\sum_{j=1}^p s_{jj}^2
 \end{equation}
-Donde las $s_{ii}^2$ son las varianzas muestrales.
+Donde las $s_{jj}^2$ son las varianzas muestrales pertenecientes a cada una de las variables $X_1,\ldots,X_p$ observadas .
 \begin{proof}
-Debido a la centralidad impuesta a la matriz \textbf{X}, sabemos que la matriz de covarianzas es $\textbf{S}=\frac{1}{n-1}\textbf{X}^T \textbf{X}$ por tanto,se tiene que utilizar la definición de la norma:
+Debido a la centralidad impuesta a la matriz \textbf{X}, sabemos que la matriz de covarianzas es $\textbf{S}=\frac{1}{n-1}\textbf{X}^T \textbf{X}$ por tanto, se tiene que utilizar la definición de la norma:
 \begin{align*}
 ||\textbf{X}||_F^2 &= tr(\textbf{X}^T\textbf{X})\\
 &= (N-1) tr(\textbf{S})\\
-&= (N-1) \sum_{i=1}^p s_{ii}^2 \qedhere
+&= (N-1) \sum_{j=1}^p s_{jj}^2 \qedhere
 \end{align*}
 \end{proof}
 \end{propo}
+
 \noindent Por tanto, la norma de Frobenius da una imagen del tamaño de la matriz de datos en función de la varianza total de los datos, lo que concuerda con la idea de buscar una matriz que aproxime la matriz de datos con la mínima pérdida de variación de los datos.  
 
 \begin{defi}
@@ -243,34 +263,31 @@ Donde:
 \end{itemize}
 Es decir, es la matriz de rango $m$ tras tomar las  $m$ primeras columnas y el resto hacerlas nulas o combinaciones lineales, en este caso.
 \end{defi}
+
+\noindent Una vez definidos los anteriores conceptos, Eckart y Young desarrollan el siguiente teorema que permite afirmar que la matriz reducida es la más próxima a la matriz de datos\cite{Eckart 1936, Golub 1987}.
+
 \begin{teorema}[De Eckart-Young]
-Sea \textbf{A} una matriz de coeficientes reales de tamaño $N\times p$ y rango $r$  entonces se cumple que \cite{Eckart 1936, Golub 1987}:
+Sea \textbf{A} una matriz de coeficientes reales de tamaño $N\times p$ y rango $r$  entonces se cumple que :
 \begin{equation}
 ||\textbf{A}-\textbf{B}||_F\leq ||\textbf{A}-\textbf{A}_m||_F \quad \forall \textbf{B}/ rg(\textbf{B})=m \leq r
 \end{equation} 
 \end{teorema}
 
-\noindent \emph{Johnson R.M.} \cite{Johnson 1963} desarrolla la demostración del teorema. 
+\noindent Johnson desarrolla la demostración del teorema \cite{Johnson 1963}. 
 
 \noindent Por tanto, la matriz reducida brinda la mejor aproximación de la matriz de datos teniendo un criterio de aproximación basado en la variación de los datos. En consecuencia se puede 
 
-\noindent Como conclusión, se puede definir un criterio para elegir el orden de la matriz reducida $m$. Se puede entonces definir la variación acumulada de la siguiente manera \cite{Chatfield 1989}:
+\noindent Por otro lado, se puede definir un criterio para elegir el orden de la matriz reducida $m$. Se puede entonces definir la variación acumulada de la siguiente manera \cite{Chatfield 1989}:
 \begin{equation}
-t_m=\dfrac{\sum_{i=1}^{m}\lambda_i}{\sum_{i=1}^{p}\lambda_j}
+t_m=\dfrac{\sum_{j=1}^{m}\lambda_j} {\sum_{j=1}^{r}\lambda_j}
 \end{equation}
-\noindent Donde los $\lambda_i$ son los valores propios de la matriz $\textbf{S}=\frac{1}{N-1}\textbf{X}^T\textbf{X}$.
+\noindent donde los $\lambda_j$ son los valores propios de la matriz $\mathbf{S}$.
 
-\noindent Ahora el número de componentes $m$ que se van a seleccionar se puede hacer de varias maneras \cite{Peña 2002}, \cite{Jollife 1986}, ya sea representando en un gráfico el número de componentes frente a la proporción de variabilidad explicada $t_j, j=1,\ldots p$. Tomar hasta la primera componente con la cual se supere una cota de variabilidad explicada como el $0,8$ o $0,9$ \cite {Jollife 1986} o desechar las componentes que no expliquen más de una cierta cota inferior. Sin embargo, estas reglas o condiciones suelen ser arbitrarias.
+\noindent Ahora el número de componentes $m$ a considerar se puede elegir de varias maneras, ya sea representando en un gráfico el número de componentes frente a la proporción de variabilidad explicada $t_j, j=1,\ldots, p$ \cite{Jollife 1986, Peña 2002}. O se puede establecer una cota de variabilidad explicada acumulada mínima que deben representar. Normalmente se consideran cotas de un $0.8$ o $0.9$ de la variabilidad. Sin embargo, estas condiciones suelen ser arbitrarias y elegidas en cada caso a criterio del investigador y del contexto. 
 
-\noindent Todos estas condiciones se suelen resumir en desechar las componentes que no aporten a la representación. 
+%\noindent Todos estas condiciones se suelen resumir en no considerar las componentes que no aporten a la representación. 
 
 \noindent Los valores de la matriz de cargas se pueden interpretar como las contribuciones de cada una de las variables a explicar la mayoría de la variabilidad de los datos.
 
-\noindent\emph{Johnson, R. A., y Wichern, D. W} \cite{Johnson 2007} desarrollan un ejemplo sencillo en el cual se estudian 5 variables socioeconómicas de ciertas zonas de Estados Unidos, como puede ser la población en miles, el porcentage de graduados universitarios, el porcentaje de empleo de mayores de 16 años, el porcentaje de funcionariado y la valor medio de la vivienda.
 
-\noindent En este ejemplo, las dos primeras componentes explican el $93\%$ de la variabilidad y la primera es una diferencia ponderada de el empleo y el empleo público, mientras que la segunda una suma ponderada de las mismas. Por tanto, se puede entender que las variables que mayor importancia tienen en este caso son el porcentaje de funcionarios y de empleados en general.
-
-\noindent Otro ejemplo destacable lo desarrolla \emph{Ringnér, W.}\cite{Ringnér 2008} en el que se reduce un conjunto de datos con más de 8000 variables y 105 observaciones a uno de solo 63 variables para retener el $90\%$ y 105 para retener casi el $100\%$ de la variabilidad total de los datos. Es decir, no siempre se se busca la reducción para representar los datos, en este ejemplo únicamente se busca eliminar datos redundantes en el conjunto total. 
-
-\noindent Otro ejemplo de aplicación sería el que desarrollan \emph{Gottumukkal, R., y Asari, V.} \cite {Asari 2004} que mediante una pequeña modificación del algoritmo habitual de las componentes principales en el campo del reconocimiento facial con el objetivo de adaptarse mejor a ciertas condiciones, en las que se tienen grandes variaciones de posición y expresiones. Esto lo consiguen dividiendo cada foto y aplicando de manera independiente a cada parte la técnica. 
 
