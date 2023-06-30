@@ -1,10 +1,10 @@
 \newpage
 \section{Análisis de componentes principales}
-\noindent El Análisis de componentes principales es una de las técnicas multivariantes más antiguas. En primera instancia, esta técnica fue desarrollada en paralelo por Pearson y Hotelling  con distintos enfoques \cite{Pearson 1901, Hotelling 1933}. 
+\noindent El análisis de componentes principales es una de las técnicas multivariantes más antiguas. En primera instancia, esta técnica fue desarrollada en paralelo por Pearson y Hotelling  con distintos enfoques \cite{Pearson 1901, Hotelling 1933}. 
 
-\noindent \emph{Pearson}, en su aproximación, buscó la forma de ajustar de mejor manera puntos de un espacio de dimensión $p$ a una recta o plano \cite{Pearson 1901}. Es decir, Pearson buscó un enfoque de optimización geométrica que llevó a las componentes principales.
+\noindent Pearson, en su aproximación, buscó la forma de ajustar de mejor manera puntos de un espacio de dimensión $p$ a una recta o plano \cite{Pearson 1901}. Es decir, Pearson buscó un enfoque de optimización geométrica que llevó a las componentes principales.
 
-\noindent Por el otro lado, \emph{Hotelling}, partiendo de un conjunto de datos provenientes de estudiar un conjunto de variables,  buscaba un subconjunto de variables menor que pudiera determinar de igual manera o parecida los datos \cite{Hotelling 1933}. Hotelling maximizó la contribución que aportaba cada componente a la varianza. Al utilizar para este fin el método de los multiplicadores de Lagrange, obtuvo el problema de valores y vectores propios que se desarrolla en esta sección. 
+\noindent Por el otro lado, Hotelling, partiendo de un conjunto de datos provenientes de estudiar un conjunto de variables,  buscaba un subconjunto de variables menor que pudiera determinar de igual manera o parecida los datos \cite{Hotelling 1933}. Hotelling maximizó la contribución que aportaba cada componente a la varianza. Al utilizar para este fin el método de los multiplicadores de Lagrange, obtuvo el problema de valores y vectores propios que se desarrolla en esta sección. 
 
 \noindent Aún así, el trabajo de Hotelling tenia ciertas diferencias con el enfoque que actualmente se le da actualmente a las componentes principales \cite{Jollife 1986}. Por ejemplo, consideraba que las variables originales  debían ser combinaciones de las componentes y no al revés. Tampoco usaba la notación matricial ni la matriz de covarianzas, en su lugar utilizaba la de correlaciones. Añadir que aunque en esta memoria se trabajará con la matriz de covarianzas, Chatfield y Collins desarrollan ambos enfoques \cite{Chatfield 1989}. 
 
@@ -27,7 +27,7 @@
 
 \subsection{Definición y cálculo de las componentes principales}
 
-\noindent Sea un vector aleatorio de longitud $p$, $\mathbf{x}=[X_1,\ldots X_p]$, con matriz de covarianzas $\mathbf{\Sigma}$ con $r=rg(\mathbf{\Sigma})$, se pueden definir las componentes principales \cite{Cuadras 2014}.
+\noindent Sea un vector aleatorio de longitud $p$, $\mathbf{x}=[X_1,\ldots X_p]$, con una distribución $N(\mu, \mathbf{\Sigma})$, donde $\mu$ es el vector de medias y $\mathbf{\Sigma}$ la matriz de covarianzas con $r=rg(\mathbf{\Sigma})$, entonces,  se pueden definir las componentes principales \cite{Cuadras 2014}.
 \begin{defi}
 Se definen las componentes principales 
 \begin{equation}
@@ -44,7 +44,7 @@ Z_j=v_{1j}X_1+\ldots v_{pj}X_p=\mathbf{v}_j^T\mathbf{x}^T \quad j=1\ldots r
 \item $Var(Z_j)$ es máxima. 
 \end{itemize}
 \end{itemize}
-\noindent En resumen, lo que se busca es una nueva base que reúna las direcciones de máxima variación y que sean ortogonales respecto a la matriz de covarianzas, es decir, que sean no correladas.
+\noindent En resumen, lo que se busca es una nueva base que reúna las direcciones de máxima variación y que sean ortogonales respecto a la matriz de covarianzas, es decir, que sean no correladas. Añadir que como máximo se pueden obtener $r$ componentes principales. 
 \end{defi}
 \noindent \emph{Chatfield} y \emph{Collins}  utilizan el método de los multiplicadores de Lagrange para resolver el problema de maximizar  la varianza de la primera componente sujeto a la restricción $\textbf{v}_1^T\textbf{v}_1=1$ \cite{Chatfield 1989}. Todo esto con el objetivo de calcular el vector $\mathbf{v}_1$. El cálculo de sucesivas componentes cambiará en ciertos aspectos. 
 
@@ -62,16 +62,16 @@ Z_j=v_{1j}X_1+\ldots v_{pj}X_p=\mathbf{v}_j^T\mathbf{x}^T \quad j=1\ldots r
 \mathbf{\Sigma}\textbf{v}_1=\lambda \textbf{v}_1
 \end{equation}
 
-\noindent Para que $\textbf{v}_1$ sea un vector no trivial, se elige $\lambda$ de tal manera que $|\mathbf{\Sigma}-\lambda \mathbf{I}| = 0$, es decir, $\lambda$ es un vector propio de la matriz de covarianzas, $\mathbf{\Sigma}$. Al ser ésta una matriz semidefinido positiva y simétrica, los valores propios son reales y positivos. Por tanto, $\textbf{v}_1$ es un vector propio de la matriz de covarianza.
+\noindent Para que $\textbf{v}_1$ sea un vector no trivial, se elige $\lambda$ de tal manera que $|\mathbf{\Sigma}-\lambda \mathbf{I}| = 0$, es decir, $\lambda$ es un vector propio de la matriz de covarianzas, $\mathbf{\Sigma}$. Al ser ésta una matriz semidefinida positiva y simétrica, los valores propios son reales y positivos. Por tanto, $\textbf{v}_1$ es un vector propio de la matriz de covarianza.
 
-\noindent La función a maximizar es $Var(Z_1)=Var(\textbf{v}_1^T\textbf{x}^T)=\textbf{v}_1^T\mathbf{\Sigma} \textbf{v}_1=\textbf{v}_1^T\lambda \textbf{v}_1=\lambda$, y para maximizarla basta tomar $\lambda=\max{\lbrace\lambda_1\ldots \lambda_r\rbrace}$. Reordenando si es necesario, se tiene que $\lambda=\lambda_1$. Por tanto, la primera componente viene dada por el vector propio $\mathbf{v}_1$ de valor propio $\lambda_1$ de la matriz de covarianzas $\mathbf{\Sigma}$.
+\noindent La función a maximizar es $Var(Z_1)=Var(\textbf{v}_1^T\textbf{x}^T)=\textbf{v}_1^T\mathbf{\Sigma} \textbf{v}_1=\textbf{v}_1^T\lambda \textbf{v}_1=\lambda$, y para maximizarla basta tomar $\lambda=\max{\lbrace\lambda_1,\ldots, \lambda_r\rbrace}$. El resto de valores propios que se puedan calcular serán nulos ya que $\mathbf{\Sigma}$ es de rango $r$ y semidefinida positiva. Reordenando si es necesario, se tiene que $\lambda=\lambda_1$. Por tanto, la primera componente viene dada por el vector propio $\mathbf{v}_1$ de valor propio $\lambda_1$ de la matriz de covarianzas $\mathbf{\Sigma}$.
 
 \noindent Una vez calculada la primera componente principal $Z_1$, la segunda componente se calcula de manera análoga, maximizando $Var(Z_2)=Var(\textbf{v}_2^T\textbf{x}^T)$ condicionada por $\textbf{v}_2^T\textbf{v}_2=1$. A esta restricción tenemos que añadir la restricción $Cov(Z_1,Z_2)=0 $
 
 \begin{propo}
 La condición $Cov(Z_1,Z_2)=0 $ equivale a la condición \\$\textbf{v}_2^T\textbf{v}_1 = 0$.
 \begin{proof}
-Utilizando que $Z_j=\textbf{v}_j^T \textbf{x}^T \quad \forall j=1,\ldots p$ , se tiene entonces que :
+Utilizando que $Z_j=\textbf{v}_j^T \textbf{x}^T \quad \forall j=1,\ldots r$ , se tiene entonces que :
 \begin{align*}
 Cov(Z_2,Z_1)&= Cov (\textbf{v}_2^T\mathbf{x}^T,\mathbf{v}_1^T\mathbf{x})\\ 
 &= \mathbb{E}(\mathbf{v}_2^T(\mathbf{x}^T-\mu^T)(\mathbf{x}^T-\mu^T)^T \mathbf{v}_1)\\
@@ -79,7 +79,8 @@ Cov(Z_2,Z_1)&= Cov (\textbf{v}_2^T\mathbf{x}^T,\mathbf{v}_1^T\mathbf{x})\\
 &= \textbf{v}_2^T \mathbf{\Sigma} \textbf{v}_1 \\
 &= \textbf{v}_2^T \lambda_1 \textbf{v}_1
 \end{align*}
-\noindent Donde $\mu$ es el vector de medias del vector aleatorio $\mathbf{x}$. 
+\noindent d
+onde $\mu$ es el vector de medias del vector aleatorio $\mathbf{x}$. 
 
 \noindent De manera que, si $\mathbf{v}_2^T \lambda_1 \mathbf{v}_1 = 0 \Rightarrow \mathbf{v}_2^T \mathbf{v}_1=0 $, luego son vectores ortogonales entre sí. 
 \end{proof}
@@ -110,7 +111,7 @@ Al multiplicar todo por $\mathbf{v}_1^T$, se obtiene que:
 
 \noindent El proceso para calcular el resto de componentes principales es análogo, únicamente hay que tener en cuenta que se debe dar la ortogonalidad entre las distintas componentes. 
 
-\noindent Por ende, se obtiene que las componentes principales vienen dadas por los vectores propios de la matriz de covarianzas $\mathbf{\Sigma} $. Además sabemos que $Var(\mathbf{v}_j^T \mathbf{x}^T)=\lambda_j,$ $ j=1,\ldots r$ , siendo donde $\lambda_j$ es el $j$-ésimo valor propio más grande no nulo. 
+\noindent Por ende, se obtiene que las componentes principales vienen dadas por los vectores propios de la matriz de covarianzas $\mathbf{\Sigma} $. Además sabemos que $Var(\mathbf{v}_j^T \mathbf{x}^T)=\lambda_j,$ $ \forall j=1,\ldots r$ , siendo donde $\lambda_j$ es el $j$-ésimo valor propio más grande no nulo. 
 
 \noindent En esencia, calcular las componentes principales es calcular una base ortonormal que cumple una ciertas condiciones. Por lo tanto, podemos definir lo siguiente: 
 \begin{defi}
@@ -127,7 +128,7 @@ Se llama matriz de cargas $\mathbf{V}$ a la matriz ortogonal que tiene por colum
 
 \noindent Ahora, veamos como esto se puede aplicar a una matriz de datos observados con la matriz de varianzas muestral.
 
-\noindent Sea $\mathbf{x}$ el vector aleatorio de longitud $p$ definida de la misma manera. A continuación se toman $N$ observaciones independientes de este vector y se obtiene la matriz de datos $\mathbf{X}$ de tamaño $N\times p$. 
+\noindent Sea $\mathbf{x}$ el vector aleatorio de longitud $p$ definida de la misma manera. Entonces se puede definir lo siguiente :
 
 \begin{defi}
 Dados los datos de $N$ observaciones recogidos sobre $p$ variables $X_1,\ldots, X_p$, entonces $\mathbf{z}_{ij}=\mathbf{x}_i\mathbf{v}_j, ,\forall i=1,\ldots, N,\forall j=1,\ldots p$ es el valor de la $j$-ésima componente para la observación $\mathbf{x}_i$. 
@@ -141,11 +142,10 @@ Dados los datos de $N$ observaciones recogidos sobre $p$ variables $X_1,\ldots, 
 \begin{equation}
 \overline{x}_{ij}=x_{ij}-\overline{x}_j \quad \forall i=1,\ldots,N,\forall j=1,\ldots,p
 \end{equation}
-donde $\overline{x}_j$ es la media muestral de la $j$-ésima variable. Esto hace que $\textbf{S}=\frac{1}{n-1}\textbf{X}^T\textbf{X}$. Esto permite hablar de los valores y vectores propios de \textbf{S} y de $\textbf{X}^T \textbf{X}$ indistintamente, ya que los vectores propios son los mismos y los valores propios son proporcionales. 
-
+donde $\overline{x}_j$ es la media muestral de la $j$-ésima variable. Esto hace que $\textbf{S}=\frac{1}{n}\textbf{X}^T\textbf{X}$ \cite{Peña 2002}. Esto permite hablar indistintamente de los vectores propios de $\mathbf{S}$ y $\mathbf{X}^T\mathbf{X}$ ya que estarán cambiados por un escalar.
 
 \subsection{ACP mediante SVD}
-\noindent El problema de la reconstrucción es demostrar que la matriz reducida, que se definirá más tarde, es la mejor aproximación de rango menor a la matriz de datos. Es decir, que los datos pueden representarse con una dimensionalidad menor con la mínima pérdida.
+\noindent El problema de la reconstrucción es demostrar que la matriz reducida, que se definirá más tarde, es la mejor aproximación de rango menor a la matriz de datos. Es decir, que los datos pueden representarse con una dimensionalidad menor con la mínima pérdida mediante la matriz reducida.
 
 \noindent Otra visión del problema es que se quiere buscar una proyección sobre un subespacio de dimensión $m<p$ que contenga la máxima variabilidad posible de los datos y que brinde una mayor capacidad de interpretación de los datos, ya que en el caso de que $m=2$ o $m=3$ se podrán hacer representaciones gráficas de manera sencilla. 
 Antes de desarrollar los cálculos debemos revisar las siguientes conceptos.

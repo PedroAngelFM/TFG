@@ -1,14 +1,15 @@
 \section{Métodos Lineales para regresión}
 
-\noindent El objetivo de la regresión es encontrar como un conjunto de variables respuesta se ven afectadas por otro conjunto de variables predictoras. En este caso, se estudia como una combinación lineal de las variables puede afectar a las variables respuesta, que en el caso de la regresión es una variable aleatoria continua. Esto se puede hallar con fines predictivos o con el fin de analizar cómo cada una de las variables predictivas afectan a las variables respuesta \cite{Johnson 2007}. 
+\noindent El objetivo de la regresión es estudiar como un conjunto de variables respuesta están relacionadas con otro conjunto de variables predictoras. En este caso de la regresión lineal, se estudia como una combinación lineal de las variables predictoras puede relacionarse con las variables respuesta que es continua. Esto se puede hallar con fines predictivos o con el fin de analizar cómo cada una de las variables predictivas afectan a las variables respuesta \cite{Johnson 2007}. 
 
-\noindent Para ello, se tendrá en cuenta que las observaciones de la variable respuesta siguen la siguiente relación estocástica \cite{Hastie 2001, Johnson 2007}:
+\noindent De manera concreta, sea $\mathbf{x}=[X_1,\ldots X_p]$ el vector de variables predictoras. Además supóngase hasta que se diga lo contrario que únicamente hay una variable respuesta $Y$ continua. 
+
+\noindent Teniendo en cuenta lo anterior se define el modelo de regresión lineal como la siguiente relación estocástica \cite{Hastie 2001, Johnson 2007}:
 \begin{equation}
 Y=f(\textbf{x})+\varepsilon
 \end{equation}
-\noindent Donde $\varepsilon$ es una variable aleatoria con $\mathbb{E}(\varepsilon)=0$ y $Var(\varepsilon)=\sigma^2$, habitualmente $\varepsilon \sim N(0,\sigma^2)$. Además supóngase que el vector de variables de entrada sigue una distribución normal multivariante $N_p(\mathbf{\mu},\mathbf{\Sigma})$ donde $\mathbf{\Sigma }$ es una matriz semidefinido positiva y simétrica,  \cite{Chatfield 1989}. A esta última suposición se le podría añadir que sea diagonal, de manera que las variables aleatorias predictoras no estén correladas,pero no es necesario. 
-
-
+\noindent donde se supone que  $\varepsilon$ es una variable aleatoria con $\mathbb{E}(\varepsilon)=0$ y $Var(\varepsilon)=\sigma^2$, habitualmente se supone a mayores que  $\varepsilon \sim N(0,\sigma^2)$. Además supóngase que el vector de variables de entrada sigue una distribución normal multivariante $N_p(\mathbf{\mu},\mathbf{\Sigma})$ donde $\mathbf{\Sigma }$ es una matriz semidefinida positiva y simétrica \cite{Chatfield 1989}. 
+\newpage
 \noindent En el caso que nos atañe actualmente, se supondrá que $f$ es una función lineal de las variables de entrada del vector aleatorio $\textbf{x}=[X_1\ldots X_p]$. De esta manera, se tiene que:  
 \begin{equation}
 f(\textbf{x})=\beta_0+\sum_{j=1}^p X_j\beta_j
@@ -23,29 +24,29 @@ Se llaman \emph{parámetros de regresión} al vector columna $\beta=[\beta_0, \b
 f(\mathbf{x})= \mathbf{x}\beta
 \end{equation}
 
-\noindent De esta manera, tomando la matriz de datos de entrada de tamaño $N\times (p+1)$ entonces se puede generar un vector de predicciones de tamaño $N$ de la siguiente manera:
+\noindent De esta manera, tomando una matriz de datos de $N$ realizaciones, entonces se puede generar un vector de predicciones de tamaño $N$ de la siguiente manera:
 \begin{equation}
 \mathbf{\hat{y}}=\mathbf{X}\beta 
 \end{equation}  
 
-\noindent Si en particular se quiere hacer una predicción para una nueva observación  $\mathbf{x}_0$ basta con calcular basta con calcular $f(\textbf{x}_0).$
+\noindent Si en particular se quiere hacer una predicción para una nueva observación  $\mathbf{x}_0$ basta con calcular  $f(\textbf{x}_0).$
 
-\noindent Una vez establecida la notación y los supuestos que tomaremos de ahora en adelante, hay que estimar los parámetros de regresión, para ello utilizaremos distintos métodos como el método de los mínimos cuadrados o el de Máxima verosimilitud, a parte de esto, veremos las características inferenciales de los estimadores obtenidos y su interpretación geométrica. 
+\noindent Una vez establecida la notación y los supuestos que tomaremos de ahora en adelante, hay que estimar los parámetros de regresión,$\beta$.  Para ello, se utilizan  distintos métodos como el método de los mínimos cuadrados o el de máxima verosimilitud. A parte de esto, se verán las características inferenciales de los estimadores obtenidos y su interpretación geométrica. 
 
 \subsection{Métodos de ajuste}
 
 \noindent Sea una matriz de datos $\textbf{X}$ de tamaño $N\times (p+1)$ resultado de hacer $N$ observaciones de $p$ variables aleatorias y añadir a la primera componente de cada observación un 1. Sea también un vector de respuestas $\textbf{y}=[y_1,\ldots y_N]^T$ de tamaño $N$, resultado de observar la variable respuesta $Y$. 
 
-\noindent Sea el vector de parámetros de regresión $\beta$ de tamaño $p+1$ definido como antes, entonces podemos definir el concepto de función de pérdida. 
+\noindent Sea el vector de parámetros de regresión $\beta$ de tamaño $p+1$ definido como antes. Para poder hallar una estimación del mismo se debe definir el concepto de función de pérdida \cite{Hastie 2001}. 
 
 \begin{defi}
-Se llama \emph{función de pérdida} \cite{Hastie 2001} a una función $L(\textbf{y},\mathbf{\hat{y}})$ monótona creciente de la diferencia entre la predicción y el valor real de una variable
+Se llama función de pérdida $L(Y, \hat{Y})$ a aquella que mide las diferencia  entre el valor real de una variable y su valor predicho por un cierto modelo.  
 \end{defi}
 
-\noindent Aunque el término sea más utilizado en el marco del aprendizaje automático \cite{James 2013}, el concepto de error cuadrático o la función de pérdida cuadrática es el que se suele usar en el ajuste de los parámetros de regresión, Ya que esta pérdida al minimizarse, es equivalente al método de los mínimos cuadrados, muy utilizado en distintos campos. En particular, la pérdida cuadrática se define de la siguiente manera \cite{Abdi 2007}:
+\noindent Aunque el término sea más utilizado en el marco del aprendizaje automático \cite{James 2013}, el concepto de error cuadrático o la función de pérdida cuadrática es el que se suele usar en el ajuste de los parámetros de regresión, ya que esta pérdida, al minimizarse, es equivalente al método de los mínimos cuadrados, muy utilizado en distintos campos. En particular, el error cuadrático se define de la siguiente manera \cite{Abdi 2007}:
 
 \begin{defi}
-Se llama \emph{error de predicción cuadrático} entre una variable observada, $y$, y la predicción obtenida por un cierto modelo $\hat{y}$ a la expresión $(y-\hat{y})^2$
+Se llama error de predicción cuadrático entre una variable observada, $y$, y la predicción obtenida por un cierto modelo $\hat{y}$ a la expresión $(y-\hat{y})^2$.
 \end{defi}
 
 \noindent Tomando la suma de los errores cuadrados cometidos  en todas las observaciones se obtiene la suma de residuos cuadrados, \emph{RSS}, y minimizando se puede obtener una estimación del vector de parámetros $\beta$. En particular, si se utilizan las expresiones matriciales  anteriores:
@@ -53,15 +54,15 @@ Se llama \emph{error de predicción cuadrático} entre una variable observada, $
 RSS(\beta)=\sum_{i=1}^N(y_i-\hat{y}_i)^2 = \sum_{i=1}^N(y_i-\textbf{x}_i\beta)^2=(\textbf{y}-\textbf{X}\beta)(\textbf{y}-\textbf{X}\beta)^T\\
 \end{equation}
 
-\noindent Para obtener el mínimo se debe hallar los puntos estacionarios, lo que implica calcular la derivada de la suma de residuos cuadrados respecto del vector $\beta$, y como esta es una forma cuadrática general respecto de $\beta$,\emph{(Para el desarrollo de la expresión véase \cite{Morrison 1976})}:
+\noindent Para obtener el mínimo se debe hallar los puntos estacionarios, lo que implica calcular la derivada de la suma de residuos cuadrados respecto del vector $\beta$, y como esta es una forma cuadrática general respecto de $\beta$:
 
 \begin{equation}
-\dfrac{\partial RSS(\beta)}{\partial \beta}= -2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta)^T
+\dfrac{\partial RSS(\beta)}{\partial \beta}= -2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta)
 \end{equation}
 
-\noindent La segunda derivada respecto del vector de parámetros es $2\mathbf{X}^T\mathbf{X}$, entonces es  semidefinido positiva, ya que todos los valores propios son positivos o nulos. Entonces los $\beta$ en los que $-2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta)^T=0$ son mínimos.  
+\noindent La segunda derivada respecto del vector de parámetros es $2\mathbf{X}^T\mathbf{X}$, entonces es  semidefinida positiva, ya que todos los valores propios son positivos o nulos. Entonces los $\beta$ en los que $-2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta)=0$ son mínimos (Para el desarrollo de los anteriores cálculos véase \cite{Morrison 1976}).  
 
-\noindent Asumiendo que $\textbf{X}$ es una matriz de rango máximo $p+1$, por tanto, que la matriz $\mathbf{X}^T \mathbf{X}$ es invertible. Lo que implica que la siguiente expresión tiene solución única: 
+\noindent Asumiendo que $\textbf{X}$ es una matriz de rango máximo $p+1$, y por tanto que $\mathbf{X}^T \mathbf{X}$ es invertible, la siguiente expresión tiene una única solución: 
 \begin{equation}
 \textbf{X}^T(\textbf{y}-\textbf{X}\beta)=0
 \end{equation}
@@ -71,83 +72,67 @@ RSS(\beta)=\sum_{i=1}^N(y_i-\hat{y}_i)^2 = \sum_{i=1}^N(y_i-\textbf{x}_i\beta)^2
 \hat{\beta}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
 \end{equation}
 
-\noindent Para el cálculo de este vector de parámetros se ha utilizado el método de los mínimos cuadrados. Aún así, hay otros métodos de obtención del vector $\hat{\beta}$, como el geométrico o el de máxima verosimilitud. 
+\noindent Para el cálculo de este vector de parámetros se ha utilizado el método de los mínimos cuadrados. Aún así, hay otros métodos de estimación del vector $\hat{\beta}$, como el geométrico o el de máxima verosimilitud. 
 
-\noindent Con la siguiente proposición se puede ver la equivalencia entre los mínimos cuadrados y el de máxima verosimilitud:
+\noindent Con la siguiente proposición se puede ver la equivalencia entre los mínimos cuadrados y el de máxima verosimilitud \cite{Hastie 2001}:
 
 \begin{propo}
-Esta estimación de los parámetros $\beta$ por mínimos cuadrados es equivalente a la estimación de estos mediante el método de máxima verosimilitud \cite{Hastie 2001}.
+Esta estimación de los parámetros $\beta$ por mínimos cuadrados es equivalente a la estimación de estos mediante el método de máxima verosimilitud.
 \begin{proof}
-Sea un conjunto de $N$ observaciones, $y_i, i=1,\ldots N$ de una variable aleatoria $Y$, de manera que su función de probabilidad, $\mathbb{P}_\theta(y)$ depende de los parámetros $\theta$. Entonces el método de máxima verosimilitud busca maximizar la siguiente función.
+Sea un conjunto de $N$ observaciones independientes , $y_i, i=1,\ldots N$ de una variable aleatoria $Y$, de manera que su función de probabilidad que depende de unos ciertos parámetros $\beta$ que no tienen por qué ser los de regresión, $\mathbb{P}_\beta(y)$. Entonces el método de máxima verosimilitud busca maximizar la siguiente función.
 \begin{equation}
-L(\theta)=\sum_{i=1}^n log( \mathbb{P}_{\theta}(y_i))
+L(\theta)=\sum_{i=1}^N log( \mathbb{P}_{\beta} (y_i))
 \end{equation}
 
-\noindent Suponiendo que la variable respuesta cumple como antes que  $Y=f_\theta (\textbf{x})+\varepsilon$, donde $\varepsilon \thicksim N(0,\sigma^2)$, provoca que si se suponen conocidos a priori el parámetro $\theta$ y el vector aleatorio $\textbf{x}$ entonces :
+\noindent Suponiendo que la variable respuesta cumple como antes que  $Y=f_\beta (\textbf{x})+\varepsilon$, en el caso de la regresión lineal tendríamos que $f_\beta(\mathbf{x})=\mathbf{x}\beta$, donde $\varepsilon \thicksim N(0,\sigma^2)$, provoca que si se suponen conocidos a priori el vector de parámetros $\beta$ y el vector aleatorio $\textbf{x}$ entonces :
 \begin{equation}
-\mathbb{P}(Y|\textbf{x},\theta)=N(f_\theta(\textbf{x}), \sigma^2)
+\mathbb{P}(Y|\textbf{x},\beta)=N(f_\beta(\textbf{x}), \sigma^2)
 \end{equation}
 
-\noindent Teniendo esto en cuenta, la función $L(\theta)$ tiene la siguiente expresión:
+\noindent Teniendo esto en cuenta, la función $L(\beta)$ tiene la siguiente expresión:
 \begin{equation}
-L(\theta)=-\dfrac{n}{2}log(2\pi)-n log(\sigma)-\dfrac{1}{2\sigma^2}\sum_{i=1}^n (y_i-f_\theta (x_i))^2
+L(\beta)=-\dfrac{n}{2}log(2\pi)-n log(\sigma)-\dfrac{1}{2\sigma^2}\sum_{i=1}^n (y_i-f_\beta (x_i))^2
 \end{equation}
-Por tanto, teniendo en cuenta que el último término es $RSS(\theta)$, entonces maximizar $L(\theta)$ es equivalente a minimizar $RSS(\theta)$.
+Por tanto, teniendo en cuenta que el último término es $RSS(\beta)$, entonces maximizar $L(\beta)$ es equivalente a minimizar $RSS(\beta)$.
 \end{proof}
 \end{propo}
 \begin{coro}
-Las estimaciones para cualquier $f_{\theta}$ obtenidas por el método de los mínimos cuadrados son equivalentes a las del método de máxima verosimilitud.  
+Las estimaciones para cualquier $f_{\beta}$ obtenidas por el método de los mínimos cuadrados son equivalentes a las del método de máxima verosimilitud.  
 \end{coro}
 \noindent Continuando con lo anterior, los valores predichos obtenidos de las observaciones recogidas en la matriz de datos $\hat{\textbf{y}}$ se calculan de la siguiente manera:
 \begin{equation}
 \hat{\textbf{y}}=\textbf{X}\hat{\beta}=\textbf{X}(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
 \end{equation}
 
-\noindent De esta manera, se está calculando la predicción de la respuesta $\hat{y}_i$ para cada una de las observaciones $\mathbf{x}_i, i =1, \ldots N$. 
+\noindent De esta manera, se está calculando la predicción de la respuesta $\hat{y}_i$ para cada una de las observaciones $\mathbf{x}_i, \forall i =1, \ldots N$. 
 
 \noindent Otra forma de considerar el problema del ajuste sería desde el punto de vista geométrico para el que hay que desarrollar las siguientes definiciones y proposiciones.
 
 \noindent En lo sucesivo se considera a no ser que se diga lo contrario que $N>p+1$ y que la matriz de datos $\mathbf{X}$ es de rango $r$.
 
-\begin{defi}
-Se llama  $C_{r}(\mathbf{X})$ al subespacio lineal de $\mathbb{R}^{N}$ generado por las columnas linealmente independientes de la matriz $\mathbf{X}$ \cite{Cuadras 2014}.
-\end{defi}
-\begin{propo}\label{prop ort}
-El vector $\hat{\mathbf{\varepsilon}}=\mathbf{y}-\mathbf{X\hat{\beta}}$ es ortogonal al subespacio $C_{r}(\mathbf{X})$.
-\begin{proof}
-Premultiplicando por $\mathbf{X}^T$:
-\begin{equation}
-\begin{split}
-\mathbf{X^T\hat{\mathbf{\varepsilon}}}=\mathbf{X}^T(\mathbf{y-X}\beta)=\mathbf{X}^T\mathbf{y}-\mathbf{X^T X}\beta=0 \qedhere
-\end{split}
-\end{equation}
-\end{proof}
-\end{propo}
 
-\noindent \emph{Abdi, H} \cite{Abdi 2007} desarrolla este tipo de ajuste de manera superficial, mientras que  \emph{Hastie et.al.} \cite{Hastie 2001} detallan este marco geométrico utilizando el proceso de ortonormalización de Graham-Schmidt, para encontrar combinaciones ortonormales de las variables originales. Este proceso se basa como se puede ver, en el hecho de que el vector de residuo generado debe ser ortogonal al espacio $C_{r}(X)$. Aunque no se desarrolle el ajuste en su totalidad, la proposición anterior será utilizada para demostrar una propiedad de las distribuciones de los estimadores hallados. 
-
-\subsection{Inferencias Estadísticas sobre $\hat{\beta}$}
+\subsection{Inferencias estadísticas sobre $\hat{\beta}$}
 
 \noindent En esta parte se estudian las propiedades de los estimadores obtenidos mediante el método de los mínimos cuadrados. Tras ello, se formarán estadigrafos para realizar los contrastes de hipótesis necesarios.
 
-\noindent Hay que tener en cuenta los siguientes supuestos el vector $\mathbf{x}\sim N_p(\mu, \mathbf{\Sigma})$ una distribución multivariante de dimensión $p$, del cual tomamos $N$ observaciones independientes obteniendo la matriz de datos $\mathbf{X}$, que a no ser que se diga lo contrario, se supondrá conocida. Además, supóngase el vector de $N$ observaciones de la variable respuesta sigue el siguiente modelo $\mathbf{y}= \mathbf{X \beta}+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2\mathbf{I}_N)$,es un vector de longitud $N$ en el que cada componente es una normal $N(0,\sigma^2)$  independientes entre sí. Esto nos permite dar la siguiente proposición \cite{Cuadras 2014}
+\noindent Hay que tener en cuenta los siguientes supuestos el vector $\mathbf{x}\sim N_p(\mu, \mathbf{\Sigma})$, del cual tomamos $N$ observaciones independientes obteniendo la matriz de datos $\mathbf{X}$, que a no ser que se diga lo contrario, se supondrá conocida. Además, supóngase el vector de $N$ observaciones de la variable respuesta sigue el siguiente modelo $\mathbf{y}= \mathbf{X \beta}+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2\mathbf{I}_N)$, es un vector de longitud $N$ en el que cada componente es una normal $N(0,\sigma^2)$  independientes entre sí. Esto nos permite dar la siguiente proposición \cite{Cuadras 2014}
 \begin{propo}
 El vector aleatorio formado por $N$ observaciones de la variable respuesta conocida la matriz de datos y el vector de parámetros $\beta$ sigue una distribución
-$\mathbf{y}\sim N_N(\mathbf{X\beta}, \sigma^2\mathbf{I}_N)$, donde $\mathbf{I}_N$ es la matriz identidad de tamaño $N$.  
+$\mathbf{y}\sim N(\mathbf{X\beta}, \sigma^2\mathbf{I}_N)$, donde $\mathbf{I}_N$ es la matriz identidad de tamaño $N \times N$.  
 \begin{proof}
 Basta con comprobar que:
 \begin{equation}
 \mathbb{E}(\mathbf{y})=\mathbb{E}(\mathbf{X\beta})+\mathbb{E}(\varepsilon)=\mathbb{E}(\mathbf{X\beta})=\mathbf{X\beta}
 \end{equation}
-Y la varianza :
-\begin{equation}
-\begin{split}
-\mathbb{E}((\mathbf{X\beta}+\varepsilon)(\mathbf{X\beta}+\varepsilon)^T)=\mathbf{X\beta}\mathbf{\beta}^T \mathbf{X}^T+ Var(\varepsilon
+Además :
+\begin{align}
+\mathbb{E}((\mathbf{X\beta}+\varepsilon)(\mathbf{X\beta}+\varepsilon)^T)&=\mathbf{X\beta}\mathbf{\beta}^T \mathbf{X}^T+ Var(\varepsilon
 )\\
-Var(\mathbf{y})=\mathbf{X\beta}\mathbf{\beta}^T \mathbf{X}^T+ Var(\varepsilon
+\intertext{Entonces, la varianza}
+Var(\mathbf{y})=\mathbf{X\beta}\mathbf{\beta}^T \mathbf{X}^T&+ Var(\varepsilon
 )-\mathbf{X\beta}\mathbf{\beta}^T \mathbf{X}^T=Var(\varepsilon)=\sigma^2\mathbf{I}_N
-\end{split}
-\end{equation}
+\end{align}
+
 \noindent Y se concluye que el vector $\mathbf{y}\sim N_N(\mathbf{X\beta}, \sigma^2\mathbf{I}_N)$, ya que el vector $\varepsilon\sim N_N(0,\sigma^2 \mathbf{I}_N)$ por hipótesis. 
 \end{proof}
 \end{propo}
@@ -275,7 +260,7 @@ RSS(\textbf{B},\mathbf{\Sigma})=\sum_{i=1}^n(y_i-f(\textbf{x}_i))^T \mathbf{\Sig
 \end{equation}
 
 \noindent En la última expresión se usa la \textit{distancia de Mahalanobis}.
-\begin{defi}
+\begin{defi}\label{Mahalanobis}
 La \textit{distancia de Mahalanobis} entre dos observaciones $\textbf{x}_i, \textbf{x}_j$ extraídas de una misma población con matriz de covarianzas $\mathbf{\Sigma}$ se define de la siguiente manera\cite{Cuadras 2014}: 
 \begin{equation}
 d_M(\textbf{x}_i, \textbf{x}_j)=\sqrt{(\textbf{x}_i- \textbf{x}_j)^T \mathbf{\Sigma}^{-1}(\textbf{x}_i-\textbf{x}_j)}

@@ -5,6 +5,8 @@
 \usepackage{graphicx}             
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
 \usepackage{graphics}
 \usepackage{indentfirst}
 \usepackage{enumerate}
