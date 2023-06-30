@@ -1,45 +1,46 @@
 \newpage
 \section{Análisis Factorial}
+
 \noindent El análisis factorial es un conjunto de técnicas que en primera instancia fue desarrollado en el campo de la psicología ya que estos buscaban encontrar las causas que provocaban la variabilidad de los datos que recogían \cite{Vincent 1953}. 
 
-\noindent En 1888 \emph{Galton, F} escuchó la exposición de un articulo que relacionaba las sociedades que habían abandonado un modelo matriarcal con una estructura más compleja sociológicamente hablando. Ante esto, \emph{Galton} no estuvo de acuerdo, ya que detectó un fallo en el razonamiento de su compañero y es por ello, que escribió el artículo \cite{Galton 1889} dando pie a los trabajos sobre el estudio de las correlaciones.   
+\noindent En 1888 Galton escuchó la exposición de un articulo que relacionaba las sociedades que habían abandonado un modelo matriarcal con una estructura más compleja sociológicamente hablando. Ante esto, Galton no estuvo de acuerdo, ya que detectó un fallo en el razonamiento de su compañero y es por ello, que escribió el artículo  dando pie a los trabajos sobre el estudio de las correlaciones \cite{Galton 1889}.   
 
-\noindent Es en 1904 cuando \emph{Spearman, C.} \cite{Spearman 1904} viendo el trabajo de \emph{Galton, F.} aplicó esas ideas al estudio de la inteligencia, buscando una medida objetiva de la misma. En este desarrollo, dio las primeras nociones de qué era un factor y calculó una aproximación para un modelo factorial con 6 factores comunes. A pesar de que no especifica el modelo usado, se ha comprobado a posteriori  que eran bastante precisos. A partir de este momento, fue cuando el análisis factorial empezó a ser importante y varios psicólogos comenzaron a usarlo de forma habitual. 
-Desde hace años el Análisis factorial, al igual que otras técnicas multivariantes, ha experimentado un nuevo impulso en el desarrollo teórico y práctico debido al auge de la computación. 
+\noindent Es en 1904 cuando Spearman  viendo el trabajo de Galton, aplicó esas ideas al estudio de la inteligencia, buscando una medida objetiva de la misma \cite{Spearman 1904}. En este desarrollo, dio las primeras nociones de qué era un factor y calculó una aproximación para un modelo factorial. A partir de este momento, fue cuando el análisis factorial empezó a ser importante y varios psicólogos comenzaron a usarlo de forma habitual. 
+Desde hace años el análisis factorial, al igual que otras técnicas multivariantes, ha experimentado un nuevo impulso en el desarrollo teórico y práctico debido al auge de la computación. 
 
-\noindent El Análisis factorial nació con un caracter confirmatorio, en el que se tenían unas ciertas ideas preconcebidas y se buscaba aceptar o rechazar dichas ideas. Actualmente, la mayoría de los investigadores lo utilizan de manera exploratoria para extraer información de los datos.\cite{Hair 1995}
+\noindent El análisis factorial se puede usar tanto con fines exploratorios como confirmatorios. Es decir, se puede usar para encontrar nuevas informaciones no anticipadas o para confirmar una hipótesis planteada, por ejemplo, Pearson buscaba confirmar que había una estructura latente en la inteligencia\cite{Hair 1995}.
 
-\noindent El objetivo específico del Análisis factorial es, dado un conjunto de variables aleatorias, construir un modelo en el cual con un conjunto de nuevas variables llamadas \emph{factores comunes}, que expliquen la mayor variabilidad posible de las variables iniciales. De esta manera, se descompondrá la varianza de cada una de las variables en una parte común llamada \emph{comunalidad}  y otra específica denominada \emph{especificidad}. 
+\noindent El objetivo específico del análisis factorial es, dado un conjunto de variables aleatorias, construir un modelo en el cual con un conjunto de nuevas variables llamadas \emph{factores comunes}, que expliquen la mayor variabilidad posible de las variables iniciales. De esta manera, se descompondrá la varianza de cada una de las variables en una parte común llamada \emph{comunalidad}  y otra específica denominada \emph{especificidad}. 
 
 \noindent La mayor diferencia con el análisis de componentes principales en el que se busca nuevas direcciones que maximicen la varianza explicada, es que en este caso, son de interés tanto las comunalidades como las especifidades ya que nos permiten analizar si una variable da información de manera común al resto o tiene algo diferencial. 
 
-\noindent Para empezar, empezaremos formalizando el modelo factorial, en particular el modelo multifactorial ortogonal \cite{Johnson 2007} sin pérdida de generalidad. Tras la modelización, se desarrolla el método de estimación de las matrices de carga mediante el método del factor principal \cite{Peña 2002} y se mencionarán los fundamentos de otros métodos como el de  máxima verosimilitud. Seguidamente, se darán algunos detalles sobre el problema de la no unicidad del modelo y soluciones ante ello. Y por último, se dará una introducción a la interpretación de los datos que arroja el modelo factorial. 
+\noindent Para empezar, empezaremos formalizando el modelo factorial, en particular el modelo multifactorial ortogonal \cite{Johnson 2007} sin pérdida de generalidad. Tras la modelización, se desarrolla el método de estimación de la matriz de covarianzas  mediante el método del factor principal \cite{Peña 2002}. Seguidamente, se darán algunos detalles sobre el problema de la no unicidad del modelo y soluciones ante ello. Y por último, se hará una introducción a la interpretación de los datos que arroja el modelo factorial. 
 
 \newpage
 \subsection{Formalización}
-\noindent Supóngase un vector aleatorio $\mathbf{x}$ de longitud $p$ con una distribución $N_p(0,\Sigma)$, centrada sin pérdida de generalidad, donde la matriz de covarianzas $\mathbf{\Sigma}$ es simétrica y definido positiva. El modelo factorial afirma lo siguiente \cite{Chatfield 1989}:  
+\noindent Supóngase un vector aleatorio $\mathbf{x}$ de longitud $p$ con una distribución $N_p(0,\Sigma)$, centrada sin pérdida de generalidad, donde la matriz de covarianzas $\mathbf{\Sigma}$ es simétrica y definido positiva. El modelo factorial se define \cite{Chatfield 1989}:  
 \begin{equation}\label{eq Fact}
 X_j= \lambda_{1j}F_1+\ldots+\lambda_{mj}F_m+\psi_j U_j\quad j=1\ldots p 
 \end{equation}
 \noindent Donde:
 \begin{itemize}
-\item $\lambda_{jk}$ son las \emph{cargas del factor común} $k$-ésimo de la $j$-ésima variable.
+\item $\lambda_{kj}$ es la saturaciónes   de la $j$-ésima variable en el factor común $k$-ésimo. 
 \item $F_k$ es el $k$-ésimo factor común
-\item $\psi_j$ es la \emph{carga específica} de la variable $X_j$
-\item $U_j$ es el \emph{factor específico} para la variable $X_j$
+\item $\psi_j$ es la saturación  específica de la variable $X_j$ en el factor único. 
+\item $U_j$ es el factor específico para la variable $X_j$.
 \end{itemize}
 
-\noindent En este caso haremos las siguientes suposiciones\cite{Cuadras 2014}:
+\noindent El análisis factorial se apoya en las siguientes hipótesis \cite{Cuadras 2014}:
 \begin{itemize}
-\item Los factores comunes $F_k$ son variables aleatorias que siguen una distribución marginal $N(0,1)$. Además se supondrá que $Cov(F_k,F_{k'})=0, k\neq k'$, de manera que el vector aleatorio $\mathbf{f}$ de longitud $m$ con distribución $N_m(0,\mathbf{I})$. Y son completamente independientes de los factores específicos. 
+\item Los factores comunes $F_k$ son variables aleatorias que siguen una distribución marginal $N(0,1)$. Además se supondrá que $Cov(F_k,F_{k'})=0, k\neq k', \forall k,k'=1,\ldots, m$. Además se suponen completamente independientes de los factores específicos. 
 
-\item Los factores específicos $U_j$ son variables aleatorias con una distribución normal $N(0,1)$ no correladas, que conjuntamente forman el vector aleatorio $\mathbf{u}\sim N_p(0,\mathbf{I})$ de longitud $p$. Son completamente independientes de los factores comunes. 
+\item Los factores específicos $U_j$ son variables aleatorias con una distribución normal $N(0,1)$ no correladas. Se suponen  completamente independientes de los factores comunes. 
 \end{itemize}
 
 \noindent En consecuencia, se pueden definir las siguientes matrices: 
 
 \begin{defi}
-Llamaremos \emph{matriz de cargas de los factores o matriz de cargas}, $\mathbf{\Lambda}$ de tamaño $p \times m$ a la matriz :
+Llamaremos matriz de saturaciones de los factores o matriz de saturaciones, $\mathbf{\Lambda}$ de tamaño $p \times m$ a la matriz :
 \begin{equation}
 \mathbf{\Lambda}=\begin{pmatrix}
 \lambda_{11} & \cdots & \lambda_{1 m}\\
@@ -50,7 +51,7 @@ Llamaremos \emph{matriz de cargas de los factores o matriz de cargas}, $\mathbf{
 \end{defi}
 
 \begin{defi}
-Llamaremos matriz específica a la matriz diagonal $\mathbf{\Psi}$ de tamaño $p\times p$ a aquella que tiene los términos $\psi_j$ donde $j=1,\ldots , p$:
+Llamaremos matriz específica a la matriz diagonal $\mathbf{\Psi}$ de tamaño $p\times p$ a aquella que contiene los términos $\psi_j$ donde $j=1,\ldots , p$:
 \begin{equation}
 \mathbf{\Psi}=\begin{pmatrix}
     \psi_1 & 0 & \dots & 0 \\
@@ -61,36 +62,37 @@ Llamaremos matriz específica a la matriz diagonal $\mathbf{\Psi}$ de tamaño $p
 \end{equation}
 \end{defi}
 
-\noindent \emph{Observación:} En distintas fuentes no aparece la matriz $\mathbf{\Psi}$ ya que los factores específicos $U_j, j=1\ldots p$ en esos casos no se consideran variables estandarizadas no correladas, como sería el caso descrito. Por ejemplo,  \emph{Mardia, K.V.} \cite{Mardia 1979} denotan como $\mathbf{\Psi}$ a la matriz de covarianzas del vector $\mathbf{u}$.
+\noindent \emph{Observación:} En distintas fuentes no aparece la matriz $\mathbf{\Psi}$ ya que los factores específicos $U_j, (j=1,\ldots,p)$ no se consideran variables estandarizadas no correladas, como sería el caso descrito. Por ejemplo,  \emph{Mardia, K.V.} \cite{Mardia 1979} denotan como $\mathbf{\Psi}$ a la matriz de covarianzas del vector $\mathbf{u}$.
 
 \noindent De esta manera, se puede dar una versión matricial de la expresión \ref{eq Fact}:
 \begin{equation}
 \mathbf{x}^T=\Lambda \mathbf{f}^T+ \mathbf{\Psi}\mathbf{u}^T
 \end{equation}
-Ya que se consideran los vectores aleatorios $\mathbf{x}, \mathbf{f}, \mathbf{u}$ vectores ordenados como filas. 
+Ya que se consideran los vectores aleatorios $\mathbf{x}=[X_1,\ldots,X_p], \mathbf{f}=[F_1,\ldots,F_m], \mathbf{u}$ vectores ordenados en filas. 
 
 \begin{propo}
-La varianza de la variable aleatoria $X_j$, $\sigma_j^2$ se puede descomponer de la siguiente manera:
+La varianza de la variable aleatoria $X_j$, $\sigma_j^2$, se puede descomponer de la siguiente manera:
 \begin{equation}
-\sigma_j^2 = \sum_{k=1}^{m}\lambda_{kj}^2+\psi_j^2
+\sigma_j^2 = \sum_{k=1}^{m}\lambda_{kj}^2+\psi_j^2\quad \forall j=1,\ldots,p
 \end{equation}
 \begin{proof}
 \begin{align*}
-\mathbb{E}(X_j^2)&=\sigma_j^2 = \sum_{k=1}^{m}\lambda_{kj}^2\mathbb{E}(F_k
-^2)+\sum_{k=1}^{m}\sum_{n=1,n\neq k}^{m} \lambda_{kj}\lambda_{nj}\mathbb{E}(F_k\cdot F_n)\\
+\sigma_j^2&=Var(X_j)=\mathbb{E}(X_j^2)-\mathbb{E}(X_j)^2=\mathbb{E}(X_j^2)=\\ \sum_{k=1}^{m}\lambda_{kj}^2\mathbb{E}(F_k
+^2)&+\sum_{k=1}^{m}\sum_{n=1,n\neq k}^{m} \lambda_{kj}\lambda_{nj}\mathbb{E}(F_k\cdot F_n)\\
 &+\sum_{k=1}^{m}\lambda_{kj}\psi_j \mathbb{E}(F_k\cdot U_j)+\psi_j^2\mathbb{E}(U_j^2)
 \intertext{Utilizando las hipótesis del modelo:}
 &\ \sigma_j^2=\sum_{k=1}^{m}\lambda_{kj}^2+\psi_j^2
 \end{align*}
 \end{proof}
 \end{propo}
-\noindent Teniendo en cuenta esta descomposición se puede definir el siguiente concepto.
+\noindent Teniendo en cuenta esta descomposición se puede definir el siguiente concepto \cite{Peña 2002}.
 \begin{defi}
-Se llama \emph{comunalidad} de la variable $X_j$, $h_j^2=\sum_{k=1}^m \lambda_{kj}^2 $ \cite{Peña 2002}
+Se llama comunalidad de la variable $X_j$, $h_j^2=\sum_{k=1}^m \lambda_{kj}^2 $ 
 \end{defi} 
-\noindent Esto permite interpretar la varianza de la variable como la varianza explicada por los factores comunes por un lado y la variabilidad específica de la propia variable. 
+\noindent Es decir, la parte de la varianza de una variable $X_j, \forall j=1,\ldots, p$ explicada por los factores comunes es la comunalidad.
+\noindent Esto permite interpretar la varianza de la variable como la varianza explicada por los factores comunes por un lado y la variabilidad específica de la propia variable. Pero también se puede interpretar las covarianzas en función de las saturaciones de los factores comunes \cite{Morrison 1976, Chatfield 1989}.
 \begin{propo}
-La covarianza de dos variables $Cov(X_j, X_j')$, $\sigma_{jj'}$ cumple que \cite{Morrison 1976, Chatfield 1989}: 
+La covarianza de dos variables $Cov(X_j, X_j')$, $\sigma_{jj'}$ cumple que : 
 \begin{equation}
 \sigma_{jj'}=\sigma_{j'j}=\sum_{k=1}^{m}\lambda_{kj}\lambda_{kj'}
 \end{equation}
@@ -100,22 +102,29 @@ La covarianza de dos variables $Cov(X_j, X_j')$, $\sigma_{jj'}$ cumple que \cite
 ^2)&+\sum_{k=1}^{m}\sum_{n=1,n\neq k}^{m} \lambda_{kj}\lambda_{nj'}\mathbb{E}(F_k\cdot F_n)\\
 + \sum_{k=1}^{m}\lambda_{kj}\psi_{j'} \mathbb{E}(F_k\cdot U_{j'})&+\sum_{k=1}^{m}\lambda_{kj'}\psi_j\mathbb{E}(F_k\cdot U_j)+\psi_j\psi_{j'}\mathbb{E}(U_j\cdot U_{j'})
 \intertext{De nuevo, teniendo en cuenta las hipótesis}
-\sigma_{jj'}=\sigma_{j'j}&=\sum_{k=1}^{m}\lambda_{kj}\lambda_{kj'}
+\sigma_{jj'}&=\sigma_{j'j}=\sum_{k=1}^{m}\lambda_{kj}\lambda_{kj'}
 \end{align}
 \end{proof}
 \end{propo}
 
-\noindent Y tomando estas dos proposiciones se puede tener que la matriz $\mathbf{\Sigma}$, cumple lo siguiente:
-\begin{coro}\label{Descomposición Varianza}
-La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}$
-\end{coro}
+\noindent Además de la comunalidad se puede definir el concepto de especifidad o unicidad \cite{Cuadras 2014}.
+\begin{defi}
 
-\noindent Bajo esta idea en la que la varianza se puede descomponer en una parte específica y una común a todas las variables. 
+Se llama especificidad o unicidad de la variable $X_j$ a $\psi_j^2,\\ \forall j=1,\ldots, p$ 
 
-\subsection{Estimación de la matriz de cargas}
-\noindent Supóngase el vector aleatorio $x$ como antes del cual se recogen $N$ observaciones para obtener la matriz de datos $\mathbf{X}$ de tamaño $N\times p $que se supondrá centrada sin pérdida de generalidad. Esto provoca que la matriz $\mathbf{S}=\mathbf{\hat{\Lambda}}\mathbf{\hat{\Lambda}}^T+\mathbf{\hat{\Psi}}$ \cite{Peña 2002}. 
+\end{defi}
 
-\noindent Entonces el objetivo es estimar la matriz de cargas $\mathbf{\Lambda}$, para ello se puede tomar la matriz $\mathbf{S}-\mathbf{\hat{\Psi}}$, si de esta matriz se obtiene la descomposición espectral:
+\noindent Y tomando las proposiciones anteriores se puede tener que la matriz $\mathbf{\Sigma}$, cumple lo siguiente:
+\begin{teorema}\label{Descomposición Varianza}
+La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}^2$
+\end{teorema}
+
+\noindent Es decir, el modelo factorial busca descomponer como hemos demostrado que la variabilidad de los datos puede tener una parte común a todas y una parte específica. 
+
+\subsection{Obtención de la matriz de saturaciones}
+\noindent Supóngase el vector aleatorio $\mathbf{x}$ como antes del cual se recogen $N$ observaciones para obtener la matriz de datos $\mathbf{X}$ de tamaño $N\times p$ que se supondrá centrada sin pérdida de generalidad. Esto provoca que la matriz $\mathbf{S}=\mathbf{\hat{\Lambda}}\mathbf{\hat{\Lambda}}^T+\mathbf{\hat{\Psi}}$ \cite{Peña 2002}. 
+
+\noindent Entonces el objetivo inicial es estimar la matriz de cargas $\mathbf{\Lambda}$, para ello se puede tomar la matriz $\mathbf{S}-\mathbf{\hat{\Psi}}$. Si de esta matriz se obtiene la descomposición espectral:
 \begin{equation}
 \mathbf{S}-\mathbf{\hat{\Psi}}=\mathbf{U}\mathbf{D}\mathbf{U}^T
 \end{equation}

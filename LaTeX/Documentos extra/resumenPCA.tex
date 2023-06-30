@@ -24,7 +24,8 @@
 \noindent Otro ejemplo destacable lo desarrolla Ringnér \cite{Ringnér 2008}. Estudio en el que se reduce un conjunto de datos con más de 8000 variables y 105 observaciones a uno de solo 63 variables para retener el $90\%$ y 105 para retener casi el $100\%$ de la variabilidad total de los datos. Es decir, no siempre se se busca la reducción para representar los datos, en este ejemplo únicamente se busca eliminar datos redundantes en el conjunto total. 
 
 \noindent Otro ejemplo de aplicación sería el que desarrollan Gottumukkal y Asari que mediante una pequeña modificación del algoritmo habitual de las componentes principales en el campo del reconocimiento facial con el objetivo de adaptarse mejor a ciertas condiciones, en las que se tienen grandes variaciones de posición y expresiones \cite {Asari 2004}.
-\subsection{Definición y cálculo de las componentes}
+
+\subsection{Definición y cálculo de las componentes principales}
 
 \noindent Sea un vector aleatorio de longitud $p$, $\mathbf{x}=[X_1,\ldots X_p]$, con matriz de covarianzas $\mathbf{\Sigma}$ con $r=rg(\mathbf{\Sigma})$, se pueden definir las componentes principales \cite{Cuadras 2014}.
 \begin{defi}
@@ -44,14 +45,12 @@ Z_j=v_{1j}X_1+\ldots v_{pj}X_p=\mathbf{v}_j^T\mathbf{x}^T \quad j=1\ldots r
 \end{itemize}
 \end{itemize}
 \noindent En resumen, lo que se busca es una nueva base que reúna las direcciones de máxima variación y que sean ortogonales respecto a la matriz de covarianzas, es decir, que sean no correladas.
-
 \end{defi}
-
 \noindent \emph{Chatfield} y \emph{Collins}  utilizan el método de los multiplicadores de Lagrange para resolver el problema de maximizar  la varianza de la primera componente sujeto a la restricción $\textbf{v}_1^T\textbf{v}_1=1$ \cite{Chatfield 1989}. Todo esto con el objetivo de calcular el vector $\mathbf{v}_1$. El cálculo de sucesivas componentes cambiará en ciertos aspectos. 
 
 \noindent Aplicando el método de los multiplicadores, la función objetivo se define como la varianza de la combinación lineal, es decir, $f(\mathbf{v})=\mathbf{v}^T \mathbf{\Sigma} \mathbf{v}$ y la restricción aplicada es $g(\textbf{v})=\textbf{v}^T\textbf{v}=1$. 
 
-\noindent Tomando $\textbf{x}=\textbf{v}_1$ se puede establecer $L(\textbf{v}_1)=\textbf{v}_1^T \mathbf{\Sigma} \textbf{v}_1 - \lambda[\textbf{v}_1^T \textbf{v}_1-1]$. Que al derivarla se obtiene:
+\noindent Tomando $\mathbf{v}=\textbf{v}_1$ se puede establecer $L(\textbf{v}_1)=\textbf{v}_1^T \mathbf{\Sigma} \textbf{v}_1 - \lambda[\textbf{v}_1^T \textbf{v}_1-1]$. Que al derivarla se obtiene:
 
 \begin{align*}
 \dfrac{\partial L}{\partial \textbf{v}_1} &= 2\mathbf{\Sigma} \textbf{v}_1 - 2\lambda\textbf{v}_1\\
@@ -111,11 +110,11 @@ Al multiplicar todo por $\mathbf{v}_1^T$, se obtiene que:
 
 \noindent El proceso para calcular el resto de componentes principales es análogo, únicamente hay que tener en cuenta que se debe dar la ortogonalidad entre las distintas componentes. 
 
-\noindent Por ende, se obtiene que las componentes principales vienen dadas por los vectores propios de la matriz de covarianzas $\mathbf{\Sigma} $. Además sabemos que $Var(\mathbf{v}_j^T \mathbf{x}^T)=\lambda_j,$ $ j=1,\ldots r$ , siendo donde $\lambda_j$ es el $j$-ésimo valor propio más grande. 
+\noindent Por ende, se obtiene que las componentes principales vienen dadas por los vectores propios de la matriz de covarianzas $\mathbf{\Sigma} $. Además sabemos que $Var(\mathbf{v}_j^T \mathbf{x}^T)=\lambda_j,$ $ j=1,\ldots r$ , siendo donde $\lambda_j$ es el $j$-ésimo valor propio más grande no nulo. 
 
 \noindent En esencia, calcular las componentes principales es calcular una base ortonormal que cumple una ciertas condiciones. Por lo tanto, podemos definir lo siguiente: 
 \begin{defi}
-Se llama matriz de cargas $\mathbf{V}$ a la matriz ortogonal que tiene por columnas a los $\mathbf{v}_j\quad \forall j=1,\ldots, r$. Dichas columnas forman una base ortonormal en el espacio $\mathbb{R}^p$.
+Se llama matriz de cargas $\mathbf{V}$ a la matriz ortogonal que tiene por columnas a los $\mathbf{v}_j\quad \forall j=1,\ldots, r$. Estos a su vez son un conjunto de vectores ortonormales en el espacio $\mathbb{R}^p$.
 \end{defi}
 
 \noindent \emph{Observación: }Se utilizará la condición de que al ser $\mathbf{V}$ una matriz ortogonal $\mathbf{VV}^T=\mathbf{V}^T\mathbf{V}=\mathbf{I}$ y por tanto $\mathbf{V}^{-1}=\mathbf{V}^T$

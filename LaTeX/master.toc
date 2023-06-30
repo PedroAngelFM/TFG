@@ -14,7 +14,7 @@
 \contentsline {subsection}{\numberline {1.4.3}Algoritmo Random Forest}{30}{subsection.1.4.3}%
 \contentsline {chapter}{\numberline {2}Métodos no supervisados}{31}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Análisis de componentes principales}{32}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Definición y cálculo de las componentes}{33}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.1}Definición y cálculo de las componentes principales}{33}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}ACP mediante SVD}{36}{subsection.2.1.2}%
 \contentsline {section}{\numberline {2.2}Análisis Factorial}{40}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Formalización}{41}{subsection.2.2.1}%
