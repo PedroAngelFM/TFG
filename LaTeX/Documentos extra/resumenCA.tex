@@ -1,26 +1,26 @@
 \section{Análisis de Clusters}
 
-\noindent Según \emph{Jain,A.K. y Richard, C.D; }\cite{Jain 1988} el análisis de cluster es un conjunto de técnicas exploratorias las cuales toman un conjunto de datos provenientes de hacer observaciones simultaneas  sobre un vector aleatorio $\mathbf{x}$ de tamaño $p$. Estas técnicas lo que buscan es realizar agrupaciones de los datos. Lo bueno de estos métodos es que no requieren las suposiciones habituales de otros métodos.
+\noindent Según Jain y Dubes  el análisis de \emph{cluster} es un conjunto de técnicas que toman un conjunto de datos resultantes de recoger $N$ observaciones sobre $p$ medidas diferentes y buscan agruparlas utilizando diferentes criterios. También se puede utilizar para crear agrupaciones de variables pero no se desarrollará en demasiada profundidad. 
 
-\noindent Para empezar, debemos definir que es un \emph{cluster}
+\noindent Para empezar, debemos definir que es un \emph{cluster}. Como en nuestro caso no buscamos agrupar variables, sino observaciones o mediciones utilizaremos la definición dada en \cite{Everitt 2011}.
 \begin{defi}
-Diremos que un cluster o conglomerado es un subconjunto de las observaciones que son similares entre sí \cite{Everitt 2011}. Esta definición la damos ya que nos centraremos en agrupar observaciones y no variables. 
+Diremos que un \emph{cluster} o conglomerado es un subconjunto de las observaciones que son similares entre sí. 
 \end{defi}
 
-\noindent Es fácil observar que los clusters definen la siguiente relación de equivalencia $\mathcal{R}$ en la que dos observaciones, $\mathbf{x}_i,\mathbf{x}_{i'}, i,i'=1 \ldots N$ están relacionadas si pertenecen al mismo clúster \cite{Cuadras 2014}. Por tanto, cada cluster genera una clase de equivalencia $[c_c], c=1\ldots C$ donde $C$ es el número de clusters
+\noindent Es fácil observar que los clusters definen la siguiente relación de equivalencia $\mathcal{R}$ en la que dos observaciones, $\mathbf{x}_i,\mathbf{x}_{i'}, i,i'=1, \ldots, N$ están relacionadas si pertenecen al mismo clúster \cite{Cuadras 2014}. Por tanto, cada \emph{cluster} genera una clase de equivalencia $[c_c], c=1\ldots C$ donde $C$ es el número de clusters
 
-\noindent El conjunto de clusters generan un clustering o partición es decir
+\noindent El conjunto de \emph{clusters} generan un \emph{clustering} o partición , es decir:
 \begin{defi}
 Se llama \textit{clustering} a la partición que provoca la relación $\mathcal{R}$ del espacio de observaciones. 
 \end{defi}
 
-\noindent Para llegar a dichas particiones podemos usar distintos tipos de algoritmos según el número de particiones que se generen a lo largo del proceso \cite{Jain 1988}
+\noindent Para llegar a dichas particiones podemos usar distintos tipos de algoritmos según el número de particiones distintas que se generen a lo largo del proceso \cite{Jain 1988}:
 \begin{itemize}
-\item \emph{Particional}, si el proceso únicamente genera una partición del espacio 
-\item \emph{Jerárquico}, si el proceso genera una secuencia anidada de particiones que dependiendo de cómo se desarrolle puede ser de los siguientes tipos:
+\item Particional Son aquellos procesos de \emph{clustering} en los que de manera previa se conocen el número de \emph{clusters} y por tanto, se genera una partición que se va modificando.
+\item Jerárquico, si el proceso genera una secuencia anidada de particiones que dependiendo de cómo se desarrolle puede ser de los siguientes tipos:
 \begin{itemize}
-\item \emph{Aglomerativo} si empieza con una partición con tantos clusters como y en cada paso se unen los que cumplan algún criterio 
-\item \emph{Divisivo} si se empieza con un único cluster el cual se van separando según alguna condición
+\item Aglomerativo Cuando se inicia con una partición que tiene $N$ \emph{clusters} con una observación en cada uno. Este tipo de algoritmos va tomando los \emph{clusters} y junta aquellos que más se parecen entre sí hasta llegar a un criterio de parada . 
+\item Divisivo Cuando empieza con un único \emph{cluster} que contiene a las $N$ observaciones. En cada paso se va dividiendo siguiendo algún criterio hasta llegar al criterio de parada. 
 \end{itemize}
 \end{itemize}
 

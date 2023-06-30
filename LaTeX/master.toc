@@ -19,7 +19,7 @@
 \contentsline {section}{\numberline {2.2}Análisis Factorial}{40}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Formalización}{41}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Obtención de la matriz de saturaciones}{43}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Unicidad del modelo}{44}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}Unicidad del modelo}{45}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Interpretación del modelo factorial}{45}{subsection.2.2.4}%
 \contentsline {section}{\numberline {2.3}Análisis de Clusters}{47}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Algoritmos Jerárquicos}{48}{subsection.2.3.1}%
