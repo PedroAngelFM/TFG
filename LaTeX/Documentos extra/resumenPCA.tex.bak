@@ -8,10 +8,7 @@
 
 \noindent Aún así, el trabajo de Hotelling tenia ciertas diferencias con el enfoque que actualmente se le da actualmente a las componentes principales \cite{Jollife 1986}. Por ejemplo, consideraba que las variables originales  debían ser combinaciones de las componentes y no al revés. Tampoco usaba la notación matricial ni la matriz de covarianzas, en su lugar utilizaba la de correlaciones. Añadir que aunque en esta memoria se trabajará con la matriz de covarianzas, Chatfield y Collins desarrollan ambos enfoques \cite{Chatfield 1989}. 
 
-\noindent Según Abdi \cite{Abdi 2010} esta técnica tiene varios objetivos, entre los cuales están el extraer la información más importante de los datos, reduciendo la dimensionalidad y simplificando la descripción en el proceso de los mismos. Y por último, analizar la estructura de los datos. 
-
-
-\noindent De esta manera, variables bastante correladas, se simplificarán en una que tenga toda la variabilidad de ambas  ya que a fin de cuentas la información que expresan estaría repetida \cite{Chatfield 1989, Everitt 2011}. 
+\noindent Según Abdi \cite{Abdi 2010} esta técnica tiene varios objetivos, entre los cuales están el extraer la información más importante de los datos, reduciendo la dimensionalidad y simplificando la descripción en el proceso de los mismos. Y por último, analizar la estructura de los datos.  De esta manera, variables bastante correladas, se simplificarán en una que tenga toda la variabilidad de ambas  ya que a fin de cuentas la información que expresan estaría repetida \cite{Chatfield 1989, Everitt 2011}. 
 
 \noindent Para empezar, se detallan cómo se calculan las componentes principales solo teniendo en cuenta las propiedades del vector aleatorio $\mathbf{x}$ de longitud $p$. Tras esto, se tomarán $N$ observaciones con las que poder construir estimadores de las componentes y se analizará como esta reducción de la dimensionalidad es la que permite una mejor reconstrucción de los datos mediante el teorema de Eckart-Young \cite{Eckart 1936}. 
 
@@ -51,12 +48,9 @@ Z_j=v_{1j}X_1+\ldots v_{pj}X_p=\mathbf{v}_j^T\mathbf{x}^T \quad j=1\ldots r
 \noindent Aplicando el método de los multiplicadores, la función objetivo se define como la varianza de la combinación lineal, es decir, $f(\mathbf{v})=\mathbf{v}^T \mathbf{\Sigma} \mathbf{v}$ y la restricción aplicada es $g(\textbf{v})=\textbf{v}^T\textbf{v}=1$. 
 
 \noindent Tomando $\mathbf{v}=\textbf{v}_1$ se puede establecer $L(\textbf{v}_1)=\textbf{v}_1^T \mathbf{\Sigma} \textbf{v}_1 - \lambda[\textbf{v}_1^T \textbf{v}_1-1]$. Que al derivarla se obtiene:
-
 \begin{align*}
-\dfrac{\partial L}{\partial \textbf{v}_1} &= 2\mathbf{\Sigma} \textbf{v}_1 - 2\lambda\textbf{v}_1\\
-& = 2(\mathbf{\Sigma}-\lambda\mathbf{I})\textbf{v}_1 
+\dfrac{\partial L}{\partial \textbf{v}_1} &= 2\mathbf{\Sigma} \textbf{v}_1 - 2\lambda\textbf{v}_1= 2(\mathbf{\Sigma}-\lambda\mathbf{I})\textbf{v}_1 
 \end{align*}
-
 \noindent Igualando a 0 tenemos la siguiente ecuación: 
 \begin{equation}
 \mathbf{\Sigma}\textbf{v}_1=\lambda \textbf{v}_1
@@ -77,10 +71,9 @@ Cov(Z_2,Z_1)&= Cov (\textbf{v}_2^T\mathbf{x}^T,\mathbf{v}_1^T\mathbf{x})\\
 &= \mathbb{E}(\mathbf{v}_2^T(\mathbf{x}^T-\mu^T)(\mathbf{x}^T-\mu^T)^T \mathbf{v}_1)\\
 &= \textbf{v}_2^T \mathbb{E}((\textbf{x}^T-\mu^T)(\mathbf{x}^T-\mu^T)^T) \textbf{v}_1\\
 &= \textbf{v}_2^T \mathbf{\Sigma} \textbf{v}_1 \\
-&= \textbf{v}_2^T \lambda_1 \textbf{v}_1
+&=\textbf{v}_2^T \lambda_1 \textbf{v}_1
 \end{align*}
-\noindent d
-onde $\mu$ es el vector de medias del vector aleatorio $\mathbf{x}$. 
+\noindent donde $\mu$ es el vector de medias del vector aleatorio $\mathbf{x}$. 
 
 \noindent De manera que, si $\mathbf{v}_2^T \lambda_1 \mathbf{v}_1 = 0 \Rightarrow \mathbf{v}_2^T \mathbf{v}_1=0 $, luego son vectores ortogonales entre sí. 
 \end{proof}
@@ -142,25 +135,25 @@ Dados los datos de $N$ observaciones recogidos sobre $p$ variables $X_1,\ldots, 
 \begin{equation}
 \overline{x}_{ij}=x_{ij}-\overline{x}_j \quad \forall i=1,\ldots,N,\forall j=1,\ldots,p
 \end{equation}
-donde $\overline{x}_j$ es la media muestral de la $j$-ésima variable. Esto hace que $\textbf{S}=\frac{1}{n}\textbf{X}^T\textbf{X}$ \cite{Peña 2002}. Esto permite hablar indistintamente de los vectores propios de $\mathbf{S}$ y $\mathbf{X}^T\mathbf{X}$ ya que estarán cambiados por un escalar.
+donde $\overline{x}_j$ es la media muestral de la $j$-ésima variable. Esto hace que $\textbf{S}=\frac{1}{N-1}\textbf{X}^T\textbf{X}$ \cite{Peña 2002}. Esto permite hablar indistintamente de los vectores propios y valores propios de $\mathbf{S}$ y $\mathbf{X}^T\mathbf{X}$. Ya que si se tiene un endomorfismo $T$, del cual se tiene un vector propio $\mathbf{v}$ de valor propio $\lambda$ y tomamos un escalar $\mu$. Entonces, el endomorfismo $\mu T$ cumple que $\mu T(\mathbf{v})=\mu \lambda \mathbf{v}$. Por tanto, los vectores propios son los mismos y los valores propios son proporcionales. 
 
-\subsection{ACP mediante SVD}
+\subsection{Componentes principales por la descomposición en valores singulares}
 \noindent El problema de la reconstrucción es demostrar que la matriz reducida, que se definirá más tarde, es la mejor aproximación de rango menor a la matriz de datos. Es decir, que los datos pueden representarse con una dimensionalidad menor con la mínima pérdida mediante la matriz reducida.
 
 \noindent Otra visión del problema es que se quiere buscar una proyección sobre un subespacio de dimensión $m<p$ que contenga la máxima variabilidad posible de los datos y que brinde una mayor capacidad de interpretación de los datos, ya que en el caso de que $m=2$ o $m=3$ se podrán hacer representaciones gráficas de manera sencilla. 
 Antes de desarrollar los cálculos debemos revisar las siguientes conceptos.
 
-\noindent Hay que recordar que toda matriz de tamaño arbitrario se puede descomponer en tres matrices en lo que se llama la descomposición en valores singulares \cite{Abdi 2010}.
+\noindent Hay que recordar que toda matriz de tamaño arbitrario se puede descomponer en tres matrices en lo que se llama la descomposición en valores singulares (\textit{SVD} en inglés) \cite{Abdi 2010}.
 
 \begin{defi}
-Dada una matriz $\textbf{X}\in  \mathbb{M}_{N\times p}(\mathbb{R})$ existe la descomposición en valores singulares \textit{(SVD)}:
+Dada una matriz $\textbf{X}\in  \mathbb{M}_{N\times p}(\mathbb{R})$ existe la descomposición en valores singulares :
 \begin{equation}
 \textbf{X}=\textbf{U}\mathbf{D}\textbf{V}^T
 \end{equation}
-Donde:
+Donde: 
 \begin{itemize}
-\item \textbf{U} matriz ortogonal y de tamaño $N \times N$
-\item $\mathbf{D}$ matriz de tamaño $N \times r$ diagonal, cuyos elementos no nulos son los valores singulares $\sigma_1\geq\ldots\geq \sigma_r\geq 0$, es decir
+\item \textbf{U} matriz ortogonal y de tamaño $N \times r$
+\item $\mathbf{D}$ matriz de tamaño $r \times r$ diagonal, cuyos elementos no nulos son los valores singulares $\sigma_1\geq\ldots\geq \sigma_r\geq 0$, es decir
 \begin{equation}
 \mathbf{D}=\begin{pmatrix}
 \sigma_1 & 0 & \cdots  & \cdots \\
@@ -186,12 +179,12 @@ Por la descomposición en valores singulares tenemos que:
 \end{align*}
 donde la matriz $\mathbf{D} ^T \mathbf{D} $ es una matriz diagonal de tamaño $r \times r$ cuyos elementos son los cuadrados de los valores singulares de \textbf{X}, que son a su vez los valores propios de $\textbf{X}^T \textbf{X}$. 
 
-\noindent Añadiendo la condición de ortogonalidad de $\textbf{V}\Rightarrow \textbf{V}^{-1}=\mathbf{V}^T$ es fácil ver que la matriz \textbf{V} es la matriz cuyas columnas son los $r$ vectores propios de $\textbf{X}^T\textbf{X}$ con los valores propios $\sigma_1,\ldots, \sigma_r$.
+\noindent Añadiendo la condición de ortogonalidad de $\textbf{V}\Rightarrow \textbf{V}^{-1}=\mathbf{V}^T$ es fácil ver que la matriz \textbf{V} es la matriz cuyas columnas son los $r$ vectores propios de $\textbf{X}^T\textbf{X}$ con los valores propios $\sigma_1,\ldots, \sigma_r$ respectivamente.
 \end{proof}
 \end{propo}
 
 \begin{propo}
-La matriz $\mathbf{U}^T$ es la matriz que contiene la base de diagonalización de la matriz $\mathbf{XX}^T$.  
+La matriz $\mathbf{U}^T$ es la matriz de tamaño $N\times r$ que contiene como columnas los $r$ vectores propios con valores propios no nulos de la matriz $\mathbf{XX}^T$
 \begin{proof}
 Se sigue un razonamiento análogo pero con la matriz $\mathbf{XX}^T$
 \begin{align*}
@@ -199,25 +192,24 @@ Se sigue un razonamiento análogo pero con la matriz $\mathbf{XX}^T$
 &= \mathbf{UDV}^T\mathbf{VD}^T\mathbf{U}^T\\
 &= \mathbf{UDD}^T\mathbf{U}^T
 \end{align*}
-Entonces, tenemos que como es ortonormal $\mathbf{U}^T=\mathbf{U}^{-1}$ de esta manera, se puede comprobar al ser $\mathbf{DD}^T$ una matriz diagonal $N\times N$ que efectivamente se cumple la proposición.\qedhere
+Entonces, tenemos que como es ortonormal $\mathbf{U}^T=\mathbf{U}^{-1}$ de esta manera, se puede comprobar al ser $\mathbf{DD}^T$ una matriz diagonal $r\times r$. Por tanto, la matriz $\mathbf{U}^T$ es la matriz de diagonalización de la matriz $\mathbf{XX}^T$
 \end{proof}
 \end{propo}
 
 \begin{coro}
-El cálculo de las componentes principales mediante la descomposición mediante valores y vectores propios de la matriz de covarianzas, $\mathbf{X}^T\mathbf{X}$ es equivalente a calcular la descomposición en valores singulares de la misma. 
+El cálculo de las componentes principales mediante la descomposición mediante valores y vectores propios de la matriz de covarianzas, $\mathbf{X}^T\mathbf{X}$ es equivalente a calcular la descomposición en valores singulares de la matriz de datos $\mathbf{X}$. 
 \end{coro}
-
 \noindent En el problema de reconstrucción de datos hay que dar una métrica en el espacio de las matrices, en particular se da la norma de Frobenius ya que cumple ciertas propiedades interesantes \cite{Golub 1987}.
 
 \begin{defi}
-Sea $\textbf{A}\in \mathbb{M}_{N\times p}(\mathbb{R})$ definimos la norma de Frobenius de la matriz \textbf{A} como :
+Sea $\textbf{A}\in \mathbb{M}_{N\times p}(\mathbb{R})$ definimos la norma de Frobenius de la matriz \textbf{A} como:
 \begin{equation}
 ||\textbf{A}||_F=(tr(\textbf{A}^T \textbf{A}))^{\frac{1}{2}}=\left(\sum_{i=1}^{N}\sum _{j=1}^{p}a_{ij}^2\right)^{\frac{1}{2}}
 \end{equation}
 \end{defi}
 
 \begin{propo}
-La norma de Frobenius es invariante a transformaciones ortogonales
+La norma de Frobenius es invariante a transformaciones ortogonales.
 \begin{proof}
 Sea $\mathbf{U}$ una matriz ortogonal, que cumple $\mathbf{U}^T \mathbf{U}=\mathbf{U} \mathbf{U}^T=\textbf{I}$ y  sea una matriz cualquiera $\mathbf{A}$, entonces:
 \begin{align*}
@@ -229,7 +221,7 @@ Sea $\mathbf{U}$ una matriz ortogonal, que cumple $\mathbf{U}^T \mathbf{U}=\math
 \end{proof}
 \end{propo}
 
-\noindent Además teniendo en cuenta la definición se puede obtener la siguiente propiedad.
+\noindent Además teniendo en cuenta la definición se puede obtener la siguiente propiedad \cite{Chatfield 1989}.
 
 \begin{propo}
 Dada una matriz de datos \textbf{X} de tamaño $N\times p$ entonces
@@ -238,7 +230,7 @@ Dada una matriz de datos \textbf{X} de tamaño $N\times p$ entonces
 \end{equation}
 Donde las $s_{jj}^2$ son las varianzas muestrales pertenecientes a cada una de las variables $X_1,\ldots,X_p$ observadas .
 \begin{proof}
-Debido a la centralidad impuesta a la matriz \textbf{X}, sabemos que la matriz de covarianzas es $\textbf{S}=\frac{1}{n-1}\textbf{X}^T \textbf{X}$ por tanto, se tiene que utilizar la definición de la norma:
+Debido a la centralidad impuesta a la matriz \textbf{X}, sabemos que la matriz de covarianzas es $\textbf{S}=\frac{1}{N-1}\textbf{X}^T \textbf{X}$ por tanto, se tiene que utilizar la definición de la norma:
 \begin{align*}
 ||\textbf{X}||_F^2 &= tr(\textbf{X}^T\textbf{X})\\
 &= (N-1) tr(\textbf{S})\\
@@ -250,7 +242,7 @@ Debido a la centralidad impuesta a la matriz \textbf{X}, sabemos que la matriz d
 \noindent Por tanto, la norma de Frobenius da una imagen del tamaño de la matriz de datos en función de la varianza total de los datos, lo que concuerda con la idea de buscar una matriz que aproxime la matriz de datos con la mínima pérdida de variación de los datos.  
 
 \begin{defi}
-Se llama matriz reducida de orden $m\leq p$ de $\textbf{X}$ y se denota como $\textbf{X}_m$, a la matriz $N\times m $ resultado de:
+Se llama matriz reducida de orden $m\leq r$ de $\textbf{X}$ y se denota como $\textbf{X}_m$, a la matriz $N\times m $ resultado de:
 \begin{equation}
 \textbf{X}_m=\textbf{U}_m\mathbf{D}_m\textbf{V}^T_m
 \end{equation}
@@ -258,6 +250,14 @@ Donde:
 \begin{itemize}
 \item $\textbf{U}_m$ matriz ortogonal de tamaño $N \times m$, resultado de tomar de \textbf{U} únicamente la matriz las $m$ primeras columnas. 
 \item $\mathbf{D}_m$  matriz cuadrada de tamaño $m$ diagonal con los $m$ primeros valores singulares. 
+\begin{equation}
+\mathbf{D}_m=\begin{pmatrix}
+\sigma_1 & 0 & \cdots  & \cdots \\
+0 & \sigma_2 & 0 & \cdots\\
+\vdots & \vdots & \vdots & \vdots\\
+\cdots & \cdots & 0 & \sigma_m
+\end{pmatrix}
+\end{equation}
 \item $\textbf{V}_m$ matriz ortogonal de tamaño $p \times m$ obtenida al tomar las $m$ primeras columnas de \textbf{V}.
 \end{itemize}
 Es decir, es la matriz de rango $m$ tras tomar las  $m$ primeras columnas y el resto hacerlas nulas o combinaciones lineales, en este caso.
@@ -274,19 +274,16 @@ Sea \textbf{A} una matriz de coeficientes reales de tamaño $N\times p$ y rango 
 
 \noindent Johnson desarrolla la demostración del teorema \cite{Johnson 1963}. 
 
-\noindent Por tanto, la matriz reducida brinda la mejor aproximación de la matriz de datos teniendo un criterio de aproximación basado en la variación de los datos. En consecuencia se puede 
-
 \noindent Por otro lado, se puede definir un criterio para elegir el orden de la matriz reducida $m$. Se puede entonces definir la variación acumulada de la siguiente manera \cite{Chatfield 1989}:
 \begin{equation}
 t_m=\dfrac{\sum_{j=1}^{m}\lambda_j} {\sum_{j=1}^{r}\lambda_j}
 \end{equation}
 \noindent donde los $\lambda_j$ son los valores propios de la matriz $\mathbf{S}$.
 
-\noindent Ahora el número de componentes $m$ a considerar se puede elegir de varias maneras, ya sea representando en un gráfico el número de componentes frente a la proporción de variabilidad explicada $t_j, j=1,\ldots, p$ \cite{Jollife 1986, Peña 2002}. O se puede establecer una cota de variabilidad explicada acumulada mínima que deben representar. Normalmente se consideran cotas de un $0.8$ o $0.9$ de la variabilidad. Sin embargo, estas condiciones suelen ser arbitrarias y elegidas en cada caso a criterio del investigador y del contexto. 
+\noindent Ahora el número de componentes $m$ a considerar se puede elegir de varias maneras, ya sea representando en un gráfico el número de componentes frente a la proporción de variabilidad explicada $t_j, j=1,\ldots, p$ \cite{Jollife 1986, Peña 2002}. O se puede establecer una cota de variabilidad explicada acumulada mínima que deben representar.  
 
-%\noindent Todos estas condiciones se suelen resumir en no considerar las componentes que no aporten a la representación. 
+\noindent Por tanto, la matriz reducida brinda la mejor aproximación de la matriz de datos teniendo un criterio de aproximación basado en la variación de los datos. En consecuencia se puede afirmar que la matriz reducida es la que mejor reconstrucción de los datos da.
 
-\noindent Los valores de la matriz de cargas se pueden interpretar como las contribuciones de cada una de las variables a explicar la mayoría de la variabilidad de los datos.
 
 
 

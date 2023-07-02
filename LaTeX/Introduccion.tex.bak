@@ -1,18 +1,18 @@
 \chapter*{Introducción}
 \pagenumbering{arabic}
-\noindent El Análisis Multivariante es, según \textit{Martínez Arias, R.}\cite{Rosario 1999}, el conjunto de técnicas y métodos que busca describir y extraer información de las relaciones entre variables medidas en una o varias muestras u observaciones. Dentro de esta definición, entran todos los procedimientos que analizan de manera simultánea más de una variable. 
+\noindent El análisis multivariante es, según Martínez, el conjunto de técnicas y métodos que busca describir y extraer información de las relaciones entre variables medidas en una o varias muestras u observaciones \cite{Rosario 1999}. Dentro de esta definición, entran todos los procedimientos que analizan de manera simultánea más de una variable. 
 
-\noindent La clasificación que se dará en esta memoria de los métodos multivariantes será la siguiente 
+\noindent La clasificación que se dará en esta memoria de los métodos multivariantes será la siguiente:
 \begin{itemize}
 \item Métodos supervisados: Son aquellos que exploran la relación estocástica entre varias variables, divididas en variables respuesta y variables predictoras. Estas técnicas a su vez se pueden dividir según la naturaleza de las variables respuesta \cite{James 2013}:
 \begin{itemize}
-\item Regresión:  Cuando las variables de respuesta son continuas, Dentro de esta tipología, entran métodos como las  Redes Neuronales\cite{Mamidi 2021}, los Árboles  de Regresión \cite{Nerini 2007} etc...
-\item Clasificación: Cuando las variables de respuesta son cualitativas o categóricas, como por ejemplo, el análisis discriminante \cite{Diez 2002}, Regresión logística \cite{Ensum 2005}.
+\item Regresión:  Cuando las variables de respuesta son continuas. Dentro de esta tipología, entran métodos como las  redes neuronales \cite{Mamidi 2021} o los árboles  de regresión \cite{Nerini 2007}. 
+\item Clasificación: Cuando las variables de respuesta son cualitativas o categóricas, como por ejemplo, el análisis discriminante \cite{Diez 2002} o la   regresión logística \cite{Ensum 2005}.
 \end{itemize}
-\item Métodos no supervisados:  Los métodos no supervisados son aquellos que buscan analizar la estructura y las relaciones entre las distintas variables \cite{Hastie 2001}. Las distintas técnicas se distinguen según la medida en la que se centren, por ejemplo la variabilidad común \cite{Pages 2005}, la homogeneidad de grupos \cite{Okazaki 2006} etc...
+\item Métodos no supervisados:  Los métodos no supervisados son aquellos que buscan analizar la estructura y las relaciones entre las distintas variables \cite{Hastie 2001}. Las distintas técnicas se distinguen según la medida en la que se centren, por ejemplo, la variabilidad común \cite{Pages 2005}, la homogeneidad de grupos \cite{Okazaki 2006} etc...
 \end{itemize}
 
-\noindent Estas técnicas han visto un auge en los últimos años, debido a su utilidad en el análisis de grandes bases de datos y la creciente capacidad de recogida de datos que se tiene en la actualidad. Basta con ver que la mayoría de artículos recopilados en los que se aplican estas técnicas se han publicado en las dos primeras décadas del siglo XXI \cite{Diaz 2006, Galindo 2015,Diez 2002, Echeverri 2015}. Además, el llevar a buen término el estudio anteriormente era complejo debido a la gran cantidad de cálculos que se necesitaban realizar. Actualmente esos cálculos son automatizados. En algunos casos, implementados para que el usuario sólo tenga que usar una línea de código.
+\noindent Estas técnicas han visto un auge en los últimos años, debido a su utilidad en el análisis de grandes bases de datos y la creciente capacidad de recogida de datos que se tiene en la actualidad. Basta con ver que la mayoría de artículos recopilados en los que se aplican estas técnicas se han publicado en las dos primeras décadas del siglo XXI \cite{Diaz 2006, Galindo 2015,Diez 2002, Echeverri 2015}. Además, el llevar a buen término el estudio anteriormente era complejo, debido a la gran cantidad de cálculos que se necesitaban realizar. Actualmente esos cálculos son automatizados. En algunos casos, implementados para que el usuario sólo tenga que usar una línea de código.
 
 \noindent Muchas veces, el uso de estas técnicas se combinan con el aprendizaje automático como proponen Hastie, Tibshirani y Friedman \cite{Hastie 2001} o  James , Witten, Hastie, y  Tibshirani \cite{James 2013}. De esta manera, los parámetros se estiman extrayendo la información de los propios datos, comparando distintos modelos etc... Utilizando esta aproximación se pueden crear modelos predictivos bastante precisos. Este aspecto no se desarrollará en profundidad aunque si se mencionará en ciertos métodos en los que sea importante. 
 

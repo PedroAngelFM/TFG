@@ -1,6 +1,6 @@
-\noindent Esta parte del trabajo tratarán los métodos supervisados \cite{Mahesh 2020}. 
+\noindent En esta parte del trabajo se realizará una descripción de los métodos supervisados \cite{Mahesh 2020}. 
 \begin{defi}
-Se llaman métodos supervisados  a aquellos métodos que buscan inferir una relación estocástica entre dos grupos de variables, predictoras y respuesta en un conjunto de datos contiene observaciones simultaneas de ambos conjuntos de datos. 
+Se llaman métodos supervisados  a aquellos métodos que buscan inferir una relación estocástica entre dos grupos de variables, predictoras y respuestas en un conjunto de datos que contiene observaciones simultáneas de ambos conjuntos de datos. 
 \end{defi}
 \noindent Sea un conjunto de variables aleatorias observables de manera simultánea en una población. Estas variables se pueden dividir en dos tipos \cite{Hastie 2001}:
 \begin{itemize}
@@ -15,20 +15,20 @@ Se llaman métodos supervisados  a aquellos métodos que buscan inferir una rela
 Se llama muestra a un subconjunto de la población. Para que nuestro estudio sea correcto, esta debe ser representativa.
 \end{defi}
 
-\noindent Nosotros de manera habitual trabajaremos con muestras aleatorias. De manera que podamos hacer inferencias sobre las estructuras de medidas de la población. 
+\noindent De manera habitual se trabajará con muestras aleatorias.  De esta forma se podrán hacer inferencias sobre las estructuras de medidas de la población. 
 
 \begin{defi}
 Se llama \emph{muestra aleatoria} de una variable aleatoria con una cierta distribución de probabilidad $F$, a un conjunto de $N$ variables aleatorias con la misma distribución. 
 \end{defi} 
 
-\noindent En nuestro caso, supongamos que se obtienen una muestra representativa con $N$ observaciones de las $K+p$ variables. Entonces se pueden definir los siguientes conceptos:
+\noindent Sea una muestra representativa con $N$ observaciones de las $K+p$ variables. Entonces, se pueden definir los siguientes conceptos \cite{Chatfield 1989}:
 
 \begin{defi}
-Se define matriz de datos $\textbf{X}$ como la matriz de tamaño $N\times p$ que contiene como filas los vectores de longitud $p$ que representan los datos de cada observación. Estas se denotarán a lo largo de la memoria como $\textbf{x}_i, i=1\ldots N$. Por ejemplo, en el caso de que se recojan datos sobre distintos modelos de coches las observaciones serían los valores medidas de las distintas variables consideradas en cada uno de los coches. 
+Se define matriz de datos $\textbf{X}$ como la matriz de tamaño $N\times p$ que contiene como filas los vectores de longitud $p$ que representan los datos de cada observación. Estas se denotarán a lo largo de la memoria como $\textbf{x}_i,$ donde $i=1,\ldots, N$. Por ejemplo, en el caso de que se recojan datos sobre distintos modelos de coches las observaciones serían los valores medidos de las distintas variables consideradas en cada uno de los coches. 
 \end{defi}
 
 \begin{defi}
-la matriz de respuestas $\textbf{Y}$ es una matriz de tamaño $N \times K$, donde cada observación de las variables respuesta es una fila. En este trabajo cada observación del vector respuesta se denota como $\mathbf{y}_i, i=1,\ldots, K$, en el caso de que $K>1$ y como $y_i$ cuando $K=1$. Siguiendo el ejemplo anterior, se podrían tener variables respuesta como el tipo de etiqueta medioambiental siendo esta una variable categórica o el precio del vehículo que tiene naturaleza continua.
+La matriz de respuestas $\textbf{Y}$ es una matriz de tamaño $N \times K$, donde cada observación de las variables respuesta es una fila. En este trabajo cada observación del vector respuesta se denota como $\mathbf{y}_i$ donde $i=1,\ldots, N$, en el caso de que $K>1$ y como $y_i$ cuando $K=1$. Siguiendo el ejemplo anterior, se podrían tener variables respuesta como el tipo de etiqueta medioambiental siendo esta una variable categórica o el precio del vehículo que tiene naturaleza continua.
 \end{defi}
 
 \noindent Por ende, se recogen observaciones simultáneas de las variables de entrada y de salida formando parejas $(\mathbf{y}_i,\textbf{x}_i), i=1\ldots N$, de manera que se obtiene un vector fila de tamaño $p+K$. Estas observaciones de las variables forman una muestra aleatoria de la población .

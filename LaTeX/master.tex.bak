@@ -103,6 +103,8 @@
 	
 	\input{Aplicaciones.tex}
 	
+	\input{Conclusiones.tex}
+	
 	\input{Documentos Extra/biblio.tex}
 
 
