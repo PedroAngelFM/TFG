@@ -14,20 +14,20 @@
 \contentsline {subsection}{\numberline {1.4.3}Árboles de clasificación}{27}{subsection.1.4.3}%
 \contentsline {subsection}{\numberline {1.4.4}Sesgo y varianza de un modelo}{29}{subsection.1.4.4}%
 \contentsline {subsection}{\numberline {1.4.5}Algoritmo Random Forest}{31}{subsection.1.4.5}%
-\contentsline {chapter}{\numberline {2}Métodos no supervisados}{33}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Análisis de componentes principales}{34}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Definición y cálculo de las componentes principales}{35}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Componentes principales por la descomposición en valores singulares}{38}{subsection.2.1.2}%
-\contentsline {section}{\numberline {2.2}Análisis Factorial}{42}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Formalización}{43}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Obtención de la matriz de saturaciones}{45}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Unicidad del modelo}{46}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Interpretación del modelo factorial}{47}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}Análisis de cluster}{48}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Algoritmos jerárquicos}{49}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Algoritmos particionales}{50}{subsection.2.3.2}%
-\contentsline {chapter}{\numberline {3}Aplicación sobre datos}{52}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Cemento, análisis estructural y capacidades predictivas.}{52}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Conclusiones}{56}{chapter.4}%
-\contentsline {chapter}{Bibliografía}{57}{chapter*.16}%
+\contentsline {chapter}{\numberline {2}Métodos no supervisados}{32}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Análisis de componentes principales}{33}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Definición y cálculo de las componentes principales}{34}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Componentes principales por la descomposición en valores singulares}{37}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Análisis Factorial}{41}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Formalización}{42}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Obtención de la matriz de saturaciones}{44}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Unicidad del modelo}{45}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Interpretación del modelo factorial}{46}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Análisis de cluster}{47}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Algoritmos jerárquicos}{48}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Algoritmos particionales}{49}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Aplicación sobre datos}{51}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Cemento, análisis estructural y capacidades predictivas.}{51}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Conclusiones}{55}{chapter.4}%
+\contentsline {chapter}{Bibliografía}{56}{chapter*.16}%
 \contentsfinish 

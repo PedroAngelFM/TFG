@@ -5,7 +5,7 @@
 
 \noindent Los árboles de decisión son métodos divisivos que dividen el espacio de observaciones $\mathbb{R}^p$ en varias regiones. En cada región, se ajusta un modelo más simple.
 
-\noindent La ventaja de este tipo de métodos es que son fácilmente interpretables, ya que pueden ser representados mediante un diagrama de tipo árbol. De esta manera, entre los principales objetivos de los árboles de decisión, se encuentran la selección y evaluación de la importancia de las variables\cite{Brown 2004,Song 2015}. Además de que puede tener fines predictivos o incluso de manejo de los datos, valores perdidos etc...\cite{Nerini 2007}.
+\noindent La ventaja de este tipo de métodos es que son fácilmente interpretables, ya que pueden ser representados mediante un diagrama de tipo árbol. De esta manera, entre los principales objetivos de los árboles de decisión, se encuentran la selección y evaluación de la importancia de las variables \cite{Brown 2004,Song 2015}. Además de que puede tener fines predictivos o incluso de manejo de los datos, valores perdidos etc...\cite{Nerini 2007}.
 
 \noindent Otra ventaja de este tipo de métodos es que permite trabajar con conjuntos de datos en los que se estudian un mayor número de variables que de observaciones, es decir, $p > N$ \cite{Diaz 2006}. 
 
@@ -18,7 +18,7 @@
 \begin{defi}
 Un árbol de decisión es un conjunto de reglas discriminantes que fraccionan el espacio de observaciones de acuerdo a un cierto criterio. Este conjunto genera un grafo de tipo árbol con un único nodo raíz  y donde los nodos hoja representan cada una de las regiones en las que se ha fraccionado el espacio. 
 \end{defi}
-\noindent Como se ha dicho un árbol de decisión genera particiones del espacio de observaciones que se definen de la siguiente manera \cite{Hastie 2001}.
+\noindent Como se ha dicho un árbol de decisión genera particiones del espacio de observaciones que se definen de la siguiente manera \cite{Brown 2004}.
 \begin{defi}
 Se llama separación, partición o división de índice $(j,s)$ a la fragmentación del espacio inicial dado en las siguientes regiones $R_1,R_2$:
 \begin{equation}
@@ -242,66 +242,66 @@ Por tanto, un valor cercano a 1  aporta un gran cambio y un valor cercano a 0 es
    
 \subsection{Sesgo y varianza de un modelo}
 
-\noindent Un aspecto en el que no se ha indagado en el trabajo por ahora es en la capacidad predictiva de los modelos. Es decir, la capacidad de obtener, dadas nuevas observaciones $\mathbf{x}_0$ de las variables predictoras, el valor que tendría la variable respuesta $Y$. La razón de que se detalle ahora es que los árboles son modelos que tienden al sobreajuste y algunos autores como Breiman o Divakaran proponen mecanismos para evitar dicha situación e incluso proponen utilizar técnicas alternativas basadas en los árboles de decisión como los  bosques aleatorios \cite{Breiman 1984, Breiman 2001,Divakaran 2022}. 
+\noindent Un aspecto en el que no se ha indagado en el trabajo por ahora es en la capacidad predictiva de los modelos. Es decir, la capacidad de obtener, dada una nueva observación $\mathbf{x}_0$ de las variables predictoras, el valor que tendría la variable respuesta $Y$. La razón de que se detalle ahora es que los árboles son modelos que tienden al sobreajuste y algunos autores como Breiman o Divakaran proponen mecanismos para evitar dicha situación e incluso proponen utilizar técnicas alternativas basadas en los árboles de decisión como los  bosques aleatorios que están basados en técnicas más avazandas \cite{Breiman 1984, Breiman 2001,Divakaran 2022, Hartigan 1975}. 
 
-\noindent Supóngase variable respuesta sigue un modelo del tipo $Y=f(\mathbf{x})+\varepsilon$, en el que la variable aleatoria $\varepsilon\sim N(0,\sigma^2)$ y la variable respuesta $Y\sim N(f(\mathbf{x}),\sigma^2)$ conociendo el vector de variables predictoras. En particular en un árbol de regresión $•$
 
-\noindent Consideremos que se toma una muestra con  $N$ observaciones, obteniéndose una matriz de datos $\mathbf{X}$, la matriz de respuesta $\mathbf{Y}$ y que se ajusta el modelo y sus parámetros conocidas conociendo estas $N$ observaciones. Entonces, para una nueva observación de las variables predictoras $\mathbf{x}_0$, se puede definir el siguiente concepto \cite{Hastie 2001, Lawless 2010}.
+\noindent Sea una muestra con  $N$ observaciones, obteniéndose una matriz de datos $\mathbf{X}$, la matriz de respuesta $\mathbf{Y}$ y que se halla un estimador del predictor, $\hat{f}(\mathbf{x})$, conociendo estas $N$ observaciones. Entonces, para una nueva observación de las variables predictoras $\mathbf{x}_0$, se puede definir el siguiente concepto \cite{Hastie 2001, Lawless 2010}.
 
 \begin{defi}
 Se llama \emph{error de predicción esperado} de la observación $\mathbf{x}_0$ a la siguiente expresión:
 \begin{equation}
-EPE(\mathbf{x}_0)=\mathbb{E}((Y-\hat{Y})^2|\mathbf{x}=\mathbf{x}_0)=\mathbb{E}((Y-\hat{f}(\mathbf{x}_0))^2)
+EPE(\mathbf{x}_0)=\mathbb{E}((Y-\hat{f}(\mathbf{x}_0))^2)
 \end{equation}
 \end{defi}
 \noindent De esta manera, se tiene una forma de medir el rendimiento predictivo de un modelo. En aplicaciones de aprendizaje automático, donde el principal el objetivo es la predicción, dividimos los datos en conjuntos de entrenamiento y validación. Después de ajustar el modelo, evaluamos qué tan bien puede predecir utilizando una muestra separada de los datos de entrenamiento. Esto nos ayuda a estimar el error esperado en las predicciones.
 
-\noindent Además, este error de predicción se puede descomponer de manera sencilla 
+\noindent Además, este error de predicción se puede descomponer como sigue \cite{Hastie 2001}: 
 \begin{propo}
-El error de predicción esperado se puede dividir en un termino irreducible, el sesgo del modelo y la varianza \cite{Hastie 2001}:
+El error de predicción esperado se puede dividir en un termino irreducible, el sesgo del modelo y la varianza:
 \begin{equation}
 EPE(\mathbf{x}_0)=\sigma_{\varepsilon}^2+Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat{f}(\mathbf{x}_0))
 \end{equation}
-\noindent Donde el $Sesgo(\hat{f}(\mathbf{x}_0))=\mathbb{E}(f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0))$.
+\noindent donde el $Sesgo(\hat{f}(\mathbf{x}_0))=\mathbb{E}(\hat{f}(\mathbf{x}_0))-f(\mathbf{x}_0)$.
 \begin{proof}
+Al asumir que $Y=f(\mathbf{x})$ se tiene que 
 \begin{align*}
 \mathbb{E}((Y-\hat{f}(\mathbf{x}_0))^2)&=\mathbb{E}((Y-f(\mathbf{x}_0)+f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0))^2)=\\
-&=\mathbb{E}(\varepsilon^2)-2\mathbb{E}(\varepsilon\cdot(f(\mathbf{x}_0)-\hat{f}(\mathbf{x})_0))+\mathbb{E}((f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0)^2)\\
-&=\sigma^2+\mathbb{E}((f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0))^2)
-\intertext{El segundo término es el error cuadrático medio de un estimador, luego se obtiene que:}
-\mathbb{E}((Y&-\hat{f}(\mathbf{x}_0))^2)=\sigma^2+Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat{f}(\mathbf{x}_0))
+&=\mathbb{E}(f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0))^2
+\intertext{Que es el error cuadrático medio de un estimador, luego se obtiene que:}
+\mathbb{E}((Y-\hat{f}(\mathbf{x}_0))^2)&=Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat{f}(\mathbf{x}_0))
 \end{align*}
 \end{proof}
 \end{propo}
 
-\noindent Estos dos parámetros están íntimamente relacionados con la complejidad del modelo, ya que cuanto más complejo sea el modelo, el sesgo se reduce de manera importante. Esto es debido a que los puntos del conjunto de entrenamiento están bastante cerca de las funciones aproximadas, en cambio la varianza se dispara, lo que implica que a la hora de hacer predicciones estas no sean lo mejor posible \cite{Neural Designer}. 
+\noindent Estos dos parámetros están íntimamente relacionados con la complejidad del modelo, ya que cuanto más complejo sea el modelo, el sesgo se reduce de manera importante. Esto es debido a que los puntos del conjunto de entrenamiento están bastante cerca de las funciones aproximadas. En cambio, la varianza aumenta, lo que implica que a la hora de hacer predicciones estas no sean lo mejor posible \cite{Neural Designer}. 
 
-\noindent Esto se puede observar en el siguiente gráfico que incluyen \emph{Hastie et.al.}  de manera que se puede ver a mismo número de observaciones que pasa si aumentamos las variables observadas \cite{Hastie 2001}. La línea roja representa lo que ocurre con el error de predicción en observaciones fuera del conjunto de ajuste y la azul representa dentro del conjunto de ajuste. 
+\noindent Esto se puede observar en la siguiente imagen \ref{fig:Balance-sesgo-varianza} que incluyen Hastie et.al. de manera que se puede ver a mismo número de observaciones que pasa si aumentamos las variables observadas \cite{Hastie 2001}. 
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.3]{Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png}
+\caption{Balance Sesgo Varianza}
+\label{fig:Balance-sesgo-varianza}
 \end{figure}
  
-\noindent En la figura se puede observar lo qué ocurre en el caso de que un modelo esté en una situación de infraajuste en la parte izquierda, no se ajusta el modelo ni para muestras dentro de los datos ni en el caso que cojamos una que no esté en los datos. En el caso contrario tenemos la parte derecha donde el modelo se ajusta demasiado a los datos recogidos y no tiene capacidad predictiva. Esto puede ocurrir por lo siguiente; que la complejidad del modelo en relación con la cantidad de muestras sea demasiada alta. 
+\noindent En la figura se muestra lo que sucede cuando un modelo está en una situación de infraajuste (izquierda) o sobreajuste (derecha). En el caso de infraajuste, el modelo no se ajusta adecuadamente a los datos, ya sea para muestras dentro del conjunto de datos o para nuevas muestras que no están en los datos. Por otro lado, en el caso de sobreajuste, el modelo se ajusta demasiado a los datos recopilados y pierde capacidad predictiva para nuevos datos. Esto puede ocurrir cuando la complejidad del modelo es demasiado alta en comparación con la cantidad de muestras disponibles. 
 
-\noindent Como hemos dicho antes el crecimiento de los árboles tanto de regresión como de clasificación busca sobreajustarse. En la siguiente parte veremos como hay distintos algoritmos que buscan evitar dicho sobreajuste. 
+\noindent Como hemos dicho antes, el crecimiento de los árboles tanto de regresión como de clasificación tiende a  sobreajustarse. En la siguiente parte veremos como hay distintos algoritmos que buscan evitar dicho sobreajuste. 
 
 
 \subsection{Algoritmo Random Forest}
 
 \noindent El término bosque aleatorio se puede referir a dos conceptos distintos, uno el hecho de utilizar varios árboles sin importar como se obtienen y luego utilizar la media de los resultados o el voto por mayoría dependiendo del tipo de variable respuesta sea discreta o continua. 
 
-\noindent El término \emph{random forest} se refiere al algoritmo de \emph{Breiman, L.} \cite{Breiman 2001}. Este tipo de algoritmo si hace hincapié en el  método con el se construyen los árboles. 
+\noindent El término \emph{random forest} se refiere al algoritmo de Breiman  \cite{Breiman 2001}. Este tipo de algoritmo si hace hincapié en el  método con el se construyen los árboles. También da las bases de por qué utiliza este tipo de algoritmos en \cite{Breiman 1996}.
 
-\noindent El proceso de construcción y de utilización de los \emph{random forest} lo detallan \emph{Biau, G. , Scornet, E. y Breiman, L.}\cite{Biau 2016,Breiman 2004} :
+\noindent El proceso de construcción y de utilización de los \emph{random forest} lo detallan Biau,  Scornet, y Breiman \cite{Biau 2016,Breiman 2004a} :
 \begin{itemize}
-\item En cada árbol se utiliza una muestra aleatoria sin reemplazamiento del conjunto de datos iniciales. La razón es buscar una muestra \emph{bootstrap} de los datos iniciales \emph{(Véase \cite{Hesterberg 2011} para más detalles de la técnica.)}
-\item Se establece un número $j_{try}$ por el usuario. Para cada partición a realizar se escogen de manera aleatoria $j_{try}$ variables y se elige la que más se ajusta al criterio dado. Y se hace crecer el árbol todo lo necesario o hasta un criterio dado por el usuario. 
+\item En cada árbol se utiliza una muestra aleatoria sin reemplazamiento del conjunto de datos iniciales. La razón es buscar una muestra \emph{bootstrap} de los datos iniciales (Véase \cite{Hesterberg 2011} para más detalles de la técnica.)
+\item Se establece un número $j_{try}$ por el usuario. Para cada partición a realizar se escogen de manera aleatoria $j_{try}$ variables y se elige la que más se ajusta al criterio dado. Y se hace crecer el árbol hasta que en cada nodo hoja tiene únicamente una sola observación o hasta un criterio dado por el usuario. 
  
-\item Una vez se tienen crecidos los árboles, se toma como predicción de una nueva observación la media de las predicciones de los datos en el caso de que la variable respuesta sea continua. En el caso de que sea una variable discreta, se toma el voto por mayoría, es decir se toma el valor que más veces haya salido en todos los árboles. 
+\item Una vez se obtienen los distintos árboles del tamaño adecuado, se toma como predicción de una nueva observación la media de las predicciones de los datos en el caso de que la variable respuesta sea continua. En el caso contrario, se toma el voto por mayoría, es decir se toma la categoría o clase que mayor frecuencia tenga en todos los árboles. 
 \end{itemize}
 
-\noindent \emph{Breiman, L.} \cite {Breiman 2004} detalla las propiedades básicas de un random forest. Entre estas propiedades se encuentran el sesgo, la varianza y sus acotaciones. Además \emph{Biau G. y Scornet, E. }\cite{Biau 2016} destacan que no es habitual ver un estudio profundo de estos métodos debido 
+\noindent Breiman detalla las propiedades básicas de un \emph{random forest}  \cite {Breiman 2004a}. Entre estas propiedades se encuentran el sesgo, la varianza y sus acotaciones. Además Biau  y Scornet desarrollan de manera detallada las distintas propiedades de un tipo específico de \emph{random forests} \cite{Biau 2016}.
 
-\noindent \emph{Breiman, L.} \cite{Breiman 1996} llama a este tipo de métodos los métodos de \emph{bagging}. Este tipo de métodos lo que busca es reducir la varianza de métodos con sobreajuste utilizando la media y el teorema central del límite de manera que el predictor final es media de los predictores, lo que consigue reducir la varianza de manera importante. Además detalla que en los casos en los que los predictores no tengan esa varianza alta en comparación con el sesgo, el método de \emph{bagging} no tiene un gran impacto e incluso puede resultar perjudicial debido al incremento de coste computacional que se puede dar
