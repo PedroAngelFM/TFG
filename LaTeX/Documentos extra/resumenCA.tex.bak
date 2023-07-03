@@ -105,13 +105,13 @@ Se llama \emph{centroide} de un cluster $C_k,\quad k=1,\ldots,K$ al vector de ta
 \noindent El algoritmo de $K$-medias es el más importante de este tipo \cite{Johnson 2007}. Se desarrolla de la siguiente manera  :
 \begin{enumerate}
 \item Se asigna a cada una de las observaciones en cada uno de los $C$ \emph{clusters}. Se calculan los centroides de dichos \emph{clusters}.
-\item Se comprueba la distancia euclidea de cada una de las observaciones a los centroides de los \emph{clusters} y se reasignan las observaciones de acuerdo al \emph{cluster} más cercano. Tras esto se recalculan los centroides.
+\item Se comprueba la distancia euclidiana de cada una de las observaciones a los centroides de los \emph{clusters} y se reasignan las observaciones de acuerdo al \emph{cluster} más cercano. Tras esto se recalculan los centroides.
 \item Se repiten los dos pasos anteriores hasta que las asignaciones no cambien. 
 \end{enumerate}
 
 \noindent Resaltar que este algoritmo tiene un problema y es que los resultados finales 
 
-\noindent Hay otras alternativas que utilizan criterios de variabilidad intra grupos o entre grupos para realizar las asignaciones óptimas fijados el número de clusters, para ello léase \cite{Everitt 2011, Peña 2002, Hartigan 1975}
+\noindent Hay otras alternativas que utilizan criterios de variabilidad intra grupos o entre grupos para realizar las asignaciones óptimas fijados el número de clusters, para profundizar en dicho enfoque, léase \cite{Everitt 2011, Peña 2002, Hartigan 1975}
 
 
 

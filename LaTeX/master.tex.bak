@@ -21,6 +21,7 @@
 \usepackage{titletoc}
 \usepackage{multirow}
 \usepackage{subfig}
+\usepackage{textcomp}
 \renewcommand{\baselinestretch}{1}
 \clubpenalty=10000
 \widowpenalty=10000

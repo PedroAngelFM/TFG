@@ -4,169 +4,174 @@
 	
 	\addcontentsline{toc}{chapter}{Bibliografía}
 
-\bibitem{Abdi 2007}\textbf{Abdi, H. (2007).} The method of least squares. \emph{Encyclopedia of measurement and statistics}, 1, 530-532.
+\bibitem{Abdi 2007} \textsc{Abdi, H.,} \emph{The method of least squares.} Encyclopedia of measurement and statistics, 1, 530-532, 2007.
 
 
-\bibitem{Abdi 2010} \textbf{Abdi, H., and Williams, L. J. (2010).} Principal component analysis. \emph{Wiley Interdisciplinary Reviews: Computational Statistics}  2(4), 433–459. 
+\bibitem{Abdi 2010} \textsc{Abdi, H., Williams, L. J.: } Principal component analysis. \emph{Wiley Interdisciplinary Reviews: Computational Statistics}  2(4), 433–459, 2010.
 
 
-\bibitem{Galindo 2015}\textbf{Andrade-Sánchez, A. I., Galindo-Villardón, M. P., y Cuevas Romo, J. (2015).} Análisis multivariante del perfil psicológico de los deportistas universitarios: Aplicación del CPRD en México. \emph{Educación Física y Ciencia}, 17(2), 00-00.
+\bibitem{Galindo 2015}\textsc{Andrade-Sánchez, A. I., Galindo-Villardón, M. P., y Cuevas Romo, J. } \emph{Análisis multivariante del perfil psicológico de los deportistas universitarios: Aplicación del CPRD en México}. Educación Física y Ciencia, 17(2), 2015.  Recuperado de \url{http://www.efyc.fahce.unlp.edu.ar/article/view/EFyCv17n02a02/}
 
 %\bibitem{Batista, 1989}
 %\textbf{Batista Foguet, J.M. y Martínez Arias, R. (1989)}\textit{Análisis Multivariante: Análisis en Componentes Principales. } Editorial Hispano Europea.
 
-\bibitem{Biau 2016}\textbf{Biau, G., and Scornet, E. (2016)}. \textit{A random forest guided tour}. Test, 25, 197-227.
+\bibitem{Biau 2016}\textsc{Biau, G.; Scornet, E}., \textit{A random forest guided tour}. Test, 25, 197-227, 2016.
 
-\bibitem{Breiman 1984}\textbf{Breiman, L. (1984).} \emph{Classification and regression trees. }Chapman \& Hall.
+\bibitem{Breiman 1984}\textsc{Breiman, L., Friedman, J., Stone, C. J., Olshen, R. A.} \emph{Classification and regression trees. }Chapman \& Hall, New York, London, 1984.
 
-\bibitem{Breiman 1996}\textbf{Breiman, L. (1996).} Bagging predictors. \emph{Machine learning}, 24, 123-140.
+\bibitem{Breiman 1996}\textsc{Breiman, L. } \emph{Bagging predictors.} Machine learning, 24, 123-140, 1996.
 
-\bibitem{Breiman 2001}\textbf{Breiman, L. (2001).} Random forests. \emph{Machine learning}, 45, 5-32.
+\bibitem{Breiman 2001}\textsc{Breiman, L. } \emph{Random forests}. Machine learning, 45, 5-32, 2001.
 
-\bibitem{Breiman 2004}\textbf{Breiman, L. (2004).} Consistency for a simple model of random forests. \emph{University of California at Berkeley. Technical Report,} 670.
+\bibitem{Breiman 2004a}\textsc{Breiman, L. } \emph{Consistency for a simple model of random forests}. University of California at Berkeley. Technical Report, 670, 2004.
 
-\bibitem{Brown 2004} \textbf{Brown, S. D.,  Myles, A. J., Feudale, R. N., Liu, Y., and Woody, N. A.,  (2004).} An introduction to decision tree modeling. \emph{Journal of Chemometrics: A Journal of the Chemometrics Society}, 18(6), 275-285.
+\bibitem{Brown 2004} \textsc{Brown, S. D.,  Myles, A. J., Feudale, R. N., Liu, Y., and Woody, N. A.,} \emph{An introduction to decision tree modeling}. Journal of Chemometrics: A Journal of the Chemometrics Society, 18(6), 275-285, 2004.
 
-\bibitem{Chatfield 1989} \textbf{Chatfield, C. and Collins A.J (1989)}. {\em Introduction to multivariate analysis}, Chapman and Hall.
+\bibitem{Chatfield 1989} \textsc{Chatfield, C. and Collins A.J}. {\em Introduction to multivariate analysis}, Chapman and Hall, London, 1989.
 
-\bibitem{Cuadras 2014} \textbf{Cuadras, C.M. (2014)}, \textit{Nuevos métodos de Análisis Multivariante}, CMC Editions, Barcelona. 
+\bibitem{Cuadras 2014} \textsc{Cuadras, C.M. }, \textit{Nuevos métodos de Análisis Multivariante}, CMC Editions, Barcelona, 
+2014.
 
-\bibitem{Diaz 2006}\textbf{Díaz-Uriarte, R., and Alvarez de Andrés, S. (2006).} Gene selection and classification of microarray data using random forest. \emph{BMC bioinformatics,} 7, 1-13.
+\bibitem{Diaz 2006}\textsc{Díaz-Uriarte, R., Alvarez de Andrés, S. }\emph{ Gene selection and classification of microarray data using random forest.} BMC bioinformatics, 7, 1-13, 2006.
 
-\bibitem{Diez 2002}\textbf{Diez, J. P., Hernandis, S. P., y Rouma, A. C. (2002).} El consumo de inhalables y cannabis en la preadolescencia: Análisis multivariado de factores predisponentes. \emph{Anales de Psicología/Annals of Psychology}, 18(1), 77-93.
+\bibitem{Diez 2002}\textsc{Diez, J. P., Hernandis, S. P., Rouma, A. C. } \emph{El consumo de inhalables y cannabis en la preadolescencia: Análisis multivariado de factores predisponentes}. Anales de Psicología/Annals of Psychology, 18(1), 77-93, 2002.
 
-\bibitem{Divakaran 2022}\textbf{Divakaran, S. (2022). }Data Science: Principles and Concepts in Modeling Decision Trees.\emph{ Data Science in Agriculture and Natural Resource Management}, 55-74.
+\bibitem{Divakaran 2022}\textsc{Divakaran, S. . }Data Science: Principles and Concepts in Modeling Decision Trees.\emph{ Data Science in Agriculture and Natural Resource Management}, 55-74, 2022.
 
-\bibitem{Alubias} \textbf{Dry Bean Dataset. (2020)}.\emph{ UCI Machine Learning Repository. } \url{https://doi.org/10.24432/C50S4B.}
+\bibitem{Alubias} \textsc{Dry Bean Dataset}. UCI Machine Learning Repository.  \url{https://doi.org/10.24432/C50S4B.}, 2020.
 
-\bibitem{Echeverri 2015} \textbf{Machado-Duque, M. E., Echeverri Chabur, J. E., y Machado-Alba, J. E. (2015).} Somnolencia diurna excesiva, mala calidad del sueño y bajo rendimiento académico en estudiantes de Medicina. \emph{Revista colombiana de Psiquiatría,} 44(3), 137-142.
+\bibitem{Echeverri 2015} \textsc{Machado-Duque, M. E., Echeverri Chabur, J. E., y Machado-Alba, J. E. } \emph{Somnolencia diurna excesiva, mala calidad del sueño y bajo rendimiento académico en estudiantes de Medicina.} Revista colombiana de Psiquiatría, 44(3), 137-142, 2015.
 
 
-\bibitem{Eckart 1936}\textbf{Eckart, C., \& Young, G. (1936).} The approximation of one matrix by another of lower rank. \emph{Psychometrika}, 1(3), 211-218.
+\bibitem{Eckart 1936}\textsc{Eckart, C., Young, G. } \emph{The approximation of one matrix by another of lower rank.} Psychometrika, 1(3), 211-218, 1936.
 
-\bibitem{Ensum 2005}\textbf{Ensum, J., Pollard, R., \& Taylor, S. (2005).} Applications of logistic regression to shots at goal at association football. \emph{In Science and football V: the proceedings of the Fifth World Congress on Science and Football} (pp. 214-221).
+\bibitem{Ensum 2005}\textsc{Ensum, J., Pollard, R., \& Taylor, S. (2005).}\emph{ Applications of logistic regression to shots at goal at association football.} In Science and football V: the proceedings of the Fifth World Congress on Science and Football, 214-221, 2005.
 
-\bibitem{Everitt 2002} \textbf{Everitt, B., Ismail, K., David, A. S., \& Wessely, S. (2002)}. Searching for a Gulf War syndrome using cluster analysis. \emph{Psychological medicine} 32(8), 1371-1378.
+\bibitem{Everitt 2002} \textsc{Everitt, B., Ismail, K., David, A. S., Wessely, S. }. \emph{Searching for a Gulf War syndrome using cluster analysis.} Psychological medicine, 32(8), 1371-1378, 2002.
 
-\bibitem{Everitt 2011a}\textbf{Everitt, B., and Hothorn, T. (2011)}. \emph{An introduction to applied multivariate analysis with R}. Springer Science \& Business Media.
+\bibitem{Everitt 2011a}\textsc{Everitt, B., and Hothorn, T. (2011)}. \emph{An introduction to applied multivariate analysis with R}. Springer Science \& Business Media.
 
-\bibitem{Everitt 2011}\textbf{Everitt, B. S., Leese, M., Stahl, D., \& Landau, S. (2011}). \emph{Cluster analysis}. John Wiley \& Sons.
+\bibitem{Everitt 2011}\textsc{Everitt, B. S., Leese, M., Stahl, D., \& Landau, S. (2011}). \emph{Cluster analysis}. John Wiley \& Sons, United Kingdom, 2011. 
 
-\bibitem{Iris Fisher} \textbf{Fisher,R. A.. (1988).} Iris. \emph{UCI Machine Learning Repository. }\url{https://doi.org/10.24432/C56C76}. 
+\bibitem{Iris Fisher} \textsc{Fisher,R. A.. (1988).} \emph{Iris}. UCI Machine Learning Repository. \url{https://doi.org/10.24432/C56C76}, 1988.
 
-\bibitem{Galton  1889} \textbf{Galton, F. (1889).} Co-relations and their measurement, chiefly from anthropometric data.\emph{ Proceedings of the Royal Society of London,} 45(273-279), 135-145.
+\bibitem{Galton  1889} \textsc{Galton, F. } \emph{Co-relations and their measurement, chiefly from anthropometric data.} Proceedings of the Royal Society of London, 45(273-279), 135-145, 1889.
 
-\bibitem{Golub 1987}\textbf{Golub, G. H., Hoffman, A., \& Stewart, G. W. (1987)}. A generalization of the Eckart-Young-Mirsky matrix approximation theorem. \emph{Linear Algebra and its applications}, 88, 317-327.
+\bibitem{Golub 1987}\textsc{Golub, G. H., Hoffman, A., \& Stewart, G. W. }. A generalization of the Eckart-Young-Mirsky matrix approximation theorem. \emph{Linear Algebra and its applications}, 88, 317-327, 1987. 
 
-\bibitem{Asari 2004} \textbf{Gottumukkal, R., \& Asari, V. K. (2004).} An improved face recognition technique based on modular PCA approach.\emph{ Pattern Recognition Letters,} 25(4), 429-436.
+\bibitem{Asari 2004} \textsc{Gottumukkal, R., \& Asari, V. K. } An improved face recognition technique based on modular PCA approach.\emph{ Pattern Recognition Letters,} 25(4), 429-436, 2004.
 
-\bibitem{Greene 2008}\textbf{Greene,  W.H.} (2008). \emph{Econometric analysis (6th ed.)} Pearson Prentice Hall.
+\bibitem{Greene 2008}\textsc{Greene,  W.H.}. \emph{Econometric analysis (6th ed.)} Pearson Prentice Hall, New Jersey, 2008.
 
-\bibitem{Grossi 2007}\textbf{Grossi, E., \& Buscema, M. (2007). }Introduction to artificial neural networks. \emph{European journal of gastroenterology \& hepatology,} 19(12), 1046-1054.
+\bibitem{Grossi 2007}\textsc{Grossi, E.,  Buscema, M.  }Introduction to artificial neural networks. \emph{European journal of gastroenterology \& hepatology,} 19(12), 1046-1054, 2007.
 
-\bibitem{Hair 1995}\textbf{Hair, J. F., Black, W. C., Tatham, R. L., and Anderson, R. E. (1995).}
-\textit{ Multivariate data analysis with readings.} Prentice-Hall International, Englewood Cliffs, New Yersey. 
+\bibitem{Hair 1995}\textsc{Hair, J. F., Black, W. C., Tatham, R. L., and Anderson, R. E. .}
+\textit{ Multivariate data analysis with readings.} Prentice-Hall International, Englewood Cliffs, New Jersey, 1995.
 
-\bibitem{Hartigan 1975}\textbf{Hartigan, J. A. (1975).}\emph{ Clustering algorithms}. John Wiley \& Sons, Inc.
+\bibitem{Hartigan 1975}\textsc{Hartigan, J. A. }\emph{ Clustering algorithms}. John Wiley \& Sons, Inc, New York, 1975. 
 
-\bibitem{Hastie 2001} \textbf{Hastie, T., Tibshirani, R. and Friedman J. (2001)}, \textit{The Elements of Statistical Learning, Data Mining, Inference and Prediction} Springer. 
+\bibitem{Hastie 2001} \textsc{Hastie, T., Tibshirani, R. Friedman J.}, \textit{The Elements of Statistical Learning, Data Mining, Inference and Prediction} Springer, Stanford, 2001.
 
-\bibitem{Hesterberg 2011}\textbf{Hesterberg, T. (2011).} Bootstrap. \emph{Wiley Interdisciplinary Reviews: Computational Statistics,} 3(6), 497-526.
+\bibitem{Hesterberg 2011}\textsc{Hesterberg, T.} \emph{Bootstrap}. Wiley Interdisciplinary Reviews: Computational Statistics, 3(6), 497-526, 2011.
 
-\bibitem{Hochreiter 1997}\textbf{Hochreiter, S., \& Schmidhuber, J. (1997).} Long short-term memory.\emph{ Neural computation}, 9(8), 1735-1780.
+\bibitem{Hochreiter 1997}\textsc{Hochreiter, S.,  Schmidhuber, J. } Long short-term memory.\emph{ Neural computation}, 9(8), 1735-1780, 1997.
 
-\bibitem{Hornik 1989} \textbf{Hornik, K., Stinchcombe, M., and White, H. } Multilayer feedforward networks are universal approximators. \emph{Neural networks}, 2(5), 359-366, 1989.
+\bibitem{Hornik 1989} \textsc{Hornik, K., Stinchcombe, M., and White, H. } Multilayer feedforward networks are universal approximators. \emph{Neural networks}, 2(5), 359-366, 1989.
 \url{https://doi.org/10.1016/0893-6080(89)90020-8}
 
-\bibitem{Hotelling 1933}\textbf{Hotelling H. (1933)} Analysis of a complex of statistical variables
-into principal components. \emph{J Educ Psychol }
-25:417–441.
+\bibitem{Hotelling 1933}\textsc{Hotelling H. } Analysis of a complex of statistical variables
+into principal components. \emph{ Journal of educational psychology }
+25:417–441, 1933.
 
-\bibitem{Jain 1988} \textbf{Jain, A.K., Richard, C.D., (1988)} \textit{Algorithms for clustering data.} Prentice-Hall, Inc.
+\bibitem{Jain 1988} \textsc{Jain, A.K., Dubes R.C,} \textit{Algorithms for clustering data.} Prentice-Hall Inc, New Jersey,  1988.
 
 \bibitem{James 2013}
-\textbf{James G, Witten D, Hastie T, Tibshirani R.} \emph{An Introduction to Statistical Learning: With Applications in R.} New York, NY: Springer; 2021. 
+\textsc{James G, Witten D, Hastie T, Tibshirani R.} \emph{An Introduction to Statistical Learning: With Applications in R.} New York, Springer; 2021. 
 
-\bibitem{Johnson 2007}\textbf{Johnson, R. A., \& Wichern, D. W. (2007)}. \emph{Applied multivariate statistical analysis.(6th edition)} Pearson Prentice Hall.
+\bibitem{Johnson 2007}\textsc{Johnson, R. A., \& Wichern, D. W.}. \emph{Applied multivariate statistical analysis.(6th edition)} Pearson Prentice Hall, New Jersey, 2007.
 
-\bibitem{Johnson 1963} \textbf{Johnson, R. M. (1963).} On a theorem stated by Eckart and Young. \emph{Psychometrika}, 28(3), 259-263.
+\bibitem{Johnson 1963} \textsc{Johnson, R. M. } \emph{On a theorem stated by Eckart and Young.} Psychometrika, 28(3), 259-263,1963.
 
-\bibitem{Jollife 1986} \textbf{Jollife I.T.(1986)}. \emph{Principal Component Analysis}, Springer-Verlag.
+\bibitem{Jollife 1986} \textsc{Jollife I.T}. \emph{Principal Component Analysis}, Springer, New York, 1986.
 
 
 
-\bibitem{Kass 1980}\textbf{Kass, G. V. (1980)}. An exploratory technique for investigating large quantities of categorical data. \emph{Journal of the Royal Statistical Society: Series C (Applied Statistics)}, 29(2), 119-127.
+\bibitem{Kass 1980}\textsc{Kass, G. V. }. \emph{An exploratory technique for investigating large quantities of categorical data.} Journal of the Royal Statistical Society: Series C (Applied Statistics), 29(2), 119-127, 1980.
 
-\bibitem{Koppen 2000} \textbf{Köppen, M. (2000)} The curse of dimensionality. \textit{5th online world conference on soft computing in industrial applications (WSC5)}  (Vol. 1, pp. 4-8).
+%\bibitem{Koppen 2000} \textsc{Köppen, M. (2000)} The curse of dimensionality. \textit{5th online world conference on soft computing in industrial applications (WSC5)}  (Vol. 1, pp. 4-8).
 
-\bibitem{Koklu 2020}\textbf{Koklu, M., \& Ozkan, I. A. (2020).} Multiclass classification of dry beans using computer vision and machine learning techniques. \emph{Computers and Electronics in Agriculture,} 174, 105507.
+\bibitem{Koklu 2020}\textsc{Koklu, M., \& Ozkan, I. A.} \emph{Multiclass classification of dry beans using computer vision and machine learning techniques.} Computers and Electronics in Agriculture, 174, 105507, 2020.
 
-\bibitem{Lawless 2010} \textbf{Lawless, J. F., \& Yuan, Y. (2010).} Estimation of prediction error for survival models. \emph{Statistics in medicine,} 29(2), 262-274.
+\bibitem{Lawless 2010} \textsc{Lawless, J. F., \& Yuan, Y.} \emph{Estimation of prediction error for survival models.} \emph{Statistics in medicine,} 29(2), 262-274, 2010.
 
-\bibitem{Roberto 2008} \textbf{Lopez, R., Balsa-Canto, E. and Oñate, E. (2008)}  Neural networks for variational problems in engineering \emph{Int. J. Numer. Meth. Engng.}, 75\\ \url{https://doi.org/10.1002/nme.2304} 1341-1360. 
+\bibitem{Roberto 2008} \textsc{Lopez, R., Balsa-Canto, E. and Oñate, E. }  Neural networks for variational problems in engineering International Journal for Numerical Methods Engineering., 75 \url{https://doi.org/10.1002/nme.2304} 1341-1360, 2008.
 
-\bibitem{Lebart 1984}\textbf{Lebart, L., Morineau, A.,  Warwick, K. M. (1984)}.\textit{Multivariate Descriptive Analysis: Correspondence analysis and related techniques for large matrices}. Wiley.
+\bibitem{Lebart 1984}\textsc{Lebart, L., Morineau, A.,  Warwick, K. M. }.\textit{Multivariate Descriptive Analysis: Correspondence analysis and related techniques for large matrices}. Wiley, New York, 1984.
 
-\bibitem{Loh 2011}\textbf{Loh, W. Y. (2011).} Classification and regression trees.\emph{ Wiley interdisciplinary reviews: data mining and knowledge discovery}, 1(1), 14-23.
+\bibitem{Loh 2011}\textsc{Loh, W. Y. } \emph{Classification and regression trees.} Wiley interdisciplinary reviews: data mining and knowledge discovery, 1(1), 14-23, 2011.
 
-\bibitem{Loh 2014}\textbf{Loh, W. Y. (2014).} Fifty years of classification and regression trees. \emph{International Statistical Review}, 82(3), 329-348.
+\bibitem{Loh 2014}\textsc{Loh, W. Y. } \emph{Fifty years of classification and regression trees.} International Statistical Review, 82(3), 329-348, 2014.
 
-\bibitem{Livingstone 1997}\textbf{Livingstone, D. J., Manallack, D. T., \& Tetko, I. V. (1997).} Data modelling with neural networks: Advantages and limitations. \emph{Journal of computer-aided molecular design}, 11, 135-142.
+\bibitem{Livingstone 1997}\textsc{Livingstone, D. J., Manallack, D. T., Tetko, I. V. } \emph{Data modelling with neural networks: Advantages and limitations.} Journal of computer-aided molecular design, 11, 135-142, 1997.
 
-\bibitem{Mahesh 2020}\textbf{Mahesh, B. (2020).} Machine learning algorithms-a review. \emph{International Journal of Science and Research (IJSR)}, 9, 381-386.
+\bibitem{Mahesh 2020}\textsc{Mahesh, B. } \emph{Machine learning algorithms-a review.} International Journal of Science and Research (IJSR), 9, 381-386, 2020.
 
-\bibitem{Mamidi 2021}\textbf{Mamidi, R. R. (2021)}. Application of Neural Networks for Prediction of Double Fed Induction Generator’s Equivalent Circuit Parameters used in Wind Generators. \emph{IRJCS:: International Research Journal of Computer Science}, Volume VIII, 23-31.
+\bibitem{Mamidi 2021}\textsc{Mamidi, R. R. }. \emph{Application of Neural Networks for Prediction of Double Fed Induction Generator’s Equivalent Circuit Parameters used in Wind Generators.} IRJCS:: International Research Journal of Computer Science, Volume VIII, 23-31, 2021.
 
-\bibitem{Mardia 1979}\textbf{Mardia, K.V., Kent, J.T. and Bibby J.M.; (1979)}. \emph{Multivariate analysis}. Academic Press.
+\bibitem{Mardia 1979}\textsc{Mardia, K.V., Kent, J.T. Bibby J.M.; }. \emph{Multivariate analysis}. Academic Press, San Diego , 1979.
 
 \bibitem{Rosario 1999} 
-\textbf{Martínez Arias R.} \emph{El análisis multivariante en la investigación científica.} Madrid: La Muralla; 1999. 
+\textsc{Martínez R.} \emph{El análisis multivariante en la investigación científica.} Madrid: La Muralla; 1999.
 
-\bibitem{Morrison 1976}\textbf{Morrison. D.(1976).}\textit{ Multivariate statistical methods (2nd ed)}. McGraw-Hill Kogakusha.
+\bibitem{Matplotlib}\textsc{Matplotlib Documentation:} URL: \url{https://matplotlib.org/}. Consultado en varias fechas. 
 
-\bibitem{Nerini 2007}\textbf{Nerini, D., \& Ghattas, B. (2007).} Classifying densities using functional regression trees: Applications in oceanology. \emph{Computational Statistics \& Data Analysis} 51(10), 4984-4993.
+\bibitem{Morrison 1976}\textsc{Morrison. D.}\textit{ Multivariate statistical methods (2nd ed)}. McGraw-Hill Kogakusha,(1976).
 
-\bibitem{Neural Designer} Neural Designer Blog \url{https://www.neuraldesigner.com/}
+\bibitem{Nerini 2007}\textsc{Nerini, D.,  Ghattas, B. }\emph{ Classifying densities using functional regression trees: Applications in oceanology.} Computational Statistics \& Data Analysis 51(10), 4984-4993,(1976).
 
-\bibitem{Okazaki 2006}\textbf{Okazaki, S. (2006).} What do we know about mobile Internet adopters? A cluster analysis. \emph{Information \& Management,} 43(2), 127-141.
+\bibitem{Neural Designer} \textsc{Neural Designer Blog} URL:\url{https://www.neuraldesigner.com/}, consultado en varias fechas.
 
-\bibitem{Pages 2005}\textbf{Pagès, J. (2005).} Collection and analysis of perceived product inter-distances using multiple factor analysis: Application to the study of 10 white wines from the Loire Valley. \emph{Food quality and preference}, 16(7), 642-649.  \url{https://doi.org/10.1016/j.foodqual.2005.01.006
+\bibitem{Numpy}\textsc{Numpy Documentation} URL: \url{https://numpy.org/doc/stable/}. Consultado en varias fechas.
+
+\bibitem{Okazaki 2006}\textsc{Okazaki, S. (2006).}\emph{ What do we know about mobile Internet adopters? A cluster analysis.} Information \& Management, 43(2), 127-141, 2006.
+
+\bibitem{Pages 2005}\textsc{Pagès, J. } \emph{Collection and analysis of perceived product inter-distances using multiple factor analysis: Application to the study of 10 white wines from the Loire Valley.} Food quality and preference, 16(7), 642-649, 2005. DOI: \url{https://doi.org/10.1016/j.foodqual.2005.01.006
 }
 
+\bibitem{Pandas} \textsc{Pandas Documentation} URL:\url{https://pandas.pydata.org/docs/}. Consultado en varias fechas.
+
 \bibitem{Peña 2002} 
-\textbf{Peña D.} \emph{Análisis de datos multivariantes.} Madrid: McGraw-Hill; 2002.
+\textsc{Peña D.} \emph{Análisis de datos multivariantes.} Madrid: McGraw-Hill; 2002.
 
-\bibitem{Pearson 1901} \textbf{Pearson, K. (1901)}. LIII. On lines and planes of closest fit to systems of points in space. \emph{The London, Edinburgh, and Dublin philosophical magazine and journal of science,} 2(11), 559-572.
+\bibitem{Pearson 1901} \textsc{Pearson, K. }. LIII. On lines and planes of closest fit to systems of points in space. \emph{The London, Edinburgh, and Dublin philosophical magazine and journal of science,} 2(11), 559-572, 1901.
 
-\bibitem{Quinlan 2014}\textbf{Quinlan, J. R. (2014)}. \emph{C4. 5: programs for machine learning.} Elsevier.
+\bibitem{Quinlan 2014}\textsc{Quinlan, J. R. }. \emph{C4. 5: programs for machine learning.} Elsevier, 2014.
 
-\bibitem{Rencher 2002} \textbf{Rencher, A. C. (2002)}. \emph{Methods of multivariate analysis.} New York: A John Wiley \& Sons. Inc. Publication.
+\bibitem{Rencher 2002} \textsc{Rencher, A. C.}. \emph{Methods of multivariate analysis.} New York: A John Wiley \& Sons. Inc. Publication, 2002.
 
-\bibitem{Requena}
-\textbf{A. Requena, R. Quintanilla, J.M. Bolarín, A. Vázquez, A. Bastida, J. Zúñiga y L.M. Tomás.}Nuevas Tecnologías y Contaminación de Atmósferas, para PYMEs. VI-3-4, Pag. 3 \emph{Universidad de Murcia. Spain.} \url{https://www.um.es/LEQ/Atmosferas/Ch-VI-3/F63s4p3.htm}.
+%\bibitem{Requena}
+%\textsc{A. Requena, R. Quintanilla, J.M. Bolarín, A. Vázquez, A. Bastida, J. Zúñiga y L.M. Tomás.}\emph{Nuevas Tecnologías y Contaminación de Atmósferas, para PYMEs.} VI-3-4, Pag. 3 Universidad de Murcia. Spain. \url{https://www.um.es/LEQ/Atmosferas/Ch-VI-3/F63s4p3.htm}.
 
-\bibitem{Ringnér 2008}\textbf{Ringnér, M. (2008).}What is principal component analysis?.\emph{Nature biotechnology, 26(3), 303-304.}
+\bibitem{Ringnér 2008}\textsc{Ringnér, M. (2008).}\emph{What is principal component analysis?}.Nature biotechnology, 26(3), 303-304.
 
-\bibitem{Witten 2010}\textbf{Witten, D. M., \& Tibshirani, R. (2010).} Survival analysis with high-dimensional covariates. \emph{Statistical methods in medical research,} 19(1), 29-51.
+\bibitem{Witten 2010}\textsc{Witten, D. M., \& Tibshirani, R. } \emph{Survival analysis with high-dimensional covariates}. \emph{Statistical methods in medical research,} 19(1), 29-51, 2010.
 
-\bibitem{Scitovski 2021}\textbf{Scitovski, R., Sabo, K., Martínez-Álvarez, F., \& Ungar, Š. (2021).} \emph{Cluster analysis and Applications} Springer.
+\bibitem{Scitovski 2021}\textsc{Scitovski, R., Sabo, K., Martínez-Álvarez, F., \& Ungar, Š. } \emph{Cluster analysis and Applications} Cham, Springer.
 
-\bibitem{Scikit-Learn} \textit{Scikit Learn Documentation} \url{https://scikit-learn.org/stable}
+\bibitem{Scikit-Learn} \textsc{Scikit Learn Documentation} URL: \url{https://scikit-learn.org/stable}, consultado en varias fechas. 
 
-\bibitem{Song 2015}\textbf{Song, Y. Y., and Ying, L. U. (2015).} Decision tree methods: applications for classification and prediction. \emph{Shanghai archives of psychiatry,} 27(2), 130.
+\bibitem{Song 2015}\textsc{Song, Y. Y., and Ying, L. U. } \emph{Decision tree methods: applications for classification and prediction}. Shanghai archives of psychiatry, 27(2), 130, 2015.
 
-\bibitem{Spearman 1904}\textbf{Spearman, C. (1904).} “General Intelligence,” Objectively Determined and Measured. \emph{The American Journal of Psychology,} 15(2), 201–292. \url{https://doi.org/10.2307/1412107}
+\bibitem{Spearman 1904}\textsc{Spearman, C.} \emph{“General Intelligence,” Objectively Determined and Measured.} The American Journal of Psychology, 15(2), 201–292, 1904. DOI: \url{https://doi.org/10.2307/1412107}
 
-\bibitem{Vincent 1953}\textbf{Vincent, D. F. (1953).} The origin and development of factor analysis. \emph{Journal of the Royal Statistical Society: Series C (Applied Statistics),} 2(2), 107-117.
+\bibitem{TensorFlow}\textsc{Tensor Flow Documentation} URL: \url{https://www.tensorflow.org}. Consultado en varias fechas.
 
-
-
-%\bibitem{Echeverri 2015} \textbf{Machado-Duque, M. E., Echeverri Chabur, J. E., y Machado-Alba, J. E. (2015).} Somnolencia diurna excesiva, mala calidad del sueño y bajo rendimiento académico en estudiantes de Medicina. \emph{Revista colombiana de Psiquiatría,} 44(3), 137-142.
+\bibitem{Vincent 1953}\textsc{Vincent, D. F. (1953).} \emph{The origin and development of factor analysis.} Journal of the Royal Statistical Society: Series C (Applied Statistics), 2(2), 107-117, 1953.
 
 
-%\bibitem{González 2015} \textbf{González García, N., y Taborda Londoño, A.} \emph{Análisis de componentes principales Sparse: formulación, algoritmos e implicaciones en el análisis de datos.} Salamanca,  2015
+%\bibitem{González 2015} \textsc{González García, N., y Taborda Londoño, A.} \emph{Análisis de componentes principales Sparse: formulación, algoritmos e implicaciones en el análisis de datos.} Salamanca,  2015
 
-\bibitem{Yeh 2007}\textbf{Yeh,I-Cheng. (2007)}. Concrete Compressive Strength. \emph{UCI Machine Learning Repository.} \url{https://doi.org/10.24432/C5PK67.}
+\bibitem{Yeh 2007}\textsc{Yeh I. }. \emph{Concrete Compressive Strength.} UCI Machine Learning Repository, 2007. \url{https://doi.org/10.24432/C5PK67.}
 
 \end{thebibliography}
  
