@@ -10,8 +10,8 @@
 \hline
 Nombre & Tipo de dato & Medida & Descripción \\
 \hline
-Cemento (variable 1) & continuo & kg en una mezcla m3 & Variable predictora \\
-Escoria de alto horno (variable 2) & continuo & kg en una mezcla m3 & Variable predictora \\
+Cemento (variable 1) & continuo & kg en una mezcla $m^3$  & Variable predictora \\
+Escoria de alto horno (variable 2) & continuo & kg en una mezcla $m^3$ & Variable predictora \\
 Ceniza volante (variable 3) & continuo & kg en una mezcla $m^3$ & Variable predictora \\
 Agua (variable 4) & continuo & kg en una mezcla $m^3$ & Variable predictora \\
 Superplastificante (variable 5) & continuo & kg en una mezcla $m^3$ & Variable predictora \\
@@ -111,30 +111,44 @@ Y=-51.45+0.13 X_1+0.11X_2+0.1X_3-0.12X_4+0.26X_5+  0.03X_6+0.03X_7+0.11X_8
 
 \noindent En principio, el modelo más equilibrado sería el caso de la red neuronal, ya que no entra en sobre ajuste como el árbol de regresión ya que se ha obtenido una disparidad muy evidente del error en el conjunto de entrenamiento en comparación del error en el conjunto de prueba. Y el modelo de regresión lineal obtiene unos resultados malos. La figura \ref{fig: comparación} muestra como los distintos modelos predicen en el conjunto de prueba.
 
-\begin{figure}[h]
-  \centering
-  \begin{minipage}{0.32\textwidth}
-   
-    \includegraphics[width=\textwidth]{Documentos Extra/Imagenes/Datos PruebasRegresionLineal.png}
-    \caption{Regresión Lineal}
-    \label{fig:regresion_lineal}
-  \end{minipage}
-  \hfill
-  \begin{minipage}{0.32\textwidth}
- 
-    \includegraphics[width=\textwidth]{Documentos Extra/Imagenes/Datos PruebasÁrbolesRegresion.png}
-    \caption{Árbol de Regresión}
-    \label{fig:regression_tree}
-  \end{minipage}
-  \begin{minipage}{0.32\textwidth}
-    \includegraphics[width=\textwidth]{Documentos Extra/Imagenes/Datos PruebasRedNeuronal.png}
-    \caption{Red Neuronal}
-    \label{fig:red_neuronal}
-  \end{minipage}
-  \caption{Gráficos de comparación de los valores predichos con el valor real}
-  \label{fig: comparación}
- \end{figure}
+%%\begin{figure}[h]
+%  \centering
+%  \begin{minipage}{0.32\textwidth}
+%   
+%    \includegraphics[width=\textwidth]{Documentos Extra/Imagenes/.png}
+%    \caption{Regresión Lineal}
+%    
+%  \end{minipage}
+%  \hfill
+%  \begin{minipage}{0.32\textwidth}
+% 
+%    \includegraphics[width=\textwidth]{Documentos Extra/Imagenes/Datos PruebasÁrbolesRegresion.png}
+%    \caption{Árbol de Regresión}
+%    \label{fig:regression_tree}
+%  \end{minipage}
+%  \begin{minipage}{0.32\textwidth}
+%    \includegraphics[width=\textwidth]{Documentos Extra/Imagenes/Datos PruebasRedNeuronal.png}
+%    \caption{Red Neuronal}
+%    \label{fig:red_neuronal}
+%  \end{minipage}
+%  
+% 
+% \end{figure}
 
+\begin{figure}[h]
+ \centering
+  \subfloat[Regresión Lineal]{
+   \label{fig:regresion_lineal}
+    \includegraphics[width=0.3\textwidth]{Documentos Extra/Imagenes/Datos PruebasRegresionLineal.png}}
+  \subfloat[Árbol de regresión]{
+   \label{fig:regression_tree}
+    \includegraphics[width=0.3\textwidth]{Documentos Extra/Imagenes/Datos PruebasÁrbolesRegresion.png}}
+    \subfloat[Red neuronal]{
+   \label{fig:red_neuronal}
+    \includegraphics[width=0.3\textwidth]{Documentos Extra/Imagenes/Datos PruebasRedNeuronal.png}}
+ \caption{Gráficos de comparación de los valores predichos con el valor real.}
+  \label{fig: comparación}
+\end{figure}
 
 
 

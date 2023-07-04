@@ -16,7 +16,7 @@ f(\textbf{x})=\beta_0+\sum_{j=1}^p X_j\beta_j
 \end{equation}
 
 \begin{defi}
-Se llaman \emph{parámetros de regresión} al vector columna\\ $\beta=[\beta_0, \beta_1, \ldots \beta_p]^T$ de tamaño $(p+1)$ con los coeficientes necesarios para la regresión. 
+Se llaman parámetros de regresión a las componentes del vector columna $\beta=[\beta_0, \beta_1, \ldots \beta_p]^T$ de tamaño $(p+1)$ con los coeficientes necesarios para la regresión. 
 \end{defi} 
 
 \noindent Añadiendo al vector $\mathbf{x}$ una nueva variable aleatoria $X_0$ que sea constantemente 1, se puede dar la siguiente expresión matricial de la función $f$:
@@ -49,7 +49,7 @@ Se llama función de pérdida $L(Y, \hat{Y})$ a aquella que mide las diferencia 
 Se llama error de predicción cuadrático entre una variable observable $Y$, y la predicción obtenida por un cierto modelo $\hat{Y}$ a la expresión $(Y-\hat{Y})^2$.
 \end{defi}
 
-\noindent Tomando la suma de los errores cuadrados cometidos  en todas las observaciones se obtiene la suma de residuos cuadrados, \emph{RSS}, y minimizando se puede obtener una estimación del vector de parámetros $\beta$. En particular, si se utilizan las expresiones matriciales  anteriores:
+\noindent Tomando la suma de los errores al cuadrado cometidos  en todas las observaciones se obtiene la suma de residuos al cuadrado, \emph{RSS}, y minimizando se puede obtener una estimación del vector de parámetros $\beta$. En particular, si se utilizan las expresiones matriciales  anteriores:
 \begin{equation}
 RSS(\beta)=\sum_{i=1}^N(y_i-\hat{y}_i)^2 = \sum_{i=1}^N(y_i-\textbf{x}_i\beta)^2=(\textbf{y}-\textbf{X}\beta)(\textbf{y}-\textbf{X}\beta)^T\\
 \end{equation}
@@ -84,7 +84,7 @@ Sea un conjunto de $N$ observaciones independientes $y_i, $ donde $i=1,\ldots N$
 L(\theta)=\sum_{i=1}^N log( \mathbb{P}_{\theta} (y_i)),
 \end{equation}
 
-\noindent suponiendo que la variable respuesta cumple como antes que  $Y=f_\theta (\textbf{x})+\varepsilon$, en el caso de la regresión lineal tendríamos que $f_\theta(\mathbf{x})=\mathbf{x}\theta$, es decir, $\theta$ sería el vector de parámetros de regresión y donde $\varepsilon \thicksim N(0,\sigma^2)$. En consecuencia, si se suponen conocidos a priori el vector de parámetros $\theta$ y el vector aleatorio $\textbf{x}$ entonces :
+\noindent suponiendo que la variable respuesta cumple como antes que  $Y=f_\theta (\textbf{x})+\varepsilon$, en el caso de la regresión lineal tendríamos que $f_\theta(\mathbf{x})=\mathbf{x}\theta$, es decir, $\theta$ sería el vector de parámetros de regresión y $\varepsilon \thicksim N(0,\sigma^2)$. En consecuencia, si se suponen conocidos a priori el vector de parámetros $\theta$ y el vector aleatorio $\textbf{x}$ entonces :
 \begin{equation}
 Y\sim N(f_\theta(\textbf{x}), \sigma^2)
 \end{equation}
@@ -98,32 +98,40 @@ L(\theta)=-\dfrac{N}{2}log(2\pi)-N log(\sigma)-\dfrac{1}{2\sigma^2}\sum_{i=1}^N 
 \begin{equation}
 \dfrac{\partial L(\theta)}{\partial \theta}=-\dfrac{1}{2\sigma^2}\dfrac{\partial RSS(\theta)}{\partial \theta}
 \end{equation}
-\noindent Por tanto, es equivalente minimizar el error cuadrático y maximizar la verosimilitud respecto al vector de parámetros. En consecuencia, ambos métodos de estimación obtendrán los mismos resultados. 
+\noindent Por tanto, es equivalente minimizar el error cuadrático y maximizar la verosimilitud respecto al vector de parámetros. Ambos métodos de estimación obtendrán los mismos resultados. 
 \end{proof}
 \end{propo}
 
-\noindent Continuando con las estimaciones calculadas por el método de los cuadrados, los valores predichos obtenidos de las observaciones recogidas en la matriz de datos $\hat{\textbf{y}}$ se calculan de la siguiente manera:
+\noindent Continuando con las estimaciones calculadas por el método de los mínimos cuadrados, los valores predichos obtenidos de las observaciones recogidas en la matriz de datos $\hat{\textbf{y}}$ se calculan de la siguiente manera:
 \begin{equation}
 \hat{\textbf{y}}=\textbf{X}\hat{\beta}=\textbf{X}(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}
 \end{equation}
 
 \noindent De esta manera, se está calculando la predicción de la respuesta $\hat{y}_i$ para cada una de las observaciones $\mathbf{x}_i, \forall i =1, \ldots N$. 
 
-\noindent Otra forma de considerar el problema del ajuste sería desde el punto de vista geométrico para el que hay que desarrollar las siguientes definiciones y proposiciones.
+\noindent Otra forma de considerar el problema del ajuste sería desde el punto de vista geométrico.
 
 \noindent En lo sucesivo se considera a no ser que se diga lo contrario que $N>p+1$ y que la matriz de datos $\mathbf{X}$ es de rango $r$.
 
 
 \subsection{Inferencias estadísticas sobre $\hat{\beta}$}
 
-\noindent En esta parte se estudian las propiedades de los estimadores obtenidos mediante el método de los mínimos cuadrados. Tras ello, se formarán estadigrafos para realizar los contrastes de hipótesis necesarios.
+\noindent En esta parte se estudian las propiedades de los estimadores obtenidos mediante el método de los mínimos cuadrados. Tras ello, se formarán estadígrafos para realizar los contrastes de hipótesis necesarios.
 
 \noindent Conocer la distribución de los estimadores permite realizar contrastes sobre los distintos parámetros. De manera habitual, se plantea la hipótesis nula $H_0: \beta_j=0 $. Esta hipótesis busca comprobar si la variable $X_j$ es importante en el modelo lineal. En caso de que se acepte la hipótesis esa variable puede ser eliminada del modelo. 
 
 \noindent Teniendo en cuenta esto,  hay ocasiones en las que se desea comprobar si un subconjunto de variables es más significativo estadísticamente que otro, de manera que se pueda eliminar variables que no aporten información en pos de la sencillez del modelo y su posterior interpretación. 
 
 
-\noindent Hay que tener en cuenta los siguientes supuestos el vector $\mathbf{x}\sim N_p(\mu, \mathbf{\Sigma})$, del cual tomamos $N$ observaciones independientes obteniendo la matriz de datos $\mathbf{X}$, que a no ser que se diga lo contrario, se supondrá conocida. Además, supóngase el vector de $N$ observaciones de la variable respuesta sigue el siguiente modelo $\mathbf{y}= \mathbf{X \beta}+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2\mathbf{I}_N)$, es un vector de longitud $N$ en el que cada componente es una normal $N(0,\sigma^2)$  independientes entre sí. Esto nos permite dar la siguiente proposición \cite{Cuadras 2014}
+%\noindent Hay que tener en cuenta los siguientes supuestos, en primer lugar, el vector \\ $\mathbf{x}\sim N_p(\mu, \mathbf{\Sigma})$. De este vector tomamos $N$ observaciones independientes obteniendo la matriz de datos $\mathbf{X}$, que a no ser que se diga lo contrario, se supondrá conocida. Además, supóngase que el vector de $N$ observaciones de la variable respuesta sigue  modelo $\mathbf{y}= \mathbf{X \beta}+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2\mathbf{I}_N)$, es un vector de longitud $N$ en el que cada componente es una normal $N(0,\sigma^2)$  independientes entre sí. Esto nos permite dar la siguiente proposición \cite{Cuadras 2014}
+\newpage
+\noindent Hay que tener en cuenta los siguientes supuestos:
+\begin{itemize}
+\item El vector  $\mathbf{x}\sim N_p(\mu, \mathbf{\Sigma})$. De este vector tomamos $N$ observaciones independientes obteniendo la matriz de datos $\mathbf{X}$, que a no ser que se diga lo contrario, se supondrá conocida.
+\item El vector de $N$ observaciones de la variable respuesta sigue el modelo \\$\mathbf{y}= \mathbf{X \beta}+\varepsilon$ donde $\varepsilon \sim N(0,\sigma^2\mathbf{I}_N)$, es un vector de longitud $N$ en el que cada componente es una normal $N(0,\sigma^2)$  independientes entre sí.
+\end{itemize}
+
+Esto nos permite dar la siguiente proposición \cite{Cuadras 2014}.
 \begin{propo}
 El vector aleatorio formado por $N$ observaciones de la variable respuesta conocida la matriz de datos y el vector de parámetros $\beta$ sigue una distribución
 $\mathbf{y}\sim N(\mathbf{X\beta}, \sigma^2\mathbf{I}_N)$, donde $\mathbf{I}_N$ es la matriz identidad de tamaño $N \times N$.  
@@ -141,7 +149,7 @@ Var(\mathbf{y})=\mathbf{X\beta}\mathbf{\beta}^T \mathbf{X}^T+ Var(\varepsilon
 )&-\mathbf{X\beta}\mathbf{\beta}^T \mathbf{X}^T=Var(\varepsilon)=\sigma^2\mathbf{I}_N
 \end{align}
 
-\noindent Y se concluye que el vector $\mathbf{y}\sim N(\mathbf{X\beta}, \sigma^2\mathbf{I}_N)$, ya que el vector $\varepsilon\sim N(0,\sigma^2 \mathbf{I}_N)$ por hipótesis. 
+\noindent Y se concluye que el vector $\mathbf{y}\sim N(\mathbf{X\beta}, \sigma^2\mathbf{I}_N)$, ya que el vector $\varepsilon\sim N(0,\sigma^2 \mathbf{I}_N)$\\ por hipótesis. 
 \end{proof}
 \end{propo}
 
@@ -188,7 +196,7 @@ z_j=\dfrac{\hat{\beta}_j}{\sigma \sqrt{(\mathbf{X}^T\mathbf{X}_{jj}^{-1})}}\sim 
 \end{equation}
 \noindent donde $(\mathbf{X}^T\mathbf{X}_{jj}^{-1})$ se define como antes. 
 
-\noindent Para poder hacer los estadígrafos de contrastes se debe construir primero un estimador de esta varianza, ya que habitualmente no es conocida. Para ello Hastie et. al. y Cuadras proponen el siguiente estimador de la varianza, suponiendo que unicamente hay una variable respuesta \cite{Cuadras 2014, Hastie 2001}: 
+\noindent Para poder hacer los estadígrafos de contraste se debe construir primero un estimador de esta varianza, ya que habitualmente no es conocida. Para ello Hastie et. al. y Cuadras proponen el siguiente estimador de la varianza, suponiendo que unicamente hay una variable respuesta \cite{Cuadras 2014, Hastie 2001}: 
 \begin{equation}
 \hat{\sigma}^2=\dfrac{1}{N-p-1}\sum_{i=1}^N (y_i-\hat{y}_i)^2 
 \end{equation} 
@@ -204,6 +212,7 @@ El vector $\hat{\mathbf{\varepsilon}}=\mathbf{y}-\mathbf{X\hat{\beta}}$ es ortog
 \end{propo}
 
 \noindent Una vez definido lo anterior, se pueden establecer las propiedades del estimador descrito:
+\newpage
 \begin{propo}
 El estimador $\hat{\sigma}^2$ cumple lo siguiente :
 \begin{enumerate}
@@ -213,10 +222,10 @@ El estimador $\hat{\sigma}^2$ cumple lo siguiente :
 \begin{proof}
 \noindent 
 \begin{enumerate}
-\item El término $RSS(\hat{\beta}=\sum_{i=1}^N (y_i-\hat{y}_i)^2=)$, se puede expresar como un producto escalar, tomando el vector residuo $\hat{\mathbf{\varepsilon}}= \mathbf{y}-\mathbf{X \hat{\beta}}=\mathbf{y}-\mathbf{\hat{y}}$, se puede ver que el $RSS(\hat{\beta})=\hat{\mathbf{\varepsilon}}^T\hat{\mathbf{\varepsilon}}$. 
+\item El término $RSS(\hat{\beta}=\sum_{i=1}^N (y_i-\hat{y}_i)^2=)$, se puede expresar como un producto escalar, tomando el vector residuo $\hat{\mathbf{\varepsilon}}= \mathbf{y}-\mathbf{X \hat{\beta}}=\mathbf{y}-\mathbf{\hat{y}}$, se puede ver que es $RSS(\hat{\beta})=\hat{\mathbf{\varepsilon}}^T\hat{\mathbf{\varepsilon}}$. 
 
 \noindent Sabiendo que $\mathbf{\hat{\varepsilon}}\in \mathbb{R}^N$, consideremos una nueva base del espacio,\\ $\lbrace t_1,\ldots t_{p+1},t_{p+2},\ldots, t_N \rbrace$, de tal manera que los $p+1$ primeros son una base de $C_{p+1}(\mathbf{X})$ y que sean ortonormales entre si, entonces, se puede tomar la matriz de cambio de base $\mathbf{T}$, es una matriz ortogonal, de manera que 
-$\mathbf{T}^T\mathbf{T}=\mathbf{TT}^T=\mathbf{I}$. 
+\\$\mathbf{T}^T\mathbf{T}=\mathbf{TT}^T=\mathbf{I}$. 
 
 \noindent Entonces, el vector $\mathbf{T\hat{\varepsilon}}=(\overbrace{0\ldots 0}^{p+1},\mathbf{•}'_{p+2},\ldots \mathbf{e}'_{N})^T$ por la proposición \ref{prop ort}, y se cumple que $\mathbb{E}(\mathbf{\hat{\varepsilon}})=\mathbb{E}(\mathbf{T\hat{\varepsilon}})=0$, por la distribución que tiene el vector $\varepsilon$ además $\mathbf{E}((\mathbf{e}'_i)^2)=\sigma^2, i=p+2\ldots N $, es decir, cada $\mathbf{e}_i\sim N(0,\sigma^2)$ ya que para los anteriores es 0 y por último: 
 \begin{equation}\label{eq:suma-residuos}
@@ -229,7 +238,7 @@ $\mathbf{T}^T\mathbf{T}=\mathbf{TT}^T=\mathbf{I}$.
 \end{equation}
 
 \noindent Se concluye entonces que el estimador $\hat{\sigma}^2$, es insesgado. 
-\item \noindent Y para terminar, se puede ver en la ecuación \ref{eq:suma-residuos}  que el estimador es suma de $N-p-1$ variables que siguen una distribución normales estándar multiplicadas por $\sigma^2$ y dividas entre $N-p-1$, por tanto, tenemos que además.
+\item \noindent Y para terminar, se puede ver en la ecuación \ref{eq:suma-residuos}  que el estimador es la suma de $N-p-1$ variables que siguen cada una, una distribución normal estándar, multiplicadas por $\sigma^2$ y dividas entre $N-p-1$, por tanto, tenemos que además.
 \begin{equation}
 \hat{\sigma}^2\sim \dfrac{\sigma^2}{N-p-1}\chi^2_{N-p-1}
 \end{equation}
@@ -267,7 +276,7 @@ Teniendo en cuenta lo anterior, se puede comprobar que:
 \begin{equation}
 F\sim \dfrac{\chi^2_{p_1-p_0}}{\chi^2_{N-p_1-1}}=F_{(p_1-p_0),(N-p_1-1)}
 \end{equation}
-\noindent Basta tener en cuenta la ecuación \ref{eq: RSS distribucion}  entonces $RSS_0-RSS_1$ es una suma de $p_1-p_0$ cuadrados de variables que siguen la normal estándar multiplicada por $\sigma^2$. 
+\noindent Basta tener en cuenta la ecuación \ref{eq: RSS distribucion}. Entonces $RSS_0-RSS_1$ es una suma de $p_1-p_0$ cuadrados de variables que siguen una distribución normal estándar multiplicada por $\sigma^2$. 
 \end{proof}
 \end{propo}
 
@@ -276,10 +285,10 @@ F\sim \dfrac{\chi^2_{p_1-p_0}}{\chi^2_{N-p_1-1}}=F_{(p_1-p_0),(N-p_1-1)}
 \noindent En resumen, podemos hacer contrastes sobre la importancia o  de una única variable o de un conjunto de variables. Así como sobre la varianza del modelo en general. 
 
 \subsection{Regresión multivariante}
-\noindent Hasta ahora, se ha considerado una única variable aleatoria respuesta.Sea \textbf{y} el vector aleatorio de variables respuesta $\textbf{y}=[Y_1,\ldots, Y_K]$ y un vector aleatorio de variables de entrada $\textbf{x}=[X_0, X_1,\ldots, X_p]$. Se puede establecer el siguiente modelo análogo, donde :
+\noindent Hasta ahora, se ha considerado una única variable aleatoria respuesta. Sea \textbf{y} el vector aleatorio de variables respuesta $\textbf{y}=[Y_1,\ldots, Y_K]$ y un vector aleatorio de variables de entrada $\textbf{x}=[X_0, X_1,\ldots, X_p]$. Se puede establecer el siguiente modelo análogo, donde:
 \begin{align}
 Y_k=\beta_{0k}+\sum_{j=1}^p X_j\beta_{jk}+\varepsilon_k =& f_k(\textbf{x})+\varepsilon_k, \quad k=1,\ldots K \\
-\intertext{Donde el término $\varepsilon_k \sim N(0, \sigma_k^2)$ es el error inevitable para la variable $Y_k, k=1\ldots K$.
+\intertext{siendo el término $\varepsilon_k \sim N(0, \sigma_k^2)$, el error inevitable para la variable $Y_k, k=1\ldots K$.
 De esta manera, si se toman $N$ observaciones se puede considerar las matrices de datos de respuesta y de entrada y obtener la siguiente expresión: }
 \mathbf{Y} =& \mathbf{XB+E}
 \end{align}
@@ -287,14 +296,14 @@ De esta manera, si se toman $N$ observaciones se puede considerar las matrices d
 \noindent Dentro de esa expresión matricial se tiene que: 
 \begin{itemize}
 \item $\textbf{Y}$ es la matriz de tamaño $N \times K$ que contiene los valores observados de las variables respuesta.
-\item $\textbf{X}$ matriz de datos de las variables explicativas o independientes de tamaño $N \times (p+1)$. 
-\item $\textbf{B}$ matriz de tamaño $ (p+1) \times K$ que contiene los parámetros de la regresión.
+\item $\textbf{X}$ es la matriz de datos de las variables explicativas o independientes de tamaño $N \times (p+1)$. 
+\item $\textbf{B}$ es una matriz de tamaño $ (p+1) \times K$ que contiene los parámetros de la regresión.
 \item $\textbf{E}$ es la matriz de tamaño $ N \times K$ que contiene las errores cometidos en cada uno de las variables respuesta. 
 \end{itemize}
 
-\noindent El proceso de ajuste, en el caso de que los errores $\varepsilon^T=[\varepsilon_1,\ldots \varepsilon_K]$ no estén correlados, de la matriz de parámetros es análogo al de una sola variable respuesta de tal manera que minimizando el error cuadrático acumulado se obtiene $\hat{\textbf{B}}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{Y}$. En caso de que los errores tengan una matriz de covarianzas conocida, $\mathbf{\Sigma}$, entonces es necesario hacer la siguiente modificación en el $RSS$:
+\noindent En el caso de que los errores $\varepsilon^T=[\varepsilon_1,\ldots \varepsilon_K]$ no estén correlados, el proceso de ajuste de la matriz de parámetros es análogo al de una sola variable respuesta. De tal manera que, minimizando el error cuadrático acumulado se obtiene $\hat{\textbf{B}}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{Y}$. En caso de que los errores tengan una matriz de covarianzas conocida, $\mathbf{\Sigma}$, entonces es necesario hacer la siguiente modificación en el $RSS$:
 \begin{equation}
-RSS(\textbf{B},\mathbf{\Sigma})=\sum_{i=1}^n(y_i-f(\textbf{x}_i))^T \mathbf{\Sigma}^{-1} (y_i-f(\textbf{x}_i))
+RSS(\textbf{B},\mathbf{\Sigma})=\sum_{i=1}^N(y_i-f(\textbf{x}_i))^T \mathbf{\Sigma}^{-1} (y_i-f(\textbf{x}_i))
 \end{equation}
 
 \noindent En la última expresión se usa la \textit{distancia de Mahalanobis}.
@@ -308,15 +317,15 @@ d_M(\textbf{x}_i, \textbf{x}_j)=\sqrt{(\textbf{x}_i- \textbf{x}_j)^T \mathbf{\Si
 \subsection*{Selección de subconjuntos y métodos penalizados}
 
 \noindent Anteriormente, se ha detallado un estadígrafo que permitía hacer un contraste sobre la cantidad de variables a considerar en la regresión. 
-Esta reducción de características a considerar permite hacer mucho más interpretable el modelo obtenido durante todo el proceso de ajuste y en algunos casos incluso aumentar la precisión del modelo ya que puede ocurrir que se eliminen variables que introduzcan ruido en el modelo. 
+Esta reducción de características a considerar permite hacer mucho más interpretable el modelo obtenido durante todo el proceso de ajuste. En algunos casos,  incluso aumentar la precisión del modelo ya que puede ocurrir que se eliminen variables que introduzcan ruido en el modelo. 
 
 \noindent Se podría seguir un método exhaustivo que calcule cada uno de los subconjuntos posibles para cada número de variables que creamos necesarias y calcular el error cuadrático acumulado de cada uno de los subconjuntos posibles. Pero este método es de una complejidad computacional alta. 
 
-\noindent Otra posibilidad sería utilizar el estadígrafo de contraste $F$ definido en la ecuación \eqref{ec.F} empezando con una sola variable e ir añadiendo cada variable que mejore el ajuste. También se puede hacer al revés, empezando con el modelo con todas las variables e ir reduciendo la cantidad de estas. A estos algoritmos se les llaman algoritmos voraces los cuales buscan una solución óptima en cada paso y no en global. 
+\noindent Otra posibilidad sería utilizar el estadígrafo de contraste $F$ definido en la ecuación \eqref{ec.F} empezando con una sola variable e ir añadiendo solo aquellas variables que mejoren el ajuste. También se puede hacer al revés, empezando con el modelo con todas las variables e ir reduciendo la cantidad de estas. A estos algoritmos se les llaman algoritmos voraces los cuales buscan una solución óptima en cada paso y no en global. 
 
 \noindent El problema de estos métodos de selección de variables es que es un proceso discreto, una variable es o no considerada para el modelo siguiente y esto puede generar sobreajuste o infraajuste, no habiendo un término medio. 
 
-\noindent Para ello, existen los métodos penalizados o de encogimiento, que añaden un término de penalización para que los parámetros $\beta$ no sean muy grandes.
+\noindent Para ello, existen los métodos penalizados o de encogimiento, que añaden un término de penalización para que los parámetros $\beta$ no sean muy grandes \cite{Hastie 2001}.
 
 \begin{defi} 
 Llamamos errores cuadrados acumulados penalizados, \emph{PRSS}, a la suma de los cuadrados de los errores cometidos con el modelo lineal que usa el  vector de parámetros $\beta$, añadiendo un término regulador $\lambda >0$: 
@@ -324,7 +333,7 @@ Llamamos errores cuadrados acumulados penalizados, \emph{PRSS}, a la suma de los
 PRSS(\beta)=\sum_{i=1}^n(\textbf{y}_i-\textbf{x}_i\beta)^2+\lambda\sum_{j=1}^p\beta_j^2
 \end{equation}
 \end{defi}
-\noindent El último término hace que parámetros $\beta_j$ grandes sean considerados perjudiciales, y el parámetro $\lambda$ es una forma de regular cuanta importancia tiene dicha penalización. Cuanto mayor sea, este provocará un encogimiento mayor de los parámetros. 
+\noindent El último término hace que parámetros $\beta_j$ grandes sean considerados perjudiciales. El parámetro $\lambda$ es una forma de regular cuanta importancia tiene dicha penalización. Cuanto mayor sea, mayor encogimiento de los parámetros provocará. 
 De esta manera, se tiene una forma continua de considerar los pesos sin eliminar de manera total las variables.
 
 
