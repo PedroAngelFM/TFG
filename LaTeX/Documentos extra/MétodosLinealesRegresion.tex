@@ -79,17 +79,17 @@ RSS(\beta)=\sum_{i=1}^N(y_i-\hat{y}_i)^2 = \sum_{i=1}^N(y_i-\textbf{x}_i\beta)^2
 \begin{propo}
 Esta estimación de los parámetros $\beta$ por mínimos cuadrados es equivalente a la estimación de estos mediante el método de máxima verosimilitud.
 \begin{proof}
-Sea un conjunto de $N$ observaciones independientes $y_i, $ donde $i=1,\ldots N$ de una variable aleatoria $Y$. Sea su  función de probabilidad  $\mathbb{P}_\theta(y)$ que depende de unos ciertos parámetros $\theta$ que no tienen por qué ser los de regresión. Entonces el método de máxima verosimilitud busca maximizar la siguiente función:
+Sea un conjunto de $N$ observaciones independientes $y_i, $ donde $i=1,\ldots N$ de una variable aleatoria $Y$. Sea su  función de probabilidad  $\mathbb{P}_\theta(y)$ que depende de unos ciertos parámetros $\theta$. Entonces el método de máxima verosimilitud busca maximizar la siguiente función:
 \begin{equation}
 L(\theta)=\sum_{i=1}^N log( \mathbb{P}_{\theta} (y_i)),
 \end{equation}
 
-\noindent suponiendo que la variable respuesta cumple como antes que  $Y=f_\theta (\textbf{x})+\varepsilon$, en el caso de la regresión lineal tendríamos que $f_\theta(\mathbf{x})=\mathbf{x}\theta$, es decir, $\theta$ sería el vector de parámetros de regresión y $\varepsilon \thicksim N(0,\sigma^2)$. En consecuencia, si se suponen conocidos a priori el vector de parámetros $\theta$ y el vector aleatorio $\textbf{x}$ entonces :
+\noindent que es el logaritmo de la  verosimilitud de la muestra. Suponiendo que la variable respuesta cumple como antes que  $Y=f_\theta (\textbf{x})+\varepsilon$, en el caso de la regresión lineal tendríamos que $f_\theta(\mathbf{x})=\mathbf{x}\theta$, es decir, $\theta$ sería el vector de parámetros de regresión y $\varepsilon \thicksim N(0,\sigma^2)$. En consecuencia, si se suponen conocidos a priori el vector de parámetros $\theta$ y el vector aleatorio $\textbf{x}$ entonces :
 \begin{equation}
 Y\sim N(f_\theta(\textbf{x}), \sigma^2)
 \end{equation}
 
-\noindent Teniendo esto en cuenta, la función $L(\theta)$ tiene la siguiente expresión:
+\noindent Teniendo esto en cuenta, la función de verosimilitud respecto del estimador $L(\theta)$ tiene la siguiente expresión:
 \begin{equation}
 L(\theta)=-\dfrac{N}{2}log(2\pi)-N log(\sigma)-\dfrac{1}{2\sigma^2}\sum_{i=1}^N (y_i-f_\theta(x_i))^2
 \end{equation}
