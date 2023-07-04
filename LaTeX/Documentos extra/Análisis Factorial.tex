@@ -1,34 +1,31 @@
 \newpage
 \section{Análisis Factorial}
 
-\noindent El análisis factorial es un conjunto de técnicas que en primera instancia fue desarrollado en el campo de la psicología ya que estos buscaban encontrar las causas que provocaban la variabilidad de los datos que recogían \cite{Vincent 1953}. 
+\noindent El análisis factorial es un conjunto de técnicas que en primera instancia fue desarrollado en el campo de la psicología, ya que estos buscaban encontrar las causas que provocaban la variabilidad de los datos que recogían \cite{Vincent 1953}. 
 
-\noindent En 1888, Galton escuchó la exposición de un articulo que relacionaba las sociedades que habían abandonado un modelo matriarcal con una estructura más compleja sociológicamente hablando. Ante esto, Galton no estuvo de acuerdo, ya que detectó un fallo en el razonamiento de su compañero y es por ello, que escribió un artículo  dando pie a los trabajos sobre el estudio de las correlaciones \cite{Galton 1889}.   
+\noindent En 1888, Galton escuchó la exposición de un artículo que relacionaba las sociedades que habían abandonado un modelo matriarcal con una estructura más compleja sociológicamente hablando. Ante esto, Galton no estuvo de acuerdo, ya que detectó un fallo en el razonamiento de su compañero y es por ello, que escribió un artículo  dando pie a los trabajos sobre el estudio de las correlaciones \cite{Galton 1889}.   
 
 \noindent Es en 1904 cuando Spearman  viendo el trabajo de Galton, aplicó esas ideas al estudio de la inteligencia, buscando una medida objetiva de la misma \cite{Spearman 1904}. En este desarrollo, dio las primeras nociones de qué era un factor y calculó una aproximación para un modelo factorial. A partir de este momento, fue cuando el análisis factorial empezó a ser importante y varios psicólogos comenzaron a usarlo de forma habitual. 
 Desde hace años el análisis factorial, al igual que otras técnicas multivariantes, ha experimentado un nuevo impulso en el desarrollo teórico y práctico debido al auge de la computación. 
 
 \noindent El análisis factorial se puede usar tanto con fines exploratorios como confirmatorios. Es decir, se puede usar para encontrar nuevas informaciones no anticipadas o para confirmar una hipótesis planteada, por ejemplo, Pearson buscaba confirmar que había una estructura latente en la inteligencia \cite{Hair 1995}.
 
-\noindent El objetivo específico del análisis factorial es, dado un conjunto de variables aleatorias, construir un modelo en el cual con un conjunto de nuevas variables llamadas \emph{factores comunes}, que expliquen la mayor variabilidad posible de las variables iniciales. De esta manera, se descompondrá la varianza de cada una de las variables en una parte común llamada \emph{comunalidad}  y otra específica denominada \emph{especificidad}. 
+\noindent El objetivo principal del análisis factorial es construir un modelo que explique la mayor variabilidad posible de un conjunto de variables mediante la identificación de factores comunes que capturen la estructura subyacente de las variables observadas. De esta manera, se descompondrá la varianza de cada una de las variables en una parte común llamada comunalidad  y otra específica denominada especificidad. 
 
 \noindent La mayor diferencia con el análisis de componentes principales en el que se busca nuevas direcciones que maximicen la varianza explicada, es que en este caso, son de interés tanto las comunalidades como las especifidades ya que nos permiten analizar si una variable da información de manera común al resto o tiene algo diferencial. 
 
-\noindent Para empezar, empezaremos formalizando el modelo factorial, en particular el modelo multifactorial ortogonal \cite{Johnson 2007} sin pérdida de generalidad. Tras la modelización, se desarrolla el método de estimación de la matriz de covarianzas  mediante el método del factor principal \cite{Peña 2002}. Seguidamente, se darán algunos detalles sobre el problema de la no unicidad del modelo y soluciones ante ello. Y por último, se hará una introducción a la interpretación de los datos que arroja el modelo factorial. 
+\noindent Para empezar, empezaremos formalizando el modelo factorial, en particular el modelo multifactorial ortogonal  sin pérdida de generalidad \cite{Johnson 2007}. Tras la modelización, se desarrolla el método de estimación de la matriz de covarianzas  mediante el método del factor principal \cite{Peña 2002}. Seguidamente, se darán detalles sobre el problema de la no unicidad del modelo y soluciones ante ello. Y por último, se hará una introducción a la interpretación de los datos que arroja el modelo factorial. 
 
-
-\noindent Si se quieren observar un estudio completo aplicando el análisis factorial léase \cite{Galindo 2015}, estudio en el que se estudia los factores de riesgo psicológico en deportistas universitarios.  También es interesante leer \cite{Diez 2002} en el que se estudia los factores que pueden llevar al consumo de drogas en la preadolescencia. Otro ejemplo sería \cite{Pages 2005}, en este caso para analizar las características de ciertas denominaciones  enológicas en el Valle del Loira, en particular, se utiliza el analísis factorial con el fin de reducir la dimensionalidad. 
-
-
+\noindent Si se quiere leer un estudio completo que aplique el análisis factorial léase \cite{Galindo 2015}, estudio en el que se estudia los factores de riesgo psicológico en deportistas universitarios.  También es interesante leer \cite{Diez 2002} en el que se estudia los factores que pueden llevar al consumo de drogas en la preadolescencia. Otro ejemplo sería \cite{Pages 2005}, en este caso para analizar las características de ciertas denominaciones  enológicas en el Valle del Loira, en particular, se utiliza el analísis factorial con el fin de reducir la dimensionalidad. 
 
 \subsection{Formalización}
-\noindent Supóngase un vector aleatorio $\mathbf{x}= [X_1, \ldots, X_p]$ de longitud $p$ con una distribución $N_p(0,\Sigma)$, centrada sin pérdida de generalidad, donde la matriz de covarianzas $\mathbf{\Sigma}$ es simétrica y definido positiva. El modelo factorial se define \cite{Chatfield 1989}:  
+\noindent Supóngase un vector aleatorio $\mathbf{x}= [X_1, \ldots, X_p]$ de longitud $p$ con una distribución $N(0,\Sigma)$, centrada sin pérdida de generalidad, donde la matriz de covarianzas $\mathbf{\Sigma}$ es simétrica y definido positiva. El modelo factorial se define \cite{Chatfield 1989}:  
 \begin{equation}\label{eq Fact}
 X_j= \lambda_{1j}F_1+\ldots+\lambda_{mj}F_m+\psi_j U_j\quad j=1\ldots p 
 \end{equation}
 \noindent Donde:
 \begin{itemize}
-\item $\lambda_{kj}$ es la saturaciónes   de la $j$-ésima variable en el factor común $k$-ésimo. 
+\item $\lambda_{kj}$ es la saturación de la $j$-ésima variable en el factor común $k$-ésimo. 
 \item $F_k$ es el $k$-ésimo factor común
 \item $\psi_j$ es la saturación  específica de la variable $X_j$ en el factor único. 
 \item $U_j$ es el factor específico para la variable $X_j$.
