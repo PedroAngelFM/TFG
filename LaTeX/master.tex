@@ -2,7 +2,8 @@
 ]{book}
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
-\usepackage{graphicx}             
+\usepackage{graphicx} 
+\usepackage{pdfpages}             
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{chngcntr}
@@ -85,11 +86,21 @@
 \newcommand{\Td}{\operatorname{Td}}
 \usepackage[left=3.1cm,right=3.1cm,top=2.5cm,bottom=2.5cm]{geometry}
 \begin{document}
-
+	\pagenumbering{roman}
 	\input{Documentos Extra/portada.tex}
 	
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
 	
-	\pagenumbering{roman}
+	\input{Documentos Extra/portada.tex}
+	
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
+	
+	\includepdf[pages=-]{Documentos Extra/certificadotutores.pdf}
+	
 	\input{Documentos Extra/Dedicatoria.tex}
 	\tableofcontents
 	

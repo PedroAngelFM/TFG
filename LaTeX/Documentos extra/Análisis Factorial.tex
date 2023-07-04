@@ -178,18 +178,14 @@ La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}^2$
 \end{equation}
 \noindent En particular, la segunda restricción es la que se toma en el método del factor principal, ya que $\mathbf{\hat{\Lambda}}=\mathbf{UD}^{\frac{1}{2}}$, donde $\mathbf{U}$, es una matriz ortogonal, por tanto, $\mathbf{\hat{\Lambda}^T \hat{\Lambda}}=\mathbf{D}^{\frac{1}{2}}\mathbf{U}^T\mathbf{U}\mathbf{D}^{\frac{1}{2}}=\mathbf{D}$. 
 
+\noindent Peña demuestra que la segunda restricción hace el modelo único \cite{Peña 2002}.
+
 \begin{propo}
-La segunda restricción hace que el modelo sea único \cite{Peña 2002}. 
+La segunda restricción hace que el modelo sea único . 
 \begin{proof}
-Sea la descomposición de la varianza (Teorema \ref{Descomposición Varianza}): \begin{align*}
-\mathbf{\Sigma}&=\mathbf{\Lambda\Lambda}^T+\mathbf{\Psi}\\
-\mathbf{\Sigma}-\mathbf{\Psi}&=\mathbf{\Lambda\Lambda}^T\\
-\intertext{Si postmultiplicamos por $\mathbf{\Lambda}$ a ambos lados:}
-(\mathbf{\Sigma}-\mathbf{\Psi})\mathbf{\Lambda}&=\mathbf{\Lambda\Lambda}^T \mathbf{\Lambda}\\
-\intertext{ Como se supone que $\mathbf{\Lambda}^T \mathbf{\Lambda}=\mathbf{D}$ se tiene que:}
-(\mathbf{\Sigma}-\mathbf{\Psi})\mathbf{\Lambda}&=\mathbf{\Lambda D}
-\end{align*}
-Por tanto, la matriz $\mathbf{\Lambda}$ tiene por columnas los $m$ vectores propios de la matriz $\mathbf{\Sigma-\Psi}^2$, como se ha señalado anteriormente, esta propiedad ha sido usada anteriormente en el método del factor principal, es decir, la estimación por este método es única. 
+Supongamos que $\mathbf{\Lambda}^T\mathbf{\Lambda}$ no es diagonal. Entonces se toma la matriz ortogonal $\mathbf{T}_1$ la matriz que contiene los $p$ vectores propios de la matriz $\mathbf{\Lambda}^T\mathbf{\Lambda}$. El producto $\mathbf{T}_1^T \mathbf{\Lambda}^T \mathbf{\Lambda}\mathbf{T}_1$ es la matriz diagonal que contiene los $p$ valores propios de la matriz $\mathbf{\Lambda}^T\mathbf{\Lambda}$. 
+
+\noindent Sea ahora una nueva matriz $\mathbf{T}_2$ ortogonal, entonces el producto $\mathbf{T}_2^T\mathbf{T}_1^T \mathbf{\Lambda}^T \mathbf{\Lambda}\mathbf{T}_1\mathbf{T}_2$, es diagonal. Y al revés, si se cumple la restricción  al rotarla deja de ser diagonal.  
 \end{proof}
 \end{propo}
 \subsection{Interpretación del modelo factorial}

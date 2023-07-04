@@ -3,7 +3,7 @@
 
 \noindent El análisis factorial es un conjunto de técnicas que en primera instancia fue desarrollado en el campo de la psicología ya que estos buscaban encontrar las causas que provocaban la variabilidad de los datos que recogían \cite{Vincent 1953}. 
 
-\noindent En 1888, Galton escuchó la exposición de un articulo que relacionaba las sociedades que habían abandonado un modelo matriarcal con una estructura más compleja sociológicamente hablando. Ante esto, Galton no estuvo de acuerdo, ya que detectó un fallo en el razonamiento de su compañero y es por ello, que escribió un artículo  dando pie a los trabajos sobre el estudio de las correlaciones \cite{Galton 1889}.   
+\noindent En 1888, Galton escuchó la exposición de un articulo que relacionaba las sociedades que habían abandonado un modelo matriarcal con una estructura más compleja sociológicamente hablando. Ante esto, Galton no estuvo de acuerdo, ya que detectó un fallo en el razonamiento de su compañero y es por esta razón escribió un artículo  dando pie a los trabajos sobre el estudio de las correlaciones \cite{Galton 1889}.   
 
 \noindent Es en 1904 cuando Spearman  viendo el trabajo de Galton, aplicó esas ideas al estudio de la inteligencia, buscando una medida objetiva de la misma \cite{Spearman 1904}. En este desarrollo, dio las primeras nociones de qué era un factor y calculó una aproximación para un modelo factorial. A partir de este momento, fue cuando el análisis factorial empezó a ser importante y varios psicólogos comenzaron a usarlo de forma habitual. 
 Desde hace años el análisis factorial, al igual que otras técnicas multivariantes, ha experimentado un nuevo impulso en el desarrollo teórico y práctico debido al auge de la computación. 
@@ -22,7 +22,7 @@ Desde hace años el análisis factorial, al igual que otras técnicas multivaria
 
 
 \subsection{Formalización}
-\noindent Supóngase un vector aleatorio $\mathbf{x}= [X_1, \ldots, X_p]$ de longitud $p$ con una distribución $N_p(0,\Sigma)$, centrada sin pérdida de generalidad, donde la matriz de covarianzas $\mathbf{\Sigma}$ es simétrica y definido positiva. El modelo factorial se define \cite{Chatfield 1989}:  
+\noindent Supóngase un vector aleatorio $\mathbf{x}= [X_1, \ldots, X_p]$ de longitud $p$ con una distribución $N(0,\Sigma)$, centrada sin pérdida de generalidad, donde la matriz de covarianzas $\mathbf{\Sigma}$ es simétrica y definido positiva. El modelo factorial se define \cite{Chatfield 1989}:  
 \begin{equation}\label{eq Fact}
 X_j= \lambda_{1j}F_1+\ldots+\lambda_{mj}F_m+\psi_j U_j\quad j=1\ldots p 
 \end{equation}
@@ -36,7 +36,7 @@ X_j= \lambda_{1j}F_1+\ldots+\lambda_{mj}F_m+\psi_j U_j\quad j=1\ldots p
 
 \noindent El análisis factorial se apoya en las siguientes hipótesis \cite{Cuadras 2014}:
 \begin{itemize}
-\item Los factores comunes $F_k$ son variables aleatorias que siguen una distribución marginal $N(0,1)$. Además se supondrá que $Cov(F_k,F_{k'})=0, k\neq k',\\ \forall k,k'=1,\ldots, m$. Además se suponen completamente independientes de los factores específicos. 
+\item Los factores comunes $F_k$ son variables aleatorias que siguen una distribución marginal $N(0,1)$. Además se supondrá que $Cov(F_k,F_{k'})=0, k\neq k',\\ \forall k,k'=1,\ldots, m$. Se suponen completamente independientes de los factores específicos. 
 
 \item Los factores específicos $U_j$ son variables aleatorias con una distribución normal $N(0,1)$ no correladas. Se suponen  completamente independientes de los factores comunes. 
 \end{itemize}
@@ -72,7 +72,7 @@ Llamaremos matriz específica a la matriz diagonal $\mathbf{\Psi}$ de tamaño $p
 \begin{equation}
 \mathbf{x}^T=\Lambda \mathbf{f}^T+ \mathbf{\Psi}\mathbf{u}^T
 \end{equation}
-Ya que se consideran los vectores aleatorios $\mathbf{x}=[X_1,\ldots,X_p], \mathbf{f}=[F_1,\ldots,F_m], \mathbf{u}=[U_1, \ldots, U_p]$ vectores ordenados en filas. 
+Ya que se consideran los vectores aleatorios $\mathbf{x}=[X_1,\ldots,X_p], \enspace\mathbf{f}=[F_1,\ldots,F_m], \\\mathbf{u}=[U_1, \ldots, U_p]$ vectores ordenados en filas. 
 
 \begin{propo}
 La varianza de la variable aleatoria $X_j$, $\sigma_j^2$, se puede descomponer de la siguiente manera:
@@ -124,7 +124,7 @@ La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}^2$
 \noindent Este teorema es el más importante del análisis factorial, ya que   prueba que el modelo factorial nos permite descomponer la variabilidad de un grupo de variables $X_j,j=1, \ldots , p$ en una parte común y una parte específica a cada una de las variables. 
 
 \subsection{Obtención de la matriz de saturaciones}
-\noindent Supóngase el vector aleatorio $\mathbf{x}$ como antes del cual se recogen $N$ observaciones en la matriz de datos $\mathbf{X}$ de tamaño $N\times p$ que se supondrá centrada sin pérdida de generalidad. Esto provoca que la matriz $\mathbf{S}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}^2$ \cite{Peña 2002}. 
+\noindent Supóngase el vector aleatorio $\mathbf{x}$ como antes del cual se recogen $N$ observaciones en la matriz de datos $\mathbf{X}$ de tamaño $N\times p$ que se supondrá centrada sin pérdida de generalidad. Esto da lugar a la matriz $\mathbf{S}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}^2$ \cite{Peña 2002}. 
 
 \noindent Entonces el objetivo inicial es estimar la matriz de cargas $\mathbf{\Lambda}$. Para ello se puede tomar la matriz $\mathbf{S}-\mathbf{\Psi}^2$. Si de esta matriz se obtiene la descomposición espectral:
 \begin{equation}
@@ -150,7 +150,7 @@ La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}^2$
 \item $\mathbf{S}_i^*=\mathbf{S}-\hat{\mathbf{\Psi}}_i^2$ es la matriz reducida en la $i$-ésima iteración del método
 \item $\mathbf{\hat{\Lambda}}_i$ es la matriz de cargas obtenida en la $i$-ésima iteración del método. 
 \end{itemize}
-\noindent El método se inicia con $\mathbf{\hat{\Psi}}_0=0$ de tal manera que $\mathbf{S}_0^*=\mathbf{S}$ y consiste en cada iteración hacer las siguientes operaciones \cite{Cuadras 2014, Johnson 2007, Peña 2002}: 
+\noindent El método se inicia con $\mathbf{\hat{\Psi}}_0=0$ de tal manera que $\mathbf{S}_0^*=\mathbf{S}$. En cada iteración se efectúan las siguientes operaciones \cite{Cuadras 2014, Johnson 2007, Peña 2002}: 
 \begin{enumerate}
 \item Se calcula $\mathbf{S}_i^*=\mathbf{S-\hat{\Psi}}_i^2$
 \item Se calcula la descomposición $\mathbf{\hat{\Lambda}}_i$ como se ha detallado antes obteniendo $\mathbf{U}_i$ y $\mathbf{D}_i$ de tamaños $p\times m $ y $m\times m$. 
@@ -170,37 +170,33 @@ La matriz $\mathbf{\Sigma}=\mathbf{\Lambda}\mathbf{\Lambda}^T+\mathbf{\Psi}^2$
 \mathbf{x}^T=(\mathbf{\Lambda T}^T)(\mathbf{Tf}^T)+\Psi\mathbf{u}^T
 \end{equation}
 
-Sigue manteniendo las características y suposiciones hechas en el modelo \ref{eq Fact}.
+\noindent Sigue manteniendo las características y suposiciones hechas en el modelo \ref{eq Fact}.
 
-\noindent Para evitar estas indeterminaciones se suelen tomar dos restricciones \cite{Mardia 1979}:
+\noindent Para evitar estas indeterminaciones se suelen imponer dos restricciones \cite{Mardia 1979}:
 \begin{equation}
 \mathbf{\Lambda}^T \mathbf{\Psi}^{-1}\mathbf{\Lambda} \text{ ó } \mathbf{\Lambda}^T \mathbf{\Lambda} \text{ son diagonales con los valores en orden decreciente }
 \end{equation}
 \noindent En particular, la segunda restricción es la que se toma en el método del factor principal, ya que $\mathbf{\hat{\Lambda}}=\mathbf{UD}^{\frac{1}{2}}$, donde $\mathbf{U}$, es una matriz ortogonal, por tanto, $\mathbf{\hat{\Lambda}^T \hat{\Lambda}}=\mathbf{D}^{\frac{1}{2}}\mathbf{U}^T\mathbf{U}\mathbf{D}^{\frac{1}{2}}=\mathbf{D}$. 
 
+\noindent Peña demuestra que la segunda restricción hace el modelo único \cite{Peña 2002}.
+
 \begin{propo}
-La segunda restricción hace que el modelo sea único \cite{Peña 2002}. 
+La segunda restricción hace que el modelo sea único . 
 \begin{proof}
-Sea la descomposición de la varianza (Teorema \ref{Descomposición Varianza}): \begin{align*}
-\mathbf{\Sigma}&=\mathbf{\Lambda\Lambda}^T+\mathbf{\Psi}\\
-\mathbf{\Sigma}-\mathbf{\Psi}&=\mathbf{\Lambda\Lambda}^T\\
-\intertext{Si postmultiplicamos por $\mathbf{\Lambda}$ a ambos lados:}
-(\mathbf{\Sigma}-\mathbf{\Psi})\mathbf{\Lambda}&=\mathbf{\Lambda\Lambda}^T \mathbf{\Lambda}\\
-\intertext{ Como se supone que $\mathbf{\Lambda}^T \mathbf{\Lambda}=\mathbf{D}$ se tiene que:}
-(\mathbf{\Sigma}-\mathbf{\Psi})\mathbf{\Lambda}&=\mathbf{\Lambda D}
-\end{align*}
-Por tanto, la matriz $\mathbf{\Lambda}$ tiene por columnas los $m$ vectores propios de la matriz $\mathbf{\Sigma-\Psi}^2$, como se ha señalado anteriormente, esta propiedad ha sido usada anteriormente en el método del factor principal, es decir, la estimación por este método es única. 
+Supongamos que $\mathbf{\Lambda}^T\mathbf{\Lambda}$ no es diagonal. Entonces se toma la matriz ortogonal $\mathbf{T}_1$ la matriz que contiene los $p$ vectores propios de la matriz $\mathbf{\Lambda}^T\mathbf{\Lambda}$. El producto $\mathbf{T}_1^T \mathbf{\Lambda}^T \mathbf{\Lambda}\mathbf{T}_1$ es la matriz diagonal que contiene los $p$ valores propios de la matriz $\mathbf{\Lambda}^T\mathbf{\Lambda}$. 
+
+\noindent Sea ahora una nueva matriz $\mathbf{T}_2$ ortogonal, entonces el producto $\mathbf{T}_2^T\mathbf{T}_1^T \mathbf{\Lambda}^T \mathbf{\Lambda}\mathbf{T}_1\mathbf{T}_2$, es diagonal. Y al revés, si se cumple la restricción  al rotarla deja de ser diagonal.  
 \end{proof}
 \end{propo}
 \subsection{Interpretación del modelo factorial}
 
 \noindent Para interpretar el modelo factorial hay que tener en cuenta los siguientes aspectos:
 \begin{itemize}
-\item Proporción de varianza común explicada: Analizar qué parte de la variabilidad explica por cada uno de los factores, cuanto de la variabilidad total de los datos recogen los factores comunes etc\ldots. Esto nos puede ayudar a la hora de determinar si el modelo obtenido es o no útil para nuestros objetivos. 
-\item Especificidad de cada una de las variables: Una alta especificidad implica que poca de la información de la variable es explicada por los factores comunes, es decir, que estos no recogan la información. 
-\item Saturaciones de la variable en los factores: Puede ocurrir que haya variables que tengan en el mismo factor menor saturación que el resto, esto es significativo ya que en este caso, la variabilidad de esa variable no es recogida por ese factor en específico.
+\item Proporción de varianza común explicada: analizar qué parte de la variabilidad explica  cada uno de los factores, cuanto de la variabilidad total de los datos recogen los factores comunes etc\ldots Esto nos puede ayudar a la hora de determinar si el modelo obtenido es o no útil para nuestros objetivos. 
+\item Especificidad de cada una de las variables: una alta especificidad implica que poca de la información de la variable es explicada por los factores comunes, es decir, que estos no recogen la información. 
+\item Saturaciones de la variable en los factores: puede ocurrir que haya variables que tengan en el mismo factor menor saturación que el resto, esto es significativo ya que en este caso, la variabilidad de esa variable no es recogida por ese factor en específico.
 
-\item Significado de los factores:  analizar una vez obtenidas las cargas, si  estas representan una medida subyacente notable o no. Detallar el origen del significado que se le otorga en el caso de tenerlo.
+\item Significado de los factores:  analizar una vez obtenidas las cargas, si  éstas representan una medida subyacente notable o no. Detallar el origen del significado que se le otorga en el caso de tenerlo.
 \end{itemize}
 
-\noindent Una vez interpretados los resultados , se puede llegar a los objetivos del análisis factorial que es estudiar la estructura latente de los datos en términos de variabilidades comunes. 
+\noindent Una vez interpretados los resultados, se puede llegar a los objetivos del análisis factorial, estudiar la estructura latente de los datos en términos de variabilidades comunes. 

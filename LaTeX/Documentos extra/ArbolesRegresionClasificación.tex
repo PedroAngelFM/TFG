@@ -9,7 +9,7 @@
 
 \noindent Otra ventaja de este tipo de métodos es que permite trabajar con conjuntos de datos en los que se estudian un mayor número de variables que de observaciones, es decir, $p > N$ \cite{Diaz 2006}. 
 
-\noindent El problema que más se da en los árboles de decisión es su tendencia al sobre ajuste, ya que de la forma que están conceptualizados, provoca que el sesgo sea pequeño, pero con una gran varianza. Esto se considera en los algoritmos desarrollados durante la sección, normalmente se eliminan particiones que no aporten demasiado. A este proceso se le llama ``poda". Es por esta problemática que se desarrolla el análisis de modelos mediante la descomposición en sesgo y varianza de los mismos. 
+\noindent El problema que más se da en los árboles de decisión es su tendencia al sobreajuste, ya que de la forma que están conceptualizados, provoca que el sesgo sea pequeño, pero con una gran varianza. Esto se considera en los algoritmos desarrollados durante la sección, normalmente se eliminan particiones que no aporten demasiado. A este proceso se le llama ``poda". Es por esta problemática que se desarrolla el análisis de modelos mediante la descomposición en sesgo y varianza de los mismos. 
 
 \noindent Se detallan los principales conceptos y notación a continuación. 
 
@@ -69,7 +69,7 @@ Se llama profundidad del árbol al número máximo de divisiones necesarias para
 
 \noindent \emph{Observación:} se usan particiones binarias porque son simples de comprender y manejar. Esto facilita el uso de árboles de decisión y nos ayuda a entender las áreas que creamos al dividir los datos.
 
-%\noindent Esta parte se va utilizar, tanto en los árboles como en los random forests, ya que son métodos que buscan con un conjunto relativamente pequeño de observaciones en relación con el numero de variables observadas obtener un modelo que no tenga un sobre ajuste excesivo. De hecho, para hacer crecer un árbol, se busca hacerlo crecer hasta un punto de sobre ajuste y luego se irá ``podando" de la manera que se definirá más tarde para evitar dicho sobre ajuste introduciendo algo de sesgo. 
+%\noindent Esta parte se va utilizar, tanto en los árboles como en los random forests, ya que son métodos que buscan con un conjunto relativamente pequeño de observaciones en relación con el numero de variables observadas obtener un modelo que no tenga un sobreajuste excesivo. De hecho, para hacer crecer un árbol, se busca hacerlo crecer hasta un punto de sobreajuste y luego se irá ``podando" de la manera que se definirá más tarde para evitar dicho sobreajuste introduciendo algo de sesgo. 
 
 \subsection{Árboles de regresión }
 \noindent A continuación, examinemos el  proceso de crecimiento de un árbol de regresión. Se considera un vector aleatorio $\mathbf{x}$ con $p$ variables predictoras y una variable respuesta continua $Y$. Aunque hay varios algoritmos para hacer crecer los árboles de regresión se detallará el algoritmo \emph{CART} (árboles de clasificación y regresión) de Breiman \cite{Breiman 1984}. Se elige este ya que es el más importante y fundamental. 
