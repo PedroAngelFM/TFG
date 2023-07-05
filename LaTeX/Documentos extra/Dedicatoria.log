@@ -1,0 +1,486 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.27)  4 JUL 2023 21:13
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./Dedicatoria.tex
+(Dedicatoria.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-22>
+! Undefined control sequence.
+l.1 \chapter
+            *{}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \chapter*
+             {}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no * in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--2
+[] 
+ []
+
+
+Overfull \hbox (7.43329pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 A
+ []
+
+
+Overfull \hbox (30.67752pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 Loreto,
+ []
+
+
+Overfull \hbox (14.56656pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 que
+ []
+
+
+Overfull \hbox (12.7777pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 me
+ []
+
+
+Overfull \hbox (12.26659pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 in-
+ []
+
+
+Overfull \hbox (21.59431pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 spir^^So
+ []
+
+
+Overfull \hbox (5.11108pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 a
+ []
+
+
+Overfull \hbox (10.73328pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 no
+ []
+
+
+Overfull \hbox (23.51094pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 aban-
+ []
+
+
+Overfull \hbox (25.17207pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 donar
+ []
+
+
+Overfull \hbox (15.33325pt too wide) in paragraph at lines 8--8
+ []\OT1/cmr/m/it/10 mis
+ []
+
+
+Overfull \hbox (28.87761pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 sue~nos
+ []
+
+
+Overfull \hbox (30.66647pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 aunque
+ []
+
+
+Overfull \hbox (11.7555pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 las
+ []
+
+
+Overfull \hbox (16.22765pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 tor-
+ []
+
+
+Overfull \hbox (21.97763pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 men-
+ []
+
+
+Overfull \hbox (12.52214pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 tas
+ []
+
+
+Overfull \hbox (27.47203pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 fueran
+ []
+
+
+Overfull \hbox (26.44983pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 duras.
+ []
+
+
+Overfull \hbox (7.43329pt too wide) in paragraph at lines 8--8
+ []\OT1/cmr/m/it/10 A
+ []
+
+
+Overfull \hbox (27.9943pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 Paula,
+ []
+
+
+Overfull \hbox (7.66663pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 la
+ []
+
+
+Overfull \hbox (14.56656pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 que
+ []
+
+
+Overfull \hbox (12.7777pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 me
+ []
+
+
+Overfull \hbox (14.56657pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 ilu-
+ []
+
+
+Overfull \hbox (21.97766pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 min^^So
+ []
+
+
+Overfull \hbox (10.22215pt too wide) in paragraph at lines 8--8
+ []\OT1/cmr/m/it/10 en
+ []
+
+
+Overfull \hbox (11.7555pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 los
+ []
+
+
+Overfull \hbox (16.86656pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 mo-
+ []
+
+
+Overfull \hbox (21.97763pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 men-
+ []
+
+
+Overfull \hbox (12.52214pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 tos
+ []
+
+
+Overfull \hbox (17.37769pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 m^^Sas
+ []
+
+
+Overfull \hbox (12.7777pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 os-
+ []
+
+
+Overfull \hbox (25.9387pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 curos.
+ []
+
+
+Overfull \hbox (7.43329pt too wide) in paragraph at lines 8--8
+ []\OT1/cmr/m/it/10 A
+ []
+
+
+Overfull \hbox (11.24438pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 mi
+ []
+
+
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 fa-
+ []
+
+
+Overfull \hbox (25.04431pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 milia,
+ []
+
+
+Overfull \hbox (14.56656pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 que
+ []
+
+
+Overfull \hbox (16.35544pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 em-
+ []
+
+
+Overfull \hbox (18.65546pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 puj^^So
+ []
+
+
+Overfull \hbox (15.33325pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 mis
+ []
+
+
+Overfull \hbox (12.7777pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 as-
+ []
+
+
+Overfull \hbox (20.57207pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 pira-
+ []
+
+
+Overfull \hbox (27.08871pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 ciones
+ []
+
+
+Overfull \hbox (22.74431pt too wide) in paragraph at lines 8--8
+ []\OT1/cmr/m/it/10 hasta
+ []
+
+
+Overfull \hbox (14.56656pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 que
+ []
+
+
+Overfull \hbox (8.68883pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 se
+ []
+
+
+Overfull \hbox (18.39986pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 con-
+ []
+
+
+Overfull \hbox (37.31082pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 virtieron
+ []
+
+
+Overfull \hbox (10.22215pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 en
+ []
+
+
+Overfull \hbox (11.88321pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 re-
+ []
+
+
+Overfull \hbox (11.24437pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 al-
+ []
+
+
+Overfull \hbox (6.6444pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 i-
+ []
+
+
+Overfull \hbox (27.08873pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 dades.
+ []
+
+
+Overfull \hbox (7.43329pt too wide) in paragraph at lines 8--8
+ []\OT1/cmr/m/it/10 A
+ []
+
+
+Overfull \hbox (21.72208pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 Coti,
+ []
+
+
+Overfull \hbox (13.92767pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 por
+ []
+
+
+Overfull \hbox (9.4555pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 su
+ []
+
+
+Overfull \hbox (17.88875pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 ded-
+ []
+
+
+Overfull \hbox (6.6444pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 i-
+ []
+
+
+Overfull \hbox (27.59981pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 caci^^Son
+ []
+
+
+Overfull \hbox (10.22215pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 en
+ []
+
+
+Overfull \hbox (11.7555pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 los
+ []
+
+
+Overfull \hbox (12.77766pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 pe-
+ []
+
+
+Overfull \hbox (8.68883pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 o-
+ []
+
+
+Overfull \hbox (12.39433pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 res
+ []
+
+
+Overfull \hbox (16.86656pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 mo-
+ []
+
+
+Overfull \hbox (21.97763pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 men-
+ []
+
+
+Overfull \hbox (15.58879pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 tos.
+ []
+
+
+Overfull \hbox (7.43329pt too wide) in paragraph at lines 8--8
+ []\OT1/cmr/m/it/10 A
+ []
+
+
+Overfull \hbox (40.65532pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 Moloka'i,
+ []
+
+
+Overfull \hbox (13.7999pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 Ti-
+ []
+
+
+Overfull \hbox (12.01102pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 ta-
+ []
+
+
+Overfull \hbox (13.79993pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 nia
+ []
+
+
+Overfull \hbox (4.85551pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 y
+ []
+
+
+Overfull \hbox (31.31645pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 Pangea
+ []
+
+
+Overfull \hbox (14.56656pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 que
+ []
+
+
+Overfull \hbox (12.7777pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 me
+ []
+
+
+Overfull \hbox (7.66663pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 lo
+ []
+
+
+Overfull \hbox (27.21648pt too wide) in paragraph at lines 8--8
+ []\OT1/cmr/m/it/10 dieron
+ []
+
+
+Overfull \hbox (18.14432pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 todo
+ []
+
+
+Overfull \hbox (30.92204pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 cuando
+ []
+
+
+Overfull \hbox (7.1555pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 el
+ []
+
+
+Overfull \hbox (29.38873pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 mundo
+ []
+
+
+Overfull \hbox (8.68883pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 se
+ []
+
+
+Overfull \hbox (22.10541pt too wide) in paragraph at lines 8--8
+ \OT1/cmr/m/it/10 par^^So.
+ []
+
+)
+! Emergency stop.
+<*> ./Dedicatoria.tex
+                     
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 23 strings out of 476334
+ 507 string characters out of 5787971
+ 1852382 words of memory out of 5000000
+ 20552 multiletter control sequences out of 15000+600000
+ 512633 words of font info for 33 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 15i,1n,12p,120b,115s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!

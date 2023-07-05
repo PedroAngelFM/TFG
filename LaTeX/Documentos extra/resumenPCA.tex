@@ -24,7 +24,7 @@
 
 \subsection{Definición y cálculo de las componentes principales}
 
-\noindent Sea un vector aleatorio de longitud $p$, $\mathbf{x}=[X_1,\ldots X_p]$, con una distribución $N(\mu, \mathbf{\Sigma})$, donde $\mu$ es el vector de medias y $\mathbf{\Sigma}$ la matriz de covarianzas con $r=rg(\mathbf{\Sigma})$, entonces,  se pueden definir las componentes principales \cite{Cuadras 2014}.
+\noindent Sea un vector aleatorio de longitud $p$, $\mathbf{x}=[X_1,\ldots X_p]$, con una distribución $N(\mu, \mathbf{\Sigma})$, donde $\mu$ es el vector de medias y $\mathbf{\Sigma}$ la matriz de covarianzas con $r=rg(\mathbf{X})$, la matriz de datos obtenida al realizar $N$ observaciones. Se definen las componentes principales \cite{Cuadras 2014}.
 \begin{defi}
 Se definen las componentes principales 
 \begin{equation}
@@ -124,7 +124,7 @@ Se llama matriz de cargas $\mathbf{V}$ a la matriz ortogonal que tiene por colum
 \noindent Sea $\mathbf{x}$ el vector aleatorio de longitud $p$ definida de la misma manera. Entonces se puede definir lo siguiente :
 
 \begin{defi}
-Dados los datos de $N$ observaciones recogidos sobre $p$ variables $X_1,\ldots, X_p$, entonces $\mathbf{z}_{ij}=\mathbf{x}_i\mathbf{v}_j, ,\forall i=1,\ldots, N,\forall j=1,\ldots p$ es el valor de la $j$-ésima componente para la observación $\mathbf{x}_i$. 
+Dados los datos de $N$ observaciones recogidos sobre $p$ variables $X_1,\ldots, X_p$, entonces $\mathbf{z}_{ij}=\mathbf{x}_i\mathbf{v}_j, ,\forall i=1,\ldots, N,\forall j=1,\ldots r, \enspace r=rg(\mathbf{})$ es el valor de la $j$-ésima componente para la observación $\mathbf{x}_i$. 
 
 \noindent Donde el vector $\mathbf{v}_j$ cumple las mismas condiciones que para las variables aleatorias. 
 \end{defi}
@@ -184,7 +184,7 @@ donde la matriz $\mathbf{D} ^T \mathbf{D} $ es una matriz diagonal de tamaño $r
 \end{propo}
 
 \begin{propo}
-La matriz $\mathbf{U}^T$ es la matriz de tamaño $N\times r$ que contiene como columnas los $r$ vectores propios con valores propios no nulos de la matriz $\mathbf{XX}^T$
+La matriz $\mathbf{U}$ es la matriz de tamaño $N\times r$ que contiene como columnas los $r$ vectores propios con valores propios no nulos de la matriz $\mathbf{XX}^T$
 \begin{proof}
 Se sigue un razonamiento análogo pero con la matriz $\mathbf{XX}^T$
 \begin{align*}

@@ -93,7 +93,7 @@ Un dendograma es un diagrama de árbol en el que en el eje horizontal se sitúan
 \newpage
 \subsection{Algoritmos particionales}
 
-\noindent Dada una matriz de datos $\mathbf{X}$ de tamaño $N\times p$ resultado de realizar $N$ observaciones de $p$ variables aleatorias. El \emph{clustering} particional busca hacer una partición que divida las observaciones en $K$ grupos homogéneos 
+\noindent Dada una matriz de datos $\mathbf{X}$ de tamaño $N\times p$ resultado de realizar $N$ observaciones. El \emph{clustering} particional busca hacer una partición que divida las observaciones en $K$ grupos homogéneos 
 
 \begin{defi}
 Se llama \emph{centroide} de un cluster $C_k,\quad k=1,\ldots,K$ al vector de tamaño $p$ cuyas componentes son las medias de cada una de las variables de todas las observaciones del \emph{cluster} $C_k$:
@@ -109,7 +109,7 @@ Se llama \emph{centroide} de un cluster $C_k,\quad k=1,\ldots,K$ al vector de ta
 \item Se repiten los dos pasos anteriores hasta que las asignaciones no cambien. 
 \end{enumerate}
 
-\noindent Resaltar que este algoritmo tiene un problema y es que los resultados finales 
+\noindent Resaltar que este algoritmo tiene un problema y es que los resultados finales dependen de la inicialización, es por ello que Peña define algunas medidas para poder comparar entre distintas asignaciones \cite{Peña 2002}. 
 
 \noindent Hay otras alternativas que utilizan criterios de variabilidad intra grupos o entre grupos para realizar las asignaciones óptimas fijados el número de clusters, para profundizar en dicho enfoque, léase \cite{Everitt 2011, Peña 2002, Hartigan 1975}
 

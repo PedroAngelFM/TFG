@@ -1,4 +1,4 @@
-\section{Métodos Lineales para regresión}
+\section{Métodos lineales para regresión}
 
 \noindent El objetivo de la regresión lineal es estudiar como un conjunto de variables respuesta continuas están relacionadas con otro conjunto de variables predictoras. En el caso de la regresión lineal, se estudia como una combinación lineal de las variables predictoras puede relacionarse con las variables respuesta. Esto se puede hallar con fines predictivos o con el fin de analizar cómo cada una de las variables predictivas afectan a las variables respuesta \cite{Johnson 2007}. 
 
@@ -94,7 +94,7 @@ Y\sim N(f_\theta(\textbf{x}), \sigma^2)
 L(\theta)=-\dfrac{N}{2}log(2\pi)-N log(\sigma)-\dfrac{1}{2\sigma^2}\sum_{i=1}^N (y_i-f_\theta(x_i))^2
 \end{equation}
 
-\noindent En particular, la derivada de la función de la verosimilitud logística queda:
+\noindent En particular, la derivada de la función de la verosimilitud queda:
 \begin{equation}
 \dfrac{\partial L(\theta)}{\partial \theta}=-\dfrac{1}{2\sigma^2}\dfrac{\partial RSS(\theta)}{\partial \theta}
 \end{equation}
@@ -161,7 +161,7 @@ El estimador $\hat{\beta}$ es un estimador insesgado.
 \begin{proof}  
 \noindent \\ Teniendo en cuenta las hipótesis anteriores se obtiene que:
 \begin{equation}
-\mathbb{E}(\hat{\beta})=\mathbb{E}((\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T \mathbf{y})=\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\mathbb{E}(\mathbf{y})
+\mathbb{E}(\hat{\beta})=\mathbb{E}((\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T \mathbf{y})=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\mathbb{E}(\mathbf{y})
 \end{equation}
 
 \noindent En particular, se sabe que $\mathbb{E}(\mathbf{y})=\mathbf{X}\beta$. Entonces se obtiene lo siguiente:
@@ -222,7 +222,7 @@ El estimador $\hat{\sigma}^2$ cumple lo siguiente :
 \begin{proof}
 \noindent 
 \begin{enumerate}
-\item El término $RSS(\hat{\beta}=\sum_{i=1}^N (y_i-\hat{y}_i)^2=)$, se puede expresar como un producto escalar, tomando el vector residuo $\hat{\mathbf{\varepsilon}}= \mathbf{y}-\mathbf{X \hat{\beta}}=\mathbf{y}-\mathbf{\hat{y}}$, se puede ver que es $RSS(\hat{\beta})=\hat{\mathbf{\varepsilon}}^T\hat{\mathbf{\varepsilon}}$. 
+\item El término $RSS(\hat{\beta})=\sum_{i=1}^N (y_i-\hat{y}_i)^2$, se puede expresar como un producto escalar, tomando el vector residuo $\hat{\mathbf{\varepsilon}}= \mathbf{y}-\mathbf{X \hat{\beta}}=\mathbf{y}-\mathbf{\hat{y}}$, se puede ver que es $RSS(\hat{\beta})=\hat{\mathbf{\varepsilon}}^T\hat{\mathbf{\varepsilon}}$. 
 
 \noindent Sabiendo que $\mathbf{\hat{\varepsilon}}\in \mathbb{R}^N$, consideremos una nueva base del espacio,\\ $\lbrace t_1,\ldots t_{p+1},t_{p+2},\ldots, t_N \rbrace$, de tal manera que los $p+1$ primeros son una base de $C_{p+1}(\mathbf{X})$ y que sean ortonormales entre si, entonces, se puede tomar la matriz de cambio de base $\mathbf{T}$, es una matriz ortogonal, de manera que 
 \\$\mathbf{T}^T\mathbf{T}=\mathbf{TT}^T=\mathbf{I}$. 
@@ -260,7 +260,7 @@ t_j=\dfrac{\hat{\beta}_j}{\hat{\sigma}\sqrt{(\mathbf{X}^T\mathbf{X})^{-1}_{jj}}}
 
 \noindent Ahora, sea $p_1+1$ el número del conjunto más grande de parámetros o de variables a considerar y $RSS_1$ su error cuadrático respectivo, sean igualmente $RSS_0$ y $p_0+1$ para el segundo conjunto o subconjunto menor que sea subconjunto del anterior, si además contamos que :
 \begin{equation}\label{eq: RSS distribucion}
-\frac{RSS(\hat{\beta})}{N-p-1}=\frac{1}{N-p-1}\sum_{i=1}^N(y_i-\hat{y}_i)^2\sim \sigma^2 \chi_{N-p-1}
+\frac{RSS(\hat{\beta})}{N-p-1}=\frac{1}{N-p-1}\sum_{i=1}^N(y_i-\hat{y}_i)^2\sim \sigma^2 \chi^2_{N-p-1}
 \end{equation}
 
 \noindent Se puede definir el estadígrafo: 

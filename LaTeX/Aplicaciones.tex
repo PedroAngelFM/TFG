@@ -63,7 +63,7 @@ Resistencia a la compresión & continuo & MPa & \\
   \label{fig:resumen_basicos}
 \end{figure}
 
-\noindent En este primer análisis resumido en la figura \ref{fig:resumen_basicos} se observa que la media de la fuerza de compresión o resistencia a la compresión tiene una media muestral de $35,82$ MPa, con una desviación estándar de $16,70$ MPa, lo cual nos dice que hay una alta dispersión de los datos en esta variable. Hay que tenerlo en cuenta ya que puede provocar que no se den los resultados deseados. 
+\noindent En este primer análisis resumido en la figura \ref{fig:resumen_basicos} se observa que la media de la fuerza de compresión o resistencia a la compresión tiene una media muestral de $35,82$ MPa, con una desviación estándar de $16,70$ MPa, lo cual nos dice que hay una alta dispersión de los datos en esta variable. 
 
 \noindent Hay otras medidas a las que le ocurre lo mismo, es decir, que tienen una alta dispersión como pueden ser la cantidad de superplastificante, la ceniza volante o la escoria de alto horno. 
 
@@ -78,9 +78,9 @@ Resistencia a la compresión & continuo & MPa & \\
 
 \noindent Concretamente, los coeficientes de las 3 componentes principales son:
 \begin{align}
-Z_1&=(0.04 \enspace 0.16  \enspace  -0.37  \enspace 0.56  \enspace   -0.54  \enspace  0.06 \enspace  -0.38  \enspace 0.26  \enspace -0.11)\mathbf{x}^T\\
-Z_2&=(0.54 \enspace 0.14 \enspace  -0.27  \enspace -0.12 \enspace   0.25  \enspace -0.22 \enspace  -0.19 \enspace  0.25  \enspace  0.63)\mathbf{x}^T\\
-Z_3&=(0.36 \enspace -0.7 \enspace  0.02 \enspace-0.12\enspace -0.19  \enspace 0.55 \enspace 0. \enspace   0.17 \enspace 0.03)\mathbf{x}^T
+Z_1&=(0,04;0.16;-0.37  ; 0.56  ;   -0.54  ;  0.06 ;  -0.38  ; 0.26  ; -0.11)\mathbf{x}^T\\
+Z_2&=(0.54 ; 0.14 ;  -0.27  ; -0.12 ;   0.25  ; -0.22 ;  -0.19 ;  0.25  ;  0.63)\mathbf{x}^T\\
+Z_3&=(0.36 ; -0.7 ;  0.02 ;-0.12; -0.19  ; 0.55 ; 0 ;   0.17 ; 0.03)\mathbf{x}^T
 \end{align}
 \noindent Al haber trabajado con la matriz estandarizada, estas cargas representan la correlación de cada una de las variables con la componente en cuestión. 
 
@@ -103,7 +103,7 @@ Y=-51.45+0.13 X_1+0.11X_2+0.1X_3-0.12X_4+0.26X_5+  0.03X_6+0.03X_7+0.11X_8
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.30]{Documentos Extra/Imagenes/Arbol.png}
+  \includegraphics[scale=0.3]{Documentos Extra/Imagenes/Arbol.png}
   \caption{Diagrama resultante hasta profundidad 3}
   \label{fig:diagrama arbol}
 \end{figure}
@@ -111,7 +111,7 @@ Y=-51.45+0.13 X_1+0.11X_2+0.1X_3-0.12X_4+0.26X_5+  0.03X_6+0.03X_7+0.11X_8
 
 \noindent En el caso de la red neuronal se ha elegido un modelo con 2 capas una de entrada con 13 neuronas, en la cual se utiliza una función de activación lineal rectificada y una de salida con una neurona la cual utiliza la función identidad como función de activación. Con este modelo sencillo se consigue en el caso de los datos de entrenamiento, un $MSE=45,748$ y un coeficiente $R^2=0.837$. Por otro lado, en el conjunto de prueba se obtiene un error cuadrático medio de $MSE=51.805$ y un $R^2=0.809$.
 
-\noindent En principio, el modelo más equilibrado sería el caso de la red neuronal, ya que no entra en sobreajuste como el árbol de regresión ya que se ha obtenido una disparidad muy evidente del error en el conjunto de entrenamiento en comparación del error en el conjunto de prueba. Y el modelo de regresión lineal obtiene unos resultados malos. La figura \ref{fig: comparación} muestra como los distintos modelos predicen en el conjunto de prueba.
+\noindent En principio, el modelo más equilibrado sería el caso de la red neuronal, ya que no entra en sobreajuste como el árbol de regresión ya que se ha obtenido una disparidad muy evidente del error en el conjunto de entrenamiento en comparación del error en el conjunto de prueba. Y el modelo de lineal obtiene unos resultados malos. La figura \ref{fig: comparación} muestra como los modelos predicen en el conjunto de prueba.
 
 %%\begin{figure}[h]
 %  \centering
@@ -152,7 +152,7 @@ Y=-51.45+0.13 X_1+0.11X_2+0.1X_3-0.12X_4+0.26X_5+  0.03X_6+0.03X_7+0.11X_8
   \label{fig: comparación}
 \end{figure}
 
-
+\noindent En resumen, el mejor modelo para predecir la resistencia a la compresión sería la red neuronal. 
 
 
 %\begin{table}[ht]

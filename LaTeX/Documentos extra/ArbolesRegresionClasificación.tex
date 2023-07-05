@@ -146,7 +146,7 @@ Q_{\alpha}(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}
 
 \subsection{Árboles de clasificación}
 
-\noindent Sea ahora el caso en el que las variables predictoras son como antes, dadas por un vector aleatorio $\mathbf{x}$ de longitud $p$, categóricas o cualitativas, pero en el que la variable respuesta es una variable aleatoria con $L$ posibles modalidades o clases.
+\noindent Sea ahora el caso en el que las variables predictoras son como antes, dadas por un vector aleatorio $\mathbf{x}$ de longitud $p$, cuantitativas o cualitativas, pero en el que la variable respuesta es una variable aleatoria con $L$ posibles modalidades o clases.
 
 \noindent Supóngase que se han tomado $N$ observaciones de las variables predictoras y respuesta. Además se supone que la variable respuesta $Y$, en este caso, categórica tiene $L$ categorías posibles las cuales se denotan como $l, l=1,\ldots,L$. Sea también un árbol $T$ de tamaño $M$ que genera una partición del espacio con las regiones $R_m, m=1,\ldots, M$. Entonces se puede denotar de la siguiente manera: 
 \begin{equation}
@@ -275,7 +275,7 @@ Al asumir que $Y=f(\mathbf{x})$ se tiene que
 \noindent Como hemos dicho antes, el crecimiento de los árboles tanto de regresión como de clasificación tiende a  sobreajustarse. En la siguiente parte veremos como hay distintos algoritmos que buscan evitar dicho sobreajuste. 
 
 \newpage
-\subsection{Algoritmo Random Forest}
+\subsection{Algoritmo random forest}
 
 \noindent El término bosque aleatorio se puede referir a dos conceptos distintos, uno el hecho de utilizar varios árboles sin importar como se obtienen y luego utilizar la media de los resultados o el voto por mayoría dependiendo del tipo de variable respuesta sea discreta o continua. 
 

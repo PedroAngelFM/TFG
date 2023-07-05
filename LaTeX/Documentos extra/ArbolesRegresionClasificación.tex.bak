@@ -3,13 +3,13 @@
 
 \noindent Sea un vector aleatorio $\textbf{x}$ de longitud $p$ con las variables predictoras e $Y$ la variable respuesta. Se toman $N$ observaciones obteniéndose parejas $(\textbf{x}_i,y_i)$. De esta manera, tenemos que se puede interpretar que $\mathbf{x}_i\in\mathbb{R}^p$.
 
-\noindent Los árboles de decisión son métodos divisivos que dividen el espacio de observaciones $\mathbb{R}^p$ en varias regiones. En cada región, se ajusta un modelo más simple.
+\noindent Los árboles de decisión son métodos divisivos que fragmentan  el espacio de observaciones $\mathbb{R}^p$ en varias regiones. En cada región, se ajusta un modelo más simple.
 
-\noindent La ventaja de este tipo de métodos es que son fácilmente interpretables, ya que pueden ser representados mediante un diagrama de tipo árbol. De esta manera, entre los principales objetivos de los árboles de decisión, se encuentran la selección y evaluación de la importancia de las variables\cite{Brown 2004,Song 2015}. Además de que puede tener fines predictivos o incluso de manejo de los datos, valores perdidos etc...\cite{Nerini 2007}.
+\noindent La ventaja de este tipo de métodos es que son fácilmente interpretables, ya que pueden ser representados mediante un diagrama de tipo árbol. De esta manera, entre los principales objetivos de los árboles de decisión, se encuentran la selección y evaluación de la importancia de las variables \cite{Brown 2004,Song 2015}. Además se pueden utilizar con fines predictivos o incluso de manejo de los datos, valores perdidos entre otros \cite{Nerini 2007}.
 
 \noindent Otra ventaja de este tipo de métodos es que permite trabajar con conjuntos de datos en los que se estudian un mayor número de variables que de observaciones, es decir, $p > N$ \cite{Diaz 2006}. 
 
-\noindent El problema que más se da en los árboles de decisión es su tendencia al sobre ajuste, ya que de la forma que están conceptualizados, provoca que el sesgo sea pequeño, pero con una gran varianza. Esto se considera en los algoritmos desarrollados durante la sección, normalmente se eliminan particiones que no aporten demasiado. A este proceso se le llama ``poda". Es por esta problemática que se desarrolla el análisis de modelos mediante la descomposición en sesgo y varianza de los mismos. 
+\noindent El problema que más se da en los árboles de decisión es su tendencia al sobreajuste, ya que de la forma que están conceptualizados, provoca que el sesgo sea pequeño, pero con una gran varianza. Esto se considera en los algoritmos desarrollados durante la sección, normalmente se eliminan particiones que no aporten demasiado. A este proceso se le llama ``poda". Es por esta problemática que se desarrolla el análisis de modelos mediante la descomposición en sesgo y varianza de los mismos. 
 
 \noindent Se detallan los principales conceptos y notación a continuación. 
 
@@ -18,7 +18,7 @@
 \begin{defi}
 Un árbol de decisión es un conjunto de reglas discriminantes que fraccionan el espacio de observaciones de acuerdo a un cierto criterio. Este conjunto genera un grafo de tipo árbol con un único nodo raíz  y donde los nodos hoja representan cada una de las regiones en las que se ha fraccionado el espacio. 
 \end{defi}
-\noindent Como se ha dicho un árbol de decisión genera particiones del espacio de observaciones que se definen de la siguiente manera \cite{Hastie 2001}.
+\noindent Como se ha dicho un árbol de decisión genera particiones del espacio de observaciones que se definen de la siguiente manera \cite{Brown 2004}.
 \begin{defi}
 Se llama separación, partición o división de índice $(j,s)$ a la fragmentación del espacio inicial dado en las siguientes regiones $R_1,R_2$:
 \begin{equation}
@@ -35,19 +35,19 @@ R_1=\lbrace \mathbf{x}_i \in \mathbb{R}^p/ x_{ij}=l/ l\in L_1\rbrace \quad R_2=\
 \begin{defi}
 Se define como nodo de un árbol de decisión, a cada una de las regiones resultantes después de aplicar una separación.
 \end{defi}
-\noindent En particular se tienen los nodos terminales o hoja y los nodos padre y nodos hijos \cite{Brown 2004}.
+\noindent En particular se tienen los nodos terminales o hoja y los nodos padre y nodos hijo \cite{Brown 2004}.
 \begin{defi}
 Se define un nodo terminal o nodo hoja en un árbol de decisión como cada una de las regiones finales resultante de la partición del espacio de observaciones.
 \end{defi}
 \begin{defi}
-Se denomina nodo padre al nodo previo a una  separación y se definen los nodos hijos a los resultantes de una determinada partición. 
+Se denomina nodo padre al nodo previo a una  separación y se definen los nodos hijos a los resultantes de dicha partición. 
 \end{defi}
 \noindent Además podemos dar varias medidas de la complejidad del modelo \cite{Hastie 2001}.
 \begin{defi}
 Se denomina  tamaño del árbol $T$, $|T|$ al número de nodos terminales. 
 \end{defi}
 \begin{defi}
-Se llama profundidad del árbol al número máximo que de divisiones necesarias para llegar a un nodo terminal. 
+Se llama profundidad del árbol al número máximo de divisiones necesarias para llegar a un nodo terminal. 
 \end{defi}
 \noindent Las  siguientes imágenes \ref{f:diagrama arbol}, \ref{f:división}  muestran el diagrama resultante tras dividir el espacio de observaciones mediante un árbol. 
 
@@ -59,22 +59,20 @@ Se llama profundidad del árbol al número máximo que de divisiones necesarias 
   \subfloat[Diagrama resultante]{
    \label{f:diagrama arbol}
     \includegraphics[width=0.4\textwidth]{Documentos Extra/Imagenes/Diagrama de arbol.png}}
- \caption{Representación de la división de $\mathbb{R}^p$ y el diagrama de árbol resultante.Ambas procedentes de \cite{Hastie 2001}}
+ \caption{Representación de la división de $\mathbb{R}^p$ y el diagrama de árbol resultante.Ambas procedentes de \cite{Hastie 2001}.}
  \label{f:MARC1}
 \end{figure}
 
-\noindent Como se puede ver, cada uno de los nodos terminales representan cada una de las regiones en las que se ha separado el espacio de observaciones. 
+\noindent Como se puede ver, cada uno de los nodos terminales representa cada una de las regiones en las que se ha separado el espacio de observaciones. 
 
-\noindent Dependiendo del tipo de variable respuesta, se utiliza un árbol de regresión cuando se busca estudiar la relación de un conjunto de variables con otra variable continua, y un árbol de clasificación cuando la variable respuesta es categórica o cualitativa. En nuestro caso, los algoritmos que se describirán pueden manejar tanto variables de entrada discretas como continuas. Se detallará el caso en el que las variables de entrada son continuas.
+\noindent Dependiendo del tipo de variable respuesta, se utiliza un árbol de regresión cuando se busca estudiar la relación de un conjunto de variables con otra variable continua, y un árbol de clasificación cuando la variable respuesta es categórica o cualitativa. En nuestro caso, los algoritmos que se describirán pueden manejar tanto variables de entrada discretas como continuas. Se detallará a continuación el caso en el que las variables de entrada son continuas.
 
-\noindent \emph{Observación:} La razón de usar particiones binarias es que son fáciles de entender y manejar. Esto hace que los árboles de decisión sean más fáciles de usar y nos ayuda a comprender las áreas o regiones que hemos creado al particionar. 
+\noindent \emph{Observación:} se usan particiones binarias porque son simples de comprender y manejar. Esto facilita el uso de árboles de decisión y nos ayuda a entender las áreas que creamos al dividir los datos.
 
-
- 
-%\noindent Esta parte se va utilizar, tanto en los árboles como en los random forests, ya que son métodos que buscan con un conjunto relativamente pequeño de observaciones en relación con el numero de variables observadas obtener un modelo que no tenga un sobre ajuste excesivo. De hecho, para hacer crecer un árbol, se busca hacerlo crecer hasta un punto de sobre ajuste y luego se irá ``podando" de la manera que se definirá más tarde para evitar dicho sobre ajuste introduciendo algo de sesgo. 
+%\noindent Esta parte se va utilizar, tanto en los árboles como en los random forests, ya que son métodos que buscan con un conjunto relativamente pequeño de observaciones en relación con el numero de variables observadas obtener un modelo que no tenga un sobreajuste excesivo. De hecho, para hacer crecer un árbol, se busca hacerlo crecer hasta un punto de sobreajuste y luego se irá ``podando" de la manera que se definirá más tarde para evitar dicho sobreajuste introduciendo algo de sesgo. 
 
 \subsection{Árboles de regresión }
-\noindent A continuación, examinemos el  proceso de crecimiento de un árbol de regresión. Se considera un vector aleatorio $\mathbf{x}$ con $p$ variables predictoras y una variable respuesta continua $Y$.Aunque hay varios algoritmos para hacer crecer los árboles de regresión se detallará el algoritmo CART (árboles de clasificación y regresión) de Breiman \cite{Breiman 1984}. Se elige este ya que es el más importante y fundamental. 
+\noindent A continuación, examinemos el  proceso de crecimiento de un árbol de regresión. Se considera un vector aleatorio $\mathbf{x}$ con $p$ variables predictoras y una variable respuesta continua $Y$. Aunque hay varios algoritmos para hacer crecer los árboles de regresión se detallará el algoritmo \emph{CART} (árboles de clasificación y regresión) de Breiman \cite{Breiman 1984}. Se elige este ya que es el más importante y fundamental. 
 
 \noindent Supongamos que hemos establecido un número máximo de particiones $M=|T|$. El objetivo del árbol de regresión es dividir el espacio de observaciones en regiones $R_m$ para $m=1,\ldots, M$. Cada región $R_m$ está asociada a su función característica, que denotaremos como $\mathbf{1}_m$.
 
@@ -84,18 +82,18 @@ Se llama profundidad del árbol al número máximo que de divisiones necesarias 
 \hat{f}(\mathbf{x})=\sum_{m=1}^M \hat{f}_m(\mathbf{x})\cdot \mathbf{1}_m(\mathbf{x})
 \end{equation}
 
-\noindent Esto significa que en cada región $R_m$, se realiza una regresión utilizando los datos correspondientes a esa región. Generalmente, se busca una aproximación lo más sencilla posible en cada $R_m$, por ejemplo, utilizando una constante. \cite{Hastie 2001,Biau 2016}.
+\noindent Esto significa que en cada región $R_m$, se realiza una regresión utilizando los datos correspondientes a esa región. Generalmente, se busca una aproximación lo más sencilla posible en cada $R_m$, por ejemplo, utilizando una constante. \cite{Biau 2016,Hastie 2001}.
 
-\noindent Si se aplica el método de los mínimos cuadrados, con la restricción requerida, se pueden definir las constantes $\hat{c}_m$ de la siguiente manera (Para ver demostración completa véase la sección de 9.1 \cite{Breiman 1984}) :
+\noindent Si se aplica el método de los mínimos cuadrados, con la restricción requerida, se pueden definir las constantes $\hat{c}_m$ de la siguiente manera (Para ver demostración completa véase la sección de 9.1 \cite{Breiman 1984}):
 \begin{equation}
 \hat{c}_m=\dfrac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} y_i
 \end{equation}
 
-\noindent Donde $N_m$ es el número de observaciones del total que hay en $R_m$. Es decir, $\hat{c}_m$ es la media muestral de las respuestas de las observaciones pertenecen a la región y esto provoca que $\hat{f}(\mathbf{x})=\sum_{m=1}^M \hat{c}_m \cdot \mathbf{1}_m(\mathbf{x})$. Es decir, la predicción $\hat{y}$ para un $\mathbf{x}\in R_m$ otorgada por el modelo es $\hat{c}_m$. \cite{Hastie 2001, Breiman 1984}
+\noindent Donde $N_m$ es el número de observaciones que hay en $R_m$. Es decir, $\hat{c}_m$ es la media muestral de las respuestas de las observaciones que pertenecen a la región y esto provoca que $\hat{f}(\mathbf{x})=\sum_{m=1}^M \hat{c}_m \cdot \mathbf{1}_m(\mathbf{x})$. Es decir, la predicción $\hat{y}$ para un $\mathbf{x}\in R_m$ otorgada por el modelo es $\hat{c}_m$ \cite{Hastie 2001, Breiman 1984}.
 
-\noindent Una vez se conoce como se va a dar la estimación final, hay que saber cómo llegar a la mejor partición. A este proceso de elegir las particiones y elegir dichas particiones $(j,s)$. 
+\noindent Una vez se conoce como se va a dar la estimación final, hay que saber cómo llegar a la mejor partición. Este proceso de selección puede cambiar de un algoritmo a otro.  
 
-\noindent En regresión, hay que elegir $j$ y $s$ de tal manera que las regiones resultantes $R_{m_1},R_{m_2}$ son aquellas en las que se minimiza la siguiente expresión \cite{Breiman 1984}:
+\noindent En regresión, hay que elegir $j$ y $s$ de tal manera que las regiones resultantes $R_{m_1},R_{m_2}$ de la partición $(j,s)$ son aquellas en las que se minimiza la siguiente expresión \cite{Breiman 1984}:
 \begin{equation}
 \sum_{i/\mathbf{x}_i\in R_{m_1} } (y_i-\hat{c}_{m_1})^2+\sum_{i/\mathbf{x}_i\in R_{m_2} } (y_i-\hat{c}_{m_2})^2
 \end{equation}
@@ -108,23 +106,13 @@ Se llama error cuadrático medio de una región $R_m$ a $Q_m(T)=\frac{1}{N_m}\su
 
 \noindent Por tanto, podemos definir una función de coste general 
 \begin{equation}
-Q(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}_m)^2
+Q(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}_m)^2,
 \end{equation}
 
 
-\noindent Ya que el error cometido medio en el espacio de observaciones es la media de todos los errores cometidos en cada una de las regiones en las que se particiona el espacio \cite{Breiman 1984}. 
+\noindent ya que el error cometido medio en el espacio de observaciones es la media de todos los errores cometidos en cada una de las regiones en las que se particiona el espacio \cite{Breiman 1984}. 
 
-
-\noindent En el caso de que $\mathbf{x}_0\in R_m$ y las mismas suposiciones que en la sección anterior, una observación que no está entre las recogidas en la matriz de datos, el error de predicción esperado cumple lo siguiente:
-\begin{align}
-EPE(\mathbf{x}_0)&=\sigma^2+(Sesgo(\hat{f}_m(\mathbf{x}_0)))^2+Var(\hat{f}(\mathbf{x}_0))
-\intertext{Como $\mathbf{x}_0\in R_m$ entonces, se tiene que:}
-EPE(\mathbf{x}_0)&=\sigma^2+(Sesgo(\hat{f}_m(\mathbf{x}_0)))^2+Var(\hat{f}_m(\mathbf{x}_0))
-\intertext{En particular, $\hat{f}_m(\mathbf{x})=\hat{c}_m$, por tanto, es un estimador insesgado cuya varianza es $\frac{\sigma^2}{N_m}$ ya que procede de hacer una media muestral la variable $Y\sim N(0,\sigma^2)$, por tanto:}
-EPE(\mathbf{x}_0)&=\sigma^2+\dfrac{\sigma^2}{N_m}
-\end{align}
-
-\noindent Por tanto, hacer crecer un árbol, es decir, hacer que tenga más nodos términales, va a provocar que $N_m$ sea menor, por lo tanto, hacer crecer un árbol demasiado hace que estemos en un caso de sobre ajuste. Es por ello, que se crean métodos como la \emph{poda}.
+\noindent Por tanto, hacer crecer un árbol, es decir, hacer que tenga más nodos terminales, va a provocar que $N_m$ sea menor, por lo tanto, hacer crecer un árbol demasiado hace que estemos en un caso de sobreajuste, lo cual se desarrolla más adelante en esta sección. Es por ello, que se crean métodos como la poda.
 
 \noindent Para empezar, hay que definir lo que significa la poda de un árbol. 
 \begin{defi}
@@ -134,16 +122,16 @@ Se llama poda al proceso en el que dado un árbol inicial de tamaño $T_0$ se re
 
 \noindent Divakaran y Breiman proponen añadir un término al coste del árbol \cite{Breiman 1984,Divakaran 2022}. 
 \begin{equation}
-Q_{\alpha}(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}_m)^2+\alpha|T |
+Q_{\alpha}(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}_m)^2+\alpha|T |,
 \end{equation}
 
-\noindent Donde $\alpha$ es un término para controlar la complejidad del árbol, es decir, $\alpha=0$ es el criterio habitual, mientras que cuanto mayor sea, más pequeños serán los árboles, ya que penaliza más el tamaño.  
+\noindent donde $\alpha$ es un término para controlar la complejidad del árbol, es decir, $\alpha=0$ es el criterio habitual, mientras que cuanto mayor sea, más pequeños serán los árboles, ya que penaliza más el tamaño.  
 
 \noindent El proceso que sugieren Divakaran, basado en el que da Breiman  viene dado por los siguientes pasos \cite{Breiman 1984,Divakaran 2022}:
 \begin{itemize}
-\item Primero prepara el conjunto de datos para poder realizar validación cruzada (Véase el capítulo 7 de \cite{Hastie 2001}, en particular el método de \emph{K-folds}).
+\item Primero prepara el conjunto de datos para poder realizar validación cruzada (Véase el Capítulo 7 de \cite{Hastie 2001}, en particular el método de \emph{K-folds}).
 
-\item Se hace una partición binaria hasta tener un árbol de gran tamaño $T_0$,parando con cualquiera de los criterios habituales como pueden ser un máximo de nodos terminales o un mínimo de observaciones por nodo. 
+\item Se hace una partición binaria hasta tener un árbol de gran tamaño $T_0$, parando con cualquiera de los criterios habituales como pueden ser un máximo de nodos terminales o un mínimo de observaciones por nodo. 
 
 \item Se aplica la poda al árbol utilizando el coste que penaliza el tamaño del propio árbol, teniendo en cuenta el parámetro $\alpha$. 
 
@@ -152,32 +140,31 @@ Q_{\alpha}(T)=\sum_{m=1}^M\frac{1}{N_m}\sum_{i/\mathbf{x}_i\in R_m} (y_i-\hat{c}
 
 \noindent Este método nos devuelve un subárbol $T_{\alpha}$ con el $Q_{\alpha}(T)$ menor posible. En caso de que $\alpha=0$, $T_{\alpha}=T_0$.
 
-\noindent En este caso, se está teniendo un intercambio entre varianza y sesgo, de manera que un árbol tiene menor sesgo, ya que se ajusta de mejor manera a los datos de ajuste pero a la hora de hacer predicciones no son las mejores. De esta manera, se da a cambio de un poco más de sesgo, se reduce la varianza. (Véase el capitulo 7 de \cite{Hastie 2001} o el capitulo 5 de \cite{James 2013}).
+\noindent En este caso, se está teniendo un intercambio entre varianza y sesgo, de manera que un árbol tiene menor sesgo, ya que se ajusta de mejor manera a los datos de ajuste pero a la hora de hacer predicciones no son las mejores. De esta manera, se da a cambio de un poco más de sesgo, se reduce la varianza. (Véase el Capítulo 7 de \cite{Hastie 2001} o el Capítulo 5 de \cite{James 2013}).
 
-\noindent Otro algoritmo de selección de las particiones es el algoritmo \emph{C4.5} de Quinlan y aunque se desarrollará aplicado a árboles de clasificación, su implementación para árboles de regresión es análoga, cambiando únicamente el criterio, ya que el dado no es válido para variables respuesta continuas \cite{Quinlan 2014}. 
+\noindent Otro algoritmo de selección de las particiones es el algoritmo \emph{C4.5} de Quinlan y aunque se desarrollará aplicado a árboles de clasificación su implementación para árboles de regresión es análoga.  Únicamente es necesario cambiar el criterio de las particiones ya que el descrito en la memoria no es válido para variables continuas \cite{Quinlan 2014}. 
 
 \subsection{Árboles de clasificación}
 
-\noindent Sea ahora el caso en el que las variables predictoras son como antes, dadas por un vector aleatorio $\mathbf{x}$ de longitud $p$ , categóricas o cualitativas, pero en el que la variable respuesta es una variable aleatoria con $L$ posibles modalidades o clases.
+\noindent Sea ahora el caso en el que las variables predictoras son como antes, dadas por un vector aleatorio $\mathbf{x}$ de longitud $p$, cuantitativas o cualitativas, pero en el que la variable respuesta es una variable aleatoria con $L$ posibles modalidades o clases.
 
-\noindent Supóngase que se han tomado $N$ observaciones de las variables predictoras y respuesta. Supóngase que la variable respuesta $Y$, en este caso, categórica tiene $L$ categorías posibles las cuales se denotan como $l, l=1,\ldots,L$. Sea también un árbol $T$ de tamaño $M$ que genera una partición del espacio con las regiones $R_m, m=1,\ldots, M$. Entonces se puede denotar de la siguiente manera: 
-
+\noindent Supóngase que se han tomado $N$ observaciones de las variables predictoras y respuesta. Además se supone que la variable respuesta $Y$, en este caso, categórica tiene $L$ categorías posibles las cuales se denotan como $l, l=1,\ldots,L$. Sea también un árbol $T$ de tamaño $M$ que genera una partición del espacio con las regiones $R_m, m=1,\ldots, M$. Entonces se puede denotar de la siguiente manera: 
 \begin{equation}
 \hat{p}_{lm}=\text{Proporción de observaciones en las que $y_i=l$, en la región $R_m$.}
 \end{equation}
 
-\noindent Teniendo en cuenta esto, se pueden definir los siguientes conceptos \cite{Divakaran 2022, Hastie 2001, James 2013, Brown 2004}.
+\noindent Teniendo en cuenta esto, se pueden definir los siguientes conceptos \cite{ Brown 2004, Divakaran 2022, Hastie 2001, James 2013}.
 \begin{defi}
 Se dice que un nodo correspondiente a la región $R_m$ es puro, si 
 \begin{equation}
-\exists l_0\in \lbrace 1,\ldots, L\rbrace/ p_{l_0 m}=1 \text{ y }\hat{p}_{lm}=0 \quad \forall l\neq l_0 
+\exists l_0\in \lbrace 1,\ldots, L\rbrace/ \hat{p}_{l_0 m}=1 \text{ y }\hat{p}_{lm}=0 \quad \forall l\neq l_0 
 \end{equation}
 
 \noindent Es decir, en ese nodo la variable respuesta pertenece a una única categoría. 
 \end{defi}
 
 \begin{defi}
-Se define la impureza de un nodo, correspondiente a la región $R_m$ como :
+Se define la impureza de un nodo, correspondiente a la región $R_m$ como:
 \begin{equation}
 1-\max_{l\in L} \hat{p}_{lm}
 \end{equation}
@@ -189,7 +176,6 @@ Se llama índice Gini de una región $R_m$ a la siguiente expresión :
 \begin{equation}
 G=\sum_{l=1}^L\hat{p}_{lm}(1-\hat{p}_{lm})
 \end{equation}
-Esta medida es la impureza que tiene un nodo. 
 \end{defi} 
 
 \begin{defi}
@@ -211,19 +197,19 @@ H(R_m)=-\sum_{l=1}^L(\hat{p}_{lm})log(\hat{p}_{lm})
 \noindent El algoritmo \emph{C4.5} de Quinlan   hace uso de otro criterio para hacer crecer el árbol de clasificación \cite{Quinlan 2014}. Hay que definir el concepto de ganancia de información y de ratio de ganancia \cite{Brown 2004}.
 
 \begin{defi}
-Supóngase que se tiene un nodo padre que se divide en $k$ nodos hijos, entonces la \emph{ganancia de información } se define de la siguiente manera: 
+Supóngase que se tiene un nodo padre que se divide en $k$ nodos hijos, entonces la  ganancia de información se define de la siguiente manera: 
 \begin{equation}
-Ganancia=H(padre)-\sum_{i=1}^k \dfrac{N_i}{N_{padre}}H_i
+Ganancia=H(padre)-\sum_{i=1}^k \dfrac{N_i}{N_{padre}}H_i,
 \end{equation}
 \noindent donde $H(padre)$ es la entropía del nodo padre antes de la separación,  $H_i$ es la entropía de cada una de las $k$  regiones creadas en la separación. $N_i, N_{padre}$ es el número de observaciones en  los nodos hijos y el nodo padre respectivamente. 
 \end{defi}
 
 \begin{defi}
-Llamamos ratio de ganancia a la siguiente cantidad que está entre 0 y 1 :
+Llamamos ratio de ganancia a la siguiente cantidad cuyos valores están comprendidos entre 0 y 1:
 \begin{equation}
 \dfrac{Ganancia}{H_{padre}}
 \end{equation}
-Por tanto, un valor cercano a 1  aporta un gran cambio y un valor cercano a 0 es que casi la ganancia es nula.   
+Por tanto, un valor cercano a 1 aporta un gran cambio y un valor cercano a 0 es que  cambio en la entropía no significativo.   
 \end{defi}
 
 \noindent Teniendo esta medida se puede plantear el método de construcción de árboles \emph{C4.5}  de la siguiente manera \cite{Loh 2014}.
@@ -232,76 +218,76 @@ Por tanto, un valor cercano a 1  aporta un gran cambio y un valor cercano a 0 es
 
 \noindent En el caso de que la variable $X_j$ sea continua se hace una partición binaria a partir de la media en el nodo padre. Es decir, tomamos la regla discriminante $X_j<c$, $X_j\geq c$, donde $c$ es la media de la variable $X_j$ en el nodo padre. 
 
-\noindent Una vez calculada las particiones para cada una de las variables, se calcula la ganancia de cada una de las particiones, y se toma la que mayor ratio de ganancia tenga. 
+\noindent Una vez calculada las particiones para cada una de las variables, se calcula la ganancia de cada una de las particiones y se toma la que mayor ratio de ganancia tenga. 
 
 \noindent En particular, tomando este criterio de separación se puede hacer crecer un árbol de manera análoga al crecimiento de un árbol de regresión. Es decir, se van aplicando las particiones más beneficiosas en cada punto siguiendo el criterio dado hasta llegar a un número de particiones máximo o un número de observaciones mínimo en cada nodo hoja.
 
-\noindent Otro tipo de árboles sería el algoritmo \emph{CHAID (Chi-Square Automatic Interaction)} que en cada partición a realizar se realiza análisis Chi cuadrado para discernir que variable predictora tiene una mayor relación con la variable respuesta, de esta manera obtiene los grupos más diferenciados \cite{Kass 1980}.
+\noindent Otro tipo de árboles sería el algoritmo \emph{CHAID (Chi-Square Automatic Interaction)} que en cada partición se realiza un análisis Chi cuadrado para discernir que variable predictora tiene una mayor relación con la variable respuesta, de esta manera obtiene los grupos más diferenciados \cite{Kass 1980}.
 
 \noindent En general, los distintos algoritmos de crecimiento se diferencian en el criterio escogido para crear las particiones. 
    
 \subsection{Sesgo y varianza de un modelo}
 
-\noindent Un aspecto en el que no se ha indagado en el trabajo por ahora es en la capacidad predictiva de los modelos. Es decir, la capacidad de obtener, dadas nuevas observaciones $\mathbf{x}_0$ de las variables predictoras, el valor que tendría la variable respuesta $Y$. La razón de que se detalle ahora es que los árboles son modelos que tienden al sobreajuste y algunos autores como Breiman o Divakaran proponen mecanismos para evitar dicha situación e incluso proponen utilizar técnicas alternativas basadas en los árboles de decisión como los  bosques aleatorios \cite{Breiman 1984, Breiman 2001,Divakaran 2022}. 
+\noindent A continuación, se indaga en la capacidad predictiva de los modelos. Es decir, la capacidad de obtener, dada una nueva observación $\mathbf{x}_0$ de las variables predictoras, el valor que tendría la variable respuesta $Y$. La razón de que se detalle ahora es que los árboles son modelos que tienden al sobreajuste y algunos autores como Breiman o Divakaran proponen mecanismos para evitar dicha situación e incluso proponen utilizar técnicas alternativas basadas en los árboles de decisión como los  bosques aleatorios, que están basados en técnicas más avazandas \cite{Breiman 1984, Breiman 2001,Divakaran 2022, Hartigan 1975}. 
 
-\noindent Supóngase variable respuesta sigue un modelo del tipo $Y=f(\mathbf{x})+\varepsilon$, en el que la variable aleatoria $\varepsilon\sim N(0,\sigma^2)$ y la variable respuesta $Y\sim N(f(\mathbf{x}),\sigma^2)$ conociendo el vector de variables predictoras. En particular en un árbol de regresión $•$
 
-\noindent Consideremos que se toma una muestra con  $N$ observaciones, obteniéndose una matriz de datos $\mathbf{X}$, la matriz de respuesta $\mathbf{Y}$ y que se ajusta el modelo y sus parámetros conocidas conociendo estas $N$ observaciones. Entonces, para una nueva observación de las variables predictoras $\mathbf{x}_0$, se puede definir el siguiente concepto \cite{Hastie 2001, Lawless 2010}.
+\noindent Sea una muestra con  $N$ observaciones, obteniéndose una matriz de datos $\mathbf{X}$, el vector respuesta $\mathbf{y}$ y que se halla un estimador del predictor, $\hat{f}(\mathbf{x})$, conociendo estas $N$ observaciones. Entonces, para una nueva observación de las variables predictoras $\mathbf{x}_0$, se puede definir el siguiente concepto \cite{Hastie 2001, Lawless 2010}:
 
 \begin{defi}
-Se llama \emph{error de predicción esperado} de la observación $\mathbf{x}_0$ a la siguiente expresión:
+Se llama error de predicción esperado de la observación $\mathbf{x}_0$ a la siguiente expresión:
 \begin{equation}
-EPE(\mathbf{x}_0)=\mathbb{E}((Y-\hat{Y})^2|\mathbf{x}=\mathbf{x}_0)=\mathbb{E}((Y-\hat{f}(\mathbf{x}_0))^2)
+EPE(\mathbf{x}_0)=\mathbb{E}((Y-\hat{f}(\mathbf{x}_0))^2)
 \end{equation}
 \end{defi}
-\noindent De esta manera, se tiene una forma de medir el rendimiento predictivo de un modelo. En aplicaciones de aprendizaje automático, donde el principal el objetivo es la predicción, dividimos los datos en conjuntos de entrenamiento y validación. Después de ajustar el modelo, evaluamos qué tan bien puede predecir utilizando una muestra separada de los datos de entrenamiento. Esto nos ayuda a estimar el error esperado en las predicciones.
+\noindent De esta manera, se tiene una forma de medir el rendimiento predictivo de un modelo. En aplicaciones de aprendizaje automático, donde el principal el objetivo es la predicción, dividimos los datos en conjuntos de entrenamiento y validación. Después de ajustar el modelo, evaluamos hasta que punto puede predecir utilizando una muestra separada de los datos de entrenamiento. Esto nos ayuda a estimar el error esperado en las predicciones.
 
-\noindent Además, este error de predicción se puede descomponer de manera sencilla 
+\noindent Además, este error de predicción se puede descomponer como sigue \cite{Hastie 2001}: 
 \begin{propo}
-El error de predicción esperado se puede dividir en un termino irreducible, el sesgo del modelo y la varianza \cite{Hastie 2001}:
+El error de predicción esperado se puede dividir en un termino irreducible, el sesgo del modelo y la varianza:
 \begin{equation}
-EPE(\mathbf{x}_0)=\sigma_{\varepsilon}^2+Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat{f}(\mathbf{x}_0))
+EPE(\mathbf{x}_0)=Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat{f}(\mathbf{x}_0))
 \end{equation}
-\noindent Donde el $Sesgo(\hat{f}(\mathbf{x}_0))=\mathbb{E}(f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0))$.
+\noindent donde el $Sesgo(\hat{f}(\mathbf{x}_0))=\mathbb{E}(\hat{f}(\mathbf{x}_0))-f(\mathbf{x}_0)$.
 \begin{proof}
+Al asumir que $Y=f(\mathbf{x})$ se tiene que 
 \begin{align*}
 \mathbb{E}((Y-\hat{f}(\mathbf{x}_0))^2)&=\mathbb{E}((Y-f(\mathbf{x}_0)+f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0))^2)=\\
-&=\mathbb{E}(\varepsilon^2)-2\mathbb{E}(\varepsilon\cdot(f(\mathbf{x}_0)-\hat{f}(\mathbf{x})_0))+\mathbb{E}((f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0)^2)\\
-&=\sigma^2+\mathbb{E}((f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0))^2)
-\intertext{El segundo término es el error cuadrático medio de un estimador, luego se obtiene que:}
-\mathbb{E}((Y&-\hat{f}(\mathbf{x}_0))^2)=\sigma^2+Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat{f}(\mathbf{x}_0))
+&=\mathbb{E}(f(\mathbf{x}_0)-\hat{f}(\mathbf{x}_0))^2
+\intertext{Que es el error cuadrático medio de un estimador, luego se obtiene que:}
+\mathbb{E}((Y-\hat{f}(\mathbf{x}_0))^2)&=Sesgo(\hat{f}(\mathbf{x}_0))^2+Var(\hat{f}(\mathbf{x}_0))
 \end{align*}
 \end{proof}
 \end{propo}
 
-\noindent Estos dos parámetros están íntimamente relacionados con la complejidad del modelo, ya que cuanto más complejo sea el modelo, el sesgo se reduce de manera importante. Esto es debido a que los puntos del conjunto de entrenamiento están bastante cerca de las funciones aproximadas, en cambio la varianza se dispara, lo que implica que a la hora de hacer predicciones estas no sean lo mejor posible \cite{Neural Designer}. 
+\noindent Estos dos parámetros están íntimamente relacionados con la complejidad del modelo, ya que cuanto más complejo sea el modelo, el sesgo se reduce de manera importante. Esto se debe a que los puntos del conjunto de entrenamiento están bastante cerca de las funciones aproximadas. En cambio, la varianza aumenta, lo que implica que a la hora de hacer predicciones estas no sean lo mejor posible, ya que no consigue generalizar la información dada por los datos  \cite{Neural Designer}. 
 
-\noindent Esto se puede observar en el siguiente gráfico que incluyen \emph{Hastie et.al.}  de manera que se puede ver a mismo número de observaciones que pasa si aumentamos las variables observadas \cite{Hastie 2001}. La línea roja representa lo que ocurre con el error de predicción en observaciones fuera del conjunto de ajuste y la azul representa dentro del conjunto de ajuste. 
+
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.3]{Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png}
+\includegraphics[scale=0.65]{Documentos Extra/Imagenes/Bias-Variance-Tradeoff.png}
+\caption{Balance sesgo varianza, \cite{Hastie 2001}}
+\label{fig:Balance-sesgo-varianza}
 \end{figure}
  
-\noindent En la figura se puede observar lo qué ocurre en el caso de que un modelo esté en una situación de infraajuste en la parte izquierda, no se ajusta el modelo ni para muestras dentro de los datos ni en el caso que cojamos una que no esté en los datos. En el caso contrario tenemos la parte derecha donde el modelo se ajusta demasiado a los datos recogidos y no tiene capacidad predictiva. Esto puede ocurrir por lo siguiente; que la complejidad del modelo en relación con la cantidad de muestras sea demasiada alta. 
+\noindent En la figura \ref{fig:Balance-sesgo-varianza} se muestra lo que sucede cuando un modelo está en una situación de infraajuste (izquierda) o sobreajuste (derecha). En el caso de infraajuste, el modelo no se ajusta adecuadamente a los datos, ya sea para muestras dentro del conjunto de datos o para nuevas muestras que no están en los datos. Por otro lado, en el caso de sobreajuste, el modelo se ajusta demasiado a los datos recopilados y pierde capacidad predictiva para nuevos datos. Esto puede ocurrir cuando la complejidad del modelo es demasiado alta en comparación con la cantidad de muestras disponibles. 
 
-\noindent Como hemos dicho antes el crecimiento de los árboles tanto de regresión como de clasificación busca sobreajustarse. En la siguiente parte veremos como hay distintos algoritmos que buscan evitar dicho sobreajuste. 
+\noindent Como hemos dicho antes, el crecimiento de los árboles tanto de regresión como de clasificación tiende a  sobreajustarse. En la siguiente parte veremos como hay distintos algoritmos que buscan evitar dicho sobreajuste. 
 
-
+\newpage
 \subsection{Algoritmo Random Forest}
 
 \noindent El término bosque aleatorio se puede referir a dos conceptos distintos, uno el hecho de utilizar varios árboles sin importar como se obtienen y luego utilizar la media de los resultados o el voto por mayoría dependiendo del tipo de variable respuesta sea discreta o continua. 
 
-\noindent El término \emph{random forest} se refiere al algoritmo de \emph{Breiman, L.} \cite{Breiman 2001}. Este tipo de algoritmo si hace hincapié en el  método con el se construyen los árboles. 
+\noindent El término \emph{random forest} se refiere al algoritmo de Breiman  \cite{Breiman 2001}. Este tipo de algoritmo si hace hincapié en el  método con el se construyen los árboles. También da las bases de por qué utiliza este tipo de algoritmos en \cite{Breiman 1996}.
 
-\noindent El proceso de construcción y de utilización de los \emph{random forest} lo detallan \emph{Biau, G. , Scornet, E. y Breiman, L.}\cite{Biau 2016,Breiman 2004} :
+\noindent El proceso de construcción y de utilización de los \emph{random forest} lo detallan Biau,  Scornet, y Breiman \cite{Biau 2016,Breiman 2004a} :
 \begin{itemize}
-\item En cada árbol se utiliza una muestra aleatoria sin reemplazamiento del conjunto de datos iniciales. La razón es buscar una muestra \emph{bootstrap} de los datos iniciales \emph{(Véase \cite{Hesterberg 2011} para más detalles de la técnica.)}
-\item Se establece un número $j_{try}$ por el usuario. Para cada partición a realizar se escogen de manera aleatoria $j_{try}$ variables y se elige la que más se ajusta al criterio dado. Y se hace crecer el árbol todo lo necesario o hasta un criterio dado por el usuario. 
+\item En cada árbol se utiliza una muestra aleatoria sin reemplazamiento del conjunto de datos iniciales. La razón es buscar una muestra \emph{bootstrap} de los datos iniciales (Véase \cite{Hesterberg 2011} para más detalles de la técnica.)
+\item Se establece un número $j_{try}$ por el usuario. Para cada partición a realizar se escogen de manera aleatoria $j_{try}$ variables y se elige la que más se ajusta al criterio dado. Y se hace crecer el árbol hasta que en cada nodo hoja tiene únicamente una sola observación o hasta un criterio dado por el usuario. 
  
-\item Una vez se tienen crecidos los árboles, se toma como predicción de una nueva observación la media de las predicciones de los datos en el caso de que la variable respuesta sea continua. En el caso de que sea una variable discreta, se toma el voto por mayoría, es decir se toma el valor que más veces haya salido en todos los árboles. 
+\item Una vez se obtienen los distintos árboles del tamaño adecuado, se toma como predicción de una nueva observación la media de las predicciones de los datos en el caso de que la variable respuesta sea continua. En el caso contrario, se toma el voto por mayoría, es decir se toma la categoría o clase que mayor frecuencia tenga en todos los árboles. 
 \end{itemize}
 
-\noindent \emph{Breiman, L.} \cite {Breiman 2004} detalla las propiedades básicas de un random forest. Entre estas propiedades se encuentran el sesgo, la varianza y sus acotaciones. Además \emph{Biau G. y Scornet, E. }\cite{Biau 2016} destacan que no es habitual ver un estudio profundo de estos métodos debido 
+\noindent Breiman detalla las propiedades básicas de un \emph{random forest}  \cite {Breiman 2004a}. Entre estas propiedades se encuentran el sesgo, la varianza y sus acotaciones. Además Biau  y Scornet desarrollan de manera detallada las distintas propiedades de un tipo específico de \emph{random forests} \cite{Biau 2016}.
 
-\noindent \emph{Breiman, L.} \cite{Breiman 1996} llama a este tipo de métodos los métodos de \emph{bagging}. Este tipo de métodos lo que busca es reducir la varianza de métodos con sobreajuste utilizando la media y el teorema central del límite de manera que el predictor final es media de los predictores, lo que consigue reducir la varianza de manera importante. Además detalla que en los casos en los que los predictores no tengan esa varianza alta en comparación con el sesgo, el método de \emph{bagging} no tiene un gran impacto e incluso puede resultar perjudicial debido al incremento de coste computacional que se puede dar
